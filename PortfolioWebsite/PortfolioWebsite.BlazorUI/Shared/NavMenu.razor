@@ -1,10 +1,10 @@
 ﻿
-<nav class="navbar navbar-custom-background navbar-expand-sm navbar-toggleable-sm border-bottom mb-3 fixed-top">
+<nav class="navbar navbar-background-custom navbar-expand-sm navbar-toggleable-sm border-bottom mb-3 fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">If Coding Return Happy</a>
+        <a class="navbar-brand" href="/">If Coding Return Happy</a> <!-- alterar isto para navlink async-->
         <button class="navbar-toggler" @onclick="ToggleNavMenu" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="fas fa-bars"></span>
         </button>
 
         <div class="@NavMenuCssClass navbar-collapse d-sm-inline-flex flex-sm-row-reverse" @onclick="CollapseNavMenu">
@@ -22,7 +22,8 @@
 
 
 
-@code { bool collapseNavMenu = true;
+@code {     
+    bool collapseNavMenu = true;
 
     string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
@@ -34,5 +35,7 @@
     void CollapseNavMenu()
     {
         collapseNavMenu = true;
-    } 
+    }
 }
+
+

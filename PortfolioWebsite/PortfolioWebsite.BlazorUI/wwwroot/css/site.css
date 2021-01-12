@@ -1,7 +1,7 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Consolas', Helvetica, Arial, sans-serif;
 }
 
 a, .btn-link {
@@ -13,31 +13,64 @@ body {
     padding-bottom: 20px;
 }
 
+.navbar-brand {
+    color: RGB(108,218,163);
+}
+
+    .navbar-brand:hover {
+        color: RGB(108,235,180);
+        text-decoration: underline;
+    }
+
 .nav-item a {
-    color: #d7d7d7;
+    color: RGB(108,218,163);
     border-radius: 4px;
-    height: 3rem;
+    height: 2rem;
     display: flex;
     align-items: center;
     line-height: 3rem;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-    .nav-item a.active {
-        background-color: rgba(255,255,255,0.25);
-        color: white;
-    }
-
     .nav-item a:hover {
-        background-color: rgba(255,255,255,0.1);
+        background-color: RGB(108,218,163);
         color: white;
     }
 
-.content {
-    padding-top: 1.1rem;
+    .nav-item a:active { /* On click state */
+        color: black;
+    }
+
+    .nav-item a:focus { /* After click state */
+        text-decoration: underline;
+    }
+
+
+.navbar-background-custom {
+    background-color: RGB(0,0,0);
 }
 
 .navbar-toggler {
-    background-color: rgba(255, 255, 255, 0.1);
+    border-color: RGB(108,218,163);
+}
+
+    .navbar-toggler:active {
+        border-color: red;
+    }
+
+    .navbar-toggler:focus {
+        outline:none;
+    }
+
+.fa-bars {
+    color: RGB(108,218,163);
+}
+
+
+
+.content {
+    padding-top: 1.1rem;
 }
 
 .valid.modified:not([type=checkbox]) {
@@ -83,26 +116,6 @@ body {
 /*-- CUSTOM ITEMS --*/
 /*------------------*/
 
-/* NOTA: ver CSS acima, esqueci-me de analisa-lo. */
-
-.navbar-custom-background {
-    background-color: RGB(0,0,0); /* RGB(108,218,163) */
-}
-
-
-.navbar-nav .nav-link {
-    color: RGBA(108,218,163, 1);
-}
-
-    .navbar-nav .nav-link:hover {
-        color: RGBA(108,230,175, 1);
-        background: none;
-    }
-
-    .navbar-nav .nav-link:active {
-        color: red;
-    }
-
-.custom-item {
-    color: RGBA(108,218,163, 1);
-}
+/* CORES GUARDADAS */
+/* RGB(108,218,163) */
+/* RGB(0, 255, 221) */
