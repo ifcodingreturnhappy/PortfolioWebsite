@@ -1,15 +1,16 @@
 ﻿@inherits LayoutComponentBase
 
-<body>
+<body class="main-background-color">
     <NavMenu />
 
-    <div class="container">
+    <div class="container-fluid">
         @Body
     </div>
 </body>
 
-<footer class="border-top footer text-muted fixed-bottom">
-    <div class="container mt-4 mb-4">
+<footer class="secondary-background-color footer fixed-bottom">
+    <div class="secondary-color container">
         &copy; @DateTime.Now.Year - Blazor-Top-Menu
     </div>
 </footer>
+

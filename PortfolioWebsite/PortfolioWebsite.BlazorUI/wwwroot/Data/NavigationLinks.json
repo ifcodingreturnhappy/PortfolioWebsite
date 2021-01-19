@@ -1,0 +1,20 @@
+[
+    {
+        "LinkText": "Who Am I?",
+        "LinkRef": "whoami",
+        "IsSelected": false,
+        "Icon": ""
+    },
+    {
+        "LinkText": "Work Showcase",
+        "LinkRef": "work",
+        "IsSelected": false,
+        "Icon": ""
+    },
+    {
+        "LinkText": "Contact Me",
+        "LinkRef": "contactme",
+        "IsSelected": false,
+        "Icon": ""
+    }
+]

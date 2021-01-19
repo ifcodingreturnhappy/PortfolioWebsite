@@ -10,63 +10,144 @@ a, .btn-link {
 
 body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 
-.navbar-brand {
+.image-limited-width {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    max-width: 300px;
+    min-width: 200px;
+}
+
+.main-color {
     color: RGB(108,218,163);
 }
 
-    .navbar-brand:hover {
-        color: RGB(108,235,180);
-        text-decoration: underline;
+    .main-color:hover {
+        color: red;
     }
 
-.nav-item a {
-    color: RGB(108,218,163);
-    border-radius: 4px;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    line-height: 3rem;
-    margin-left: 10px;
-    margin-right: 10px;
+    .main-color:active {
+        color: purple;
+    }
+
+.secondary-color {
+    color: RGB(0,0,0);
 }
 
-    .nav-item a:hover {
-        background-color: RGB(108,218,163);
-        color: white;
+    .secondary-color:hover {
+        color: red;
     }
 
-    .nav-item a:active { /* On click state */
-        color: black;
+    .secondary-color:active {
+        color: purple;
     }
 
-    .nav-item a:focus { /* After click state */
-        text-decoration: underline;
-    }
+.white-text {
+    color: white;
+}
 
+.special-text {
+    border-bottom: 1px dashed;
+    padding-bottom: 1px;
+    font-weight: bolder;
+}
 
-.navbar-background-custom {
+.main-billboard {
+    font-size: calc(4vw + 3vh);
+}
+
+.main-background-color {
     background-color: RGB(0,0,0);
 }
 
-.navbar-toggler {
-    border-color: RGB(108,218,163);
-}
-
-    .navbar-toggler:active {
-        border-color: red;
+    .secondary-background-color {
+        background-color: RGB(108,218,163);
     }
 
-    .navbar-toggler:focus {
+
+.main-outline {
+    outline: none;
+}
+
+    .main-outline:focus {
         outline:none;
     }
 
-.fa-bars {
-    color: RGB(108,218,163);
+    .main-outline:active {
+        outline:none;
+    }
+
+.top-margin-medium {
+    margin-top: 10vh;
 }
 
+.top-margin-large {
+    margin-top: 30vh;
+}
+
+.bottom-margin-large {
+    margin-bottom: 30vh;
+}
+
+.main-zoom-animation {
+    transform: scale(1);
+    transition: ease-in-out 0.2s;
+}
+
+    .main-zoom-animation:hover {
+        transform: scale(1.1);
+        transition: ease-in-out 0.2s;
+    }
+
+.main-selected-element {
+    text-decoration: underline;
+}
+    .main-selected-element:focus {
+        text-decoration: underline;
+    }
+
+/* Rotation on click, infinite zoom-in-and-out on hover */
+.main-icon-animation:hover {
+    animation: ZoomInAndOut 1s infinite;
+}
+
+.teste1 {
+    background-color: red;
+}
+
+.teste2 {
+    border: solid;
+    border-color: yellow;
+    transition: ease-in-out 2s;
+}
+
+
+
+@keyframes ZoomInAndOut {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
 
 
 .content {
@@ -111,6 +192,7 @@ body {
     right: 0.75rem;
     top: 0.5rem;
 }
+
 
 /*------------------*/
 /*-- CUSTOM ITEMS --*/
