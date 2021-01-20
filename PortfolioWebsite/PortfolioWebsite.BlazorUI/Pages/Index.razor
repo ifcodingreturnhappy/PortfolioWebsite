@@ -1,5 +1,8 @@
 ﻿@page "/"
 
+@inject IJSRuntime JSRuntime;
+@inject IJavascriptViewportAnimator JSAnimator;
+
 <div class="mb-4">
     <h2 class="main-billboard white-text text-left">{</h2>
     <h1 class="main-billboard main-color text-center">//Code made with passion.</h1>
@@ -14,3 +17,14 @@
         Join me in this adventure!
     </h6>
 </div>
+
+@code {
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSAnimator.SetupJavascriptViewportAnimation(JSRuntime);
+        }
+    }
+}

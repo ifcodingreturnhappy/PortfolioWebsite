@@ -115,17 +115,37 @@ body {
     animation: ZoomInAndOut 1s infinite;
 }
 
-.teste1 {
-    background-color: red;
+/* Animatable signaling classes -> this classes will signal that an element is animated when entering the viewport (done with js)*/
+.vp-anim-1 {
+    visibility: hidden;
 }
 
-.teste2 {
-    border: solid;
-    border-color: yellow;
-    transition: ease-in-out 2s;
+.vp-anim-2 {
 }
 
+.fade-in-with-left-translate {
+    visibility: visible;
+    animation: FadeIn 1s, LeftTranslate 1s;
+}
 
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes LeftTranslate {
+    0% {
+        transform: translateY(50%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
 
 @keyframes ZoomInAndOut {
     0% {
@@ -136,16 +156,6 @@ body {
     }
     100% {
         transform: scale(1);
-    }
-}
-
-@keyframes FadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
     }
 }
 

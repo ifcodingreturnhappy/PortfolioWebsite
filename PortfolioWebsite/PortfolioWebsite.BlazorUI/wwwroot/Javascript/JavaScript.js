@@ -1,49 +1,38 @@
-﻿function myFunction(param) {
-    param.forEach(value => {
-        console.log(value);
-    })
-}
-
-
-function MainCaller(elementsToObserve, cssList) {
+﻿function setupViewportAnimations(jsonAnimationSettings) {
     let options = {
         root: null,
         rootMargin: '-15px',
         threshold: 1
     };
 
+    let animationSettings = JSON.parse(jsonAnimationSettings);
+
     let observer = new IntersectionObserver(function
         (entries, self) {
 
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                onEnterViewportCallback(entry, cssList);
-            }
-            else {
-                onExitViewportCallback(entry, cssList);
-            }
+            animationSettings.forEach(animationType => {
+                if (entry.target.classList.contains(animationType.animationId)) {
+                    observerCallback(entry, animationType.animationCSS);
+                }
+            });
         });
     }, options);
 
-    elementsToObserve.forEach(element => {
-        observer.observe(document.getElementById(element));
+    animationSettings.forEach(animationType => {
+        let elements = document.querySelectorAll("." + animationType.animationId); 
+
+        elements.forEach(element => {
+            observer.observe(element);
+        });
     });
 }
 
-function onEnterViewportCallback(entry, cssList) {
-    let element = document.getElementById(entry.target.id);
-
-    cssList.forEach(cssClass => {
-        element.classList.add(cssClass);
-        console.log("Entered viewport. Added css: " + cssClass);
-    });
-}
-
-function onExitViewportCallback(entry, cssList) {
-    let element = document.getElementById(entry.target.id);
-
-    cssList.forEach(cssClass => {
-        element.classList.remove(cssClass);
-        console.log("Exited viewport. Removed css: " + cssClass);
-    });
+function observerCallback(entry, cssClass) {
+    if (entry.isIntersecting) {
+        entry.target.classList.add(cssClass);
+    }
+    else {
+        entry.target.classList.remove(cssClass);
+    }
 }

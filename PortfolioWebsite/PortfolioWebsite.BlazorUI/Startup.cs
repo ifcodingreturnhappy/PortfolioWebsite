@@ -31,7 +31,7 @@ namespace PortfolioWebsite.BlazorUI
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
             services.AddTransient<INavigationInitializer, NavigationInitializer>();
-
+            services.AddSingleton<IJavascriptViewportAnimator, JavascriptViewportAnimator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

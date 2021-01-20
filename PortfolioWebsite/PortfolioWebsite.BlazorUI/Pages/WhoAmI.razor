@@ -1,9 +1,10 @@
 ﻿@page "/whoami"
 
 @inject IJSRuntime JSRuntime;
+@inject IJavascriptViewportAnimator JSAnimator; 
 
-<a class="btn btn-primary" id="botao1" @onclick="Teste">@buttonText</a>
-<a class="btn btn-primary" id="botao2" @onclick="Teste">@buttonText</a>
+<a class="btn btn-primary vp-anim-1">Botao 1 </a>
+<a class="btn btn-primary">Botao 2 </a>
 
 
 <div class="top-margin-medium bottom-margin-large">
@@ -67,20 +68,12 @@
 </div>
 
 @code {
-    string buttonText = "Button";
-
-
-    void Teste()
-    {
-        buttonText = $"{buttonText} +";
-    }
-
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            await JSRuntime.InvokeVoidAsync("MainCaller", new List<string> { "botao1", "botao2" }, new List<string> { "teste1", "teste2" });
+            await JSAnimator.SetupJavascriptViewportAnimation(JSRuntime);
         }
     }
 }

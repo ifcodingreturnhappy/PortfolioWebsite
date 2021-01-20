@@ -1,0 +1,10 @@
+[
+    {
+        "animationId": "vp-anim-1",
+        "animationCSS": "fade-in-with-left-translate"
+    },
+    {
+        "animationId": "vp-anim-2",
+        "animationCSS": ""
+    }
+]
