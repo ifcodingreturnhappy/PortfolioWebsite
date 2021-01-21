@@ -3,12 +3,14 @@
 <body class="main-background-color">
     <NavMenu />
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-top: 100px; padding-bottom:50px">
         @Body
     </div>
+
+    <PlayFloatingButton />
 </body>
 
-<footer class="secondary-background-color footer fixed-bottom">
+<footer class="footer secondary-background-color fixed-bottom">
     <div class="secondary-color container">
         &copy; @DateTime.Now.Year - Blazor-Top-Menu
     </div>

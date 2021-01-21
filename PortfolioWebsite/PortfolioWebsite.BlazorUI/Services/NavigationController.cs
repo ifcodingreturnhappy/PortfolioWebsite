@@ -5,18 +5,15 @@ using System.IO;
 
 namespace PortfolioWebsite.BlazorUI.Services
 {
-    public class NavigationInitializer : INavigationInitializer
+    public class NavigationController : INavigationController
     {
         readonly string navigationLinksFilePath = "wwwroot/Data/NavigationLinks.json";
+        public List<NavigationLinkModel> NavigationLinks { get; set; }
 
-
-        //Alter this to read from json file
-        public List<NavigationLinkModel> InitializeLinks()
+        public void InitializeLinks()
         {
             string json = File.ReadAllText(navigationLinksFilePath);
-            List<NavigationLinkModel> navigationLinks = JsonConvert.DeserializeObject<List<NavigationLinkModel>>(json);
-
-            return navigationLinks;
+            NavigationLinks = JsonConvert.DeserializeObject<List<NavigationLinkModel>>(json);
         }
     }
 }

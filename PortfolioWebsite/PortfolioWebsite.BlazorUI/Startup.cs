@@ -30,7 +30,7 @@ namespace PortfolioWebsite.BlazorUI
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
-            services.AddTransient<INavigationInitializer, NavigationInitializer>();
+            services.AddSingleton<INavigationController, NavigationController>();
             services.AddSingleton<IJavascriptViewportAnimator, JavascriptViewportAnimator>();
         }
 

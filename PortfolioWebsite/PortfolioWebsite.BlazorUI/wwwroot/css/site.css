@@ -4,13 +4,26 @@ html, body {
     font-family: 'Consolas', Helvetica, Arial, sans-serif;
 }
 
-a, .btn-link {
-    color: #0366d6;
+.loop-opacity {
+    opacity: 0;
+    animation: FadeInAndOut 1s  infinite;
 }
 
-body {
-    padding-top: 50px;
-    padding-bottom: 50px;
+@keyframes FadeInAndOut {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.empty-block {
+    height: 110px;
 }
 
 .image-limited-width {
@@ -26,25 +39,68 @@ body {
     color: RGB(108,218,163);
 }
 
-    .main-color:hover {
-        color: red;
+
+.clickable-1 {
+    background: url(https://media.giphy.com/media/ToMjGpFdluLyF8C732g/giphy.gif);
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    color: RGB(108,218,163);
+    transition: ease-in-out 0.2s;
+}
+
+    .clickable-1:hover {
+        color: transparent;
+        transition: ease-in-out 0.2s;
     }
 
-    .main-color:active {
-        color: purple;
+
+.clickable-2 {
+    text-shadow: none;
+    transition: ease-in-out 0.5s;
+}
+
+    .clickable-2:hover {
+        color: white;
+        text-shadow: 4px 4px RGBA(108,218,163, 0.5);
+        transform: translateY(-5%);
+        transition: ease-in-out 0.5s;
+    }
+
+.clickable-3 {
+    background: url(https://media.giphy.com/media/nIlgTxY29wJuU/giphy.gif);
+    background-size: 50%;
+    background-position: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    transform: scale(1);
+    transition: ease-in-out 0.2s;
+}
+
+    .clickable-3:hover {
+        transform: scale(1.1);
+        transform: translateY(-5%);
+        text-shadow: 4px 4px RGBA(108,218,163, 0.5);
+        transition: ease-in-out 0.2s;
+    }
+
+.scale-up {
+    transform: scale(1);
+    transition: ease-in 0.1s;
+}
+    .scale-up:hover {
+        transform: scale(1.1);
+        transition: ease-in 0.1s;
     }
 
 .secondary-color {
     color: RGB(0,0,0);
 }
 
-    .secondary-color:hover {
+    .secondary-clickable:hover {
         color: red;
     }
 
-    .secondary-color:active {
-        color: purple;
-    }
 
 .white-text {
     color: white;
@@ -64,22 +120,22 @@ body {
     background-color: RGB(0,0,0);
 }
 
-    .secondary-background-color {
-        background-color: RGB(108,218,163);
-    }
+.secondary-background-color {
+    background-color: RGB(108,218,163);
+}
 
 
 .main-outline {
     outline: none;
 }
 
-    .main-outline:focus {
-        outline:none;
-    }
+.main-outline:focus {
+    outline:none;
+}
 
-    .main-outline:active {
-        outline:none;
-    }
+.main-outline:active {
+    outline:none;
+}
 
 .top-margin-medium {
     margin-top: 10vh;
@@ -93,16 +149,6 @@ body {
     margin-bottom: 30vh;
 }
 
-.main-zoom-animation {
-    transform: scale(1);
-    transition: ease-in-out 0.2s;
-}
-
-    .main-zoom-animation:hover {
-        transform: scale(1.1);
-        transition: ease-in-out 0.2s;
-    }
-
 .main-selected-element {
     text-decoration: underline;
 }
@@ -110,42 +156,10 @@ body {
         text-decoration: underline;
     }
 
-/* Rotation on click, infinite zoom-in-and-out on hover */
 .main-icon-animation:hover {
     animation: ZoomInAndOut 1s infinite;
 }
 
-/* Animatable signaling classes -> this classes will signal that an element is animated when entering the viewport (done with js)*/
-.vp-anim-1 {
-    visibility: hidden;
-}
-
-.vp-anim-2 {
-}
-
-.fade-in-with-left-translate {
-    visibility: visible;
-    animation: FadeIn 1s, LeftTranslate 1s;
-}
-
-@keyframes FadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes LeftTranslate {
-    0% {
-        transform: translateY(50%);
-    }
-
-    100% {
-        transform: translateY(0%);
-    }
-}
 
 @keyframes ZoomInAndOut {
     0% {
@@ -158,7 +172,6 @@ body {
         transform: scale(1);
     }
 }
-
 
 .content {
     padding-top: 1.1rem;
@@ -211,3 +224,102 @@ body {
 /* CORES GUARDADAS */
 /* RGB(108,218,163) */
 /* RGB(0, 255, 221) */
+
+
+/* -------------------- VIEWPORT ANIMATION -------------------- */
+/* Animatable signaling classes -> this classes will signal that an element is animated when entering the viewport (done with js)*/
+
+.vp-anim-1 {
+    visibility: hidden;
+}
+.vp-anim-2 {
+    visibility: hidden;
+}
+.vp-anim-3 {
+    visibility: hidden;
+}
+.vp-anim-4 {
+    visibility: hidden;
+}
+.vp-anim-5 {
+    visibility: hidden;
+}
+
+/* Animation Classes */
+
+.fade-in-with-left-translate {
+    visibility: visible;
+    animation: FadeIn 1s, LeftTranslate 1s;
+}
+
+.fade-in-with-right-translate {
+    visibility: visible;
+    animation: FadeIn 1s, RightTranslate 1s;
+}
+
+.fade-in-with-top-translate {
+    visibility: visible;
+    animation: FadeIn 1s, TopTranslate 2s;
+}
+
+.fade-in-with-bottom-translate {
+    visibility: visible;
+    animation: FadeIn 1s, BottomTranslate 2s;
+}
+
+.fade-in-slow {
+    visibility: visible;
+    animation: FadeIn ease-in 1.5s;
+}
+
+/* Animations */
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes LeftTranslate {
+    0% {
+        transform: translateX(-5%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes RightTranslate {
+    0% {
+        transform: translateX(30%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes TopTranslate {
+    0% {
+        transform: translateY(-30%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes BottomTranslate {
+    0% {
+        transform: translateY(30%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}

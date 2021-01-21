@@ -1,71 +1,74 @@
 ﻿@page "/whoami"
 
 @inject IJSRuntime JSRuntime;
-@inject IJavascriptViewportAnimator JSAnimator; 
+@inject IJavascriptViewportAnimator JSAnimator;
 
-<a class="btn btn-primary vp-anim-1">Botao 1 </a>
-<a class="btn btn-primary">Botao 2 </a>
+<div class="container-fluid top-margin-medium bottom-margin-large">
 
+    <h2 class="white-text text-center mb-5 vp-anim-3">Who Am I?</h2>
 
-<div class="top-margin-medium bottom-margin-large">
+    <div class="container vp-anim-5">
+        <p class="main-color text-center">
+            My career started as an <span class="special-text">Industrial Engineer</span>: managing factory logistics and systematizing order processes.
+            It was a challenging and interesting job, yet it didn’t have the aspect of software development that I most enjoy:
+            <span class="special-text">design and creation</span>.
+        </p>
 
-    <h2 class="white-text text-center mb-5">Who Am I?</h2>
+        <p class="main-color text-center">
+            So, to fulfill that need to create, I started focusing myself on programming and developing the projects
+            that I wanted to see come to life.
+        </p>
 
-    <p class="main-color text-center">
-        My career started as an <span class="special-text">Industrial Engineer</span>: managing factory logistics and systematizing order processes.
-        It was a challenging and interesting job, yet it didn’t have the aspect of software development that I most enjoy:
-        <span class="special-text">design and creation</span>.
-    </p>
-
-    <p class="main-color text-center">
-        So, to fulfill that need to create, I started focusing myself on programming and developing the projects
-        that I wanted to see come to life.
-    </p>
-
-    <p class="main-color text-center">
-        My current goal is, not only to become a <span class="special-text">skilled programmer</span>,
-        but also to <span class="special-text">share</span> the <span class="special-text">knowledge</span> I acquire,
-        with everyone that also has a passion for coding.
-    </p>
+        <p class="main-color text-center">
+            My current goal is, not only to become a <span class="special-text">skilled programmer</span>,
+            but also to <span class="special-text">share</span> the <span class="special-text">knowledge</span> I acquire,
+            with everyone that also has a passion for coding.
+        </p>
+    </div>
 </div>
-<div class="container-fluid top-margin-large main-color text-center">
+
+<div class="empty-block"></div>
+
+<div class="container-fluid main-color text-center vp-anim-4">
     <h2>So, what kind of projects do I work on?</h2>
 </div>
 
+
 <div class="container-fluid top-margin-medium">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 mb-5">
             <div class="card text-center main-background-color">
-                <img src="/Images/Video Game Icons.png" class="image-limited-width" alt="ConsoleControllerIcon">
-                <div class="card-body">
-                    <h5 class="card-title">Card Title</h5>
+                <img src="/Images/Video Game Icons.png" class="image-limited-width scale-up vp-anim-3" alt="ConsoleControllerIcon">
+                <div class="card-body vp-anim-4">
+                    <h5 class="card-title white-text">Card Title</h5>
                     <p class="main-color">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn secondary-background-color white-text">Go somewhere</a>
+                    <a href="#" class="btn secondary-background-color white-text vp-anim-5">Go somewhere</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mb-5">
             <div class="card text-center main-background-color">
-                <img src="/Images/Desktop Icon.png" class="image-limited-width" alt="DesktopIcon">
-                <div class="card-body">
-                    <h5 class="card-title">Card Title</h5>
+                <img src="/Images/Desktop Icon.png" class="image-limited-width scale-up vp-anim-3" alt="DesktopIcon">
+                <div class="card-body vp-anim-4">
+                    <h5 class="card-title white-text">Card Title</h5>
                     <p class="main-color">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn secondary-background-color white-text">Go somewhere</a>
+                    <a href="#" class="btn secondary-background-color white-text vp-anim-5">Go somewhere</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3">
             <div class="card text-center main-background-color">
-                <img src="/Images/Web Icon.png" class="image-limited-width" alt="WebIcon">
-                <div class="card-body">
-                    <h5 class="card-title">Card Title</h5>
+                <img src="/Images/Web Icon.png" class="image-limited-width scale-up vp-anim-3" alt="WebIcon">
+                <div class="card-body vp-anim-4">
+                    <h5 class="card-title white-text">Card Title</h5>
                     <p class="main-color">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn secondary-background-color white-text">Go somewhere</a>
+                    <a href="#" class="btn secondary-background-color white-text vp-anim-5">Go somewhere</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 @code {
 

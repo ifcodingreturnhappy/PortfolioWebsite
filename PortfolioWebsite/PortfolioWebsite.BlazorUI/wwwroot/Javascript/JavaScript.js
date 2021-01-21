@@ -1,8 +1,8 @@
 ﻿function setupViewportAnimations(jsonAnimationSettings) {
     let options = {
         root: null,
-        rootMargin: '-15px',
-        threshold: 1
+        rootMargin: '-15px -15px -15px -15px',
+        threshold: 0.3
     };
 
     let animationSettings = JSON.parse(jsonAnimationSettings);

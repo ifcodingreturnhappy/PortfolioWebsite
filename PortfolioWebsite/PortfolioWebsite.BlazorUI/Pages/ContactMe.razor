@@ -1,7 +1,17 @@
 ﻿@page "/contactme"
 
-<h3 class="plain-text">Contact Me</h3>
+@inject IJSRuntime JSRuntime;
+@inject IJavascriptViewportAnimator JSAnimator;
+
+<h3 class="white-text">Contact Me</h3>
 
 @code {
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSAnimator.SetupJavascriptViewportAnimation(JSRuntime);
+        }
+    }
 }

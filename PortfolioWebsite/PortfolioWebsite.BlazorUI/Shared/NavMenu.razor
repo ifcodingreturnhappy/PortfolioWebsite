@@ -1,23 +1,27 @@
-﻿@using Models
-@using Services
-@inject INavigationInitializer _navigationInitializer
+﻿@inject INavigationController _navigationController
+@inject NavigationManager NavigationManager
 
-<nav class="navbar main-background-color navbar-expand-sm navbar-toggleable-sm mb-3 fixed-top">
+<nav class="navbar main-background-color navbar-expand-sm navbar-toggleable-sm fixed-top vp-anim-3">
     <div class="container-fluid">
-        <a class="navbar-brand main-color main-zoom-animation" href="/">If Coding Return Happy</a> <!-- alterar isto para navlink async-->
+        <a class="navbar-brand main-color clickable-1 scale-up" href="/">
+            <span class="white-text">[</span>
+            If Coding Return Happy
+            <span class="white-text">]</span>
+        </a> <!-- alterar isto para navlink async-->
+
         <button class="navbar-toggler main-color main-outline border-0" @onclick="ToggleNavMenu" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="fas @NavMenuIconCssClass main-icon-animation main-color"></span>
         </button>
 
-        <div class="@NavMenuCssClass navbar-collapse d-sm-inline-flex flex-sm-row-reverse" @onclick="CollapseNavMenu">
+        <div class="@NavMenuCssClass navbar-collapse d-sm-inline-flex flex-sm-row-reverse">
             <ul class="navbar-nav">
-                @foreach (var navElement in navigationLinks)
+                @foreach (var navElement in _navigationController.NavigationLinks)
                 {
                     <li class="nav-item">
-                        <a class="nav-link main-color @SetAfterActivationCssClass(navElement.IsSelected)"
-                           href="@navElement.LinkRef" 
-                           @onclick="() => ToggleAfterClickEffects(navElement)">@(navElement.LinkText)</a>
+                        <a class="nav-link main-color clickable-2 @SetAfterActivationCssClass(navElement.IsSelected)"
+                           href="@navElement.LinkRef"
+                           @onclick="() => { CollapseNavMenu(); }">@(navElement.LinkText)</a>
                     </li>
                 }
             </ul>
@@ -37,12 +41,12 @@
         return isElementSelected ? "main-selected-element" : "";
     }
 
-    List<NavigationLinkModel> navigationLinks;
-
 
     protected override Task OnInitializedAsync()
     {
-        navigationLinks = _navigationInitializer.InitializeLinks();
+        _navigationController.InitializeLinks();
+
+        NavigationManager.LocationChanged += UnderlineCurrentPageNavLink;
 
         return base.OnInitializedAsync();
     }
@@ -57,21 +61,20 @@
         collapseNavMenu = true;
     }
 
-    void ToggleAfterClickEffects(NavigationLinkModel navigationLink)
+    void UnderlineCurrentPageNavLink(object sender, LocationChangedEventArgs e)
     {
-        foreach (var item in navigationLinks)
+        foreach (var link in _navigationController.NavigationLinks)
         {
-            if (item.IsSelected)
-                item.IsSelected = false;
+            if (NavigationManager.Uri.Contains(link.LinkRef))
+                link.IsSelected = true;
+            else
+                link.IsSelected = false;
         }
 
-        navigationLink.IsSelected = true;
-    }
+        Console.WriteLine("nav event");
 
-    /*
-     private void ShowMessage(MouseEventArgs e)
-     {
-         messageText = $"The mouse is at coordinates: {e.ScreenX}:{e.ScreenY}";
-     } */
+        StateHasChanged();
+    }
+}
 }
 

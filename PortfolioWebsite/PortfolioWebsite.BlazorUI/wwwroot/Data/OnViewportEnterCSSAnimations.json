@@ -5,6 +5,18 @@
     },
     {
         "animationId": "vp-anim-2",
-        "animationCSS": ""
+        "animationCSS": "fade-in-with-right-translate"
+    },
+    {
+        "animationId": "vp-anim-3",
+        "animationCSS": "fade-in-with-top-translate"
+    },
+    {
+        "animationId": "vp-anim-4",
+        "animationCSS": "fade-in-with-bottom-translate"
+    },
+    {
+        "animationId": "vp-anim-5",
+        "animationCSS": "fade-in-slow"
     }
 ]
