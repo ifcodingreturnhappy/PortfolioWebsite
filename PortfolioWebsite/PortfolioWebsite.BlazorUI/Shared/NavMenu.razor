@@ -46,7 +46,9 @@
     {
         _navigationController.InitializeLinks();
 
-        NavigationManager.LocationChanged += UnderlineCurrentPageNavLink;
+        NavigationManager.LocationChanged += LocationChangedCallback;
+
+        UnderlineCurrentPageNavLink();
 
         return base.OnInitializedAsync();
     }
@@ -61,7 +63,14 @@
         collapseNavMenu = true;
     }
 
-    void UnderlineCurrentPageNavLink(object sender, LocationChangedEventArgs e)
+    void LocationChangedCallback(object sender, LocationChangedEventArgs e)
+    {
+        UnderlineCurrentPageNavLink();
+
+        StateHasChanged();
+    }
+
+    void UnderlineCurrentPageNavLink()
     {
         foreach (var link in _navigationController.NavigationLinks)
         {
@@ -70,10 +79,6 @@
             else
                 link.IsSelected = false;
         }
-
-        Console.WriteLine("nav event");
-
-        StateHasChanged();
     }
 }
 }

@@ -84,6 +84,8 @@ html, body {
         transition: ease-in-out 0.2s;
     }
 
+
+
 .scale-up {
     transform: scale(1);
     transition: ease-in 0.1s;
