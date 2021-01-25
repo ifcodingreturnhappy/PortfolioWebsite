@@ -6,16 +6,18 @@ html, body {
 
 .loop-opacity {
     opacity: 0;
-    animation: FadeInAndOut 1s  infinite;
+    animation: FadeInAndOut 1s infinite;
 }
 
 @keyframes FadeInAndOut {
     0% {
         opacity: 0;
     }
+
     50% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
@@ -54,6 +56,11 @@ html, body {
         transition: ease-in-out 0.2s;
     }
 
+    .clickable-1:active {
+        color: red;
+        transition: ease-in-out 0.2s;
+    }
+
 
 .clickable-2 {
     text-shadow: none;
@@ -85,11 +92,79 @@ html, body {
     }
 
 
+.floating-button-wrapper {
+    position: fixed;
+    bottom: 30px;
+}
+
+.floating-buttom-element {
+    position: relative;
+    text-align: center;
+}
+
+.floating-button-element-positioning {
+    left: 2vw;
+}
+
+/**********************/
+
+
+.full-screen-navmenu {
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+    font-size: calc(3vw + 2vh);
+    display: block;
+}
+
+
+
+@media (max-width: 768px) {
+
+    .wipe-down {
+        height: 100% !important;
+        opacity: 1 !important;
+    }
+
+    .fullscreen-menu {
+        height: 0;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 48px;
+        background-color: rgba(0,0,0, 0.9);
+        opacity: 0;
+        overflow-x: hidden;
+        transition: 1s;
+    }
+
+    .fullscreen-menu-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+}
+/*********************/
+
+
+.stylized-text {
+    color: RGB(108,218,163);
+    font-family: Courier New, Courier, monospace;
+    font-size: calc(0.8vh + 1vw);
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    transition: ease-in 0.2s;
+    /* Adicionar particle effects*/
+}
+
+
 
 .scale-up {
     transform: scale(1);
     transition: ease-in 0.1s;
 }
+
     .scale-up:hover {
         transform: scale(1.1);
         transition: ease-in 0.1s;
@@ -99,9 +174,9 @@ html, body {
     color: RGB(0,0,0);
 }
 
-    .secondary-clickable:hover {
-        color: red;
-    }
+.secondary-clickable:hover {
+    color: red;
+}
 
 
 .white-text {
@@ -131,13 +206,13 @@ html, body {
     outline: none;
 }
 
-.main-outline:focus {
-    outline:none;
-}
+    .main-outline:focus {
+        outline: none;
+    }
 
-.main-outline:active {
-    outline:none;
-}
+    .main-outline:active {
+        outline: none;
+    }
 
 .top-margin-medium {
     margin-top: 10vh;
@@ -151,9 +226,11 @@ html, body {
     margin-bottom: 30vh;
 }
 
+
 .main-selected-element {
     text-decoration: underline;
 }
+
     .main-selected-element:focus {
         text-decoration: underline;
     }
@@ -167,9 +244,11 @@ html, body {
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.15);
     }
+
     100% {
         transform: scale(1);
     }
@@ -191,13 +270,6 @@ html, body {
     color: red;
 }
 
-@media (min-width: 768px) {
-
-    .navbar-toggler {
-        display: none;
-    }
-}
-
 
 #blazor-error-ui {
     background: lightyellow;
@@ -211,12 +283,12 @@ html, body {
     z-index: 1000;
 }
 
-#blazor-error-ui .dismiss {
-    cursor: pointer;
-    position: absolute;
-    right: 0.75rem;
-    top: 0.5rem;
-}
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
 
 
 /*------------------*/
@@ -234,15 +306,19 @@ html, body {
 .vp-anim-1 {
     visibility: hidden;
 }
+
 .vp-anim-2 {
     visibility: hidden;
 }
+
 .vp-anim-3 {
     visibility: hidden;
 }
+
 .vp-anim-4 {
     visibility: hidden;
 }
+
 .vp-anim-5 {
     visibility: hidden;
 }
@@ -251,7 +327,7 @@ html, body {
 
 .fade-in-with-left-translate {
     visibility: visible;
-    animation: FadeIn 1s, LeftTranslate 1s;
+    animation: FadeIn 1s, LeftTranslate 1s
 }
 
 .fade-in-with-right-translate {

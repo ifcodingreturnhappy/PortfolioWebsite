@@ -1,9 +1,11 @@
 ﻿@inject INavigationController _navigationController
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime;
 
-<nav class="navbar main-background-color navbar-expand-sm navbar-toggleable-sm fixed-top vp-anim-3">
+
+<nav class="navbar main-background-color navbar-expand-md fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand main-color clickable-1 scale-up" href="/">
+        <a class="navbar-brand main-color clickable-1 scale-up" href="/" @onclick="() => CollapseNavMenu()">
             <span class="white-text">[</span>
             If Coding Return Happy
             <span class="white-text">]</span>
@@ -11,17 +13,18 @@
 
         <button class="navbar-toggler main-color main-outline border-0" @onclick="ToggleNavMenu" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
-            <span class="fas @NavMenuIconCssClass main-icon-animation main-color"></span>
+            <span class="fas @NavMenuIcon main-icon-animation main-color"></span>
         </button>
 
-        <div class="@NavMenuCssClass navbar-collapse d-sm-inline-flex flex-sm-row-reverse">
-            <ul class="navbar-nav">
+        <div class="navbar-collapse flex-md-row-reverse fullscreen-menu @(NavMenuVisibility)" id="main-navbar">
+            <ul class="navbar-nav fullscreen-menu-content" id="main-navbar-content">
                 @foreach (var navElement in _navigationController.NavigationLinks)
                 {
                     <li class="nav-item">
-                        <a class="nav-link main-color clickable-2 @SetAfterActivationCssClass(navElement.IsSelected)"
+                        <a class="nav-link main-color clickable-2"
                            href="@navElement.LinkRef"
                            @onclick="() => { CollapseNavMenu(); }">@(navElement.LinkText)</a>
+
                     </li>
                 }
             </ul>
@@ -31,54 +34,32 @@
 
 
 @code {
-
-    bool collapseNavMenu = true;
-
-    string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-    string NavMenuIconCssClass => collapseNavMenu ? "fa-bars" : "fa-times-circle";
-    string SetAfterActivationCssClass(bool isElementSelected)
-    {
-        return isElementSelected ? "main-selected-element" : "";
-    }
+    public static bool isNavMenuCollapsed { get; set; } = true;
+    string NavMenuVisibility => isNavMenuCollapsed ? "" : "wipe-down";
+    string NavMenuIcon => isNavMenuCollapsed ? "fa-bars" : "fa-times-circle";
 
 
     protected override Task OnInitializedAsync()
     {
         _navigationController.InitializeLinks();
 
-        NavigationManager.LocationChanged += LocationChangedCallback;
-
-        UnderlineCurrentPageNavLink();
-
         return base.OnInitializedAsync();
     }
 
-    void ToggleNavMenu()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        collapseNavMenu = !collapseNavMenu;
+        await JSRuntime.InvokeVoidAsync("updateCurrentPageIndicator");
     }
 
-    void CollapseNavMenu()
+
+    static void ToggleNavMenu()
     {
-        collapseNavMenu = true;
+        isNavMenuCollapsed = !isNavMenuCollapsed;
     }
 
-    void LocationChangedCallback(object sender, LocationChangedEventArgs e)
+    static void CollapseNavMenu()
     {
-        UnderlineCurrentPageNavLink();
-
-        StateHasChanged();
-    }
-
-    void UnderlineCurrentPageNavLink()
-    {
-        foreach (var link in _navigationController.NavigationLinks)
-        {
-            if (NavigationManager.Uri.Contains(link.LinkRef))
-                link.IsSelected = true;
-            else
-                link.IsSelected = false;
-        }
+        isNavMenuCollapsed = true;
     }
 }
 }

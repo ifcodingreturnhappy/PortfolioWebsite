@@ -7,13 +7,17 @@ namespace PortfolioWebsite.BlazorUI.Services
 {
     public class NavigationController : INavigationController
     {
-        readonly string navigationLinksFilePath = "wwwroot/Data/NavigationLinks.json";
+
+        private readonly string navigationLinksFilePath = "wwwroot/Data/NavigationLinks.json";
+        public string JsonNavigationLinks { get; set; }
         public List<NavigationLinkModel> NavigationLinks { get; set; }
 
         public void InitializeLinks()
         {
-            string json = File.ReadAllText(navigationLinksFilePath);
-            NavigationLinks = JsonConvert.DeserializeObject<List<NavigationLinkModel>>(json);
+            JsonNavigationLinks = File.ReadAllText(navigationLinksFilePath);
+            NavigationLinks = JsonConvert.DeserializeObject<List<NavigationLinkModel>>(JsonNavigationLinks);
         }
+
+
     }
 }

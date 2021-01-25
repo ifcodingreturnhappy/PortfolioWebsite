@@ -1,12 +1,13 @@
 ﻿
-
-<div class="fixed-bottom" style="left: 0%; bottom: 5%;">
-    <a class="btn-floating btn-lg btn-flat" href="fetchdata">
-        <i class="fas fa-gamepad main-color clickable-3" @onmouseover="TogglePlayPrompt" @onmouseout="TogglePlayPrompt" style="font-size: calc(3vh + 2vw)"></i>
+<div class="floating-button-wrapper">
+    <a class="btn-floating btn-lg btn-flat floating-buttom-element floating-button-element-positioning" href="fetchdata">
+        <i class="fas fa-gamepad main-color clickable-3" 
+           @onmouseover="TogglePlayPrompt" @onmouseout="TogglePlayPrompt" 
+           style="font-size: calc(3vh + 2vw)"></i>
     </a>
-    <div>
-        <span class="white-text" style=@(GetPromptVisibilityStatus())>Play!</span>
-    </div>
+
+    <div class="floating-buttom-element floating-button-element-positioning stylized-text" 
+         style=@(GetPromptVisibilityStatus())>Play</div>
 </div>
 
 
@@ -14,8 +15,9 @@
 
     bool isPlayPromptActive = false;
 
-    string promptVisible = "visibility: visible";
-    string promptNotVisible = "visibility: hidden";
+    string promptVisible = "opacity:1";
+    string promptNotVisible = "opacity:0";
+
 
     void TogglePlayPrompt()
     {
@@ -24,6 +26,7 @@
 
     string GetPromptVisibilityStatus()
     {
+        //Add animations on toggle
         return isPlayPromptActive ? promptVisible : promptNotVisible;
     }
 }
