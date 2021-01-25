@@ -44,10 +44,10 @@ function updateCurrentPageIndicator() {
 
     navLinks.forEach(navLink => {
         if (currentPageRef === navLink.getAttribute('href')) {
-            navLink.classList.add('main-selected-element');
+            navLink.classList.add('selected-element');
         }
         else {
-            navLink.classList.remove('main-selected-element');
+            navLink.classList.remove('selected-element');
         }
     });
 }

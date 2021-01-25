@@ -3,9 +3,9 @@
 @inject IJSRuntime JSRuntime;
 
 
-<nav class="navbar main-background-color navbar-expand-md fixed-top">
+<nav class="navbar main-background-color navbar-expand-md fixed-top vp-anim-3">
     <div class="container-fluid">
-        <a class="navbar-brand main-color clickable-1 scale-up" href="/" @onclick="() => CollapseNavMenu()">
+        <a class="navbar-brand main-color clickable-1 scale-up" href="/" @onclick="() => { CollapseNavMenu(); }">
             <span class="white-text">[</span>
             If Coding Return Happy
             <span class="white-text">]</span>
@@ -21,7 +21,7 @@
                 @foreach (var navElement in _navigationController.NavigationLinks)
                 {
                     <li class="nav-item">
-                        <a class="nav-link main-color clickable-2"
+                        <a class="nav-link main-color clickable-2 selectable-item"
                            href="@navElement.LinkRef"
                            @onclick="() => { CollapseNavMenu(); }">@(navElement.LinkText)</a>
 

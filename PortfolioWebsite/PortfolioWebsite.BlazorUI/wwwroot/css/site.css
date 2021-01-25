@@ -1,32 +1,108 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+/**** BASE ****/
+
 html, body {
     font-family: 'Consolas', Helvetica, Arial, sans-serif;
 }
 
-.loop-opacity {
-    opacity: 0;
-    animation: FadeInAndOut 1s infinite;
-}
-
-@keyframes FadeInAndOut {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-
 .empty-block {
     height: 110px;
 }
+
+.main-background-color {
+    background-color: RGB(0,0,0);
+}
+
+.secondary-background-color {
+    background-color: RGB(108,218,163);
+}
+
+
+.main-outline {
+    outline: none;
+}
+
+    .main-outline:focus {
+        outline: none;
+    }
+
+    .main-outline:active {
+        outline: none;
+    }
+
+@media (max-width: 768px) {
+
+    .wipe-down {
+        height: 100% !important;
+        opacity: 1 !important;
+    }
+
+    .fullscreen-menu {
+        height: 0;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 48px;
+        background-color: rgba(0,0,0, 0.9);
+        opacity: 0;
+        overflow-x: hidden;
+        transition: 1s;
+    }
+
+    .fullscreen-menu-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+}
+
+.content {
+    padding-top: 1.1rem;
+}
+
+
+/**** TEXT ****/
+.main-color {
+    color: RGB(108,218,163);
+}
+.secondary-color {
+    color: RGB(0,0,0);
+}
+
+.secondary-clickable:hover {
+    color: red;
+}
+
+
+.white-text {
+    color: white;
+}
+
+.special-text {
+    border-bottom: 1px dashed;
+    padding-bottom: 1px;
+    font-weight: bolder;
+}
+
+.stylized-text {
+    color: RGB(108,218,163);
+    font-family: Courier New, Courier, monospace;
+    font-size: calc(0.8vh + 1vw);
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    transition: ease-in 0.2s;
+    /* Adicionar particle effects*/
+}
+
+.main-billboard {
+    font-size: calc(4vw + 3vh);
+}
+
+
+
+/**** IMAGES ****/
 
 .image-limited-width {
     display: block;
@@ -37,10 +113,35 @@ html, body {
     min-width: 200px;
 }
 
-.main-color {
-    color: RGB(108,218,163);
+/**** SPECIAL ELEMENTS ****/
+.floating-button-wrapper {
+    position: fixed;
+    bottom: 30px;
 }
 
+.floating-buttom-element {
+    position: relative;
+    text-align: center;
+}
+
+.floating-button-element-positioning {
+    left: 2vw;
+}
+
+/**** STRUCTURE ****/
+.top-margin-medium {
+    margin-top: 10vh;
+}
+
+.top-margin-large {
+    margin-top: 30vh;
+}
+
+.bottom-margin-large {
+    margin-bottom: 30vh;
+}
+
+/**** ANIMATED CLASSES ****/
 
 .clickable-1 {
     background: url(https://media.giphy.com/media/ToMjGpFdluLyF8C732g/giphy.gif);
@@ -70,8 +171,8 @@ html, body {
     .clickable-2:hover {
         color: white;
         text-shadow: 4px 4px RGBA(108,218,163, 0.5);
-        transform: translateY(-5%);
-        transition: ease-in-out 0.5s;
+        transform: translateY(-6%);
+        transition: ease-in-out 0.4s;
     }
 
 .clickable-3 {
@@ -91,154 +192,9 @@ html, body {
         transition: ease-in-out 0.2s;
     }
 
-
-.floating-button-wrapper {
-    position: fixed;
-    bottom: 30px;
-}
-
-.floating-buttom-element {
-    position: relative;
-    text-align: center;
-}
-
-.floating-button-element-positioning {
-    left: 2vw;
-}
-
-/**********************/
-
-
-.full-screen-navmenu {
-    height: 100%;
-    justify-content: center;
-    text-align: center;
-    font-size: calc(3vw + 2vh);
-    display: block;
-}
-
-
-
-@media (max-width: 768px) {
-
-    .wipe-down {
-        height: 100% !important;
-        opacity: 1 !important;
-    }
-
-    .fullscreen-menu {
-        height: 0;
-        width: 100%;
-        position: fixed;
-        z-index: 1;
-        top: 48px;
-        background-color: rgba(0,0,0, 0.9);
-        opacity: 0;
-        overflow-x: hidden;
-        transition: 1s;
-    }
-
-    .fullscreen-menu-content {
-        position: relative;
-        top: 25%;
-        width: 100%;
-        text-align: center;
-        margin-top: 30px;
-    }
-}
-/*********************/
-
-
-.stylized-text {
-    color: RGB(108,218,163);
-    font-family: Courier New, Courier, monospace;
-    font-size: calc(0.8vh + 1vw);
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-    transition: ease-in 0.2s;
-    /* Adicionar particle effects*/
-}
-
-
-
-.scale-up {
-    transform: scale(1);
-    transition: ease-in 0.1s;
-}
-
-    .scale-up:hover {
-        transform: scale(1.1);
-        transition: ease-in 0.1s;
-    }
-
-.secondary-color {
-    color: RGB(0,0,0);
-}
-
-.secondary-clickable:hover {
-    color: red;
-}
-
-
-.white-text {
-    color: white;
-}
-
-.special-text {
-    border-bottom: 1px dashed;
-    padding-bottom: 1px;
-    font-weight: bolder;
-}
-
-.main-billboard {
-    font-size: calc(4vw + 3vh);
-}
-
-.main-background-color {
-    background-color: RGB(0,0,0);
-}
-
-.secondary-background-color {
-    background-color: RGB(108,218,163);
-}
-
-
-.main-outline {
-    outline: none;
-}
-
-    .main-outline:focus {
-        outline: none;
-    }
-
-    .main-outline:active {
-        outline: none;
-    }
-
-.top-margin-medium {
-    margin-top: 10vh;
-}
-
-.top-margin-large {
-    margin-top: 30vh;
-}
-
-.bottom-margin-large {
-    margin-bottom: 30vh;
-}
-
-
-.main-selected-element {
-    text-decoration: underline;
-}
-
-    .main-selected-element:focus {
-        text-decoration: underline;
-    }
-
 .main-icon-animation:hover {
     animation: ZoomInAndOut 1s infinite;
 }
-
 
 @keyframes ZoomInAndOut {
     0% {
@@ -254,9 +210,65 @@ html, body {
     }
 }
 
-.content {
-    padding-top: 1.1rem;
+.loop-opacity {
+    opacity: 0;
+    animation: FadeInAndOut 1s infinite;
 }
+
+@keyframes FadeInAndOut {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.scale-up {
+    transform: scale(1);
+    transition: ease-in 0.1s;
+}
+
+    .scale-up:hover {
+        transform: scale(1.1);
+        transition: ease-in 0.1s;
+    }
+
+
+
+.selectable-item {
+    position: relative;
+}
+    .selectable-item:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 3px;
+        display: block;
+        margin-top: 1px;
+        right: 0;
+        background: #fff;
+        transition: width .2s ease;
+        -webkit-transition: width .5s ease;
+        
+    }
+
+.selected-element:after {
+    width: 80%;
+    left: 10%;
+    background: #fff;
+}
+
+
+
+
+/**** BLAZOR ERRORS ****/
 
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
@@ -269,7 +281,6 @@ html, body {
 .validation-message {
     color: red;
 }
-
 
 #blazor-error-ui {
     background: lightyellow;
@@ -290,18 +301,8 @@ html, body {
         top: 0.5rem;
     }
 
-
-/*------------------*/
-/*-- CUSTOM ITEMS --*/
-/*------------------*/
-
-/* CORES GUARDADAS */
-/* RGB(108,218,163) */
-/* RGB(0, 255, 221) */
-
-
 /* -------------------- VIEWPORT ANIMATION -------------------- */
-/* Animatable signaling classes -> this classes will signal that an element is animated when entering the viewport (done with js)*/
+/* Animatable signaling classes -> this classes will signal an element that is entering the viewport, which animation to give it (done with js)*/
 
 .vp-anim-1 {
     visibility: hidden;
