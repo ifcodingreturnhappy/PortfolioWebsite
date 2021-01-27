@@ -1,32 +1,18 @@
 ﻿
 <div class="floating-button-wrapper">
-    <a class="btn-floating btn-lg btn-flat floating-buttom-element floating-button-element-positioning" href="fetchdata">
-        <i class="fas fa-gamepad main-color clickable-3" 
-           @onmouseover="TogglePlayPrompt" @onmouseout="TogglePlayPrompt" 
-           style="font-size: calc(3vh + 2vw)"></i>
+    <a class="btn-floating btn-lg btn-flat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-gamepad main-color clickable-3" style="font-size: calc(3vh + 2vw)"></i>
     </a>
 
-    <div class="floating-buttom-element floating-button-element-positioning stylized-text" 
-         style=@(GetPromptVisibilityStatus())>Play</div>
+    <div class="dropdown-menu secondary-background-color">
+        <!-- Dropdown menu links -->
+        <span class="dropdown-item-text secondary-color">Coming soon:</span>
+        <div class="dropdown-divider"></div>
+        <span class="dropdown-item-text secondary-color" style="min-width:310px">Blazor-powered Browser games!</span>
+    </div>
 </div>
 
 
 @code   {
 
-    bool isPlayPromptActive = false;
-
-    string promptVisible = "opacity:1";
-    string promptNotVisible = "opacity:0";
-
-
-    void TogglePlayPrompt()
-    {
-        isPlayPromptActive = !isPlayPromptActive;
-    }
-
-    string GetPromptVisibilityStatus()
-    {
-        //Add animations on toggle
-        return isPlayPromptActive ? promptVisible : promptNotVisible;
-    }
 }

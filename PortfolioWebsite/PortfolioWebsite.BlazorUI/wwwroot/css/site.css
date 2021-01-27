@@ -44,10 +44,11 @@ html, body {
         position: fixed;
         z-index: 1;
         top: 48px;
+        left: 0;
         background-color: rgba(0,0,0, 0.9);
         opacity: 0;
         overflow-x: hidden;
-        transition: 1s;
+        transition: 0.5s;
     }
 
     .fullscreen-menu-content {
@@ -92,6 +93,7 @@ html, body {
     font-family: Courier New, Courier, monospace;
     font-size: calc(0.8vh + 1vw);
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    text-align: center;
     transition: ease-in 0.2s;
     /* Adicionar particle effects*/
 }
@@ -101,22 +103,21 @@ html, body {
 }
 
 
+/**** IMAGES/ICONS ****/
 
-/**** IMAGES ****/
-
-.image-limited-width {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    max-width: 300px;
-    min-width: 200px;
+.image-spacing {
+    margin-top: 50px;
+    margin-bottom: 30px;
 }
 
+
+
 /**** SPECIAL ELEMENTS ****/
+/*
 .floating-button-wrapper {
     position: fixed;
     bottom: 30px;
+    transition: ease-in-out 0.5s;
 }
 
 .floating-buttom-element {
@@ -127,6 +128,13 @@ html, body {
 .floating-button-element-positioning {
     left: 2vw;
 }
+*/
+.floating-button-wrapper {
+    position: fixed;
+    bottom: 30px;
+    transition: ease-in-out 0.5s;
+}
+
 
 /**** STRUCTURE ****/
 .top-margin-medium {
@@ -134,11 +142,11 @@ html, body {
 }
 
 .top-margin-large {
-    margin-top: 30vh;
+    margin-top: 25vh;
 }
 
 .bottom-margin-large {
-    margin-bottom: 30vh;
+    margin-bottom: 25vh;
 }
 
 /**** ANIMATED CLASSES ****/
@@ -158,7 +166,7 @@ html, body {
     }
 
     .clickable-1:active {
-        color: red;
+        color: transparent;
         transition: ease-in-out 0.2s;
     }
 
@@ -182,6 +190,7 @@ html, body {
     -webkit-background-clip: text;
     color: transparent;
     transform: scale(1);
+    z-index: 1;
     transition: ease-in-out 0.2s;
 }
 
@@ -192,7 +201,72 @@ html, body {
         transition: ease-in-out 0.2s;
     }
 
-.main-icon-animation:hover {
+
+    /* SPECIAL */
+.pacman-effect {
+    background: url(https://media.giphy.com/media/3Z1fKb6plPLM3hMbLs/giphy.gif);
+    background-size: 50%;
+    background-position: center;
+    -webkit-background-clip: text;
+    color: white;
+    transition: ease-in-out 0.2s;
+}
+
+    .pacman-effect:hover {
+        color: transparent;
+        transition: ease-in-out 0.2s;
+    }
+
+    .pacman-effect:active {
+        color: transparent;
+        transition: ease-in-out 0.2s;
+        animation: ZoomInAndOut 0.5s;
+    }
+
+.msoexcel-effect {
+    background: url(https://media.giphy.com/media/26DN2iTaW5mmmJtug/giphy.gif);
+    background-size: 50%;
+    background-position: center;
+    -webkit-background-clip: text;
+    color: white;
+    transition: ease-in-out 0.2s;
+}
+
+    .msoexcel-effect:hover {
+        color: transparent;
+        transition: ease-in-out 0.2s;
+    }
+
+    .msoexcel-effect:active {
+        color: transparent;
+        transition: ease-in-out 0.2s;
+        animation: ZoomInAndOut 0.5s;
+    }
+
+.network-effect {
+    background: url(https://media.giphy.com/media/l41YvpiA9uMWw5AMU/giphy.gif);
+    background-size: 50%;
+    background-position: center;
+    -webkit-background-clip: text;
+    color: white;
+    transition: ease-in-out 0.2s;
+}
+
+    .network-effect:hover {
+        color: transparent;
+        transition: ease-in-out 0.2s;
+    }
+
+    .network-effect:active {
+        color: transparent;
+        transition: ease-in-out 0.2s;
+        animation: ZoomInAndOut 0.5s;
+    }
+
+    /***********/
+
+
+.menu-icon-animation:hover {
     animation: ZoomInAndOut 1s infinite;
 }
 
@@ -240,165 +314,202 @@ html, body {
         transition: ease-in 0.1s;
     }
 
+    .scale-up:active {
+        transform: scale(1.1);
+        transition: ease-in 0.2s;
+    }
 
 
-.selectable-item {
-    position: relative;
+@media (max-width: 768px) {
+    .selectable-item {
+        position: relative;
+        font-size: calc(1vh + 3vw);
+    }
+
+        .selectable-item:after {
+            content: '';
+            position: absolute;
+            width: 30%;
+            left: 35%;
+            height: 3px;
+            display: block;
+            margin-top: 1px;
+            background: #fff;
+            opacity: 0;
+            transition: .2s ease;
+            -webkit-transition: .5s ease;
+        }
+
+    .selected-element:after {
+        opacity: 1;
+        transition: .2s ease;
+    }
 }
-    .selectable-item:after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 3px;
-        display: block;
-        margin-top: 1px;
-        right: 0;
+
+
+@media (min-width: 768px) {
+    .selectable-item {
+        position: relative;
+    }
+
+        .selectable-item:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            display: block;
+            margin-top: 1px;
+            right: 0;
+            background: #fff;
+            opacity: 0;
+            transition: width .2s ease;
+            -webkit-transition: width .5s ease;
+        }
+
+    .selected-element:after {
+        width: 80%;
+        left: 10%;
         background: #fff;
-        transition: width .2s ease;
-        -webkit-transition: width .5s ease;
-        
-    }
-
-.selected-element:after {
-    width: 80%;
-    left: 10%;
-    background: #fff;
-}
-
-
-
-
-/**** BLAZOR ERRORS ****/
-
-.valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
-}
-
-.invalid {
-    outline: 1px solid red;
-}
-
-.validation-message {
-    color: red;
-}
-
-#blazor-error-ui {
-    background: lightyellow;
-    bottom: 0;
-    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
-    display: none;
-    left: 0;
-    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-}
-
-    #blazor-error-ui .dismiss {
-        cursor: pointer;
-        position: absolute;
-        right: 0.75rem;
-        top: 0.5rem;
-    }
-
-/* -------------------- VIEWPORT ANIMATION -------------------- */
-/* Animatable signaling classes -> this classes will signal an element that is entering the viewport, which animation to give it (done with js)*/
-
-.vp-anim-1 {
-    visibility: hidden;
-}
-
-.vp-anim-2 {
-    visibility: hidden;
-}
-
-.vp-anim-3 {
-    visibility: hidden;
-}
-
-.vp-anim-4 {
-    visibility: hidden;
-}
-
-.vp-anim-5 {
-    visibility: hidden;
-}
-
-/* Animation Classes */
-
-.fade-in-with-left-translate {
-    visibility: visible;
-    animation: FadeIn 1s, LeftTranslate 1s
-}
-
-.fade-in-with-right-translate {
-    visibility: visible;
-    animation: FadeIn 1s, RightTranslate 1s;
-}
-
-.fade-in-with-top-translate {
-    visibility: visible;
-    animation: FadeIn 1s, TopTranslate 2s;
-}
-
-.fade-in-with-bottom-translate {
-    visibility: visible;
-    animation: FadeIn 1s, BottomTranslate 2s;
-}
-
-.fade-in-slow {
-    visibility: visible;
-    animation: FadeIn ease-in 1.5s;
-}
-
-/* Animations */
-
-@keyframes FadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
         opacity: 1;
     }
+
 }
 
-@keyframes LeftTranslate {
-    0% {
-        transform: translateX(-5%);
+
+
+
+
+    /**** BLAZOR ERRORS ****/
+
+    .valid.modified:not([type=checkbox]) {
+        outline: 1px solid #26b050;
     }
 
-    100% {
-        transform: translateX(0%);
-    }
-}
-
-@keyframes RightTranslate {
-    0% {
-        transform: translateX(30%);
+    .invalid {
+        outline: 1px solid red;
     }
 
-    100% {
-        transform: translateX(0%);
-    }
-}
-
-@keyframes TopTranslate {
-    0% {
-        transform: translateY(-30%);
+    .validation-message {
+        color: red;
     }
 
-    100% {
-        transform: translateY(0%);
+    #blazor-error-ui {
+        background: lightyellow;
+        bottom: 0;
+        box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+        display: none;
+        left: 0;
+        padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
     }
-}
 
-@keyframes BottomTranslate {
-    0% {
-        transform: translateY(30%);
+        #blazor-error-ui .dismiss {
+            cursor: pointer;
+            position: absolute;
+            right: 0.75rem;
+            top: 0.5rem;
+        }
+
+    /* -------------------- VIEWPORT ANIMATION -------------------- */
+    /* Animatable signaling classes -> this classes will signal an element that is entering the viewport, which animation to give it (done with js)*/
+
+    .vp-anim-1 {
+        visibility: hidden;
     }
 
-    100% {
-        transform: translateY(0%);
+    .vp-anim-2 {
+        visibility: hidden;
     }
-}
+
+    .vp-anim-3 {
+        visibility: hidden;
+    }
+
+    .vp-anim-4 {
+        visibility: hidden;
+    }
+
+    .vp-anim-5 {
+        visibility: hidden;
+    }
+
+    /* Animation Classes */
+
+    .fade-in-with-left-translate {
+        visibility: visible;
+        animation: FadeIn 1s, LeftTranslate 1s
+    }
+
+    .fade-in-with-right-translate {
+        visibility: visible;
+        animation: FadeIn 1s, RightTranslate 1s;
+    }
+
+    .fade-in-with-top-translate {
+        visibility: visible;
+        animation: FadeIn 1s, TopTranslate 2s;
+    }
+
+    .fade-in-with-bottom-translate {
+        visibility: visible;
+        animation: FadeIn 1s, BottomTranslate 2s;
+    }
+
+    .fade-in-slow {
+        visibility: visible;
+        animation: FadeIn ease-in 1.5s;
+    }
+
+    /* Animations */
+
+    @keyframes FadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes LeftTranslate {
+        0% {
+            transform: translateX(-5%);
+        }
+
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    @keyframes RightTranslate {
+        0% {
+            transform: translateX(30%);
+        }
+
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    @keyframes TopTranslate {
+        0% {
+            transform: translateY(-30%);
+        }
+
+        100% {
+            transform: translateY(0%);
+        }
+    }
+
+    @keyframes BottomTranslate {
+        0% {
+            transform: translateY(30%);
+        }
+
+        100% {
+            transform: translateY(0%);
+        }
+    }
