@@ -39,11 +39,15 @@ function observerCallback(entry, cssClass) {
 
 
 function updateCurrentPageIndicator() {
-    let navLinks = document.querySelectorAll('.nav-link');
-    let currentPageRef = window.location.pathname.replace('/', '')
+    let navLinks = document.querySelectorAll('.selectable-item');
+    // let currentPageRef = window.location.pathname.replace('/', ''); // currentPageRef === navLink.getAttribute('href')
+    // This is the old aproach. 
+    // This will probably not underline navlinks when i add pages regarding projects (with href like 'work/project12')
+    // i will keep it here to try it when the work showcase page is finished, nevertheless.
+    let currentPageRef = window.location.pathname;
 
     navLinks.forEach(navLink => {
-        if (currentPageRef === navLink.getAttribute('href')) {
+        if (currentPageRef.includes(navLink.getAttribute('href'))) {
             navLink.classList.add('selected-element');
         }
         else {
