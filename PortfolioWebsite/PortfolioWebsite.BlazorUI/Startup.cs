@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PortfolioWebsite.BlazorUI.Data;
+using PortfolioWebsite.BlazorUI.Models;
 using PortfolioWebsite.BlazorUI.Services;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,7 @@ namespace PortfolioWebsite.BlazorUI
             services.AddSingleton<WeatherForecastService>();
             services.AddSingleton<INavigationController, NavigationController>();
             services.AddSingleton<IJavascriptViewportAnimator, JavascriptViewportAnimator>();
+            services.AddSingleton<IPageEnumerator<WorkArticleMetadataModel>, WorkArticleMetadataEnumerator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

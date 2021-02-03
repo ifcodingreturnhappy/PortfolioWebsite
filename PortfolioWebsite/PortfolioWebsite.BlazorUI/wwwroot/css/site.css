@@ -6,6 +6,14 @@ html, body {
     font-family: 'Consolas', Helvetica, Arial, sans-serif;
 }
 
+.body-display {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    min-height: 100vh
+}
+
+
 .empty-block {
     height: 110px;
 }
@@ -64,6 +72,31 @@ html, body {
     padding-top: 1.1rem;
 }
 
+.dropdown-menu {
+    max-height: 200px;
+    overflow-y: auto;
+}
+.dropdown-menu-center {
+    left: 50% !important;
+    right: auto !important;
+    text-align: center !important;
+    transform: translate(-50%, 20%) !important;
+}
+
+.main-button {
+    background-color: RGB(108,218,163);
+    color: black;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+    .main-button:hover {
+        box-shadow: 0px 0px 1px 1px white !important;
+    }
+    .main-button:focus {
+        box-shadow: none;
+    }
+
+
 
 /**** TEXT ****/
 .main-color {
@@ -77,16 +110,24 @@ html, body {
     color: red;
 }
 
-
 .white-text {
     color: white;
 }
 
-.special-text {
-    border-bottom: 1px dashed;
-    padding-bottom: 1px;
+.main-color span {
     font-weight: bolder;
+    color: rgb(180, 250, 215);
+    border-bottom: 1px dashed;
+    padding-bottom: 2px;
+    border-color: rgba(180, 250, 215, 0);
+    transition: 0.2s;
 }
+    .main-color span:hover {
+        border-color: rgba(180, 250, 215, 1);
+        transition: 0.2s;
+    }
+
+
 
 .stylized-text {
     color: RGB(108,218,163);
@@ -100,6 +141,10 @@ html, body {
 
 .main-billboard {
     font-size: calc(4vw + 3vh);
+}
+
+.non-selectable {
+    user-select: none;
 }
 
 
@@ -201,72 +246,10 @@ html, body {
         transition: ease-in-out 0.2s;
     }
 
-
-    /* SPECIAL */
-.pacman-effect {
-    background: url(https://media.giphy.com/media/3Z1fKb6plPLM3hMbLs/giphy.gif);
-    background-size: 50%;
-    background-position: center;
-    -webkit-background-clip: text;
-    color: white;
-    transition: ease-in-out 0.2s;
-}
-
-    .pacman-effect:hover {
-        color: transparent;
-        transition: ease-in-out 0.2s;
-    }
-
-    .pacman-effect:active {
-        color: transparent;
-        transition: ease-in-out 0.2s;
-        animation: ZoomInAndOut 0.5s;
-    }
-
-.msoexcel-effect {
-    background: url(https://media.giphy.com/media/26DN2iTaW5mmmJtug/giphy.gif);
-    background-size: 50%;
-    background-position: center;
-    -webkit-background-clip: text;
-    color: white;
-    transition: ease-in-out 0.2s;
-}
-
-    .msoexcel-effect:hover {
-        color: transparent;
-        transition: ease-in-out 0.2s;
-    }
-
-    .msoexcel-effect:active {
-        color: transparent;
-        transition: ease-in-out 0.2s;
-        animation: ZoomInAndOut 0.5s;
-    }
-
-.network-effect {
-    background: url(https://media.giphy.com/media/l41YvpiA9uMWw5AMU/giphy.gif);
-    background-size: 50%;
-    background-position: center;
-    -webkit-background-clip: text;
-    color: white;
-    transition: ease-in-out 0.2s;
-}
-
-    .network-effect:hover {
-        color: transparent;
-        transition: ease-in-out 0.2s;
-    }
-
-    .network-effect:active {
-        color: transparent;
-        transition: ease-in-out 0.2s;
-        animation: ZoomInAndOut 0.5s;
-    }
-
     /***********/
 
 
-.menu-icon-animation:hover {
+.infinite-zoom-in-out:hover {
     animation: ZoomInAndOut 1s infinite;
 }
 
@@ -311,7 +294,7 @@ html, body {
 
     .scale-up:hover {
         transform: scale(1.1);
-        transition: ease-in 0.1s;
+        transition: ease-in 0.2s;
     }
 
     .scale-up:active {
@@ -319,11 +302,26 @@ html, body {
         transition: ease-in 0.2s;
     }
 
+.glow {
+    box-shadow: none;
+    transition: ease-in 0.2s;
+}
+
+    .glow:hover {
+        box-shadow: 0px 0px 5px 5px rgba(108,218,163, 0.4) !important;
+        transition: ease-in 0.2s !important;
+    }
+
+    .glow:active {
+        box-shadow: 0px 0px 5px 5px rgba(108,218,163, 0.4) !important;
+        transition: ease-in 0.2s !important;
+    }
+
 
 @media (max-width: 768px) {
     .selectable-item {
         position: relative;
-        font-size: calc(1vh + 3vw);
+        font-size: calc(1vh + 2vw);
     }
 
         .selectable-item:after {
@@ -376,9 +374,6 @@ html, body {
 }
 
 
-
-
-
     /**** BLAZOR ERRORS ****/
 
     .valid.modified:not([type=checkbox]) {
@@ -412,104 +407,104 @@ html, body {
             top: 0.5rem;
         }
 
-    /* -------------------- VIEWPORT ANIMATION -------------------- */
-    /* Animatable signaling classes -> this classes will signal an element that is entering the viewport, which animation to give it (done with js)*/
+/* -------------------- VIEWPORT ANIMATION -------------------- */
+/* Animatable signaling classes -> this classes will signal an element that is entering the viewport, which animation to give it (done with js)*/
 
-    .vp-anim-1 {
-        visibility: hidden;
+.vp-anim-1 {
+    visibility: hidden;
+}
+
+.vp-anim-2 {
+    visibility: hidden;
+}
+
+.vp-anim-3 {
+    visibility: hidden;
+}
+
+.vp-anim-4 {
+    visibility: hidden;
+}
+
+.vp-anim-5 {
+    visibility: hidden;
+}
+
+/* Animation Classes */
+
+.fade-in-with-left-translate {
+    visibility: visible;
+    animation: FadeIn 1s, LeftTranslate 1s ease-in-out;
+}
+
+.fade-in-with-right-translate {
+    visibility: visible;
+    animation: FadeIn 1s, RightTranslate 1s ease-in-out;
+}
+
+.fade-in-with-top-translate {
+    visibility: visible;
+    animation: FadeIn 1s, TopTranslate 0.8s ease-in-out;
+}
+
+.fade-in-with-bottom-translate {
+    visibility: visible;
+    animation: FadeIn 1s, BottomTranslate 1s ease-in-out;
+}
+
+.fade-in-slow {
+    visibility: visible;
+    animation: FadeIn ease-in 1.5s;
+}
+
+/* Animations */
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
     }
 
-    .vp-anim-2 {
-        visibility: hidden;
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes LeftTranslate {
+    0% {
+        transform: translateX(-30%);
     }
 
-    .vp-anim-3 {
-        visibility: hidden;
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes RightTranslate {
+    0% {
+        transform: translateX(30%);
     }
 
-    .vp-anim-4 {
-        visibility: hidden;
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes TopTranslate {
+    0% {
+        transform: translateY(-30%);
     }
 
-    .vp-anim-5 {
-        visibility: hidden;
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes BottomTranslate {
+    0% {
+        transform: translateY(30%);
     }
 
-    /* Animation Classes */
-
-    .fade-in-with-left-translate {
-        visibility: visible;
-        animation: FadeIn 1s, LeftTranslate 1s
+    100% {
+        transform: translateY(0%);
     }
-
-    .fade-in-with-right-translate {
-        visibility: visible;
-        animation: FadeIn 1s, RightTranslate 1s;
-    }
-
-    .fade-in-with-top-translate {
-        visibility: visible;
-        animation: FadeIn 1s, TopTranslate 2s;
-    }
-
-    .fade-in-with-bottom-translate {
-        visibility: visible;
-        animation: FadeIn 1s, BottomTranslate 2s;
-    }
-
-    .fade-in-slow {
-        visibility: visible;
-        animation: FadeIn ease-in 1.5s;
-    }
-
-    /* Animations */
-
-    @keyframes FadeIn {
-        0% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
-    @keyframes LeftTranslate {
-        0% {
-            transform: translateX(-5%);
-        }
-
-        100% {
-            transform: translateX(0%);
-        }
-    }
-
-    @keyframes RightTranslate {
-        0% {
-            transform: translateX(30%);
-        }
-
-        100% {
-            transform: translateX(0%);
-        }
-    }
-
-    @keyframes TopTranslate {
-        0% {
-            transform: translateY(-30%);
-        }
-
-        100% {
-            transform: translateY(0%);
-        }
-    }
-
-    @keyframes BottomTranslate {
-        0% {
-            transform: translateY(30%);
-        }
-
-        100% {
-            transform: translateY(0%);
-        }
-    }
+}

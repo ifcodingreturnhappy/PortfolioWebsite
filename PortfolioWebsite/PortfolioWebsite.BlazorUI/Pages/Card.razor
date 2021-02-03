@@ -1,0 +1,31 @@
+﻿<a href="@PageRef" style="text-decoration:none">
+    <div class="card text-center ml-4 mr-4 glow vp-anim-4" style="background-color: rgb(20,20,20);">
+        <img class="card-img-top mx-auto mb-0" src="@ImagePath" alt="@Title Card Image" style="max-width:40%"/>
+        <div class="card-body">
+            <h4 class="main-color">@Title</h4>
+            <p class="white-text">@(Description)</p>
+            <p class="white-text text-right mb-0">Publish Date:</p>
+            <p class="white-text text-right">@(PublishDate)</p>
+        </div>
+    </div>
+</a>
+
+@code {
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string ImagePath { get; set; }
+
+    [Parameter]
+    public string Description { get; set; }
+
+    [Parameter]
+    public string PageRef { get; set; }
+
+    [Parameter]
+    public string PublishDate { get; set; }
+
+    [Parameter]
+    public List<string> Tags { get; set; }
+}
