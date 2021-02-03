@@ -1,10 +1,11 @@
-﻿function setupViewportAnimations(jsonAnimationSettings) {
-    let options = {
-        root: null,
-        rootMargin: '-15px -15px -15px -15px',
-        threshold: 0.3
-    };
+﻿
+let options = {
+    root: null,
+    rootMargin: '-20px -20px -20px -20px',
+    threshold: 0.3
+};
 
+function setupViewportAnimations(jsonAnimationSettings) {
     let animationSettings = JSON.parse(jsonAnimationSettings);
 
     let observer = new IntersectionObserver(function
@@ -28,12 +29,11 @@
     });
 }
 
-function observerCallback(entry, cssClass) {
+function observerCallback(entry, cssClass, isRepeatable) {
     if (entry.isIntersecting) {
-        entry.target.classList.add(cssClass);
-    }
-    else {
-        entry.target.classList.remove(cssClass);
+        if (!entry.target.classList.contains(cssClass)) {
+            entry.target.classList.add(cssClass);
+        }
     }
 }
 
