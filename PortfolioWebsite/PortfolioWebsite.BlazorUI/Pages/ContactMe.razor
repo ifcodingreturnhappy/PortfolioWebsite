@@ -1,9 +1,6 @@
 ﻿@page "/contactme"
 
 
-@inject IJSRuntime JSRuntime;
-@inject IJavascriptViewportAnimator JSAnimator;
-
 <div>
     <h2 class="white-text d-flex justify-content-center">Contact Me</h2>
 </div>
@@ -11,14 +8,3 @@
 <div>
     <!-- INSERIR AQUI UM FORM DE PREENCHIMENTO PARA ENVIAR MENSAGEM -->
 </div>
-
-@code {
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await JSAnimator.SetupJavascriptViewportAnimation(JSRuntime);
-        }
-    }
-}

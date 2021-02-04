@@ -1,5 +1,7 @@
 ﻿@inherits LayoutComponentBase
 
+@inject IJSRuntime JSRuntime;
+@inject IJavascriptViewportAnimator JSAnimator;
 
 <body class="main-background-color m-0 p-0">
     <NavMenu />
@@ -17,4 +19,13 @@
         <a style="display:block; text-align:center" href="https://www.youtube.com/channel/UCLVl164JV2ME7ZgzqsPk9NA" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube  main-icon-animation secondary-color"></i></a>
     </div>
 </footer>
+
+@code{
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSAnimator.SetupJavascriptViewportAnimation(JSRuntime);
+    }
+    
+}
 

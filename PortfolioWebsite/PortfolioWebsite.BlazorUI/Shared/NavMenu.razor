@@ -1,7 +1,4 @@
 ﻿@inject INavigationController _navigationController
-@inject NavigationManager NavigationManager
-@inject IJSRuntime JSRuntime;
-
 
 <nav class="navbar main-background-color navbar-expand-md fixed-top">
     <div class="container-fluid">
@@ -44,12 +41,6 @@
 
         return base.OnInitializedAsync();
     }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        await JSRuntime.InvokeVoidAsync("updateCurrentPageIndicator");
-    }
-
 
     void ToggleNavMenu()
     {

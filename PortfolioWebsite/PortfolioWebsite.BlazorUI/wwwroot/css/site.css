@@ -13,6 +13,10 @@ html, body {
     min-height: 100vh
 }
 
+.hide-horizontal-scroll {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 .empty-block {
     height: 110px;
@@ -76,6 +80,8 @@ html, body {
     max-height: 200px;
     overflow-y: auto;
 }
+
+
 .dropdown-menu-center {
     left: 50% !important;
     right: auto !important;
@@ -97,6 +103,19 @@ html, body {
     }
 
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: RGB(69,69,69);
+}
+::-webkit-scrollbar-thumb {
+    background: RGB(255,255,255);
+}
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 
 /**** TEXT ****/
 .main-color {
@@ -114,7 +133,7 @@ html, body {
     color: white;
 }
 
-.main-color span {
+.stand-out-text {
     font-weight: bolder;
     color: rgb(180, 250, 215);
     border-bottom: 1px dashed;
@@ -122,22 +141,11 @@ html, body {
     border-color: rgba(180, 250, 215, 0);
     transition: 0.2s;
 }
-    .main-color span:hover {
+    .stand-out-text:hover {
         border-color: rgba(180, 250, 215, 1);
         transition: 0.2s;
     }
 
-
-
-.stylized-text {
-    color: RGB(108,218,163);
-    font-family: Courier New, Courier, monospace;
-    font-size: calc(0.8vh + 1vw);
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-    text-align: center;
-    transition: ease-in 0.2s;
-    /* Adicionar particle effects*/
-}
 
 .main-billboard {
     font-size: calc(4vw + 3vh);
@@ -248,6 +256,44 @@ html, body {
 
     /***********/
 
+.scale-up {
+    transform: scale(1);
+    transition: ease-in 0.1s;
+}
+
+    .scale-up:hover {
+        transform: scale(1.1);
+        transition: ease-in 0.2s;
+    }
+
+    .scale-up:active {
+        transform: scale(1.1);
+        transition: ease-in 0.2s;
+    }
+
+.glow {
+    box-shadow: none;
+    transition: ease-in 0.2s;
+}
+
+    .glow:hover {
+        box-shadow: 0px 0px 5px 5px rgba(108,218,163, 0.4) !important;
+        transition: ease-in 0.2s !important;
+    }
+
+    .glow:active {
+        box-shadow: 0px 0px 5px 5px rgba(108,218,163, 0.4) !important;
+        transition: ease-in 0.2s !important;
+    }
+
+.constant-glow {
+    background-color: black;
+    box-shadow: 0px 0px 2px 2px rgba(108,218,163, 0.4);
+}
+
+.simple-hover:hover {
+    background-color: rgb(20,20,20);
+}
 
 .infinite-zoom-in-out:hover {
     animation: ZoomInAndOut 1s infinite;
@@ -285,37 +331,6 @@ html, body {
         opacity: 0;
     }
 }
-
-
-.scale-up {
-    transform: scale(1);
-    transition: ease-in 0.1s;
-}
-
-    .scale-up:hover {
-        transform: scale(1.1);
-        transition: ease-in 0.2s;
-    }
-
-    .scale-up:active {
-        transform: scale(1.1);
-        transition: ease-in 0.2s;
-    }
-
-.glow {
-    box-shadow: none;
-    transition: ease-in 0.2s;
-}
-
-    .glow:hover {
-        box-shadow: 0px 0px 5px 5px rgba(108,218,163, 0.4) !important;
-        transition: ease-in 0.2s !important;
-    }
-
-    .glow:active {
-        box-shadow: 0px 0px 5px 5px rgba(108,218,163, 0.4) !important;
-        transition: ease-in 0.2s !important;
-    }
 
 
 @media (max-width: 768px) {

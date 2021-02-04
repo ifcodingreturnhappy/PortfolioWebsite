@@ -2,8 +2,6 @@
 @using PortfolioWebsite.BlazorUI.Models
 
 @inject IPageEnumerator<WorkArticleMetadataModel> articleEnumerator;
-@inject IJSRuntime JSRuntime;
-@inject IJavascriptViewportAnimator JSAnimator;
 
 
 <h2 class="white-text text-center mb-5 vp-anim-3">Work Showcase</h2>
@@ -13,16 +11,16 @@
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Tags
     </button>
-    <div class="dropdown-menu dropdown-menu-center secondary-background-color">
-        <form class="px-0 py-0 text-center">
+    <div class="dropdown-menu dropdown-menu-center constant-glow px-0 py-0">
+        <form class="text-center white-text">
             @foreach (var tag in availableTags)
             {
-                <div class="form-check">
-                    <input type="checkbox" @bind="tag.IsSelected" id="@($"check{tag.Name}")">
-                    <label class="form-check-label non-selectable" for="@($"check{tag.Name}")">
-                        @(tag.Name)
-                    </label>
-                </div>
+            <div class="py-1 simple-hover" @onclick="() => tag.IsSelected = !tag.IsSelected">
+                <a class="non-selectable">
+                    <span class="@(tag.IsSelected ? checkedCSS : notCheckedCSS) main-color"></span>
+                    @(tag.Name)
+                </a>
+            </div>
             }
         </form>
     </div>
@@ -52,6 +50,9 @@
     List<WorkArticleMetadataModel> workArticlesMetadata;
     private List<ArticleTagModel> availableTags;
 
+    private string checkedCSS = "far fa-check-square";
+    private string notCheckedCSS = "far fa-square";
+
 
     protected async override Task OnParametersSetAsync()
     {
@@ -60,15 +61,6 @@
         workArticlesMetadata = await articleEnumerator.GetFilesMetadata(path);
 
         availableTags = GetAvailableTags();
-    }
-
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await JSAnimator.SetupJavascriptViewportAnimation(JSRuntime);
-        }
     }
 
     private List<ArticleTagModel> GetAvailableTags()

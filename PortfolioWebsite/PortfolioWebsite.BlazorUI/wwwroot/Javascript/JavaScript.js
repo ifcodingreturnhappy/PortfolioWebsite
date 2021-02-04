@@ -5,6 +5,8 @@ let options = {
     threshold: 0.3
 };
 
+let currentId = 0;
+
 function setupViewportAnimations(jsonAnimationSettings) {
     let animationSettings = JSON.parse(jsonAnimationSettings);
 
@@ -21,10 +23,15 @@ function setupViewportAnimations(jsonAnimationSettings) {
     }, options);
 
     animationSettings.forEach(animationType => {
-        let elements = document.querySelectorAll('.' + animationType.animationId); 
+        let elements = document.querySelectorAll('.' + animationType.animationId);
 
         elements.forEach(element => {
-            observer.observe(element);
+            if (element.id.length <= 0) {
+                element.id = ('VPA' + currentId);
+                currentId++;
+
+                observer.observe(element);
+            }
         });
     });
 }
@@ -35,6 +42,8 @@ function observerCallback(entry, cssClass, isRepeatable) {
             entry.target.classList.add(cssClass);
         }
     }
+
+    console.log("Observer callback");
 }
 
 

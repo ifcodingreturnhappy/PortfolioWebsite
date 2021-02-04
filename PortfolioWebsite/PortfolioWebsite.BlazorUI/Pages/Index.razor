@@ -1,10 +1,6 @@
 ﻿@page "/"
 
-@inject IJSRuntime JSRuntime;
-@inject IJavascriptViewportAnimator JSAnimator;
-
-
-<div class="row">
+<div class="row hide-horizontal-scroll">
     <div class="col-1 vp-anim-2">
         <div>
             <h2 class="main-billboard white-text text-left bottom-margin-large">{</h2>
@@ -15,7 +11,7 @@
     </div>
     <div class="col-11 d-flex align-items-center justify-content-center">
         <div>
-            <h1 class="main-billboard main-color text-center vp-anim-1">//Code made with passion.<span class="white-text loop-opacity">_</span></h1>
+            <h1 class="main-billboard main-color text-center vp-anim-2">//Code made with passion.<span class="white-text loop-opacity">_</span></h1>
         </div>
     </div>
 </div>
@@ -37,11 +33,4 @@
 
 @code {
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await JSAnimator.SetupJavascriptViewportAnimation(JSRuntime);
-        }
-    }
 }
