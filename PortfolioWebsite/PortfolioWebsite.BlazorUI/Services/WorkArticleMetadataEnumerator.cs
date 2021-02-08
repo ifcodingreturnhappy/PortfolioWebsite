@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using PortfolioWebsite.BlazorUI.Models;
 
@@ -41,33 +42,53 @@ namespace PortfolioWebsite.BlazorUI.Services
 
                 try
                 {
-                    WorkArticleMetadataModel workArticleMetadata = new WorkArticleMetadataModel();
-
-                    workArticleMetadata.PageRef = GetSubstringBetween(rawMetadata[0], "\"", "\"");
-                    workArticleMetadata.Title = GetSubstringBetween(rawMetadata[1], "\"", "\"");
-                    workArticleMetadata.ImagePath = GetSubstringBetween(rawMetadata[2], "\"", "\"");
-                    workArticleMetadata.Description = GetSubstringBetween(rawMetadata[3], "\"", "\"");
-                    workArticleMetadata.PublishDate = GetSubstringBetween(rawMetadata[4], "\"", "\"");
-                    workArticleMetadata.Tags = GetSubstringBetween(rawMetadata[5], "\"", "\"").Split(",").ToList();
-
+                    WorkArticleMetadataModel workArticleMetadata = ConvertFromRawMetadataToMetadataModel(rawMetadata);
                     workArticlesMetadata.Add(workArticleMetadata);
                 }
                 catch (Exception)
                 {
-
-                    throw new Exception("The metadata is not formated correctly. Excess data found.");
+                    //Do logging
                 }
             }
 
             return workArticlesMetadata;
         }
 
+        private WorkArticleMetadataModel ConvertFromRawMetadataToMetadataModel(string[] rawMetadata)
+        {
+            try
+            {
+                WorkArticleMetadataModel workArticleMetadata = new WorkArticleMetadataModel();
+
+                workArticleMetadata.PageRef = GetSubstringBetween(rawMetadata[0], "\"", "\"");
+                workArticleMetadata.Title = GetSubstringBetween(rawMetadata[1], "\"", "\"");
+                workArticleMetadata.ImagePath = GetSubstringBetween(rawMetadata[2], "\"", "\"");
+                workArticleMetadata.Description = GetSubstringBetween(rawMetadata[3], "\"", "\"");
+                workArticleMetadata.PublishDate = GetSubstringBetween(rawMetadata[4], "\"", "\"");
+                workArticleMetadata.Tags = GetSubstringBetween(rawMetadata[5], "\"", "\"").Split(",").ToList();
+
+                return workArticleMetadata;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
         private string GetSubstringBetween(string mainString, string from, string to)
         {
-            int positionFrom = mainString.IndexOf(from) + from.Length;
-            int positionTo = mainString.LastIndexOf(to);
+            try
+            {
+                int positionFrom = mainString.IndexOf(from) + from.Length;
+                int positionTo = mainString.LastIndexOf(to);
 
-            return mainString.Substring(positionFrom, positionTo - positionFrom);
+                return mainString.Substring(positionFrom, positionTo - positionFrom);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
     }

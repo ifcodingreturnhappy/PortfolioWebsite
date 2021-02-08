@@ -1,18 +1,32 @@
 ﻿
-<div class="floating-button-wrapper">
-    <a class="btn-floating btn-lg btn-flat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-gamepad main-color clickable-3" style="font-size: calc(3vh + 2vw)"></i>
-    </a>
+@inject IJSRuntime JSRuntime;
+@inject IJavascriptViewportAnimator JSAnimator;
 
-    <div class="dropdown-menu secondary-background-color">
-        <!-- Dropdown menu links -->
-        <span class="dropdown-item-text secondary-color">Coming soon:</span>
-        <div class="dropdown-divider"></div>
-        <span class="dropdown-item-text secondary-color" style="min-width:310px">Blazor-powered Browser games!</span>
+<div class="floating-button-wrapper text-center vp-anim-5">
+    <div class="game-menu game-menu-positioning over-background-color @(isGameListVisible ? "game-menu-wipe" : "")">
+        <div class="pl-2 pr-2 pt-2 main-color">
+            <h3 class="white-text">Coming soon:</h3>
+            <p class="stand-out-text">Blazor Browser Games!</p>
+        </div>
+    </div>
+
+    <div>
+        <i class="fas fa-caret-up main-color game-menu-pointer" style="@(isGameListVisible ? "opacity: 1" : "opacity: 0")"></i>
+    </div>
+    <div>
+        <a class="btn-floating btn-lg btn-flat" @onclick="ToggleGameList">
+            <i class="fas fa-gamepad main-color play-button clickable-3"></i>
+        </a>
     </div>
 </div>
 
 
 @code   {
 
+    private bool isGameListVisible = false;
+
+    private void ToggleGameList()
+    {
+        isGameListVisible = !isGameListVisible;
+    }
 }

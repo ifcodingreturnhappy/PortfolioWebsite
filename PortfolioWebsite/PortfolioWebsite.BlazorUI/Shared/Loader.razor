@@ -1,0 +1,34 @@
+﻿<div class="empty-block"></div>
+
+@if (!HasTimedOut)
+{
+    <div class="container-fluid loader"></div>
+}
+else
+{
+    <div class="container-fluid text-center">
+        <p class="text-danger font-weight-bold" style="font-size: 4em"><i class="fas fa-exclamation-circle"></i></p>
+        <p class="text-danger font-weight-bold">Unable to get the article data. Please try again.</p>
+    </div>
+}
+
+
+@code {
+
+    public bool HasTimedOut { get; set; } = false;
+
+    /// <summary>
+    /// Time (in miliseconds) that enables a timeout message on the loader component. 
+    /// </summary>
+    [Parameter]
+    public int TimeOut { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        HasTimedOut = false;
+
+        await Task.Delay(TimeOut);
+
+        HasTimedOut = true;
+    }
+}

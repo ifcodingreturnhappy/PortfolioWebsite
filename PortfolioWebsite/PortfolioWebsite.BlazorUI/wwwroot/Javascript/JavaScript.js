@@ -43,7 +43,7 @@ function observerCallback(entry, cssClass, isRepeatable) {
         }
     }
 
-    console.log("Observer callback");
+    //console.log("Observer callback");
 }
 
 

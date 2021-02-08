@@ -13,10 +13,48 @@ html, body {
     min-height: 100vh
 }
 
+.loader {
+    border: 16px solid RGB(69,69,69);
+    border-top: 16px solid RGB(108,218,163);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: RGB(69,69,69);
+}
+
+::-webkit-scrollbar-thumb {
+    background: RGB(255,255,255);
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+
 .hide-horizontal-scroll {
     max-width: 100%;
     overflow-x: hidden;
 }
+
 
 .empty-block {
     height: 110px;
@@ -28,6 +66,10 @@ html, body {
 
 .secondary-background-color {
     background-color: RGB(108,218,163);
+}
+
+.over-background-color {
+    background-color: rgb(20,20,20);
 }
 
 
@@ -43,16 +85,10 @@ html, body {
         outline: none;
     }
 
+
 @media (max-width: 768px) {
 
-    .wipe-down {
-        height: 100% !important;
-        opacity: 1 !important;
-    }
-
     .fullscreen-menu {
-        height: 0;
-        width: 100%;
         position: fixed;
         z-index: 1;
         top: 48px;
@@ -63,6 +99,16 @@ html, body {
         transition: 0.5s;
     }
 
+    .fullscreen-menu-vertical {
+        height: 0;
+        width: 100%;
+    }
+
+    .wipe-down {
+        height: 100% !important;
+        opacity: 1 !important;
+    }
+
     .fullscreen-menu-content {
         position: relative;
         top: 25%;
@@ -70,15 +116,83 @@ html, body {
         text-align: center;
         margin-top: 30px;
     }
+
+    .navbar-brand{
+        font-size: 1.1em;
+        transition: 0.2s ease-in;
+    }
 }
+
+.floating-button-wrapper {
+    position: fixed;
+    bottom: 30px;
+    transition: ease-in-out 0.5s;
+}
+
+@media (max-width: 768px) {
+    .play-button {
+        font-size: 2em;
+    }
+
+    .game-menu-positioning {
+        bottom: 110px;
+    }
+
+    .game-menu-pointer-positioning {
+        position: fixed;
+        bottom: 60px;
+        left: 30px;
+    }
+}
+@media (min-width: 768px) {
+    .play-button {
+        font-size: 3em;
+    }
+
+    .game-menu-positioning {
+        bottom: 130px;
+    }
+
+    .game-menu-pointer-positioning {
+        position: fixed;
+        bottom: 80px;
+        left: 40px;
+    }
+}
+
+.game-menu {
+    max-height: 0;
+    width: auto;
+    position: fixed;
+    left: 15px;
+    z-index: 1;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.6s ease-in-out;
+}
+
+.game-menu-wipe {
+    opacity: 1;
+    box-shadow: 0px 0px 1px 1px white;
+    max-height: 200px;
+    height: auto;
+    /* This enables scrolling when video games are added to the list
+            overflow-y: scroll;
+
+        */
+}
+
+.game-menu-pointer {
+    font-size: 2em;
+    opacity: 0;
+    text-shadow: 0px 0px 15px black;
+    transition: 0.5s ease-in-out;
+}
+
+
 
 .content {
     padding-top: 1.1rem;
-}
-
-.dropdown-menu {
-    max-height: 200px;
-    overflow-y: auto;
 }
 
 
@@ -102,20 +216,6 @@ html, body {
         box-shadow: none;
     }
 
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-track {
-    background: RGB(69,69,69);
-}
-::-webkit-scrollbar-thumb {
-    background: RGB(255,255,255);
-}
-    ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
 
 /**** TEXT ****/
 .main-color {
@@ -164,31 +264,6 @@ html, body {
 }
 
 
-
-/**** SPECIAL ELEMENTS ****/
-/*
-.floating-button-wrapper {
-    position: fixed;
-    bottom: 30px;
-    transition: ease-in-out 0.5s;
-}
-
-.floating-buttom-element {
-    position: relative;
-    text-align: center;
-}
-
-.floating-button-element-positioning {
-    left: 2vw;
-}
-*/
-.floating-button-wrapper {
-    position: fixed;
-    bottom: 30px;
-    transition: ease-in-out 0.5s;
-}
-
-
 /**** STRUCTURE ****/
 .top-margin-medium {
     margin-top: 10vh;
@@ -202,7 +277,7 @@ html, body {
     margin-bottom: 25vh;
 }
 
-/**** ANIMATED CLASSES ****/
+/**** SPECIAL BUTTONS ****/
 
 .clickable-1 {
     background: url(https://media.giphy.com/media/ToMjGpFdluLyF8C732g/giphy.gif);
@@ -253,6 +328,14 @@ html, body {
         text-shadow: 4px 4px RGBA(108,218,163, 0.5);
         transition: ease-in-out 0.2s;
     }
+
+.center-button {
+    display: block;
+    text-align: center;
+    max-width: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
     /***********/
 
