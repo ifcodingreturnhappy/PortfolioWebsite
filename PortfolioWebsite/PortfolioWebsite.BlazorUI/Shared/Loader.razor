@@ -1,5 +1,4 @@
-﻿<div class="empty-block"></div>
-
+﻿<!--
 @if (!HasTimedOut)
 {
     <div class="container-fluid loader"></div>
@@ -8,27 +7,49 @@ else
 {
     <div class="container-fluid text-center">
         <p class="text-danger font-weight-bold" style="font-size: 4em"><i class="fas fa-exclamation-circle"></i></p>
-        <p class="text-danger font-weight-bold">Unable to get the article data. Please try again.</p>
+        <p class="text-danger font-weight-bold">@TimeOutMessage</p>
     </div>
 }
+-->
+
+<div class="container-fluid loading-circle" style="display: @(hasTimedOut ? "none" : "block")"></div>
+
+<div class="container-fluid text-center" style="display: @(hasTimedOut ? "block" : "none")">
+    <p class="text-danger font-weight-bold" style="font-size: 4em"><i class="fas fa-exclamation-circle"></i></p>
+    <p class="text-danger font-weight-bold">@TimeOutMessage</p>
+</div>
 
 
 @code {
 
-    public bool HasTimedOut { get; set; } = false;
+    private bool hasTimedOut = false;
 
     /// <summary>
-    /// Time (in miliseconds) that enables a timeout message on the loader component. 
+    /// Time (in miliseconds) that enables a timeout message on the loader component.
     /// </summary>
     [Parameter]
-    public int TimeOut { get; set; }
+    public int TimeOut { get; set; } = 0;
+
+    [Parameter]
+    public string TimeOutMessage { get; set; }
+
+    [Parameter]
+    public EventCallback OnTimeOut { get; set; }
+
 
     protected override async Task OnInitializedAsync()
     {
-        HasTimedOut = false;
+        hasTimedOut = false;
 
         await Task.Delay(TimeOut);
 
-        HasTimedOut = true;
+        hasTimedOut = true;
+
+        await OnTimeOut.InvokeAsync(hasTimedOut);
+    }
+
+    public void Reset()
+    {
+        hasTimedOut = false;
     }
 }

@@ -14,6 +14,8 @@ namespace PortfolioWebsite.BlazorUI.Services
         {
             string[] files = GetFiles(path);
 
+            await Task.Delay(2000);
+
             return await GetMetadata(files);
         }
 

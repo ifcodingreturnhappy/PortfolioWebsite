@@ -1,10 +1,7 @@
 ﻿@page "/work"
 @using PortfolioWebsite.BlazorUI.Models
 
-@using System.Diagnostics;
-
 @inject IPageEnumerator<WorkArticleMetadataModel> articleEnumerator;
-
 @inject IJSRuntime JSRuntime;
 @inject IJavascriptViewportAnimator JSAnimator;
 
@@ -52,8 +49,10 @@
 }
 else
 {
-    <Loader TimeOut="8000" @ref="loader"></Loader>
+    <div class="empty-block"></div>
+    <Loader OnTimeOut="() => hasLoaderTimedOut = true" @ref="loader" TimeOut="8000" TimeOutMessage="Unable to get the article data. Please try again."></Loader>
 }
+
 
 
 @code {
@@ -67,14 +66,26 @@ else
     private string notCheckedCSS = "far fa-square";
 
 
-    protected async override Task OnParametersSetAsync()
+    private bool hasLoaderTimedOut = false;
+    private bool isMetadataCollected = false;
+
+
+    private bool CanDrawCards()
+    {
+        return !hasLoaderTimedOut && isMetadataCollected; ;
+    }
+
+
+    protected async override Task OnInitializedAsync()
     {
         string path = "Pages/Articles";
 
         workArticlesMetadata = await articleEnumerator.GetFilesMetadata(path);
+        isMetadataCollected = workArticlesMetadata.Count > 0;
 
         availableTags = GetAvailableTags();
     }
+
 
     //This will allow to add the vp-anims, once when async data call is finished
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -95,10 +106,5 @@ else
         }
 
         return availableTags.Distinct().Select(x => new ArticleTagModel { IsSelected = true, Name = x }).ToList();
-    }
-
-    private bool CanDrawCards()
-    {
-        return workArticlesMetadata.Count > 0 && !loader.HasTimedOut;
     }
 }

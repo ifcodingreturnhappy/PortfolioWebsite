@@ -1,0 +1,79 @@
+﻿@using Models;
+
+<div class="m-1 p-3 main-background-color main-color vp-anim-4">
+    <div class="text-center mb-4 vp-anim-4">
+        <i class="fas fa-envelope main-color" style="font-size: 3em"></i>
+    </div>
+
+    <EditForm Model="@form" OnValidSubmit="@SendForm">
+        <DataAnnotationsValidator />
+
+        <div class="row mb-3">
+            <div class="col-6">
+                <label for="firstNameBox">First Name</label>
+                <input type="text" class="form-control" id="firstNameBox" placeholder="First name" @bind="form.FirstName">
+                <ValidationMessage For="() => form.FirstName"></ValidationMessage>
+            </div>
+            <div class="col-6">
+                <label for="lastNameBox">Last Name</label>
+                <input type="text" class="form-control" id="lastNameBox" placeholder="Last name" @bind="form.LastName">
+                <ValidationMessage For="() => form.LastName"></ValidationMessage>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="emailBox">Email address</label>
+            <input type="text" class="form-control" id="emailBox" placeholder="Enter email"
+                   @bind="form.Email">
+            <ValidationMessage For="() => form.Email"></ValidationMessage>
+        </div>
+        <div class="form-group">
+            <label for="subjectBox">Subject</label>
+            <input type="text" class="form-control" id="subjectBox" placeholder="Enter subject" @bind="form.Subject">
+            <ValidationMessage For="() => form.Subject"></ValidationMessage>
+        </div>
+        <div class="form-group mb-5">
+            <label for="messageBox">Message</label>
+            <textarea class="form-control" id="messageBox" placeholder="Enter your message (max 2000 characters)" @bind="form.Message"></textarea>
+            <ValidationMessage For="() => form.Message"></ValidationMessage>
+        </div>
+
+        @if (isSendingForm)
+        {
+            <div class="d-flex justify-content-center mb-4">
+                <div class="loading-circle"></div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button disabled type="submit" class="btn main-button" style="min-width: 100px">
+                    Sending
+                </button>
+            </div>
+        }
+        else
+        {
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn main-button" style="min-width: 100px">Send</button>
+            </div>
+        }
+    </EditForm>
+</div>
+
+
+@code {
+
+    private ContactMeFormModel form = new ContactMeFormModel();
+
+    private bool isSendingForm = false;
+
+
+    private async Task SendForm()
+    {
+        isSendingForm = true;
+
+        // await sender.send()
+        await Task.Delay(2000);
+
+        isSendingForm = false;
+    }
+
+}
