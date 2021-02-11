@@ -340,7 +340,7 @@ html, body {
     .clickable-2:hover {
         color: white;
         text-shadow: 4px 4px RGBA(108,218,163, 0.5);
-        transform: translateY(-6%);
+        transform: scale(1.05);
         transition: ease-in-out 0.4s;
     }
 
