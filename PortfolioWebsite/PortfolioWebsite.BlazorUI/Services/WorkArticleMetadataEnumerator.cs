@@ -10,13 +10,24 @@ namespace PortfolioWebsite.BlazorUI.Services
 {
     public class WorkArticleMetadataEnumerator : IPageEnumerator<WorkArticleMetadataModel>
     {
+        private CancellationTokenSource tokenSource;
+        private Task<List<WorkArticleMetadataModel>> currentDataFetch;
         public async Task<List<WorkArticleMetadataModel>> GetFilesMetadata(string path)
         {
             string[] files = GetFiles(path);
 
-            await Task.Delay(2000);
+            //await Task.Delay(2000, ct);
+            if(currentDataFetch != null)
+            {
+                tokenSource.Cancel();
+            }
+            
+            tokenSource = new CancellationTokenSource();
 
-            return await GetMetadata(files);
+            // Task.Delay(2000, tokenSource.Token);
+            currentDataFetch = GetMetadata(files, tokenSource.Token);
+
+            return await currentDataFetch;
         }
 
         private string[] GetFiles(string path)
@@ -32,13 +43,15 @@ namespace PortfolioWebsite.BlazorUI.Services
         }
 
 
-        private async Task<List<WorkArticleMetadataModel>> GetMetadata(string[] files)
+        private async Task<List<WorkArticleMetadataModel>> GetMetadata(string[] files, CancellationToken ct)
         {
+            await Task.Delay(500, ct);
+
             List<WorkArticleMetadataModel> workArticlesMetadata = new List<WorkArticleMetadataModel>();
 
             foreach (var file in files)
             {
-                string[] fileContent = await File.ReadAllLinesAsync(file);
+                string[] fileContent = await File.ReadAllLinesAsync(file, ct);
 
                 var rawMetadata = fileContent.Where(x => x.Contains("_display") || x.Contains("@page")).ToArray();
 
@@ -53,6 +66,8 @@ namespace PortfolioWebsite.BlazorUI.Services
                 }
             }
 
+            workArticlesMetadata.OrderByDescending(x => x.PublishDate).ToList();
+
             return workArticlesMetadata;
         }
 
@@ -66,7 +81,7 @@ namespace PortfolioWebsite.BlazorUI.Services
                 workArticleMetadata.Title = GetSubstringBetween(rawMetadata[1], "\"", "\"");
                 workArticleMetadata.ImagePath = GetSubstringBetween(rawMetadata[2], "\"", "\"");
                 workArticleMetadata.Description = GetSubstringBetween(rawMetadata[3], "\"", "\"");
-                workArticleMetadata.PublishDate = GetSubstringBetween(rawMetadata[4], "\"", "\"");
+                workArticleMetadata.PublishDate = Convert.ToDateTime(GetSubstringBetween(rawMetadata[4], "\"", "\""));
                 workArticleMetadata.Tags = GetSubstringBetween(rawMetadata[5], "\"", "\"").Split(",").ToList();
 
                 return workArticleMetadata;
