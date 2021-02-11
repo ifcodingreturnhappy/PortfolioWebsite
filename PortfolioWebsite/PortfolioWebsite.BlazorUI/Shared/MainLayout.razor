@@ -2,6 +2,7 @@
 
 @inject IJSRuntime JSRuntime;
 @inject IJavascriptViewportAnimator JSAnimator;
+@inject IConfiguration config;
 
 <body class="main-background-color m-0 p-0">
     <NavMenu />
@@ -16,15 +17,19 @@
 <footer class="secondary-background-color pt-5 pb-5">
     <div class="secondary-color vp-anim-3">
         <p class="text-center">Visit the YouTube channel:</p>
-        <a class="center-button" href="https://www.youtube.com/channel/UCLVl164JV2ME7ZgzqsPk9NA"
+        <a class="center-button" href="@config["youtubeLink"]"
            target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-youtube  main-icon-animation secondary-color" style="font-size: 1.8em"></i>
         </a>
     </div>
 </footer>
 
-@code{
-
+@code{        
+    
+    protected override Task OnParametersSetAsync()
+    {
+        return base.OnParametersSetAsync();
+    }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
