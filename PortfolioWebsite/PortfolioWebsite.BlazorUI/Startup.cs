@@ -10,8 +10,7 @@ using PortfolioWebsite.BlazorUI.Models;
 using PortfolioWebsite.BlazorUI.Services;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace PortfolioWebsite.BlazorUI
 {
@@ -34,6 +33,13 @@ namespace PortfolioWebsite.BlazorUI
             services.AddSingleton<INavigationController, NavigationController>();
             services.AddSingleton<IJavascriptViewportAnimator, JavascriptViewportAnimator>();
             services.AddSingleton<IPageEnumerator<WorkArticleMetadataModel>, WorkArticleMetadataEnumerator>();
+
+            services.AddSingleton<IConfiguration>(provider => new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .AddJsonFile("secrets.json", true)
+                .Build()
+            );
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
