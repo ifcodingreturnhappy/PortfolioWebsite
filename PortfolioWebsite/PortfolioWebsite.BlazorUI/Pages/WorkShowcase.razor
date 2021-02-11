@@ -5,6 +5,7 @@
 @inject IJSRuntime JSRuntime;
 @inject IJavascriptViewportAnimator JSAnimator;
 
+
 <h2 class="white-text text-center mb-5 vp-anim-3">Work Showcase</h2>
 
 @if (CanDrawCards())
@@ -50,7 +51,7 @@
 else
 {
     <div class="empty-block"></div>
-    <Loader OnTimeOut="() => hasLoaderTimedOut = true" @ref="loader" TimeOut="8000" TimeOutMessage="Unable to get the article data. Please try again."></Loader>
+    <Loader @ref="loader" TimeOut="8000" TimeOutMessage="Unable to get the article data. Please try again."></Loader>
 }
 
 
@@ -65,23 +66,23 @@ else
     private string checkedCSS = "far fa-check-square";
     private string notCheckedCSS = "far fa-square";
 
-
-    private bool hasLoaderTimedOut = false;
-    private bool isMetadataCollected = false;
-
-
     private bool CanDrawCards()
     {
-        return !hasLoaderTimedOut && isMetadataCollected; ;
-    }
+        bool canDrawCards = workArticlesMetadata.Count > 0 && !loader.HasTimedOut;
 
+        if(canDrawCards)
+        {
+            loader.StopTimeOut();
+        }
+
+        return canDrawCards;
+    }
 
     protected async override Task OnInitializedAsync()
     {
         string path = "Pages/Articles";
 
         workArticlesMetadata = await articleEnumerator.GetFilesMetadata(path);
-        isMetadataCollected = workArticlesMetadata.Count > 0;
 
         availableTags = GetAvailableTags();
     }
