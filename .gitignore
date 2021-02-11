@@ -349,4 +349,4 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-/PortfolioWebsite/PortfolioWebsite.BlazorUI/Secrets.json
+/PortfolioWebsite/PortfolioWebsite.BlazorUI/secrets.json
