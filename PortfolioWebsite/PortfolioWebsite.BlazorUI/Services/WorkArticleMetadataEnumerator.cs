@@ -66,7 +66,7 @@ namespace PortfolioWebsite.BlazorUI.Services
                 }
             }
 
-            workArticlesMetadata.OrderByDescending(x => x.PublishDate).ToList();
+            workArticlesMetadata = workArticlesMetadata.OrderByDescending(x => x.PublishDate).ToList();
 
             return workArticlesMetadata;
         }

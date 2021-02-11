@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PortfolioWebsite.BlazorUI.Data;
 using PortfolioWebsite.BlazorUI.Models;
 using PortfolioWebsite.BlazorUI.Services;
 using System;
@@ -29,7 +28,6 @@ namespace PortfolioWebsite.BlazorUI
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
             services.AddSingleton<INavigationController, NavigationController>();
             services.AddSingleton<IJavascriptViewportAnimator, JavascriptViewportAnimator>();
             services.AddSingleton<IPageEnumerator<WorkArticleMetadataModel>, WorkArticleMetadataEnumerator>();
