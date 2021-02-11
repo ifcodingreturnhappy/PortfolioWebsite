@@ -32,7 +32,35 @@ html, body {
     }
 }
 
+@media (min-width: 768px) {
+    .padded-text {
+        padding-left: 32%;
+        padding-right: 32%;
+    }
+}
+@media (max-width: 768px) {
+    .padded-text {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
 
+.iframe-Container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* Mantain 16:9 Aspect Ratio */
+}
+
+.iframe-responsive {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
 
 
 /* Custom Scrollbar */
@@ -290,17 +318,16 @@ html, body {
     background-size: cover;
     background-position: center;
     -webkit-background-clip: text;
-    color: RGB(108,218,163);
     transition: ease-in-out 0.2s;
 }
 
     .clickable-1:hover {
-        color: transparent;
+        color: transparent !important;
         transition: ease-in-out 0.2s;
     }
 
     .clickable-1:active {
-        color: transparent;
+        color: transparent !important;
         transition: ease-in-out 0.2s;
     }
 
@@ -402,6 +429,7 @@ html, body {
     }
 }
 
+
 .loop-opacity {
     opacity: 0;
     animation: FadeInAndOut 1s infinite;
@@ -476,6 +504,8 @@ html, body {
     }
 
 }
+
+
 
 
     /**** BLAZOR ERRORS ****/
