@@ -1,4 +1,6 @@
-﻿<!--
+﻿@using System.Threading;
+
+<!--
 @if (!HasTimedOut)
 {
     <div class="container-fluid loader"></div>
@@ -12,9 +14,9 @@ else
 }
 -->
 
-<div class="container-fluid loading-circle" style="display: @(hasTimedOut ? "none" : "block")"></div>
+<div class="container-fluid loading-circle" style="display: @(HasTimedOut ? "none" : "block")"></div>
 
-<div class="container-fluid text-center" style="display: @(hasTimedOut ? "block" : "none")">
+<div class="container-fluid text-center" style="display: @(HasTimedOut ? "block" : "none")">
     <p class="text-danger font-weight-bold" style="font-size: 4em"><i class="fas fa-exclamation-circle"></i></p>
     <p class="text-danger font-weight-bold">@TimeOutMessage</p>
 </div>
@@ -22,7 +24,7 @@ else
 
 @code {
 
-    private bool hasTimedOut = false;
+    public bool HasTimedOut { get; set; } = false;
 
     /// <summary>
     /// Time (in miliseconds) that enables a timeout message on the loader component.
@@ -36,20 +38,26 @@ else
     [Parameter]
     public EventCallback OnTimeOut { get; set; }
 
+    private Task timeoutCounterTask;
+    private CancellationTokenSource tokenSource;
 
     protected override async Task OnInitializedAsync()
     {
-        hasTimedOut = false;
+        HasTimedOut = false;
 
-        await Task.Delay(TimeOut);
+        tokenSource = new CancellationTokenSource();
+        timeoutCounterTask = Task.Delay(TimeOut, tokenSource.Token);
+        await timeoutCounterTask;
 
-        hasTimedOut = true;
-
-        await OnTimeOut.InvokeAsync(hasTimedOut);
+        if(!timeoutCounterTask.IsCanceled)
+        {
+            HasTimedOut = true;
+            await OnTimeOut.InvokeAsync(HasTimedOut);
+        }
     }
 
-    public void Reset()
+    public void StopTimeOut()
     {
-        hasTimedOut = false;
+        tokenSource.Cancel();
     }
 }

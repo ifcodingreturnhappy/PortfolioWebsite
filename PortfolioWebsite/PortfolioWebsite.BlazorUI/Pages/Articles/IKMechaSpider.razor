@@ -1,0 +1,60 @@
+﻿@page "/work/ikmechaspider"
+
+<h2 class="text-center white-text mb-5 vp-anim-3">IK Mecha Spider</h2>
+
+<div class="main-color text-center padded-text vp-anim-5">
+    <p>
+        The idea to create this project came from one of my favorite games from my childhood: Ratchet Deadlocked.
+        In it, you could pilot an amazing Spider Robot that felt great.
+        It’s flaw was that it was unable to walk on walls, only on regular ground.
+        That’s what I wanted to accomplish with this project:
+        a spider that was able to walk on almost any given surface.
+    </p>
+</div>
+
+<div class="empty-block"></div>
+
+
+<div class="row vp-anim-5">
+    <div class="col-md-6 mb-5">
+        <div class="iframe-Container">
+            <img class="iframe-responsive" src="@GetPicture(0)" alt="IK Mecha Render" />
+        </div>
+    </div>
+    <div class="col-md-6 mb-5 main-color">
+        <h2>
+            Overview
+        </h2>
+        <p>
+            This robotic spider is capable of many things (including mass destruction of virtual worlds).
+            <br /><br />
+            One of its key features is the ability to walking on different kinds of surfaces, even on ceilings!
+            <br /><br />
+            It also has some secondary features,
+            like a simple but cool weapon system and a collision detection mechanism,
+            that activates an energy shield when colliding with certain types of objects.
+        </p>
+    </div>
+</div>
+
+
+@code {
+    readonly string _displayTitle = "IK Mecha Spider";
+    readonly string _displayImage = "Images/IKMecha/IKMechaIcon.png";
+    readonly string _displayDescription = "A Procedurally Animated Robot Spider";
+    readonly string _displayPublishDate = "20/11/2020";
+    readonly string _displayTags = "Procedural Animation, C#, Unity, Blender";
+
+
+    private string articlePicturesBasePath = "Images/IKMecha/";
+    private string[] articlePicturesNames = new string[]
+    {
+        "IKMechaRender.png",
+        ""
+    };
+
+    private string GetPicture(int index)
+    {
+        return $"{articlePicturesBasePath}{articlePicturesNames[index]}";
+    }
+}
