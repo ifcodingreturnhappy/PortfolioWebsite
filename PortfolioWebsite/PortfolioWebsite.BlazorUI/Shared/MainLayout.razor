@@ -25,7 +25,7 @@
 </footer>
 
 @code{        
-    
+
     protected override Task OnParametersSetAsync()
     {
         return base.OnParametersSetAsync();
@@ -34,6 +34,8 @@
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await JSAnimator.SetupJavascriptViewportAnimation(JSRuntime);
+
+        await JSRuntime.InvokeVoidAsync("updateCurrentPageIndicator");
     }
 
 }

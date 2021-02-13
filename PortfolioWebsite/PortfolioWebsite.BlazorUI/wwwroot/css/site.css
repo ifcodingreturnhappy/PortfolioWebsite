@@ -475,8 +475,8 @@ html, body {
         .selectable-item:after {
             content: '';
             position: absolute;
-            width: 30%;
-            left: 35%;
+            width: 25%;
+            left: 37.5%;
             height: 3px;
             display: block;
             margin-top: 1px;
