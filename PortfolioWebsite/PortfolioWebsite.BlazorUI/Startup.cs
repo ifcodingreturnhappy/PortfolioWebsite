@@ -34,7 +34,7 @@ namespace PortfolioWebsite.BlazorUI
 
             services.AddSingleton<IConfiguration>(provider => new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
-                .AddJsonFile("secrets.json", true)
+                .AddJsonFile("info.json", true)
                 .Build()
             );
 
