@@ -16,7 +16,7 @@
             Tags
         </button>
         <div class="dropdown-menu dropdown-menu-center constant-glow px-0 py-0">
-            <form class="text-center white-text">
+            <form class="text-left px-2 py-1 white-text">
                 @foreach (var tag in availableTags)
                 {
                     <div class="py-1 simple-hover" @onclick="() => tag.IsSelected = !tag.IsSelected">
