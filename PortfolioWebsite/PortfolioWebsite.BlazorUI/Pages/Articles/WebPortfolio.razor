@@ -1,0 +1,135 @@
+﻿@page "/work/portfolio"
+
+<div class="hide-horizontal-scroll">
+    <h2 class="text-center white-text mb-5 vp-anim-3">Portfolio Website</h2>
+
+    <div class="main-color text-center padded-text vp-anim-5">
+        <p>
+            I used to use a third-party website builder for my portfolio website, but with time,
+            I noticed that the <span class="stand-out-text">amount of control</span> I had on the design was not ideal.
+            <br /><br />
+            So, I got to work and built this new version of my portfolio website, using a new,
+            interesting technology: <span class="stand-out-text">Blazor</span>.
+        </p>
+    </div>
+
+    <div class="empty-block"></div>
+
+    <div class="row px-4 vp-anim-2">
+        <div class="col-md-6 mb-5">
+            <div class="media-Container">
+                <img class="media-responsive" src="@GetPicture(0)" alt="Blazor" />
+            </div>
+        </div>
+        <div class="col-md-6 mb-5 main-color text-md-left">
+            <h2 class="mb-5">
+                <span class="stand-out-text">What is Blazor?</span>
+            </h2>
+            <p class="mb-5">
+                Blazor is a new way to develop web applications, based on the already existing .NET ecosystem.
+                It can run either on a web server (<span class="stand-out-text">Blazor Server</span>)
+                or on the client, via web-assembly (<span class="stand-out-text">Blazor Web Assembly</span>).
+                <br /><br />
+                One of the greatest features of this tool is that one can build a rich web application
+                with <span class="stand-out-text">minimal to no JavaScript</span>:
+                almost all (<span class="stand-out-text">if not all!</span>) logic can be done with <span class="stand-out-text">C#</span>.
+                <br /><br />
+                And with this incredible technology,
+                I was able to bring this website to <span class="stand-out-text">life</span>.
+            </p>
+        </div>
+    </div>
+
+    <div class="empty-block"></div>
+
+    <div class="row px-4 vp-anim-1">
+        <div class="col-md-6 order-md-last mb-5">
+            <div class="media-Container">
+                <img class="media-responsive" src="@GetPicture(1)" alt="Project" />
+            </div>
+        </div>
+        <div class="col-md-6 mb-5 main-color text-md-left">
+            <h2 class="mb-5">
+                <span class="stand-out-text">Portfolio Content</span>
+            </h2>
+            <p class="mb-3">
+                This website is where I <span class="stand-out-text">show my work and the projects I build</span>,
+                in the form of <span class="stand-out-text">showcases</span> that exhibit a given project.
+            </p>
+            <p class="mb-5">
+                Learning and become better at programming is one of my biggest goals, but
+                I try to never forget what brought me to coding in the first place:
+                <span class="stand-out-text">having fun</span>.
+                And with that in mind, I want <span class="stand-out-text">you</span>,
+                the visitor of my portfolio, to <span class="stand-out-text">have fun</span> as well.
+                <br />
+                Currently, <span class="stand-out-text">displaying my work</span> is the only function of this website, but, in the future,
+                this <span class="stand-out-text">is going to change</span>.
+                <br /><br />
+                See the section below, about the <span class="stand-out-text">future of this website</span>, to learn more!
+                <br /><br /><br />
+                <span class="stand-out-text">Note:</span> This project, along with all my noncomercial projects,
+                will have their respective <span class="stand-out-text">source code available on GitHub!</span>
+            </p>
+            <div class="text-center">
+                <a class="btn main-button" href="@githubRepositoryLink" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github secondary-color"></i> View Code
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="empty-block"></div>
+
+    <div class="row px-4 vp-anim-2">
+        <div class="col-md-6 mb-5">
+            <div class="media-Container">
+                <img class="media-responsive" src="@GetPicture(2)" alt="Game Room" />
+
+                <img class="media-overlay-text"
+                     style="width: 30%"
+                     src="https://media.giphy.com/media/A8NkSPltT13H2/giphy.gif"
+                     alt="Loading..." />
+            </div>
+        </div>
+        <div class="col-md-6 mb-5 main-color text-md-left">
+            <h2 class="mb-5">
+                <span class="stand-out-text">What's coming next?</span>
+            </h2>
+            <p>
+                If you didn't notice, at the bottom-left corner, there is a
+                <span class="stand-out-text">floating button with the shape of a gamepad</span>.
+                This is the next step for this website: <span class="stand-out-text">a Game Room</span>.
+                <br /><br />
+                In the future, this button will enable you to play many classics, such as Asteroids,
+                <span class="stand-out-text">remade with Blazor</span>.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    readonly string _displayTitle = "Portfolio Website";
+    readonly string _displayImage = "Images/PortfolioWebsite/PortfolioIcon.png";
+    readonly string _displayDescription = "A Personal Work Portfolio Website";
+    readonly string _displayPublishDate = "13/02/2021";
+    readonly string _displayTags = "Web,Blazor Server,C#,JavaScript,CSS";
+
+    private string githubRepositoryLink = "https://github.com/ifcodingreturnhappy/PortfolioWebsite";
+
+    private string articlePicturesBasePath = "Images/PortfolioWebsite/";
+    private string[] articlePicturesNames = new string[]
+    {
+        "BlazorIcon.png",
+        "BrandShowcase.png",
+        "GamesTeaser.png"
+        };
+
+    private string GetPicture(int index)
+    {
+        return $"{articlePicturesBasePath}{articlePicturesNames[index]}";
+    }
+}
+
+

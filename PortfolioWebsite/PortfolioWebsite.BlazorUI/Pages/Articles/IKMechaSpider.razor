@@ -1,39 +1,57 @@
 ﻿@page "/work/ikmechaspider"
 
-<h2 class="text-center white-text mb-5 vp-anim-3">IK Mecha Spider</h2>
+<div class="hide-horizontal-scroll">
+    <h2 class="text-center white-text mb-5 vp-anim-3">IK Mecha Spider</h2>
 
-<div class="main-color text-center padded-text vp-anim-5">
-    <p>
-        The idea to create this project came from one of my favorite games from my childhood: Ratchet Deadlocked.
-        In it, you could pilot an amazing Spider Robot that felt great.
-        It’s flaw was that it was unable to walk on walls, only on regular ground.
-        That’s what I wanted to accomplish with this project:
-        a spider that was able to walk on almost any given surface.
-    </p>
-</div>
-
-<div class="empty-block"></div>
-
-
-<div class="row vp-anim-5">
-    <div class="col-md-6 mb-5">
-        <div class="iframe-Container">
-            <img class="iframe-responsive" src="@GetPicture(0)" alt="IK Mecha Render" />
-        </div>
-    </div>
-    <div class="col-md-6 mb-5 main-color">
-        <h2>
-            Overview
-        </h2>
+    <div class="main-color text-center padded-text vp-anim-5">
         <p>
-            This robotic spider is capable of many things (including mass destruction of virtual worlds).
-            <br /><br />
-            One of its key features is the ability to walking on different kinds of surfaces, even on ceilings!
-            <br /><br />
-            It also has some secondary features,
-            like a simple but cool weapon system and a collision detection mechanism,
-            that activates an energy shield when colliding with certain types of objects.
+            The idea to create this project came from one of my favorite games from my childhood:
+            <span class="stand-out-text">Ratchet Deadlocked</span>.
+            In it, you could pilot an amazing Spider Robot that was really responsive.
+            It’s flaw was that it was unable to walk on walls, only on regular ground.
+            That’s what I wanted to accomplish with this project:
+            a spider that was able to walk on almost <span class="stand-out-text">any given surface</span>.
         </p>
+    </div>
+
+    <div class="empty-block"></div>
+
+
+    <div class="row px-4 vp-anim-2">
+        <div class="col-md-6 mb-5">
+            <div class="media-Container">
+                <img class="media-responsive" src="@GetPicture(0)" alt="IK Mecha Render" />
+            </div>
+        </div>
+        <div class="col-md-6 mb-5 main-color">
+            <h2 class="mb-4">
+                <span class="stand-out-text">Overview</span>
+            </h2>
+            <p class="mb-5">
+                This robotic spider is capable of many things (including mass destruction of virtual worlds).
+                <br /><br />
+                One of its key features is the ability to walk on different kinds of surfaces, even on ceilings!
+                Its greatest feature lies on its animation: it is not pre-baked, it uses
+                <span class="stand-out-text">procedurally generated animation</span>,
+                calculated at runtime.
+                This enables each leg to <span class="stand-out-text">adapt</span>, individually,
+                to the surface it is currently on!
+                <br /><br />
+                It also has some secondary features,
+                like a simple but cool <span class="stand-out-text">weapon system</span> and a
+                <span class="stand-out-text">collision detection mechanism</span>,
+                that activates an energy shield when colliding with certain types of objects.
+            </p>
+            <div class="text-center">
+                <a class="btn main-button mr-4" href="@showcaseVideoLink" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube secondary-color"></i> Showcase
+                </a>
+
+                <a class="btn main-button" href="@purchaseLink" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-unity secondary-color"></i> Purchase
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -43,14 +61,15 @@
     readonly string _displayImage = "Images/IKMecha/IKMechaIcon.png";
     readonly string _displayDescription = "A Procedurally Animated Robot Spider";
     readonly string _displayPublishDate = "20/11/2020";
-    readonly string _displayTags = "Procedural Animation, C#, Unity, Blender";
+    readonly string _displayTags = "Procedural Animation,C#,Unity,Blender";
 
+    private string showcaseVideoLink = "https://youtu.be/9QNpkB4GmKI";
+    private string purchaseLink = "https://assetstore.unity.com/packages/3d/characters/robots/ik-mecha-spider-183484";
 
     private string articlePicturesBasePath = "Images/IKMecha/";
     private string[] articlePicturesNames = new string[]
     {
         "IKMechaRender.png",
-        ""
     };
 
     private string GetPicture(int index)
