@@ -1,10 +1,10 @@
 ﻿@page "/work"
 @using PortfolioWebsite.BlazorUI.Models
 
-@inject IPageEnumerator<WorkArticleMetadataModel> articleEnumerator;
-@inject IJSRuntime JSRuntime;
-@inject IJavascriptViewportAnimator JSAnimator;
-
+@inject IPageEnumerator<WorkArticleMetadataModel> articleEnumerator
+@inject IJSRuntime JSRuntime
+@inject IJavascriptViewportAnimator JSAnimator
+@inject IWebHostEnvironment _env
 
 <h2 class="white-text text-center mb-5 vp-anim-3">Work Showcase</h2>
 
@@ -70,7 +70,7 @@ else
     {
         bool canDrawCards = workArticlesMetadata.Count > 0 && !loader.HasTimedOut;
 
-        if(canDrawCards)
+        if (canDrawCards)
         {
             loader.StopTimeOut();
         }
@@ -80,9 +80,10 @@ else
 
     protected async override Task OnInitializedAsync()
     {
-        string path = "Pages/Articles";
+        string path = $"{_env.WebRootPath}/ArticleMetadata";
 
         workArticlesMetadata = await articleEnumerator.GetFilesMetadata(path);
+        workArticlesMetadata = workArticlesMetadata.OrderByDescending(x => x.PublishDate).ToList();
 
         availableTags = GetAvailableTags();
     }

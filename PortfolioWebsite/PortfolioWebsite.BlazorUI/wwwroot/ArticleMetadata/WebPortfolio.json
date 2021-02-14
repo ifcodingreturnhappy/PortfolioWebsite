@@ -1,0 +1,8 @@
+{
+    "Title": "Portfolio Website",
+    "ImagePath": "Images/PortfolioWebsite/PortfolioIcon.png",
+    "Description": "A Personal Work Portfolio Website",
+    "PageRef": "/work/portfolio",
+    "PublishDate": "13/02/2021",
+    "Tags": [ "Web", "Blazor Server", "C#", "JavaScript", "CSS" ]
+}

@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using PortfolioWebsite.BlazorUI.Models;
 
 namespace PortfolioWebsite.BlazorUI.Services
@@ -14,23 +16,20 @@ namespace PortfolioWebsite.BlazorUI.Services
         private Task<List<WorkArticleMetadataModel>> currentDataFetch;
         public async Task<List<WorkArticleMetadataModel>> GetFilesMetadata(string path)
         {
-            string[] files = GetFiles(path);
+            string[] metadataFiles = GetAllFiles(path);
 
-            //await Task.Delay(2000, ct);
             if(currentDataFetch != null)
             {
                 tokenSource.Cancel();
             }
             
             tokenSource = new CancellationTokenSource();
-
-            // Task.Delay(2000, tokenSource.Token);
-            currentDataFetch = GetMetadata(files, tokenSource.Token);
+            currentDataFetch = ReadMetadata(metadataFiles, tokenSource.Token);
 
             return await currentDataFetch;
         }
 
-        private string[] GetFiles(string path)
+        private string[] GetAllFiles(string path)
         {
             try
             {
@@ -42,8 +41,7 @@ namespace PortfolioWebsite.BlazorUI.Services
             }
         }
 
-
-        private async Task<List<WorkArticleMetadataModel>> GetMetadata(string[] files, CancellationToken ct)
+        private async Task<List<WorkArticleMetadataModel>> ReadMetadata(string[] files, CancellationToken ct)
         {
             await Task.Delay(500, ct);
 
@@ -51,62 +49,22 @@ namespace PortfolioWebsite.BlazorUI.Services
 
             foreach (var file in files)
             {
-                string[] fileContent = await File.ReadAllLinesAsync(file, ct);
-
-                var rawMetadata = fileContent.Where(x => x.Contains("_display") || x.Contains("@page")).ToArray();
+                string json = await File.ReadAllTextAsync(file, ct);
 
                 try
                 {
-                    WorkArticleMetadataModel workArticleMetadata = ConvertFromRawMetadataToMetadataModel(rawMetadata);
-                    workArticlesMetadata.Add(workArticleMetadata);
+                    var articleMetadata = JsonConvert.DeserializeObject<WorkArticleMetadataModel>(json,
+                        new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+
+                    workArticlesMetadata.Add(articleMetadata);
                 }
                 catch (Exception)
                 {
-                    //Do logging
+                    workArticlesMetadata.Add(new WorkArticleMetadataModel { Title = "_FAILED_DATA_READ" });
                 }
             }
 
-            workArticlesMetadata = workArticlesMetadata.OrderByDescending(x => x.PublishDate).ToList();
-
             return workArticlesMetadata;
         }
-
-        private WorkArticleMetadataModel ConvertFromRawMetadataToMetadataModel(string[] rawMetadata)
-        {
-            try
-            {
-                WorkArticleMetadataModel workArticleMetadata = new WorkArticleMetadataModel();
-
-                workArticleMetadata.PageRef = GetSubstringBetween(rawMetadata[0], "\"", "\"");
-                workArticleMetadata.Title = GetSubstringBetween(rawMetadata[1], "\"", "\"");
-                workArticleMetadata.ImagePath = GetSubstringBetween(rawMetadata[2], "\"", "\"");
-                workArticleMetadata.Description = GetSubstringBetween(rawMetadata[3], "\"", "\"");
-                workArticleMetadata.PublishDate = Convert.ToDateTime(GetSubstringBetween(rawMetadata[4], "\"", "\""));
-                workArticleMetadata.Tags = GetSubstringBetween(rawMetadata[5], "\"", "\"").Split(",").ToList();
-
-                return workArticleMetadata;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-
-        private string GetSubstringBetween(string mainString, string from, string to)
-        {
-            try
-            {
-                int positionFrom = mainString.IndexOf(from) + from.Length;
-                int positionTo = mainString.LastIndexOf(to);
-
-                return mainString.Substring(positionFrom, positionTo - positionFrom);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
     }
 }

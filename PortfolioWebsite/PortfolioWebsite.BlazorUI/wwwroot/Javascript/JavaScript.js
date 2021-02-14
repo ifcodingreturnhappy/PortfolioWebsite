@@ -8,32 +8,36 @@ let options = {
 let currentId = 0;
 
 function setupViewportAnimations(jsonAnimationSettings) {
-    let animationSettings = JSON.parse(jsonAnimationSettings);
+    try {
+        let animationSettings = JSON.parse(jsonAnimationSettings);
 
-    let observer = new IntersectionObserver(function
-        (entries, self) {
+        let observer = new IntersectionObserver(function
+            (entries, self) {
 
-        entries.forEach(entry => {
-            animationSettings.forEach(animationType => {
-                if (entry.target.classList.contains(animationType.animationId)) {
-                    observerCallback(entry, animationType.animationCSS);
+            entries.forEach(entry => {
+                animationSettings.forEach(animationType => {
+                    if (entry.target.classList.contains(animationType.animationId)) {
+                        observerCallback(entry, animationType.animationCSS);
+                    }
+                });
+            });
+        }, options);
+
+        animationSettings.forEach(animationType => {
+            let elements = document.querySelectorAll('.' + animationType.animationId);
+
+            elements.forEach(element => {
+                if (element.id.length <= 0) {
+                    element.id = ('VPA' + currentId);
+                    currentId++;
+
+                    observer.observe(element);
                 }
             });
         });
-    }, options);
-
-    animationSettings.forEach(animationType => {
-        let elements = document.querySelectorAll('.' + animationType.animationId);
-
-        elements.forEach(element => {
-            if (element.id.length <= 0) {
-                element.id = ('VPA' + currentId);
-                currentId++;
-
-                observer.observe(element);
-            }
-        });
-    });
+    } catch (e) {
+        console.log("Unable to set viewport animation.")
+    }
 }
 
 function observerCallback(entry, cssClass, isRepeatable) {
@@ -62,8 +66,6 @@ function updateCurrentPageIndicator() {
             navLink.classList.remove('selected-element');
         }
     });
-
-    console.log('updating apge indicator');
 }
 
 function logMessage(message) {

@@ -1,5 +1,7 @@
 ﻿@page "/work/ikmechaspider"
 
+@inject IWebHostEnvironment _env
+
 <div class="hide-horizontal-scroll">
     <h2 class="text-center white-text mb-5 vp-anim-3">IK Mecha Spider</h2>
 
@@ -57,11 +59,6 @@
 
 
 @code {
-    readonly string _displayTitle = "IK Mecha Spider";
-    readonly string _displayImage = "Images/IKMecha/IKMechaIcon.png";
-    readonly string _displayDescription = "A Procedurally Animated Robot Spider";
-    readonly string _displayPublishDate = "20/11/2020";
-    readonly string _displayTags = "Procedural Animation,C#,Unity,Blender";
 
     private string showcaseVideoLink = "https://youtu.be/9QNpkB4GmKI";
     private string purchaseLink = "https://assetstore.unity.com/packages/3d/characters/robots/ik-mecha-spider-183484";
@@ -72,8 +69,11 @@
         "IKMechaRender.png",
     };
 
+
     private string GetPicture(int index)
     {
-        return $"{articlePicturesBasePath}{articlePicturesNames[index]}";
+        string picturePath = $"{articlePicturesBasePath}{articlePicturesNames[index]}";
+
+        return picturePath;
     }
 }
