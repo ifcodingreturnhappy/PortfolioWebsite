@@ -36,12 +36,11 @@
     string NavMenuIcon => isNavMenuCollapsed ? "fa-bars" : "fa-times-circle";
 
 
-    protected override Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         _navigationController.InitializeLinks();
-
-        return base.OnInitializedAsync();
     }
+
 
     void ToggleNavMenu()
     {

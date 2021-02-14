@@ -38,7 +38,7 @@ namespace PortfolioWebsite.BlazorUI.Services
             }
             catch (Exception)
             {
-                throw new Exception("There were no articles found.");
+                return Array.Empty<string>();
             }
         }
 

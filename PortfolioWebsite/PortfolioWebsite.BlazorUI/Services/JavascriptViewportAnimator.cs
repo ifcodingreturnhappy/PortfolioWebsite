@@ -1,4 +1,5 @@
-﻿using Microsoft.JSInterop;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,13 +10,25 @@ namespace PortfolioWebsite.BlazorUI.Services
 {
     public class JavascriptViewportAnimator : IJavascriptViewportAnimator
     {
-        readonly string animatableCssClassesFilePath = "wwwroot/Data/OnViewportEnterCSSAnimations.json";
+        private readonly IWebHostEnvironment _env;
+        readonly string animatableCssClassesFilePath = "/Data/OnViewportEnterCSSAnimations.json";
+
+        public JavascriptViewportAnimator(IWebHostEnvironment env)
+        {
+            _env = env;
+        }
 
         public async Task SetupJavascriptViewportAnimation(IJSRuntime JSRuntime)
         {
-            string json = File.ReadAllText(animatableCssClassesFilePath);
+            try
+            {
+                string json = File.ReadAllText($"{_env.WebRootPath}{animatableCssClassesFilePath}");
 
-            await JSRuntime.InvokeVoidAsync("setupViewportAnimations", json);
+                await JSRuntime.InvokeVoidAsync("setupViewportAnimations", json);
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }
