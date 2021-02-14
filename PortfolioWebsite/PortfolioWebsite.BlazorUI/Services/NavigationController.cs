@@ -10,7 +10,7 @@ namespace PortfolioWebsite.BlazorUI.Services
     {
         private readonly IWebHostEnvironment _env;
         private readonly string navigationLinksFilePath = "/Data/NavigationLinks.json";
-        public string JsonNavigationLinks { get; set; }
+
         public List<NavigationLinkModel> NavigationLinks { get; set; }
 
 
@@ -24,8 +24,8 @@ namespace PortfolioWebsite.BlazorUI.Services
         {
             try
             {
-                JsonNavigationLinks = File.ReadAllText($"{_env.WebRootPath}{navigationLinksFilePath}");
-                NavigationLinks = JsonConvert.DeserializeObject<List<NavigationLinkModel>>(JsonNavigationLinks);
+                string json = File.ReadAllText($"{_env.WebRootPath}{navigationLinksFilePath}");
+                NavigationLinks = JsonConvert.DeserializeObject<List<NavigationLinkModel>>(json);
             }
             catch
             {
