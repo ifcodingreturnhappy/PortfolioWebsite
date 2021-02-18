@@ -135,7 +135,7 @@ html, body {
         background-color: rgba(0,0,0, 0.9);
         opacity: 0;
         overflow-x: hidden;
-        transition: 0.5s;
+        transition: height 0.5s, opacity 0.5s;
     }
 
     .fullscreen-menu-vertical {
@@ -149,6 +149,7 @@ html, body {
     }
 
     .fullscreen-menu-content {
+        font-size: 1.8em;
         position: relative;
         top: 25%;
         width: 100%;
@@ -342,21 +343,19 @@ html, body {
 
 .clickable-2 {
     text-shadow: none;
-    transition: ease-in-out 0.5s;
+    transition: text-shadow ease-in-out 0.5s, color ease-in-out 0.5s, transform ease-in-out 0.5s;
 }
 
     .clickable-2:hover {
         color: white;
         text-shadow: 4px 4px RGBA(108,218,163, 0.5);
         transform: scale(1.05);
-        transition: ease-in-out 0.4s;
     }
 
     .clickable-2:active {
         color: white;
         text-shadow: 4px 4px RGBA(108,218,163, 0.5);
         transform: scale(1.05);
-        transition: ease-in-out 0.4s;
     }
 
 .clickable-3 {
@@ -370,11 +369,17 @@ html, body {
     transition: ease-in-out 0.2s;
 }
 
-    .clickable-3:hover {
-        transform: scale(1.1);
+    @media (min-width: 768px) {
+        .clickable-3:hover {
+            text-shadow: 2px 2px RGBA(108,218,163, 0.5);
+            transform: scale(1.05);
+        }
+    }
+
+    .clickable-3-on-click {
+        transform: scale(1.05);
         transform: translateY(-5%);
-        text-shadow: 4px 4px RGBA(108,218,163, 0.5);
-        transition: ease-in-out 0.2s;
+        text-shadow: 4px 4px RGBA(108,218,163, 0.5) !important;
     }
 
 .center-button {
@@ -468,7 +473,6 @@ html, body {
 @media (max-width: 768px) {
     .selectable-item {
         position: relative;
-        font-size: calc(1vh + 2vw);
     }
 
         .selectable-item:after {
@@ -481,8 +485,8 @@ html, body {
             margin-top: 1px;
             background: #fff;
             opacity: 0;
-            transition: .2s ease;
-            -webkit-transition: .5s ease;
+            transition: width .2s ease;
+            -webkit-transition: width .5s ease;
         }
 
     .selected-element:after {

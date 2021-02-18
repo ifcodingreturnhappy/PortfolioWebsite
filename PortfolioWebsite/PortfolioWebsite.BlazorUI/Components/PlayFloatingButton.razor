@@ -15,7 +15,8 @@
     </div>
     <div>
         <a class="btn-floating btn-lg btn-flat" @onclick="ToggleGameList">
-            <i class="fas fa-gamepad main-color play-button clickable-3"></i>
+            <i class="fas fa-gamepad main-color play-button clickable-3 
+               @(isGameListVisible ? "clickable-3-on-click" : "")"></i>
         </a>
     </div>
 </div>
