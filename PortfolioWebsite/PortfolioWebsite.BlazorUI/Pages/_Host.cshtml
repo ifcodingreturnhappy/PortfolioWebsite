@@ -38,5 +38,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="_framework/blazor.server.js"></script>
     <script src="/Javascript/JavaScript.js"></script>
+    <script>
+        // Wait until a 'reload' button appears
+        new MutationObserver((mutations, observer) => {
+            if (document.querySelector('#components-reconnect-modal h5 a')) {
+                async function attemptReload() {
+                    await fetch('');
+                    location.reload();
+                }
+                observer.disconnect();
+                attemptReload();
+                setInterval(attemptReload, 5000);
+            }
+        }).observe(document.body, { childList: true, subtree: true });
+    </script>
+    @{
+    Response.Headers["Cache-Control"] = "no-store";
+    }
 </body>
 </html>
