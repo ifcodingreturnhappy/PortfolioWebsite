@@ -1,0 +1,663 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+/**** BASE ****/
+
+html, body {
+    font-family: 'Consolas', Helvetica, Arial, sans-serif;
+}
+
+.body-display {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    min-height: 100vh
+}
+
+.loading-circle {
+    border: 16px solid RGB(69,69,69);
+    border-top: 16px solid RGB(108,218,163);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (min-width: 768px) {
+    .padded-text {
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+}
+@media (max-width: 768px) {
+    .padded-text {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+.media-Container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* Mantain 16:9 Aspect Ratio */
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.media-responsive {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.media-overlay-text {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: RGB(69,69,69);
+}
+
+::-webkit-scrollbar-thumb {
+    background: RGB(255,255,255);
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+
+.hide-horizontal-scroll {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
+.empty-block {
+    height: 110px;
+}
+
+.main-background-color {
+    background-color: RGB(0,0,0);
+}
+
+.secondary-background-color {
+    background-color: RGB(108,218,163);
+}
+
+.over-background-color {
+    background-color: rgb(20,20,20);
+}
+
+
+.main-outline {
+    outline: none;
+}
+
+    .main-outline:focus {
+        outline: none;
+    }
+
+    .main-outline:active {
+        outline: none;
+    }
+
+
+@media (max-width: 768px) {
+
+    .fullscreen-menu {
+        position: fixed;
+        z-index: 1;
+        top: 48px;
+        left: 0;
+        background-color: rgba(0,0,0, 0.9);
+        opacity: 0;
+        overflow-x: hidden;
+        transition: height 0.5s, opacity 0.5s;
+    }
+
+    .fullscreen-menu-vertical {
+        height: 0;
+        width: 100%;
+    }
+
+    .wipe-down {
+        height: 100% !important;
+        opacity: 1 !important;
+    }
+
+    .fullscreen-menu-content {
+        font-size: 1.8em;
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .navbar-brand{
+        font-size: 1.1em;
+        transition: 0.2s ease-in;
+    }
+}
+
+.floating-button-wrapper {
+    position: fixed;
+    bottom: 30px;
+    transition: ease-in-out 0.5s;
+}
+
+@media (max-width: 768px) {
+    .play-button {
+        font-size: 2em;
+    }
+
+    .game-menu-positioning {
+        bottom: 110px;
+    }
+
+    .game-menu-pointer-positioning {
+        position: fixed;
+        bottom: 60px;
+        left: 30px;
+    }
+}
+@media (min-width: 768px) {
+    .play-button {
+        font-size: 3em;
+    }
+
+    .game-menu-positioning {
+        bottom: 130px;
+    }
+
+    .game-menu-pointer-positioning {
+        position: fixed;
+        bottom: 80px;
+        left: 40px;
+    }
+}
+
+.game-menu {
+    max-height: 0;
+    width: auto;
+    position: fixed;
+    left: 15px;
+    z-index: 1;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.6s ease-in-out;
+}
+
+.game-menu-wipe {
+    opacity: 1;
+    box-shadow: 0px 0px 1px 1px white;
+    max-height: 200px;
+    height: auto;
+    /* This enables scrolling when video games are added to the list
+            overflow-y: scroll;
+
+        */
+}
+
+.game-menu-pointer {
+    font-size: 2em;
+    opacity: 0;
+    text-shadow: 0px 0px 15px black;
+    transition: 0.5s ease-in-out;
+}
+
+
+.content {
+    padding-top: 1.1rem;
+}
+
+
+.dropdown-menu-center {
+    left: 50% !important;
+    right: auto !important;
+    text-align: center !important;
+    transform: translate(-50%, 20%) !important;
+}
+
+.main-button {
+    background-color: RGB(108,218,163);
+    color: black;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+    .main-button:hover {
+        box-shadow: 0px 0px 1px 1px white !important;
+    }
+    .main-button:focus {
+        box-shadow: none;
+    }
+
+.form-control:focus {
+    border: 2px solid white;
+    box-shadow: 0px 0px 4px 4px RGB(108,218,163);
+}
+
+/**** TEXT ****/
+.main-color {
+    color: RGB(108,218,163);
+}
+.secondary-color {
+    color: RGB(0,0,0);
+}
+
+.secondary-clickable:hover {
+    color: red;
+}
+
+.white-text {
+    color: white;
+}
+
+.stand-out-text {
+    font-weight: bolder;
+    color: rgb(180, 250, 215);
+    border-bottom: 1px dashed;
+    padding-bottom: 2px;
+    border-color: rgba(180, 250, 215, 0);
+    transition: 0.2s;
+}
+    .stand-out-text:hover {
+        border-color: rgba(180, 250, 215, 1);
+        transition: 0.2s;
+    }
+
+
+.main-billboard {
+    font-size: calc(4vw + 3vh);
+}
+
+.non-selectable {
+    user-select: none;
+}
+
+
+/**** IMAGES/ICONS ****/
+
+.image-spacing {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+
+/**** STRUCTURE ****/
+.top-margin-medium {
+    margin-top: 10vh;
+}
+
+.top-margin-large {
+    margin-top: 25vh;
+}
+
+.bottom-margin-large {
+    margin-bottom: 25vh;
+}
+
+/**** SPECIAL BUTTONS ****/
+
+.clickable-1 {
+    background: url(https://media.giphy.com/media/ToMjGpFdluLyF8C732g/giphy.gif);
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    transition: ease-in-out 0.2s;
+}
+
+    .clickable-1:hover {
+        color: transparent !important;
+        transition: ease-in-out 0.2s;
+    }
+
+    .clickable-1:active {
+        color: transparent !important;
+        transition: ease-in-out 0.2s;
+    }
+
+
+.clickable-2 {
+    text-shadow: none;
+    transition: text-shadow ease-in-out 0.5s, color ease-in-out 0.5s, transform ease-in-out 0.5s;
+}
+
+    .clickable-2:hover {
+        color: white;
+        text-shadow: 4px 4px RGBA(108,218,163, 0.5);
+        transform: scale(1.05);
+    }
+
+    .clickable-2:active {
+        color: white;
+        text-shadow: 4px 4px RGBA(108,218,163, 0.5);
+        transform: scale(1.05);
+    }
+
+.clickable-3 {
+    background: url(https://media.giphy.com/media/nIlgTxY29wJuU/giphy.gif);
+    background-size: 50%;
+    background-position: center;
+    -webkit-background-clip: text;
+    color: transparent;
+    transform: scale(1);
+    z-index: 1;
+    transition: ease-in-out 0.2s;
+}
+
+    @media (min-width: 768px) {
+        .clickable-3:hover {
+            text-shadow: 2px 2px RGBA(108,218,163, 0.5);
+            transform: scale(1.05);
+        }
+    }
+
+    .clickable-3-on-click {
+        transform: scale(1.05);
+        transform: translateY(-5%);
+        text-shadow: 4px 4px RGBA(108,218,163, 0.5) !important;
+    }
+
+.center-button {
+    display: block;
+    text-align: center;
+    max-width: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    /***********/
+
+.scale-up {
+    transform: scale(1);
+    transition: ease-in 0.1s;
+}
+
+    .scale-up:hover {
+        transform: scale(1.1);
+        transition: ease-in 0.2s;
+    }
+
+    .scale-up:active {
+        transform: scale(1.1);
+        transition: ease-in 0.2s;
+    }
+
+.glow {
+    box-shadow: none;
+    transition: ease-in 0.2s;
+}
+
+    .glow:hover {
+        box-shadow: 0px 0px 5px 5px rgba(108,218,163, 0.4) !important;
+        transition: ease-in 0.2s !important;
+    }
+
+    .glow:active {
+        box-shadow: 0px 0px 5px 5px rgba(108,218,163, 0.4) !important;
+        transition: ease-in 0.2s !important;
+    }
+
+.constant-glow {
+    background-color: black;
+    box-shadow: 0px 0px 2px 2px rgba(108,218,163, 0.4);
+}
+
+.simple-hover:hover {
+    background-color: rgb(20,20,20);
+}
+
+.infinite-zoom-in-out:hover {
+    animation: ZoomInAndOut 1s infinite;
+}
+
+@keyframes ZoomInAndOut {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.loop-opacity {
+    opacity: 0;
+    animation: FadeInAndOut 1s infinite;
+}
+
+@keyframes FadeInAndOut {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .selectable-item {
+        position: relative;
+    }
+
+        .selectable-item:after {
+            content: '';
+            position: absolute;
+            width: 25%;
+            left: 37.5%;
+            height: 3px;
+            display: block;
+            margin-top: 1px;
+            background: #fff;
+            opacity: 0;
+            transition: width .2s ease;
+            -webkit-transition: width .5s ease;
+        }
+
+    .selected-element:after {
+        opacity: 1;
+        transition: .2s ease;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .selectable-item {
+        position: relative;
+    }
+
+        .selectable-item:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            display: block;
+            margin-top: 1px;
+            right: 0;
+            background: #fff;
+            opacity: 0;
+            transition: width .2s ease;
+            -webkit-transition: width .5s ease;
+        }
+
+    .selected-element:after {
+        width: 80%;
+        left: 10%;
+        background: #fff;
+        opacity: 1;
+    }
+
+}
+
+
+
+
+    /**** BLAZOR ERRORS ****/
+
+    .valid.modified:not([type=checkbox]) {
+        outline: 1px solid #26b050;
+    }
+
+    .invalid {
+        outline: 1px solid red;
+    }
+
+    .validation-message {
+        color: red;
+    }
+
+    #blazor-error-ui {
+        background: lightyellow;
+        bottom: 0;
+        box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+        display: none;
+        left: 0;
+        padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+    }
+
+        #blazor-error-ui .dismiss {
+            cursor: pointer;
+            position: absolute;
+            right: 0.75rem;
+            top: 0.5rem;
+        }
+
+/* -------------------- VIEWPORT ANIMATION -------------------- */
+/* Animatable signaling classes -> this classes will signal an element that is entering the viewport, which animation to give it (done with js)*/
+
+.vp-anim-1 {
+    visibility: hidden;
+}
+
+.vp-anim-2 {
+    visibility: hidden;
+}
+
+.vp-anim-3 {
+    visibility: hidden;
+}
+
+.vp-anim-4 {
+    visibility: hidden;
+}
+
+.vp-anim-5 {
+    visibility: hidden;
+}
+
+/* Animation Classes */
+
+.fade-in-with-left-translate {
+    visibility: visible;
+    animation: FadeIn 1s, LeftTranslate 1s ease-in-out;
+}
+
+.fade-in-with-right-translate {
+    visibility: visible;
+    animation: FadeIn 1s, RightTranslate 1s ease-in-out;
+}
+
+.fade-in-with-top-translate {
+    visibility: visible;
+    animation: FadeIn 1s, TopTranslate 0.8s ease-in-out;
+}
+
+.fade-in-with-bottom-translate {
+    visibility: visible;
+    animation: FadeIn 1s, BottomTranslate 1s ease-in-out;
+}
+
+.fade-in-slow {
+    visibility: visible;
+    animation: FadeIn ease-in 1.5s;
+}
+
+/* Animations */
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes LeftTranslate {
+    0% {
+        transform: translateX(-30%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes RightTranslate {
+    0% {
+        transform: translateX(30%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes TopTranslate {
+    0% {
+        transform: translateY(-30%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes BottomTranslate {
+    0% {
+        transform: translateY(30%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
