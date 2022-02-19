@@ -1,8 +1,0 @@
-{
-    "Title": "IK Mecha Spider",
-    "ImagePath": "Images/IKMecha/IKMechaIcon.png",
-    "Description": "A Procedurally Animated Robot Spider",
-    "PageRef": "/work/ikmechaspider",
-    "PublishDate": "20/11/2020",
-    "Tags": [ "Procedural Animation", "C#", "Unity", "Blender" ]
-}

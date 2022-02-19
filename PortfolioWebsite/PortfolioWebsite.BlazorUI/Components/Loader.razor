@@ -1,19 +1,5 @@
 ﻿@using System.Threading;
 
-<!--
-@if (!HasTimedOut)
-{
-    <div class="container-fluid loader"></div>
-}
-else
-{
-    <div class="container-fluid text-center">
-        <p class="text-danger font-weight-bold" style="font-size: 4em"><i class="fas fa-exclamation-circle"></i></p>
-        <p class="text-danger font-weight-bold">@TimeOutMessage</p>
-    </div>
-}
--->
-
 <div class="container-fluid loading-circle" style="display: @(HasTimedOut ? "none" : "block")"></div>
 
 <div class="container-fluid text-center" style="display: @(HasTimedOut ? "block" : "none")">

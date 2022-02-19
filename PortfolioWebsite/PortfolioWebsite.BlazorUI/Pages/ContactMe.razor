@@ -1,7 +1,5 @@
 ﻿@page "/contactme"
 
-@inject IConfiguration config
-
 <div>
     <h2 class="white-text d-flex justify-content-center mb-5 vp-anim-3">Contact Me</h2>
 </div>
@@ -29,12 +27,6 @@
 
 @code {
 
-    private string email;
-    private string githubLink;
-
-    protected override void OnParametersSet()
-    {
-        email = config["email"];
-        githubLink = config["githubLink"];
-    }
+    private const string email = "icrh.smtp@gmail.com";
+    private const string githubLink = "https://github.com/ifcodingreturnhappy";
 }
