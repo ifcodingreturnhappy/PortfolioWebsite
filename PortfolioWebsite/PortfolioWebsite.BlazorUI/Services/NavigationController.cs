@@ -1,30 +1,33 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using PortfolioWebsite.BlazorUI.Models;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace PortfolioWebsite.BlazorUI.Services
 {
     public class NavigationController : INavigationController
     {
-        private readonly IWebHostEnvironment _env;
         private readonly string navigationLinksFilePath = "/Data/NavigationLinks.json";
 
         public List<NavigationLinkModel> NavigationLinks { get; set; }
 
+        private readonly HttpClient _client;
 
-        public NavigationController(IWebHostEnvironment env)
+        public NavigationController(HttpClient client)
         {
+            _client = client;
             NavigationLinks = new List<NavigationLinkModel>();
-            _env = env;
         }
 
-        public void InitializeLinks()
+        public async Task InitializeLinks()
         {
             try
             {
-                string json = File.ReadAllText($"{_env.WebRootPath}{navigationLinksFilePath}");
+                var json = await _client.GetStringAsync(navigationLinksFilePath);
+
+                //string json = File.ReadAllText($"{_env.WebRootPath}{navigationLinksFilePath}");
                 NavigationLinks = JsonConvert.DeserializeObject<List<NavigationLinkModel>>(json);
             }
             catch

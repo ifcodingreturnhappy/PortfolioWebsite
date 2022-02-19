@@ -1,28 +1,29 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.JSInterop;
+﻿using Microsoft.JSInterop;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
+
 
 namespace PortfolioWebsite.BlazorUI.Services
 {
     public class JavascriptViewportAnimator : IJavascriptViewportAnimator
     {
-        private readonly IWebHostEnvironment _env;
         readonly string animatableCssClassesFilePath = "/Data/OnViewportEnterCSSAnimations.json";
 
-        public JavascriptViewportAnimator(IWebHostEnvironment env)
+        private readonly HttpClient _client;
+
+        public JavascriptViewportAnimator(HttpClient client)
         {
-            _env = env;
+            _client = client;
         }
 
         public async Task SetupJavascriptViewportAnimation(IJSRuntime JSRuntime)
         {
             try
             {
-                string json = File.ReadAllText($"{_env.WebRootPath}{animatableCssClassesFilePath}");
+                //string json = File.ReadAllText($"{_env.WebRootPath}{animatableCssClassesFilePath}");
+                var json = await _client.GetStringAsync(animatableCssClassesFilePath);
 
                 await JSRuntime.InvokeVoidAsync("setupViewportAnimations", json);
             }

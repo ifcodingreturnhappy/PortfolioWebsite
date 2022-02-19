@@ -4,7 +4,6 @@
 @inject IPageEnumerator<WorkArticleMetadataModel> articleEnumerator
 @inject IJSRuntime JSRuntime
 @inject IJavascriptViewportAnimator JSAnimator
-@inject IWebHostEnvironment _env
 
 <h2 class="white-text text-center mb-5 vp-anim-3">Work Showcase</h2>
 
@@ -80,7 +79,7 @@ else
 
     protected async override Task OnInitializedAsync()
     {
-        string path = $"{_env.WebRootPath}/ArticleMetadata";
+        string path = $"/ArticleMetadata";
 
         workArticlesMetadata = await articleEnumerator.GetFilesMetadata(path);
         workArticlesMetadata = workArticlesMetadata.OrderByDescending(x => x.PublishDate).ToList();

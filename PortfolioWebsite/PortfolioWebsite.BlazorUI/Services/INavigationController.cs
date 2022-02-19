@@ -1,11 +1,12 @@
 ﻿using PortfolioWebsite.BlazorUI.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PortfolioWebsite.BlazorUI.Services
 {
     interface INavigationController
     {
         public List<NavigationLinkModel> NavigationLinks { get; set; }
-        public void InitializeLinks();
+        public Task InitializeLinks();
     }
 }
