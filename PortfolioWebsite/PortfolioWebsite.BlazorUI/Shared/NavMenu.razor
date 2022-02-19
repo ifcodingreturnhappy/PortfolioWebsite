@@ -1,5 +1,5 @@
-﻿@inject INavigationController _navigationController
-@inject IJSRuntime JSRuntime;
+﻿@inject IJSRuntime JSRuntime;
+@inject HttpClient _client;
 
 <nav class="navbar main-background-color navbar-expand-md fixed-top">
     <div class="container-fluid">
@@ -15,7 +15,7 @@
 
         <div class="flex-md-row-reverse fullscreen-menu fullscreen-menu-vertical @(NavMenuVisibility)" id="main-navbar">
             <ul class="navbar-nav fullscreen-menu-content" id="main-navbar-content">
-                @foreach (var navElement in _navigationController.NavigationLinks)
+                @foreach (var navElement in NavigationLinks)
                 {
                     <li class="nav-item vp-anim-3">
                         <a class="nav-link main-color clickable-2 selectable-item"
@@ -35,10 +35,12 @@
     string NavMenuVisibility => isNavMenuCollapsed ? "" : "wipe-down";
     string NavMenuIcon => isNavMenuCollapsed ? "fa-bars" : "fa-times-circle";
 
+    private List<NavigationLinkModel> NavigationLinks = new List<NavigationLinkModel>();
 
     protected override async Task OnInitializedAsync()
     {
-        await _navigationController.InitializeLinks();
+        var json = await _client.GetStringAsync("Data/NavigationLinks.json");
+        NavigationLinks = JsonConvert.DeserializeObject<List<NavigationLinkModel>>(json);
     }
 
     void ToggleNavMenu()

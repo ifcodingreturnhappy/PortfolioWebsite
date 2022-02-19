@@ -1,9 +1,8 @@
 ﻿@page "/work"
 @using PortfolioWebsite.BlazorUI.Models
 
-@inject IPageEnumerator<WorkArticleMetadataModel> articleEnumerator
 @inject IJSRuntime JSRuntime
-@inject IJavascriptViewportAnimator JSAnimator
+@inject HttpClient _client;
 
 <h2 class="white-text text-center mb-5 vp-anim-3">Work Showcase</h2>
 
@@ -79,9 +78,15 @@ else
 
     protected async override Task OnInitializedAsync()
     {
-        string path = $"/ArticleMetadata";
+        string path = $"ArticleMetadata/articles.json";
 
-        workArticlesMetadata = await articleEnumerator.GetFilesMetadata(path);
+        // Get metadata for all the articles
+        var metadataJson = await _client.GetStringAsync(path);
+
+        // Parse raw article metadata json to the desired format
+        workArticlesMetadata = JsonConvert.DeserializeObject<List<WorkArticleMetadataModel>>(metadataJson, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+        await Task.Delay(300);
+
         workArticlesMetadata = workArticlesMetadata.OrderByDescending(x => x.PublishDate).ToList();
 
         availableTags = GetAvailableTags();
@@ -93,7 +98,8 @@ else
     {
         if (CanDrawCards())
         {
-            await JSAnimator.SetupJavascriptViewportAnimation(JSRuntime);
+            var json = await _client.GetStringAsync("Data/OnViewportEnterCSSAnimations.json");
+            await JSRuntime.InvokeVoidAsync("setupViewportAnimations", json);
         }
     }
 

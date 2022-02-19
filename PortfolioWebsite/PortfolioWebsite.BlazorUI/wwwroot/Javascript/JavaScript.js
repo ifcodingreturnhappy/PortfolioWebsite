@@ -52,6 +52,8 @@ function observerCallback(entry, cssClass, isRepeatable) {
 
 
 function updateCurrentPageIndicator() {
+    return;
+
     let navLinks = document.querySelectorAll('.selectable-item');
 
     let currentPageRef = window.location.pathname;
