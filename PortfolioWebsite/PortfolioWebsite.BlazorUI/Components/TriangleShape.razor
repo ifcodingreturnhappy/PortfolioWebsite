@@ -1,0 +1,44 @@
+﻿<div style="width:0; height:0; @(GetTriangleCssStyle())"></div>
+
+@code {
+
+    public enum TriangleType
+    {
+        TopRight,
+        TopLeft,
+        BottomRight,
+        BottomLeft
+    }
+
+    [Parameter]
+    public float HeightPercentage { get; set; }
+
+    [Parameter]
+    public float WidthPercentage { get; set; }
+
+    [Parameter]
+    public string Color { get; set; }
+
+    [Parameter]
+    public TriangleType Type { get; set; }
+
+    private string GetTriangleCssStyle()
+    {
+        switch (Type)
+        {
+            case TriangleType.TopRight:
+                return $"border-top: {HeightPercentage}vh solid {Color}; border-left: {WidthPercentage}vw solid transparent;";
+            case TriangleType.TopLeft:
+                return $"border-top: {HeightPercentage}vh solid {Color}; border-right: {WidthPercentage}vw solid transparent;"; ;
+            case TriangleType.BottomRight:
+                return $"border-bottom: {HeightPercentage}vh solid {Color}; border-left: {WidthPercentage}vw solid transparent;"; ;
+            case TriangleType.BottomLeft:
+                return $"border-bottom: {HeightPercentage}vh solid {Color}; border-right: {WidthPercentage}vw solid transparent;"; ;
+            default:
+                return "";
+        }
+
+
+    }
+
+}

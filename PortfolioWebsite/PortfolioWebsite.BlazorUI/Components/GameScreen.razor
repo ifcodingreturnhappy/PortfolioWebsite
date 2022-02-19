@@ -1,0 +1,88 @@
+﻿@using PortfolioWebsite.BlazorUI.Games.Logic
+
+@inject IJSRuntime jsRuntime
+
+
+<div class="main-background-color" style="width: 100%; height:100%; position: relative;">
+    @{
+        if (currentGame == null)
+        {
+            <!-- SELECT THE GAME TO PLAY -->
+            <GamePicker OnGameSelectedAction="SelectGame"></GamePicker>
+        }
+        else
+        {
+            <!-- RUN THE GAME -->
+            @foreach (var entity in currentGame.GameEntities)
+            {
+                <img src="@entity.ImagePath"
+                     alt="@entity.AltText"
+                     width="@entity.Width"
+                     height="@entity.Height"
+                     style="position: absolute; left:@($"{entity.Position_X}%");
+                                                bottom: @($"{entity.Position_Y}%");" />
+            }
+            <!-- MAIN MENU -->
+            <div style="position: absolute; top:5px; right:3px; z-index:1">
+                <button class="btn btn-light" @onclick="QuitGame">TESTE</button>
+            </div>
+        }
+    }
+</div>
+
+
+@code {
+
+    private Dictionary<Keys, bool> KeyStates = new Dictionary<Keys, bool>();
+
+    private IGame currentGame;
+
+    protected override void OnInitialized()
+    {
+        // Initialize Keys dictionary
+        foreach (Keys key in Enum.GetValues(typeof(Keys)))
+        {
+            KeyStates.Add(key, false);
+        }
+    }
+
+
+    public async Task OnKeyPress(Keys key, bool keyState)
+    {
+        await Task.Run(() => KeyStates[key] = keyState);
+    }
+
+    private async Task SelectGame(IGame selectedGame)
+    {
+        currentGame = selectedGame;
+
+        await currentGame.Initialize();
+
+        await StartGame();
+
+        StateHasChanged();
+    }
+
+    private async Task StartGame()
+    {
+        await jsRuntime.InvokeVoidAsync("gameAwake", DotNetObjectReference.Create(this));
+    }
+
+    private async Task QuitGame()
+    {
+        currentGame = null;
+
+        await jsRuntime.InvokeVoidAsync("triggerPause");
+    }
+
+    [JSInvokable]
+    public async Task GameUpdateLoop()
+    {
+        if (currentGame != null)
+        {
+            await currentGame.Update(KeyStates);
+
+            StateHasChanged();
+        }
+    }
+}

@@ -1,0 +1,86 @@
+﻿@using PortfolioWebsite.BlazorUI.Models
+@using PortfolioWebsite.BlazorUI.Games.Logic 
+
+<div id="gamesCarousel" class="carousel slide w-100 h-100" data-ride="carousel">
+
+    <ol class="carousel-indicators">
+        @{
+            for (int i = 0; i < AvailableGames.Count; i++)
+            {
+                <li data-target="#gamesCarousel" data-slide-to="@i" class="@(i == 0 ? "active" : "")"></li>
+            }
+        }
+    </ol>
+
+    <div class="carousel-inner w-100 h-100">
+        @{
+            int index = 0;
+            foreach (var game in AvailableGames)
+            {
+                <div class="carousel-item h-100 @(index == 0 ? "active" : "")">
+                    <div class="d-flex h-100 justify-content-center align-self-center">
+                        <img src="@game.DisplayImagePath"
+                             alt="Slide @index"
+                             @onclick="() => OnGameSelectedAction(game.Game)">
+                    </div>
+                </div>
+                index++;
+            }
+        }
+    </div>
+    <!--
+    <ol class="carousel-indicators">
+        <li data-target="#gamesCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#gamesCarousel" data-slide-to="1"></li>
+        <li data-target="#gamesCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner w-100 h-100">
+        <div class="carousel-item h-100 active">
+            <div class="d-flex h-100 justify-content-center align-self-center">
+                <img src="Images/PortfolioWebsite/PortfolioIcon.png"
+                     alt="First slide">
+            </div>
+        </div>
+        <div class="carousel-item" style="height:100%;">
+            <img src="Images/PortfolioWebsite/PortfolioIcon.png"
+                 alt="Second slide"
+                 style="max-width:80%">
+        </div>
+        <div class="carousel-item" style="height:100%;">
+            <img src="Images/PortfolioWebsite/PortfolioIcon.png"
+                 alt="Third slide"
+                 style="max-width:80%">
+        </div>
+    </div>
+    -->
+
+    <a class="carousel-control-prev" href="#gamesCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#gamesCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+@code {
+
+    [Parameter]
+    public Func<IGame, Task> OnGameSelectedAction { get; set; }
+
+    private List<GameDisplayModel> AvailableGames { get; set; }
+
+
+    //Make this different so that the instances are singletos, maybe do it with DI
+    protected override void OnInitialized()
+    {
+        Console.WriteLine("INITIALIZED");
+
+        AvailableGames = new List<GameDisplayModel>
+        {
+            new GameDisplayModel{ DisplayImagePath = "Images/PortfolioWebsite/PortfolioIcon.png", Game = new Asteroids() },
+            new GameDisplayModel{ DisplayImagePath = "Images/IKMecha/IKMechaIcon.png", Game = new Asteroids() }
+        };
+    }
+}

@@ -1,0 +1,149 @@
+﻿@page "/gameroom"
+
+@using PortfolioWebsite.BlazorUI.Models
+@using PortfolioWebsite.BlazorUI.Games.Logic
+@inject IJSRuntime JSRuntime
+
+<div class="game-room-menu" @ref="gameRoomUI" @onkeydown="@KeyDown" @onkeyup="KeyUp" tabindex="0">
+    <!-- TOP FULL ROW -->
+    <div style="display: flex">
+        <div class="secondary-background-color"
+             style="width: 100vw; height:@($"{topZoneHeight}vh")"></div>
+    </div>
+    <div style="display: flex">
+        <!-- TOP TRIANGLE ROW -->
+        <TriangleShape HeightPercentage="@triangleShapeHeight"
+                       WidthPercentage="@triangleShapeWidth"
+                       Color="@arcadeColor"
+                       Type="TriangleShape.TriangleType.TopRight">
+        </TriangleShape>
+
+        <div class="secondary-background-color"
+             style="width: @($"{100-2*triangleShapeWidth}vw")"></div>
+
+        <TriangleShape HeightPercentage="@triangleShapeHeight"
+                       WidthPercentage="@triangleShapeWidth"
+                       Color="@arcadeColor"
+                       Type="TriangleShape.TriangleType.TopLeft">
+        </TriangleShape>
+    </div>
+    <div style="display: flex; position: relative; height: @($"{screenHeight}vh")">
+        <!-- SCREEN BORDER AND SCREEN ROW-->
+        <!-- BORDER LEFT-->
+        <div class="secondary-background-color"
+             style="position: absolute; left:@($"{triangleShapeWidth}%"); width: @($"{screenBorderWidth}vw"); height:100%">
+        </div>
+        <!-- BORDER RIGHT-->
+        <div class="secondary-background-color"
+             style="position: absolute; right:@($"{triangleShapeWidth}%"); width: @($"{screenBorderWidth}vw");height: 100%">
+        </div>
+
+        <div style="position: absolute; left: @($"{triangleShapeWidth + screenBorderWidth}%"); right:@($"{triangleShapeWidth + screenBorderWidth}%"); height: 100%; width: auto">
+            <!-- THIS IS THE GAME SCREEN -->
+            <GameScreen @ref="gameScreen"></GameScreen>
+        </div>
+    </div>
+    <div style="display: flex">
+        <!-- BOTTOM TRIANGLE ROW -->
+        <TriangleShape HeightPercentage="@triangleShapeHeight"
+                       WidthPercentage="@triangleShapeWidth"
+                       Color="@arcadeColor"
+                       Type="TriangleShape.TriangleType.BottomRight">
+        </TriangleShape>
+
+        <div class="secondary-background-color"
+             style="width: @($"{100-2*triangleShapeWidth}vw")"></div>
+
+        <TriangleShape HeightPercentage="@triangleShapeHeight"
+                       WidthPercentage="@triangleShapeWidth"
+                       Color="@arcadeColor"
+                       Type="TriangleShape.TriangleType.BottomLeft">
+        </TriangleShape>
+    </div>
+    <div style="display: flex">
+        <!-- BOTTOM FULL ROW -->
+        <div class="secondary-background-color"
+             style="width: 100vw;
+             height:@($"{100 - (topZoneHeight + 2 * triangleShapeHeight + screenHeight)}vh")">
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+    // ARCADE UI SETTINGS
+    // (values in vh (for heights) and vw (for widths))
+    private readonly string arcadeColor = "RGB(108, 218, 163)";
+
+    private readonly float screenWidth = 84;
+    private readonly float screenHeight = 60;
+    private readonly float screenBorderWidth = 3;
+
+    private readonly float topZoneHeight = 5;
+    private readonly float triangleShapeHeight = 5;
+    private float triangleShapeWidth
+    {
+        get
+        {
+            return (100 - (screenWidth + 2 * screenBorderWidth)) / 2;
+        }
+    }
+    //
+
+    private ElementReference gameRoomUI;
+    private GameScreen gameScreen;
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("focusElement", gameRoomUI);
+        }
+    }
+
+    protected async Task KeyDown(KeyboardEventArgs e)
+    {
+        switch (e.Key)
+        {
+            case "w":
+                await gameScreen.OnKeyPress(Keys.W, true);
+                break;
+            case "s":
+                await gameScreen.OnKeyPress(Keys.S, true);
+                break;
+            case "a":
+                await gameScreen.OnKeyPress(Keys.A, true);
+                break;
+            case "d":
+                await gameScreen.OnKeyPress(Keys.D, true);
+                break;
+            case "p":
+                await gameScreen.OnKeyPress(Keys.P, true);
+                break;
+            default:
+                break;
+        }
+    }
+
+    protected async Task KeyUp(KeyboardEventArgs e)
+    {
+        switch (e.Key)
+        {
+            case "w":
+                await gameScreen.OnKeyPress(Keys.W, false);
+                break;
+            case "s":
+                await gameScreen.OnKeyPress(Keys.S, false);
+                break;
+            case "a":
+                await gameScreen.OnKeyPress(Keys.A, false);
+                break;
+            case "d":
+                await gameScreen.OnKeyPress(Keys.D, false);
+                break;
+            default:
+                break;
+        }
+    }
+}

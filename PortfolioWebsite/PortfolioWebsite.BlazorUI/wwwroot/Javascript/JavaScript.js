@@ -68,6 +68,45 @@ function updateCurrentPageIndicator() {
     });
 }
 
+function focusElement(element) {
+    element.focus();
+}
+
 function logMessage(message) {
     console.log(message);
+}
+
+
+
+
+// -------------- GAME CODE --------------
+
+let isGamePaused = false;
+let dotnetGameInstance = null;
+
+function gameAwake(dotnetInsntace) {
+    dotnetGameInstance = dotnetInsntace;
+
+    isGamePaused = false;
+
+    gameLoop();
+}
+
+function gameLoop() {
+    if (!isGamePaused) {
+        dotnetGameInstance.invokeMethodAsync('GameUpdateLoop');
+
+        console.log("In the game loop...");
+
+        window.requestAnimationFrame(gameLoop);
+    }
+}
+
+function triggerPause() {
+    if (!isGamePaused)
+        isGamePaused = true;
+    else {
+        isGamePaused = false;
+        gameLoop();
+    }
 }
