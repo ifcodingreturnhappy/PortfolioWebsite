@@ -1,24 +1,24 @@
-﻿<a href="@PageRef" style="text-decoration:none">
-    <div class="card text-center ml-4 mr-4 glow over-background-color">
-        <img class="card-img-top mx-auto mb-0" src="@ImagePath" alt="@Title Card Image" style="max-width:40%"/>
-        
-        <p class="white-text text-right" style="position: absolute; top:10px; right:5px">
-            <span><i class="far fa-calendar-alt main-color"></i></span> @(PublishDateFormated)
-        </p>
-        
-        <div class="card-body" style="position: relative">
-            <h4 class="main-color">@Title</h4>
-            <p class="white-text mb-4">@(Description)</p>
-            <div>
-                @foreach (var tag in Tags)
-                {
-                    <span class="badge badge-secondary mb-1 secondary-background-color secondary-color" style="font-size: 1em">@tag</span>
-                    <span>  </span>
-                }
-            </div>
+﻿@inject NavigationManager NavManager
+
+<div class="card text-center ml-4 mr-4 glow over-background-color" @onclick="OpenCard">
+    <img class="card-img-top mx-auto mb-0" src="@ImagePath" alt="@Title Card Image" style="max-width:40%" />
+
+    <p class="white-text text-right" style="position: absolute; top:10px; right:5px">
+        <span><i class="far fa-calendar-alt main-color"></i></span> @(PublishDateFormated)
+    </p>
+
+    <div class="card-body" style="position: relative">
+        <h4 class="main-color">@Title</h4>
+        <p class="white-text mb-4">@(Description)</p>
+        <div>
+            @foreach (var tag in Tags)
+            {
+                <span class="badge badge-secondary mb-1 secondary-background-color secondary-color" style="font-size: 1em">@tag</span>
+                <span>  </span>
+            }
         </div>
     </div>
-</a>
+</div>
 
 @code {
     [Parameter]
@@ -45,5 +45,10 @@
         {
             return $"{PublishDate.Day}/{PublishDate.Month}/{PublishDate.Year}";
         }
+    }
+
+    private void OpenCard()
+    {
+        NavManager.NavigateTo(PageRef);
     }
 }
