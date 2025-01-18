@@ -27,8 +27,8 @@ jobs:
         
         # ----- NOT NECESSARY WHEN USING A CUSTOM DOMAIN -----
         # changes the base-tag in index.html from '/' to 'PortfolioWebsite' to match GitHub Pages repository subdirectory
-      #- name: Change base-tag in index.html from / to PortfolioWebsite
-       # run: sed -i 's/<base href="\/" \/>/<base href="\/PortfolioWebsite\/" \/>/g' release/wwwroot/index.html
+      - name: Change base-tag in index.html from / to PortfolioWebsite
+        run: sed -i 's/<base href="\/" \/>/<base href="\/PortfolioWebsite\/" \/>/g' release/wwwroot/index.html
         # ----------------------------------------------------
         
         # copy index.html to 404.html to serve the same file when a file is not found
