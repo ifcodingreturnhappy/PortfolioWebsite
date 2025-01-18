@@ -40,7 +40,7 @@
     protected override async Task OnInitializedAsync()
     {
         var json = await _client.GetStringAsync("Data/NavigationLinks.json");
-        NavigationLinks = JsonConvert.DeserializeObject<List<NavigationLinkModel>>(json);
+        NavigationLinks = JsonSerializer.Deserialize<List<NavigationLinkModel>>(json);
     }
 
     void ToggleNavMenu()

@@ -1,6 +1,4 @@
 ﻿@page "/work"
-@using PortfolioWebsite.BlazorUI.Models
-
 @inject IJSRuntime JSRuntime
 @inject HttpClient _client;
 
@@ -84,7 +82,8 @@ else
         var metadataJson = await _client.GetStringAsync(path);
 
         // Parse raw article metadata json to the desired format
-        workArticlesMetadata = JsonConvert.DeserializeObject<List<WorkArticleMetadataModel>>(metadataJson, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+        var options = new JsonSerializerOptions { Converters = { new JsonDatetimeConverter() } };
+        workArticlesMetadata = JsonSerializer.Deserialize<List<WorkArticleMetadataModel>>(metadataJson, options);
         await Task.Delay(300);
 
         workArticlesMetadata = workArticlesMetadata.OrderByDescending(x => x.PublishDate).ToList();
