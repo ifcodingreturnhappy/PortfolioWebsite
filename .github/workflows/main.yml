@@ -20,7 +20,8 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '8.0.100'
-          
+      
+       # fixed bug with missing OpenSSL dependency
       - name: Install OpenSSL 1.1
         run: |
           wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
