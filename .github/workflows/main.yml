@@ -21,6 +21,11 @@ jobs:
         with:
           dotnet-version: '5.0.101'
           
+      - name: Install OpenSSL 1.1
+        run: |
+          wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
+          sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
+
        # publishes Blazor project to the release-folder
       - name: Publish .NET Core Project
         run: dotnet publish ./PortfolioWebsite/PortfolioWebsite.BlazorUI/PortfolioWebsite.BlazorUI.csproj -c Release -o release --nologo
