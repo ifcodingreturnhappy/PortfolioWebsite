@@ -1,5 +1,10 @@
 # PortfolioWebsite
 This project will be the ASP.NET Core application for my portfolio website.
 
-Upcoming features:
-  - Game Room with arcade classics
+https://ifcodingreturnhappy.github.io/PortfolioWebsite/
+
+TODO:
+  [ ] - Update Readme
+  [ ] - Refactor code
+  [ ] - Add some tests
+  [ ] - Update outdate content
