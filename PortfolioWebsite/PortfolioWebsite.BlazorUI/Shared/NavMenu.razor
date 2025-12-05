@@ -28,6 +28,8 @@
 
 @code {
     // TODO: refactor
+    // TODO: Highlight currently selected nav (event when navigating directly to that page)
+
     public bool isNavMenuCollapsed { get; set; } = true;
     string NavMenuVisibility => isNavMenuCollapsed ? "" : "wipe-down";
     string NavMenuIcon => isNavMenuCollapsed ? "fa-bars" : "fa-times-circle";
@@ -37,19 +39,16 @@
         {
 			LinkText = "Who Am I?",
 			LinkRef = "whoami",
-			Icon = ""
         },
         new()
         {
             LinkText = "Work Showcase",
             LinkRef = "work",
-            Icon = ""
         },
         new()
         {
             LinkText = "Contact Me",
             LinkRef = "contactme",
-            Icon = ""
 		},
     ];
 
@@ -62,6 +61,5 @@
     {
         isNavMenuCollapsed = true;
     }
-}
 }
 

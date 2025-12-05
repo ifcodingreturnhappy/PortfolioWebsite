@@ -2,8 +2,9 @@
 {
     public enum ExtraContentType
     {
-        GameDemo = 0,
-        WebDevelopmentDemo = 1,
-        MSOfficeAutomationDemo = 2,
+        Undefined = 0,
+        GameDemo = 1,
+        WebDevelopmentDemo = 2,
+        MSOfficeAutomationDemo = 3,
     }
 }

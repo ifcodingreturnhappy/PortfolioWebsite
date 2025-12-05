@@ -20,7 +20,7 @@
                     "Be it a simple 2D platformer, an action-packed 3D Shooter, or a real-time fluid simulation I love working on my own worlds.",
                     "There is no joy like creating something tangible from nothing, and video games/simulations are the best way to do so."
                 ],
-                "ExtraContent": "GameDemo"
+                "ExtraContentType": "GameDemo"
             },
             {
                 "Title": "Web Development",
@@ -31,7 +31,7 @@
                     "Web applications allow us to do anything, everywhere. I love working with ASP.NET, and build different types of projects.",
                     "Its versatility allows to create solutions that range from a portfolio website like this one, to other project types, like, browser games and web apps."
                 ],
-                "ExtraContent": "WebDevelopmentDemo"
+                "ExtraContentType": "WebDevelopmentDemo"
             },
             {
                 "Title": "MS Office Automation",
@@ -43,7 +43,7 @@
                     "It doesn't need to be.",
                     "With VBA automation and User Forms, I automate repetitive tasks so that everyone can focus on big picture problems."
                 ],
-                "ExtraContent": "MSOfficeAutomationDemo"
+                "ExtraContentType": "MSOfficeAutomationDemo"
             }
         ]
     },
