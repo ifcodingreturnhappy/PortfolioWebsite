@@ -1,0 +1,196 @@
+{
+    "WhoAmI": {
+        "Title": "Who Am I?",
+        "Description": {
+            "HorizontalTextAlignment": "Center",
+            "Lines": [
+                "My career started as an <*Industrial Engineer*>: managing factory logistics and automating order processes. It was a challenging and interesting job, yet it didn’t have the aspect of software development that I most enjoy: <*design and creation*>.",
+                "So, to fulfill that need to create, I started focusing myself on programming and developing the projects that I wanted to see come to life.",
+                "My current goal is, not only to become a <*world-class programmer*>, but also to <*share*> the <*knowledge*> I acquire, with everyone that also has a passion for coding."
+            ]
+        },
+        "SecondaryTitle": "So, what kind of projects have I worked on?",
+        "Sections": [
+            {
+                "Title": "Video Games/Simulations",
+                "ImageIconRef": "fa-gamepad",
+                "ImageIconFontSize": "10em",
+                "ImageIconGifUrl": "https://media.giphy.com/media/nIlgTxY29wJuU/giphy.gif",
+                "Descriptions": [
+                    "Be it a simple 2D platformer, an action-packed 3D Shooter, or a real-time fluid simulation I love working on my own worlds.",
+                    "There is no joy like creating something tangible from nothing, and video games/simulations are the best way to do so."
+                ],
+                "ExtraContent": "GameDemo"
+            },
+            {
+                "Title": "Web Development",
+                "ImageIconRef": "fa-globe",
+                "ImageIconFontSize": "10em",
+                "ImageIconGifUrl": "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHJ2cjQwbWUzNG1uZ3U1bjd1N294dXA2a3NhcGVycXhnb3llb211dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YnexM9LwlwGu4Z1QnS/giphy.gif",
+                "Descriptions": [
+                    "Web applications allow us to do anything, everywhere. I love working with ASP.NET, and build different types of projects.",
+                    "Its versatility allows to create solutions that range from a portfolio website like this one, to other project types, like, browser games and web apps."
+                ],
+                "ExtraContent": "WebDevelopmentDemo"
+            },
+            {
+                "Title": "MS Office Automation",
+                "ImageIconRef": "fa-file-excel",
+                "ImageIconFontSize": "10em",
+                "ImageIconGifUrl": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2duaXM4dDAxd2FoNWNsY2dqdXVscmRjNjJnYmZudGVtajlmb3lrdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RG6fDS2O5AKno8lKH0/giphy.gif",
+                "Descriptions": [
+                    "MS Office is everyone's enemy, right?",
+                    "It doesn't need to be.",
+                    "With VBA automation and User Forms, I automate repetitive tasks so that everyone can focus on big picture problems."
+                ],
+                "ExtraContent": "MSOfficeAutomationDemo"
+            }
+        ]
+    },
+    "WorkShowcase": {
+        "ArticleMetadata": [
+            {
+                "Id": "a6af06fa-d49d-40c8-a419-18fc8cc7a451",
+                "Title": "IK Mecha Spider",
+                "ImagePath": "Images/IKMecha/IKMechaIcon.png",
+                "Description": "A Procedurally Animated Robot Spider",
+                "PageRef": "work/ikmechaspider",
+                "PublishDate": "20/11/2020",
+                "Tags": [ "Procedural Animation", "C#", "Unity", "Blender" ]
+            },
+            {
+                "Id": "53652731-bc5c-4854-a44f-4a493a2233cf",
+                "Title": "Portfolio Website",
+                "ImagePath": "Images/PortfolioWebsite/PortfolioIcon.png",
+                "Description": "A Personal Work Portfolio Website",
+                "PageRef": "work/myworkdemo",
+                "PublishDate": "13/02/2021",
+                "Tags": [ "Web", "Blazor Server", "C#", "JavaScript", "CSS" ]
+            }
+        ],
+        "Articles": [
+            {
+                "Id": "a6af06fa-d49d-40c8-a419-18fc8cc7a451",
+                "Title": "IK Mecha Spider",
+                "Description": {
+                    "HorizontalTextAlignment": "Center",
+                    "Lines": [
+                        "The idea to create this project came from one of my favorite games from my childhood: <*Ratchet Deadlocked*>. In it, you could pilot an amazing Spider Robot that was really responsive. It’s flaw was that it was unable to walk on walls, only on regular ground. That’s what I wanted to accomplish with this project: a spider that was able to walk on almost <*any given surface*>."
+                    ]
+                },
+                "Sections": [
+                    {
+                        "Title": "Overview",
+                        "Description": {
+                            "HorizontalTextAlignment": "Left",
+                            "Lines": [
+                                "This robotic spider is capable of many things (including mass destruction of virtual worlds).",
+                                "One of its key features is the ability to walk on different kinds of surfaces, even on ceilings! Its greatest feature lies on its animation: it is not pre-baked, it uses <*procedurally generated animation*>, calculated at runtime. This enables each leg to <*adapt*>, individually, to the surface it is currently on!",
+                                "It also has some secondary features, like a simple but cool <*weapon system*> and a <*collision detection mechanism*>, that activates an energy shield when colliding with certain types of objects."
+                            ]
+                        },
+                        "Image": {
+                            "Url": "Images/IKMecha/IKMechaRender.png",
+                            "AltText": "IKMecha in a blank environment.",
+                            "OverlayGifUrl": "",
+                            "Positioning": "ImageLeft"
+                        },
+                        "Links": [
+                            {
+                                "IconRef": "fa-youtube",
+                                "Label": "Showcase",
+                                "Url": "https://youtu.be/9QNpkB4GmKI",
+                                "isEnabled": true
+                            },
+                            {
+                                "IconRef": "fa-unity",
+                                "Label": "Purchase (Deprecated)",
+                                "Url": "https://assetstore.unity.com/packages/3d/characters/robots/ik-mecha-spider-183484",
+                                "isEnabled": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Id": "53652731-bc5c-4854-a44f-4a493a2233cf",
+                "Title": "Portfolio Website",
+                "Description": {
+                    "HorizontalTextAlignment": "Center",
+                    "Lines": [
+                        "I used to use a third-party website builder for my portfolio website, but with time, \nI noticed that the <*amount of control*> I had on the design was not ideal.",
+                        "So, I got to work and built this new version of my portfolio website, using a new, interesting technology: <*Blazor*>."
+                    ]
+                },
+                "Sections": [
+                    {
+                        "Title": "What is Blazor?",
+                        "Description": {
+                            "HorizontalTextAlignment": "Left",
+                            "Lines": [
+                                "Blazor is a new way to develop web applications, based on the already existing .NET ecosystem. It can run either on a web server (<*Blazor Server*>)or on the client, via web-assembly (<*Blazor Web Assembly*>).",
+                                "One of the greatest features of this tool is that one can build a rich web application with <*minimal to no JavaScript*>: almost all (<*if not all!*>) logic can be done with <*C#*>.",
+                                "And with this incredible technology, I was able to bring this website to <*life*>."
+                            ]
+                        },
+                        "Image": {
+                            "Url": "Images/PortfolioWebsite/BlazorIcon.png",
+                            "AltText": "Blazor icon.",
+                            "OverlayGifUrl": "",
+                            "Positioning": "ImageLeft"
+                        },
+                        "Links": []
+                    },
+                    {
+                        "Title": "Portfolio Content",
+                        "Description": {
+                            "HorizontalTextAlignment": "Left",
+                            "Lines": [
+                                "This website is where I <*>show my work and the projects I build*>, in the form of <*showcase articles*> that exhibit a given project.",
+                                "Learning and become better at programming is one of my biggest goals, but I try to never forget what brought me to coding in the first place: <*having fun*>. And with that in mind, I want <*you*>, the visitor of my portfolio, to <*have fun*> as well.",
+                                "\nCurrently, <*displaying my work*> is the only function of this website, but, in the future, this <*is going to change*>.",
+                                "See the section below, about the <*future of this website*>, to learn more!",
+                                "<*Note:*> This project, along with all my noncomercial projects, will have their respective <*source code available on GitHub!*>"
+                            ]
+                        },
+                        "Image": {
+                            "Url": "Images/PortfolioWebsite/BrandShowcase.png",
+                            "AltText": "Brand icon.",
+                            "OverlayGifUrl": "",
+                            "Positioning": "ImageRight"
+                        },
+                        "Links": [
+                            {
+                                "IconRef": "fa-github",
+                                "Label": "View Code",
+                                "Url": "https://github.com/ifcodingreturnhappy/PortfolioWebsite",
+                                "isEnabled": true
+                            }
+                        ]
+                    },
+                    {
+                        "Title": "What's coming next?",
+                        "Description": {
+                            "HorizontalTextAlignment": "Left",
+                            "Lines": [
+                                "If you didn't notice, at the bottom-left corner, there is a <*floating button with the shape of a gamepad*>. This is the next step for this website: <*a Game Room*>.",
+                                " In the future, this button will enable you to play many classics, such as Asteroids, <*remade with Blazor*>."
+                            ]
+                        },
+                        "Image": {
+                            "Url": "Images/PortfolioWebsite/GamesTeaser.png",
+                            "AltText": "Games Teaser.",
+                            "OverlayGifUrl": "https://media.giphy.com/media/A8NkSPltT13H2/giphy.gif",
+                            "Positioning": "ImageLeft"
+                        },
+                        "Links": []
+                    }
+                ]
+            }
+        ]
+    },
+    "ContactMe": {
+        "Email": "icrh.smtp@gmail.com",
+        "GithubUrl": "https://github.com/ifcodingreturnhappy"
+    }
+}

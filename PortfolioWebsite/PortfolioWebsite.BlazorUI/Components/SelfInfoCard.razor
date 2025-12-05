@@ -1,0 +1,18 @@
+﻿<div class="card text-center main-background-color vp-anim-4">
+    <GifCoveredIcon IconName="@SelfInfo.ImageIconRef" 
+                    IconFontSize="@SelfInfo.ImageIconFontSize"
+                    GifUrl="@SelfInfo.ImageIconGifUrl"
+                    />
+    <div class="card-body vp-anim-4">
+        <h3 class="card-title white-text mb-4">@SelfInfo.Title</h3>
+        @foreach (var description in SelfInfo.Descriptions)
+        {
+            <TextContent Content="@description" />
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public WhoAmISectionInfoModel SelfInfo { get; set; }
+}

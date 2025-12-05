@@ -1,0 +1,80 @@
+﻿@page "/work/{articleId:guid}"
+
+@inject IArticleStore _articleStore;
+
+@if (articleInfo == null)
+{
+    <Loader></Loader>
+}
+else
+{
+    <div class="hide-horizontal-scroll">
+        <h2 class="text-center white-text mb-5 vp-anim-3">@articleInfo.Title</h2>
+
+        <div class="main-color text-center padded-text vp-anim-5">
+            @foreach (var line in articleInfo.Description.Lines)
+            {
+                <TextContent Content="@line" HorizontalTextAlignment="@articleInfo.Description.HorizontalTextAlignment" />
+            }
+        </div>
+
+        <div class="empty-block"></div>
+
+        @foreach (var section in this.articleInfo.Sections)
+        {
+            <div class="row px-4 vp-anim-2">
+                <div class="col-md-6 mb-5 @(section.Image.Positioning == ArticleSectionImagePositioning.ImageRight ? "order-md-last" : string.Empty)">
+                    <div class="media-Container">
+                        <img class="media-responsive" src="@(section.Image.Url)" alt="@(section.Image.AltText)" />
+
+                        @if (section.Image.HasGifOverlay())
+                        {
+                            <img class="media-overlay-text"
+                                 style="width: 30%"
+                                 src="@(section.Image.OverlayGifUrl)"
+                                 alt="Gif Overlay." />
+                        }
+                    </div>
+                </div>
+                <div class="col-md-6 mb-5 main-color text-md-left">
+                    <h2 class="mb-5">
+                        <span class="stand-out-text">@(section.Title)</span>
+                    </h2>
+                    <p class="mb-5">
+                        @foreach (var line in section.Description.Lines)
+                        {
+                            <TextContent Content="@(line)" HorizontalTextAlignment="@(section.Description.HorizontalTextAlignment)" />
+                        }
+                    </p>
+                    <div class="text-center">
+                        @foreach (var link in section.Links)
+                        {
+                            <a class="btn main-button mr-4 @(!link.IsEnabled ? "disabled" : string.Empty)"
+                               href="@link.Url"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <i class="fab @link.IconRef secondary-color"></i> @(link.Label)
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="empty-block"></div>
+        }
+
+    </div>
+}
+
+@code {
+    [Parameter]
+    public Guid articleId { get; set; }
+
+    private ArticleModel articleInfo;
+
+	// TODO: improve performance: cache articles after first load
+    protected async override Task OnInitializedAsync()
+    {
+        this.articleInfo = await this._articleStore.GetArticleByIdAsync(articleId);
+    }
+}

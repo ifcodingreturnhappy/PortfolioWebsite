@@ -1,0 +1,20 @@
+﻿<i class="fas @IconName main-color gif-covered-button"
+   style="font-size: @IconFontSize; 
+          background: url(@GifUrl);
+          background-size: 50%;
+          background-position: center;
+          -webkit-background-clip: text;
+          color: transparent;
+          filter: grayscale(50%);"
+   ></i>
+
+@code {
+    [Parameter]
+	public string IconFontSize { get; set; }
+
+    [Parameter]
+	public string IconName { get; set; }
+
+    [Parameter]
+    public string GifUrl { get; set; }
+}

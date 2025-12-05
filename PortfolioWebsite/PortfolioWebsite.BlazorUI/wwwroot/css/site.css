@@ -2,8 +2,11 @@
 
 /**** BASE ****/
 
+/* TODO: Cleanup unused */
+
 html, body {
     font-family: 'Consolas', Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 .body-display {
@@ -165,12 +168,12 @@ html, body {
 
 .floating-button-wrapper {
     position: fixed;
-    bottom: 30px;
+    bottom: 20px;
     transition: ease-in-out 0.5s;
 }
 
 @media (max-width: 768px) {
-    .play-button {
+    .gif-covered-button {
         font-size: 2em;
     }
 
@@ -185,7 +188,7 @@ html, body {
     }
 }
 @media (min-width: 768px) {
-    .play-button {
+    .gif-covered-button {
         font-size: 3em;
     }
 
@@ -358,25 +361,20 @@ html, body {
         transform: scale(1.05);
     }
 
-.clickable-3 {
-    background: url(https://media.giphy.com/media/nIlgTxY29wJuU/giphy.gif);
-    background-size: 50%;
-    background-position: center;
-    -webkit-background-clip: text;
-    color: transparent;
+.gif-covered-button {
     transform: scale(1);
     z-index: 1;
     transition: ease-in-out 0.2s;
 }
 
     @media (min-width: 768px) {
-        .clickable-3:hover {
+        .gif-covered-button:hover {
             text-shadow: 2px 2px RGBA(108,218,163, 0.5);
             transform: scale(1.05);
         }
     }
 
-    .clickable-3-on-click {
+    .gif-covered-button-on-click {
         transform: scale(1.05);
         transform: translateY(-5%);
         text-shadow: 4px 4px RGBA(108,218,163, 0.5) !important;
@@ -583,6 +581,33 @@ html, body {
     visibility: hidden;
 }
 
+/* TODO: Normalize */
+
+.vp-anim-1-trigger {
+    visibility: visible;
+    animation: FadeIn 1s, LeftTranslate 1s ease-in-out;
+}
+
+.vp-anim-2-trigger {
+    visibility: visible;
+    animation: FadeIn 1s, RightTranslate 1s ease-in-out;
+}
+
+.vp-anim-3-trigger {
+    visibility: visible;
+    animation: FadeIn 1s, TopTranslate 0.8s ease-in-out;
+}
+
+.vp-anim-4-trigger {
+    visibility: visible;
+    animation: FadeIn 1s, BottomTranslate 1s ease-in-out;
+}
+
+.vp-anim-5-trigger {
+    visibility: visible;
+    animation: FadeIn ease-in 1.5s;
+}
+
 /* Animation Classes */
 
 .fade-in-with-left-translate {
@@ -660,4 +685,17 @@ html, body {
     100% {
         transform: translateY(0%);
     }
+}
+
+.circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 10px auto;
 }

@@ -1,0 +1,36 @@
+﻿<div class="row my-4 align-items-center">
+
+    @if (RowIndex % 2 == 0)
+    {
+        <div class="col-md-6 order-md-1 order-1 d-flex justify-content-center mb-5">
+            <SelfInfoCard SelfInfo="@SelfInfo" />
+        </div>
+
+        <div class="col-md-6 order-md-2 order-2 d-md-flex justify-content-center">
+            <div class="text-center vp-anim-5">
+                <ExtraContent Type="@(SelfInfo.ExtraContentType)" />
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-6 order-md-1 order-2 d-md-flex justify-content-center">
+            <div class="text-center vp-anim-5">
+                <ExtraContent Type="@(SelfInfo.ExtraContentType)" />
+            </div>
+        </div>
+
+        <div class="col-md-6 order-md-2 order-1 d-flex justify-content-center mb-5">
+            <SelfInfoCard SelfInfo="@SelfInfo" />
+        </div>
+    }
+</div>
+
+
+@code {
+    [Parameter]
+    public int RowIndex { get; set; }
+
+    [Parameter]
+    public WhoAmISectionInfoModel SelfInfo { get; set; }
+}

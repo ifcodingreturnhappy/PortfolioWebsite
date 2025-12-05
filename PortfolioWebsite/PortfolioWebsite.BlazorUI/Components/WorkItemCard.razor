@@ -21,6 +21,11 @@
 </div>
 
 @code {
+    // TODO: pass whole object
+
+    [Parameter]
+    public Guid Id { get; set; }
+
     [Parameter]
     public string Title { get; set; }
 
@@ -37,7 +42,7 @@
     public DateTime PublishDate { get; set; }
 
     [Parameter]
-    public List<string> Tags { get; set; }
+    public IEnumerable<string> Tags { get; set; }
 
     private string PublishDateFormated
     {
@@ -49,6 +54,6 @@
 
     private void OpenCard()
     {
-        NavManager.NavigateTo(PageRef);
+        NavManager.NavigateTo($"work/{this.Id}");
     }
 }

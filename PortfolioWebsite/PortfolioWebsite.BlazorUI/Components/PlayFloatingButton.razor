@@ -4,8 +4,13 @@
 <div class="floating-button-wrapper text-center vp-anim-5">
     <div class="game-menu game-menu-positioning over-background-color @(isGameListVisible ? "game-menu-wipe" : "")">
         <div class="pl-2 pr-2 pt-2 main-color">
-            <h3 class="white-text">Coming soon:</h3>
-            <p class="stand-out-text">Blazor Browser Games!</p>
+            <h3 class="white-text">Customize the look:</h3>
+            <div>
+                <input type="color"
+                       @bind="selectedColor"
+                       @bind:event="oninput"
+                       @ref="colorInputRef" />
+            </div>
         </div>
     </div>
 
@@ -14,7 +19,7 @@
     </div>
     <div>
         <a class="btn-floating btn-lg btn-flat" @onclick="ToggleGameList">
-            <i class="fas fa-gamepad main-color play-button clickable-3 
+            <i class="fas fa-palette main-color play-button clickable-3
                @(isGameListVisible ? "clickable-3-on-click" : "")"></i>
         </a>
     </div>
@@ -22,6 +27,12 @@
 
 
 @code   {
+
+    private bool isColorPickerVisible = false;
+    private string selectedColor = "#ff0000";   // default color
+
+    private ElementReference colorInputRef;
+
 
     private bool isGameListVisible = false;
 

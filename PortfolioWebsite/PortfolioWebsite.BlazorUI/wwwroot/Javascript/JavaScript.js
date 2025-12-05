@@ -1,5 +1,4 @@
-﻿
-let options = {
+﻿let options = {
     root: null,
     rootMargin: '-20px -20px -20px -20px',
     threshold: 0.3
@@ -7,10 +6,56 @@ let options = {
 
 let currentId = 0;
 
-function setupViewportAnimations(jsonAnimationSettings) {
-    try {
-        let animationSettings = JSON.parse(jsonAnimationSettings);
+const observer = new MutationObserver(() => {
+    const elements = document.querySelectorAll('[class*="vp-anim-"]');
 
+    if (elements.length > 0) {
+        elements.forEach(el => {
+            const animClasses = [...el.classList].filter(c => c.startsWith("vp-anim-") && !c.endsWith("-triggered"));
+            const animClassesTriggered = [...el.classList].filter(c => c.startsWith("vp-anim-") && c.endsWith("-triggered"));
+
+            if (animClasses.length > 0 && animClassesTriggered.length === 0) {
+                setupViewportAnimations(animationMappings)
+            }
+        });
+
+        console.log("Classes replaced");
+        //observer.disconnect();
+    }
+});
+
+observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['class']
+});
+
+const animationMappings = [
+    {
+        "animationId": "vp-anim-1",
+        "animationCSS": "fade-in-with-left-translate"
+    },
+    {
+        "animationId": "vp-anim-2",
+        "animationCSS": "fade-in-with-right-translate"
+    },
+    {
+        "animationId": "vp-anim-3",
+        "animationCSS": "fade-in-with-top-translate"
+    },
+    {
+        "animationId": "vp-anim-4",
+        "animationCSS": "fade-in-with-bottom-translate"
+    },
+    {
+        "animationId": "vp-anim-5",
+        "animationCSS": "fade-in-slow"
+    }
+];
+
+function setupViewportAnimations(animationSettings) {
+    try {
         let observer = new IntersectionObserver(function
             (entries, self) {
 
@@ -46,30 +91,4 @@ function observerCallback(entry, cssClass, isRepeatable) {
             entry.target.classList.add(cssClass);
         }
     }
-
-    //console.log("Observer callback");
-}
-
-
-function updateCurrentPageIndicator() {
-    return;
-
-    let navLinks = document.querySelectorAll('.selectable-item');
-
-    let currentPageRef = window.location.pathname;
-
-    navLinks.forEach(navLink => {
-        let currentNavLink = navLink.getAttribute('href');
-
-        if (currentPageRef.includes(currentNavLink)) {
-            navLink.classList.add('selected-element');
-        }
-        else {
-            navLink.classList.remove('selected-element');
-        }
-    });
-}
-
-function logMessage(message) {
-    console.log(message);
 }

@@ -1,7 +1,4 @@
-﻿@inject IJSRuntime JSRuntime;
-@inject HttpClient _client;
-
-<nav class="navbar main-background-color navbar-expand-md fixed-top">
+﻿<nav class="navbar main-background-color navbar-expand-md fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand main-color clickable-1 scale-up vp-anim-1" href="" @onclick="() => { CollapseNavMenu(); }">
             <span class="white-text">[</span>
@@ -29,19 +26,32 @@
     </div>
 </nav>
 
-
 @code {
+    // TODO: refactor
     public bool isNavMenuCollapsed { get; set; } = true;
     string NavMenuVisibility => isNavMenuCollapsed ? "" : "wipe-down";
     string NavMenuIcon => isNavMenuCollapsed ? "fa-bars" : "fa-times-circle";
 
-    private List<NavigationLinkModel> NavigationLinks = new List<NavigationLinkModel>();
-
-    protected override async Task OnInitializedAsync()
-    {
-        var json = await _client.GetStringAsync("Data/NavigationLinks.json");
-        NavigationLinks = JsonSerializer.Deserialize<List<NavigationLinkModel>>(json);
-    }
+    private readonly List<NavigationLinkModel> NavigationLinks = [
+        new() 
+        {
+			LinkText = "Who Am I?",
+			LinkRef = "whoami",
+			Icon = ""
+        },
+        new()
+        {
+            LinkText = "Work Showcase",
+            LinkRef = "work",
+            Icon = ""
+        },
+        new()
+        {
+            LinkText = "Contact Me",
+            LinkRef = "contactme",
+            Icon = ""
+		},
+    ];
 
     void ToggleNavMenu()
     {

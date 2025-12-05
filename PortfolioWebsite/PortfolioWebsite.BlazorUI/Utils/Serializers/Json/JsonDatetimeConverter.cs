@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace PortfolioWebsite.BlazorUI.Converters
+namespace PortfolioWebsite.BlazorUI.Utils.Serializers.Json
 {
     public class JsonDatetimeConverter : JsonConverter<DateTime>
     {

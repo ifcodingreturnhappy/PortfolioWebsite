@@ -1,6 +1,5 @@
 ﻿@page "/work"
-@inject IJSRuntime JSRuntime
-@inject HttpClient _client;
+@inject IArticleStore _articleStore;
 
 <h2 class="white-text text-center mb-5 vp-anim-3">Work Showcase</h2>
 
@@ -17,7 +16,7 @@
                 {
                     <div class="py-1 simple-hover" @onclick="() => tag.IsSelected = !tag.IsSelected">
                         <a class="non-selectable">
-                            <span class="@(tag.IsSelected ? checkedCSS : notCheckedCSS) main-color"></span>
+                            <span class="@(tag.IsSelected ? "far fa-check-square" : "far fa-square") main-color"></span>
                             @(tag.Name)
                         </a>
                     </div>
@@ -33,12 +32,13 @@
                 bool isCardTagSelected = availableTags.Where(x => x.IsSelected).Select(x => x.Name).Intersect(articleMetadata.Tags).Any();
 
                 <div class="col-md-6 mb-5 vp-anim-4" style="@(isCardTagSelected ? "display: block" : "display: none")">
-                    <Card Title="@articleMetadata.Title"
-                          ImagePath="@articleMetadata.ImagePath"
-                          Description="@articleMetadata.Description"
-                          pageRef="@articleMetadata.PageRef"
-                          publishDate="@articleMetadata.PublishDate"
-                          Tags="@articleMetadata.Tags"></Card>
+                    <WorkItemCard Id="@articleMetadata.Id"
+                                  Title="@articleMetadata.Title"
+                                  ImagePath="@articleMetadata.ImagePath"
+                                  Description="@articleMetadata.Description"
+                                  pageRef="@articleMetadata.PageRef"
+                                  publishDate="@articleMetadata.PublishDate"
+                                  Tags="@articleMetadata.Tags"></WorkItemCard>
                 </div>
             }
         </div>
@@ -50,18 +50,20 @@ else
     <Loader @ref="loader" TimeOut="8000" TimeOutMessage="Unable to get the article data. Please try again."></Loader>
 }
 
-
-
 @code {
 
     private Loader loader;
 
-    List<WorkArticleMetadataModel> workArticlesMetadata = new List<WorkArticleMetadataModel>();
-    private List<ArticleTagModel> availableTags;
+    private List<ArticleMetadataModel> workArticlesMetadata = [];
+    private List<ArticleTagModel> availableTags = [];
 
-    private string checkedCSS = "far fa-check-square";
-    private string notCheckedCSS = "far fa-square";
+    protected async override Task OnInitializedAsync()
+    {
+        this.workArticlesMetadata = (await this._articleStore.GetArticleMetadataAsync()).ToList();
+        this.availableTags = (await this._articleStore.GetAvailableTagsAsync()).ToList();
+    }
 
+	// TODO: improve this logic
     private bool CanDrawCards()
     {
         bool canDrawCards = workArticlesMetadata.Count > 0 && !loader.HasTimedOut;
@@ -72,45 +74,5 @@ else
         }
 
         return canDrawCards;
-    }
-
-    protected async override Task OnInitializedAsync()
-    {
-        string path = $"ArticleMetadata/articles.json";
-
-        // Get metadata for all the articles
-        var metadataJson = await _client.GetStringAsync(path);
-
-        // Parse raw article metadata json to the desired format
-        var options = new JsonSerializerOptions { Converters = { new JsonDatetimeConverter() } };
-        workArticlesMetadata = JsonSerializer.Deserialize<List<WorkArticleMetadataModel>>(metadataJson, options);
-        await Task.Delay(300);
-
-        workArticlesMetadata = workArticlesMetadata.OrderByDescending(x => x.PublishDate).ToList();
-
-        availableTags = GetAvailableTags();
-    }
-
-
-    //This will allow to add the vp-anims, once when async data call is finished
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (CanDrawCards())
-        {
-            var json = await _client.GetStringAsync("Data/OnViewportEnterCSSAnimations.json");
-            await JSRuntime.InvokeVoidAsync("setupViewportAnimations", json);
-        }
-    }
-
-    private List<ArticleTagModel> GetAvailableTags()
-    {
-        List<string> availableTags = new List<string>();
-
-        foreach (var article in workArticlesMetadata)
-        {
-            availableTags.AddRange(article.Tags);
-        }
-
-        return availableTags.Distinct().Select(x => new ArticleTagModel { IsSelected = true, Name = x }).ToList();
     }
 }
