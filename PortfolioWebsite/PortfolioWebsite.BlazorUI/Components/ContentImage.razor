@@ -1,0 +1,19 @@
+﻿<div class="col-6 mb-5">
+    <div class="media-Container">
+        <img class="media-responsive" src="@(Image.Url)" alt="@(Image.AltText)" />
+
+        @if (Image.HasGifOverlay())
+        {
+            <img class="media-overlay-text"
+                 style="width: 30%"
+                 src="@(Image.OverlayGifUrl)"
+                 alt="Gif Overlay." />
+        }
+    </div>
+</div>
+<p>image</p>
+
+@code {
+	[Parameter]
+	public ContentImageInfoModel Image { get; set; }
+}

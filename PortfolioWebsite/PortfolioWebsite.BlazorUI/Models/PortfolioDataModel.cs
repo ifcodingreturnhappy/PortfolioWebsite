@@ -1,4 +1,8 @@
-﻿namespace PortfolioWebsite.BlazorUI.Models
+﻿using PortfolioWebsite.BlazorUI.Models.ContactMe;
+using PortfolioWebsite.BlazorUI.Models.WhoAmI;
+using PortfolioWebsite.BlazorUI.Models.WorkShowcase;
+
+namespace PortfolioWebsite.BlazorUI.Models
 {
     public class PortfolioDataModel
     {

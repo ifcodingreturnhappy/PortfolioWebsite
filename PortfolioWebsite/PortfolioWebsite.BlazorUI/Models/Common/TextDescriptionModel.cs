@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PortfolioWebsite.BlazorUI.Models
+namespace PortfolioWebsite.BlazorUI.Models.Common
 {
     public class TextDescriptionModel
     {

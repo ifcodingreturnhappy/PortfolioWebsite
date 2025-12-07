@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using PortfolioWebsite.BlazorUI.Models.WorkShowcase.Articles;
 
-namespace PortfolioWebsite.BlazorUI.Models
+namespace PortfolioWebsite.BlazorUI.Models.WorkShowcase
 {
     public class WorkShowcaseInfoModel
     {

@@ -1,0 +1,26 @@
+﻿<div class="card text-center main-background-color vp-anim-4">
+    <GifCoveredIcon Icon="@Excerpt.Icon" />
+    <div class="card-body vp-anim-4">
+        <h3 class="card-title white-text mb-4">@Excerpt.Title</h3>
+        @foreach (var line in Excerpt.Description.Lines)
+        {
+            <TextContent Content="@line" HorizontalTextAlignment="@Excerpt.Description.HorizontalTextAlignment" />
+        }
+    </div>
+    <div class="text-center vp-anim-4">
+        @foreach (var link in Excerpt.Links)
+        {
+            <a class="btn main-button mr-4 @(!link.IsEnabled ? "disabled" : string.Empty)"
+               href="@link.Url"
+               target="_blank"
+               rel="noopener noreferrer">
+                <i class="fab @link.IconRef secondary-color"></i> @(link.Label)
+            </a>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+	public ContentExcerptInfoModel Excerpt { get; set; }
+}

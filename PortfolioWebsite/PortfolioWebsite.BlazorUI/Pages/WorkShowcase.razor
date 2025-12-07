@@ -1,4 +1,6 @@
 ﻿@page "/work"
+@using PortfolioWebsite.BlazorUI.Models.WorkShowcase
+@using PortfolioWebsite.BlazorUI.Models.WorkShowcase.Articles
 @inject IArticleStore _articleStore;
 
 <h2 class="white-text text-center mb-5 vp-anim-3">Work Showcase</h2>
@@ -63,7 +65,7 @@ else
         this.availableTags = (await this._articleStore.GetAvailableTagsAsync()).ToList();
     }
 
-	// TODO: improve this logic
+	// TODO: improve this logic (and the page itself)
     private bool CanDrawCards()
     {
         bool canDrawCards = workArticlesMetadata.Count > 0 && !loader.HasTimedOut;

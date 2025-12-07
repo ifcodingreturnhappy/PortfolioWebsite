@@ -1,0 +1,29 @@
+﻿@if (Content.Excerpt != null)
+{
+	<ContentExcerpt Excerpt="@Content.Excerpt" />
+}
+
+@if (Content.Image != null)
+{
+    <ContentImage Image="@Content.Image" />
+}
+
+@if (Content.GameDemo != null)
+{
+    <p>Game Demo</p>
+}
+
+@if (Content.WebDevelopmentDemo != null)
+{
+    <p>Web Development Demo</p>
+}
+
+@if (Content.MSOfficeAutomationDemo != null)
+{
+    <p>MSOffice Automation Demo</p>
+}
+
+@code {
+    [Parameter]
+    public ContentInfoModel Content { get; set; }
+}

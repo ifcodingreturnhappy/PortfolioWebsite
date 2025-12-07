@@ -1,18 +1,17 @@
-﻿<h3>ExtraContent - @(Type.ToString())</h3>
+﻿@using PortfolioWebsite.BlazorUI.Models.Common
+<h3>ExtraContent - @(GetExtraContent(this.ExtraContentInfo))</h3>
 
 @code {
 	[Parameter]
-	public ExtraContentType Type { get; set; }
+	public ContentInfoModel ExtraContentInfo { get; set; }
 
-	// TODO:
-	// private static RenderFragment GetExtraContent(ExtraContentType extraContentType)
-	// {
-	// 	switch (extraContentType)
-	// 	{
-	// 		case: ExtraContentType.GameDemo:
-	// 		case: ExtraContentType.WebDevelopmentDemo:
-	// 		case: ExtraContentType.MSOfficeAutomationDemo:
-	// 		default:
-	// 	}
-	// }
+	// TODO: return RenderFragment
+	private static string GetExtraContent(ContentInfoModel extraContentInfo)
+	{
+		if (extraContentInfo.Image != null) return nameof(extraContentInfo.Image);
+		else if (extraContentInfo.GameDemo != null) return nameof(extraContentInfo.GameDemo);
+		else if (extraContentInfo.WebDevelopmentDemo != null) return nameof(extraContentInfo.WebDevelopmentDemo);
+		else if (extraContentInfo.MSOfficeAutomationDemo != null) return nameof(extraContentInfo.MSOfficeAutomationDemo);
+		else return "undefined";
+	}
 }

@@ -1,47 +1,15 @@
 ﻿@page "/whoami"
+@using PortfolioWebsite.BlazorUI.Models.WhoAmI
 @inject IArticleStore _articleStore;
 
-@if (whoAmI == null)
-{
-    <div class="empty-block"></div>
-    <Loader></Loader>
-}
-else
-{
-    <div class="container-fluid top-margin-medium bottom-margin-large">
-
-        <h2 class="white-text text-center mb-5 vp-anim-3">@(this.whoAmI.Title)</h2>
-
-        <div class="container vp-anim-5">
-            @foreach (var line in this.whoAmI.Description.Lines)
-            {
-                <TextContent Content="@line" HorizontalTextAlignment="@this.whoAmI.Description.HorizontalTextAlignment" />
-            }
-        </div>
-    </div>
-
-    <div class="empty-block"></div>
-
-    <div class="container-fluid main-color text-center vp-anim-4">
-        <h2>@this.whoAmI.SecondaryTitle</h2>
-    </div>
-
-    <div class="overflow-hidden">
-        @foreach (var selfInfo in this.whoAmI.Sections.Select((item, index) => new { item, index }))
-        {
-            <SelfInfoRow RowIndex="@selfInfo.index"
-                         SelfInfo="@selfInfo.item" />
-        }
-    </div>
-}
-
-
+<LoadablePage Page="page" /> 
 
 @code {
-    private WhoAmIInfoModel whoAmI;
+    private PageInfoModel page;
 
     protected async override Task OnInitializedAsync()
     {
-        this.whoAmI = await this._articleStore.GetWhoAmIAsync();
+        var whoAmI = await this._articleStore.GetWhoAmIAsync();
+		this.page = whoAmI.Page;
     }
 }

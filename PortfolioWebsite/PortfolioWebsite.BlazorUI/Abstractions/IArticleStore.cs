@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using PortfolioWebsite.BlazorUI.Models;
+using PortfolioWebsite.BlazorUI.Models.ContactMe;
+using PortfolioWebsite.BlazorUI.Models.WhoAmI;
+using PortfolioWebsite.BlazorUI.Models.WorkShowcase.Articles;
 
 namespace PortfolioWebsite.BlazorUI.Abstractions
 {

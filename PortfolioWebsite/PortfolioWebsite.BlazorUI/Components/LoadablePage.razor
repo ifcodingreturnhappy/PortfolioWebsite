@@ -1,0 +1,43 @@
+﻿@inject IArticleStore _articleStore;
+
+@if (Page == null)
+{
+    <div class="empty-block"></div>
+    <Loader></Loader>
+}
+else
+{
+    <div class="container-fluid top-margin-medium bottom-margin-large">
+
+        <h2 class="white-text text-center mb-5 vp-anim-3">@(Page.Introduction.Title)</h2>
+
+        <div class="container vp-anim-5">
+            @foreach (var line in Page.Introduction.Description.Lines)
+            {
+                <TextContent Content="@line" HorizontalTextAlignment="@Page.Introduction.Description.HorizontalTextAlignment" />
+            }
+        </div>
+    </div>
+
+    <div class="empty-block"></div>
+
+    @if (Page.Introduction.HasSecondaryTitle())
+    {
+        <div class="container-fluid main-color text-center vp-anim-4">
+            <h2>@Page.Introduction.SecondaryTitle</h2>
+        </div>
+
+    }
+
+    <div class="overflow-hidden">
+        @foreach (var section in Page.Sections)
+        {
+            <SectionRow Section="section" />
+        }
+    </div>
+}
+
+@code {
+    [Parameter]
+    public PageInfoModel Page { get; set; }
+}

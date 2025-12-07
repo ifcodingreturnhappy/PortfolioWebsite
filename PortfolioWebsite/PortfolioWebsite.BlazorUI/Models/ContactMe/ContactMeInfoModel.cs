@@ -1,4 +1,4 @@
-﻿namespace PortfolioWebsite.BlazorUI.Models
+﻿namespace PortfolioWebsite.BlazorUI.Models.ContactMe
 {
     public class ContactMeInfoModel
     {

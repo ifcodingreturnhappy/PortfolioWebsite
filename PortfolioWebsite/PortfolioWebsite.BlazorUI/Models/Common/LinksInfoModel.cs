@@ -1,6 +1,6 @@
-﻿namespace PortfolioWebsite.BlazorUI.Models
+﻿namespace PortfolioWebsite.BlazorUI.Models.Common
 {
-    public class ArticleSectionLinksInfoModel
+    public class LinksInfoModel
     {
         public string IconRef { get; set; }
         public string Label { get; set; }

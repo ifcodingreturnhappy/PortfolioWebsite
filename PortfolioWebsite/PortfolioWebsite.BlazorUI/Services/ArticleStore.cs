@@ -5,11 +5,15 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using PortfolioWebsite.BlazorUI.Abstractions;
 using PortfolioWebsite.BlazorUI.Models;
+using PortfolioWebsite.BlazorUI.Models.ContactMe;
+using PortfolioWebsite.BlazorUI.Models.WhoAmI;
+using PortfolioWebsite.BlazorUI.Models.WorkShowcase.Articles;
 
 // TODO: rename models / method names after refactor
 
 namespace PortfolioWebsite.BlazorUI.Services
 {
+    // TODO: Rename class/interface
     public class ArticleStore : IArticleStore
     {
         private readonly HttpClient httpClient;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PortfolioWebsite.BlazorUI.Models
+namespace PortfolioWebsite.BlazorUI.Models.WorkShowcase.Articles
 {
     public class ArticleMetadataModel
     {

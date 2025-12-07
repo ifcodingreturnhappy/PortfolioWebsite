@@ -1,4 +1,4 @@
-﻿namespace PortfolioWebsite.BlazorUI.Models
+﻿namespace PortfolioWebsite.BlazorUI.Models.Common
 {
     public enum HorizontalTextAlignment
     {
