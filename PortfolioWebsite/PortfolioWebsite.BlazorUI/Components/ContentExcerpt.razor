@@ -1,13 +1,13 @@
-﻿<div class="card text-center main-background-color vp-anim-4">
+﻿<div class="card text-center main-background-color @(Excerpt.IncludeExtraSpacing ? "top-margin-medium bottom-margin-large" : string.Empty)">
     <GifCoveredIcon Icon="@Excerpt.Icon" />
-    <div class="card-body vp-anim-4">
+    <div class="card-body">
         <h3 class="card-title white-text mb-4">@Excerpt.Title</h3>
         @foreach (var line in Excerpt.Description.Lines)
         {
             <TextContent Content="@line" HorizontalTextAlignment="@Excerpt.Description.HorizontalTextAlignment" />
         }
     </div>
-    <div class="text-center vp-anim-4">
+    <div class="text-center">
         @foreach (var link in Excerpt.Links)
         {
             <a class="btn main-button mr-4 @(!link.IsEnabled ? "disabled" : string.Empty)"
@@ -19,6 +19,10 @@
         }
     </div>
 </div>
+@if(Excerpt.IncludeExtraSpacing)
+{
+<div class="empty-block"></div>
+}
 
 @code {
     [Parameter]

@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-
-namespace PortfolioWebsite.BlazorUI.Models.Common
+﻿namespace PortfolioWebsite.BlazorUI.Models.Common
 {
     public class PageInfoModel
     {
         public ContentExcerptInfoModel Introduction { get; set; }
-        public IEnumerable<SectionInfoModel> Sections { get; set; } = [];
+        public SectionGroupInfoModel SectionGroup { get; set; }
     }
 }
