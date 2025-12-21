@@ -40,7 +40,7 @@
                     },
                     {
                         "MainContent": {
-                            "AnimationType": "VP_ANIM_5",
+                            "AnimationType": "FadeIn",
                             "Excerpt": {
                                 "Title": "Who Am I?",
                                 "Description": {
@@ -64,7 +64,7 @@
                     },
                     {
                         "MainContent": {
-                            "AnimationType": "VP_ANIM_4",
+                            "AnimationType": "FadeInBottomTranslate",
                             "Excerpt": {
                                 "Title": "So, what kind of projects have I worked on?"
                             }
@@ -73,7 +73,7 @@
                     },
                     {
                         "MainContent": {
-                            "AnimationType": "VP_ANIM_4",
+                            "AnimationType": "FadeInBottomTranslate",
                             "Excerpt": {
                                 "Title": "Video Games/Simulations",
                                 "Description": {
@@ -91,7 +91,7 @@
                             }
                         },
                         "ExtraContent": {
-                            "AnimationType": "VP_ANIM_5",
+                            "AnimationType": "FadeIn",
                             "SourceCode": {
                                 "Language": "json",
                                 "Code": "{ \"hello\": \"World!\"}"
@@ -102,7 +102,7 @@
                     },
                     {
                         "MainContent": {
-                            "AnimationType": "VP_ANIM_4",
+                            "AnimationType": "FadeInBottomTranslate",
                             "Excerpt": {
                                 "Title": "Web Development",
                                 "Description": {
@@ -120,7 +120,7 @@
                             }
                         },
                         "ExtraContent": {
-                            "AnimationType": "VP_ANIM_5",
+                            "AnimationType": "FadeIn",
                             "SourceCode": {}
                         },
                         "ContentPositioning": "ExtraContentFirstOnLargeScreens",
@@ -128,7 +128,7 @@
                     },
                     {
                         "MainContent": {
-                            "AnimationType": "VP_ANIM_4",
+                            "AnimationType": "FadeInBottomTranslate",
                             "Excerpt": {
                                 "Title": "MS Office Automation",
                                 "Description": {
@@ -147,7 +147,7 @@
                             }
                         },
                         "ExtraContent": {
-                            "AnimationType": "VP_ANIM_5",
+                            "AnimationType": "FadeIn",
                             "SourceCode": {}
                         },
                         "ContentPositioning": "MainContentFirst",
@@ -163,7 +163,7 @@
                 "Sections": [
                     {
                         "MainContent": {
-                            "AnimationType": "VP_ANIM_4",
+                            "AnimationType": "FadeInBottomTranslate",
                             "Excerpt": {
                                 "Title": "Project articles:"
                             }
@@ -172,7 +172,7 @@
                     },
                     {
                         "MainContent": {
-                            "AnimationType": "VP_ANIM_5",
+                            "AnimationType": "FadeIn",
                             "TaggedCard": {
                                 "Id": "53652731-bc5c-4854-a44f-4a493a2233cf",
                                 "Title": "Portfolio Website",
@@ -183,7 +183,7 @@
                             }
                         },
                         "ExtraContent": {
-                            "AnimationType": "VP_ANIM_5",
+                            "AnimationType": "FadeIn",
                             "TaggedCard": {
                                 "Id": "a6af06fa-d49d-40c8-a419-18fc8cc7a451",
                                 "Title": "IK Mecha Spider",
@@ -198,7 +198,7 @@
                     },
                     {
                         "MainContent": {
-                            "AnimationType": "VP_ANIM_5",
+                            "AnimationType": "FadeIn",
                             "TaggedCard": {
                                 "Id": "53652731-bc5c-4854-a44f-4a493a2233cf",
                                 "Title": "Portfolio Website",
@@ -210,7 +210,7 @@
                             }
                         },
                         "ExtraContent": {
-                            "AnimationType": "VP_ANIM_5",
+                            "AnimationType": "FadeIn",
                             "TaggedCard": {
                                 "Id": "a6af06fa-d49d-40c8-a419-18fc8cc7a451",
                                 "Title": "IK Mecha Spider",
@@ -240,7 +240,7 @@
                             },
                             {
                                 "MainContent": {
-                                    "AnimationType": "VP_ANIM_5",
+                                    "AnimationType": "FadeIn",
                                     "Excerpt": {
                                         "Title": "IK Mecha Spider",
                                         "Description": {
@@ -262,7 +262,7 @@
                             },
                             {
                                 "MainContent": {
-                                    "AnimationType": "VP_ANIM_4",
+                                    "AnimationType": "FadeInBottomTranslate",
                                     "Excerpt": {
                                         "Title": "Overview",
                                         "Description": {
@@ -290,7 +290,7 @@
                                     }
                                 },
                                 "ExtraContent": {
-                                    "AnimationType": "VP_ANIM_5",
+                                    "AnimationType": "FadeIn",
                                     "Image": {
                                         "Url": "images/ikmecha/render.png",
                                         "AltText": "IKMecha in a blank environment.",
@@ -315,7 +315,7 @@
                             },
                             {
                                 "MainContent": {
-                                    "AnimationType": "VP_ANIM_5",
+                                    "AnimationType": "FadeIn",
                                     "Excerpt": {
                                         "Title": "Portfolio Website",
                                         "Description": {
@@ -338,7 +338,7 @@
                             },
                             {
                                 "MainContent": {
-                                    "AnimationType": "VP_ANIM_4",
+                                    "AnimationType": "FadeInBottomTranslate",
                                     "Excerpt": {
                                         "Title": "What is Blazor?",
                                         "Description": {
@@ -353,7 +353,7 @@
                                     }
                                 },
                                 "ExtraContent": {
-                                    "AnimationType": "VP_ANIM_5",
+                                    "AnimationType": "FadeIn",
                                     "Image": {
                                         "Url": "images/website/blazor.png",
                                         "AltText": "Blazor icon.",
@@ -369,7 +369,7 @@
                             },
                             {
                                 "MainContent": {
-                                    "AnimationType": "VP_ANIM_4",
+                                    "AnimationType": "FadeInBottomTranslate",
                                     "Excerpt": {
                                         "Title": "Portfolio Content",
                                         "Description": {
@@ -393,7 +393,7 @@
                                     }
                                 },
                                 "ExtraContent": {
-                                    "AnimationType": "VP_ANIM_5",
+                                    "AnimationType": "FadeIn",
                                     "Image": {
                                         "Url": "images/website/brand.png",
                                         "AltText": "Brand icon.",
@@ -409,7 +409,7 @@
                             },
                             {
                                 "MainContent": {
-                                    "AnimationType": "VP_ANIM_4",
+                                    "AnimationType": "FadeInBottomTranslate",
                                     "Excerpt": {
                                         "Title": "What's coming next?",
                                         "Description": {
@@ -423,7 +423,7 @@
                                     }
                                 },
                                 "ExtraContent": {
-                                    "AnimationType": "VP_ANIM_5",
+                                    "AnimationType": "FadeIn",
                                     "Image": {
                                         "Url": "images/website/teaser.png",
                                         "AltText": "Games Teaser.",
@@ -444,7 +444,7 @@
                 "Sections": [
                     {
                         "MainContent": {
-                            "AnimationType": "VP_ANIM_4",
+                            "AnimationType": "FadeInBottomTranslate",
                             "Excerpt": {
                                 "Title": "GitHub",
                                 "Description": {
@@ -461,7 +461,7 @@
                             }
                         },
                         "ExtraContent": {
-                            "AnimationType": "VP_ANIM_4",
+                            "AnimationType": "FadeInBottomTranslate",
                             "Excerpt": {
                                 "Title": "Email",
                                 "Description": {
