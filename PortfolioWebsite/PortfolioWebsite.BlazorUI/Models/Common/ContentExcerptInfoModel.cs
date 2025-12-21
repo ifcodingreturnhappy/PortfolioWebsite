@@ -2,7 +2,7 @@
 
 namespace PortfolioWebsite.BlazorUI.Models.Common
 {
-    public class ContentExcerptInfoModel
+    public class ContentExcerptInfoModel /*TOOD: BaseContentInfoModel { string VpAnimation ... } */
     {
         public string Title { get; set; }
         public TextDescriptionModel Description { get; set; }

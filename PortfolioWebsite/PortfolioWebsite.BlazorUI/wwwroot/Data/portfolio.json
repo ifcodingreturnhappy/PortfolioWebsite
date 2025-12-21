@@ -1,23 +1,62 @@
 {
+    "Home": {
+        "FirstLineTitle": "{",
+        "SecondLineTitle": "}",
+        "MainTitle": "//Code made with passion.",
+        "AnimatedMainTitle": "_",
+        "Subtitle": "A personal coding journey.",
+        "SubtitleDescriptions": [
+            "This website is a personal page where I showcase my passion projects and all the things I do related to programming.",
+            "Join me in this adventure!"
+        ]
+    },
+    "NavigationMenu": {
+        "Title": "<w[w>If Coding Return Happy<w]w>",
+        "CollapsedMenuIcon": "fas fa-bars",
+        "OpenMenuIcon": "fas fa-times-circle",
+        "NavigationLinks": [
+            {
+                "Label": "Who Am I?",
+                "PageRef": "whoami"
+            },
+            {
+                "Label": "My Work",
+                "PageRef": "work"
+            },
+            {
+                "Label": "Contact Me",
+                "PageRef": "contactme"
+            }
+        ]
+    },
     "WhoAmI": {
         "Page": {
             "Introduction": {
-                "Title": "Who Am I?",
-                "Description": {
-                    "HorizontalTextAlignment": "Center",
-                    "Lines": [
-                        "My career started as an <*Industrial Engineer*>: managing factory logistics and automating order processes. It was a challenging and interesting job, yet it didn’t have the aspect of software development that I most enjoy: <*design and creation*>.",
-                        "So, to fulfill that need to create, I started focusing myself on programming and developing the projects that I wanted to see come to life.",
-                        "My current goal is, not only to become a <*world-class programmer*>, but also to <*share*> the <*knowledge*> I acquire, with everyone that also has a passion for coding."
-                    ]
-                },
-                "IncludeExtraSpacing": true
+                "AnimationType": "VP_ANIM_5",
+                "Excerpt": {
+                    "Title": "Who Am I?",
+                    "Description": {
+                        "HorizontalTextAlignment": "Center",
+                        "Lines": [
+                            "My career started as an <*Industrial Engineer*>: managing factory logistics and automating order processes. It was a challenging and interesting job, yet it didn’t have the aspect of software development that I most enjoy: <*design and creation*>.",
+                            "So, to fulfill that need to create, I started focusing myself on programming and developing the projects that I wanted to see come to life.",
+                            "My current goal is, not only to become a <*world-class programmer*>, but also to <*share*> the <*knowledge*> I acquire, with everyone that also has a passion for coding."
+                        ]
+                    },
+                    "IncludeExtraSpacing": true
+                }
             },
             "SectionGroup": {
-                "Title": "So, what kind of projects have I worked on?",
+                "Introduction": {
+                    "AnimationType": "VP_ANIM_4",
+                    "Excerpt": {
+                        "Title": "So, what kind of projects have I worked on?"
+                    }
+                },
                 "Sections": [
                     {
                         "MainContent": {
+                            "AnimationType": "VP_ANIM_4",
                             "Excerpt": {
                                 "Title": "Video Games/Simulations",
                                 "Description": {
@@ -28,19 +67,25 @@
                                     ]
                                 },
                                 "Icon": {
-                                    "IconRef": "fa-gamepad",
+                                    "IconRef": "fas fa-gamepad",
                                     "FontSize": "10em",
                                     "OverlayGifUrl": "https://media.giphy.com/media/nIlgTxY29wJuU/giphy.gif"
                                 }
                             }
                         },
                         "ExtraContent": {
-                            "GameDemo": {}
+                            "AnimationType": "VP_ANIM_5",
+                            "SourceCode": {
+                                "Language": "json",
+                                "Code": "{ \"hello\": \"World!\"}"
+                            }
                         },
-                        "ContentPositioning": "MainContentFirst"
+                        "ContentPositioning": "MainContentFirst",
+                        "ContentSpacing": "Large"
                     },
                     {
                         "MainContent": {
+                            "AnimationType": "VP_ANIM_4",
                             "Excerpt": {
                                 "Title": "Web Development",
                                 "Description": {
@@ -51,19 +96,22 @@
                                     ]
                                 },
                                 "Icon": {
-                                    "IconRef": "fa-globe",
+                                    "IconRef": "fas fa-globe",
                                     "FontSize": "10em",
                                     "OverlayGifUrl": "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHJ2cjQwbWUzNG1uZ3U1bjd1N294dXA2a3NhcGVycXhnb3llb211dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YnexM9LwlwGu4Z1QnS/giphy.gif"
                                 }
                             }
                         },
                         "ExtraContent": {
-                            "WebDevelopmentDemo": {}
+                            "AnimationType": "VP_ANIM_5",
+                            "SourceCode": {}
                         },
-                        "ContentPositioning": "ExtraContentFirstOnLargeScreens"
+                        "ContentPositioning": "ExtraContentFirstOnLargeScreens",
+                        "ContentSpacing": "Large"
                     },
                     {
                         "MainContent": {
+                            "AnimationType": "VP_ANIM_4",
                             "Excerpt": {
                                 "Title": "MS Office Automation",
                                 "Description": {
@@ -75,60 +123,112 @@
                                     ]
                                 },
                                 "Icon": {
-                                    "IconRef": "fa-file-excel",
+                                    "IconRef": "fas fa-file-excel",
                                     "FontSize": "10em",
                                     "OverlayGifUrl": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2duaXM4dDAxd2FoNWNsY2dqdXVscmRjNjJnYmZudGVtajlmb3lrdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RG6fDS2O5AKno8lKH0/giphy.gif"
                                 }
                             }
                         },
                         "ExtraContent": {
-                            "MSOfficeAutomationDemo": {}
+                            "AnimationType": "VP_ANIM_5",
+                            "SourceCode": {}
                         },
-                        "ContentPositioning": "MainContentFirst"
+                        "ContentPositioning": "MainContentFirst",
+                        "ContentSpacing": "Large"
                     }
                 ]
             }
         }
     },
     "WorkShowcase": {
-        "ArticleMetadata": [
-            {
-                "Id": "a6af06fa-d49d-40c8-a419-18fc8cc7a451",
-                "Title": "IK Mecha Spider",
-                "ImagePath": "Images/IKMecha/IKMechaIcon.png",
-                "Description": "A Procedurally Animated Robot Spider",
-                "PageRef": "work/ikmechaspider",
-                "PublishDate": "20/11/2020",
-                "Tags": [ "Procedural Animation", "C#", "Unity", "Blender" ]
-            },
-            {
-                "Id": "53652731-bc5c-4854-a44f-4a493a2233cf",
-                "Title": "Portfolio Website",
-                "ImagePath": "Images/PortfolioWebsite/PortfolioIcon.png",
-                "Description": "A Personal Work Portfolio Website",
-                "PageRef": "work/myworkdemo",
-                "PublishDate": "13/02/2021",
-                "Tags": [ "Web", "Blazor Server", "C#", "JavaScript", "CSS" ]
+        "Page": {
+            "SectionGroup": {
+                "Introduction": {
+                    "AnimationType": "VP_ANIM_4",
+                    "Excerpt": {
+                        "Title": "Project articles:"
+                    }
+                },
+                "Sections": [
+                    {
+                        "MainContent": {
+                            "AnimationType": "VP_ANIM_5",
+                            "TaggedCard": {
+                                "Id": "53652731-bc5c-4854-a44f-4a493a2233cf",
+                                "Title": "Portfolio Website",
+                                "ImagePath": "Images/PortfolioWebsite/PortfolioIcon.png",
+                                "Description": "A Personal Work Portfolio Website",
+                                "PublishDate": "13/02/2021",
+                                "Tags": [ "Web", "Blazor Server", "C#", "JavaScript", "CSS" ]
+                            }
+                        },
+                        "ExtraContent": {
+                            "AnimationType": "VP_ANIM_5",
+                            "TaggedCard": {
+                                "Id": "a6af06fa-d49d-40c8-a419-18fc8cc7a451",
+                                "Title": "IK Mecha Spider",
+                                "ImagePath": "Images/IKMecha/IKMechaIcon.png",
+                                "Description": "A Procedurally Animated Robot Spider",
+                                "PublishDate": "20/11/2020",
+                                "Tags": [ "Procedural Animation", "C#", "Unity", "Blender" ]
+                            }
+                        },
+                        "ContentPositioning": "MainContentFirst",
+                        "ContentSpacing": "Small"
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "VP_ANIM_5",
+                            "TaggedCard": {
+                                "Id": "53652731-bc5c-4854-a44f-4a493a2233cf",
+                                "Title": "Portfolio Website",
+                                "ImagePath": "Images/PortfolioWebsite/PortfolioIcon.png",
+                                "Description": "A Personal Work Portfolio Website",
+                                "PageRef": "work/myworkdemo",
+                                "PublishDate": "13/02/2021",
+                                "Tags": [ "Web", "Blazor Server", "C#", "JavaScript", "CSS" ]
+                            }
+                        },
+                        "ExtraContent": {
+                            "AnimationType": "VP_ANIM_5",
+                            "TaggedCard": {
+                                "Id": "a6af06fa-d49d-40c8-a419-18fc8cc7a451",
+                                "Title": "IK Mecha Spider",
+                                "ImagePath": "Images/IKMecha/IKMechaIcon.png",
+                                "Description": "A Procedurally Animated Robot Spider",
+                                "PageRef": "work/ikmechaspider",
+                                "PublishDate": "20/11/2020",
+                                "Tags": [ "Procedural Animation", "C#", "Unity", "Blender" ]
+                            }
+                        },
+                        "ContentPositioning": "MainContentFirst",
+                        "ContentSpacing": "Small"
+                    }
+                ]
             }
-        ],
+        },
         "Articles": [
             {
                 "Id": "a6af06fa-d49d-40c8-a419-18fc8cc7a451",
                 "Page": {
                     "Introduction": {
-                        "Title": "IK Mecha Spider",
-                        "Description": {
-                            "HorizontalTextAlignment": "Center",
-                            "Lines": [
-                                "The idea to create this project came from one of my favorite games from my childhood: <*Ratchet Deadlocked*>. In it, you could pilot an amazing Spider Robot that was really responsive. It’s flaw was that it was unable to walk on walls, only on regular ground. That’s what I wanted to accomplish with this project: a spider that was able to walk on almost <*any given surface*>."
-                            ]
-                        },
-                        "IncludeExtraSpacing": true
+                        "AnimationType": "VP_ANIM_5",
+                        "Excerpt": {
+                            "Title": "IK Mecha Spider",
+                            "Description": {
+                                "HorizontalTextAlignment": "Center",
+                                "Lines": [
+                                    "The idea to create this project came from one of my favorite games from my childhood: <*Ratchet Deadlocked*>. In it, you could pilot an amazing Spider Robot that was really responsive. It’s flaw was that it was unable to walk on walls, only on regular ground. That’s what I wanted to accomplish with this project: a spider that was able to walk on almost <*any given surface*>."
+                                ]
+                            },
+                            "IncludeExtraSpacing": true
+                        }
                     },
                     "SectionGroup": {
                         "Sections": [
                             {
                                 "MainContent": {
+                                    "AnimationType": "VP_ANIM_4",
                                     "Excerpt": {
                                         "Title": "Overview",
                                         "Description": {
@@ -141,13 +241,13 @@
                                         },
                                         "Links": [
                                             {
-                                                "IconRef": "fa-youtube",
+                                                "IconRef": "fab fa-youtube",
                                                 "Label": "Showcase",
                                                 "Url": "https://youtu.be/9QNpkB4GmKI",
                                                 "isEnabled": true
                                             },
                                             {
-                                                "IconRef": "fa-unity",
+                                                "IconRef": "fab fa-unity",
                                                 "Label": "Purchase (Deprecated)",
                                                 "Url": "https://assetstore.unity.com/packages/3d/characters/robots/ik-mecha-spider-183484",
                                                 "isEnabled": true
@@ -156,13 +256,13 @@
                                     }
                                 },
                                 "ExtraContent": {
+                                    "AnimationType": "VP_ANIM_5",
                                     "Image": {
                                         "Url": "Images/IKMecha/IKMechaRender.png",
                                         "AltText": "IKMecha in a blank environment.",
                                         "OverlayGifUrl": ""
                                     }
-                                },
-                                "ShouldShowMainContentFirst": false
+                                }
                             }
                         ]
                     }
@@ -172,20 +272,24 @@
                 "Id": "53652731-bc5c-4854-a44f-4a493a2233cf",
                 "Page": {
                     "Introduction": {
-                        "Title": "Portfolio Website",
-                        "Description": {
-                            "HorizontalTextAlignment": "Center",
-                            "Lines": [
-                                "I used to use a third-party website builder for my portfolio website, but with time, \nI noticed that the <*amount of control*> I had on the design was not ideal.",
-                                "So, I got to work and built this new version of my portfolio website, using a new, interesting technology: <*Blazor*>."
-                            ]
-                        },
-                        "IncludeExtraSpacing": true
+                        "AnimationType": "VP_ANIM_5",
+                        "Excerpt": {
+                            "Title": "Portfolio Website",
+                            "Description": {
+                                "HorizontalTextAlignment": "Center",
+                                "Lines": [
+                                    "I used to use a third-party website builder for my portfolio website, but with time, \nI noticed that the <*amount of control*> I had on the design was not ideal.",
+                                    "So, I got to work and built this new version of my portfolio website, using a new, interesting technology: <*Blazor*>."
+                                ]
+                            },
+                            "IncludeExtraSpacing": true
+                        }
                     },
                     "SectionGroup": {
                         "Sections": [
                             {
                                 "MainContent": {
+                                    "AnimationType": "VP_ANIM_4",
                                     "Excerpt": {
                                         "Title": "What is Blazor?",
                                         "Description": {
@@ -200,6 +304,7 @@
                                     }
                                 },
                                 "ExtraContent": {
+                                    "AnimationType": "VP_ANIM_5",
                                     "Image": {
                                         "Url": "Images/PortfolioWebsite/BlazorIcon.png",
                                         "AltText": "Blazor icon.",
@@ -210,6 +315,12 @@
                             },
                             {
                                 "MainContent": {
+                                    "EmptyBlock": {}
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "VP_ANIM_4",
                                     "Excerpt": {
                                         "Title": "Portfolio Content",
                                         "Description": {
@@ -224,7 +335,7 @@
                                         },
                                         "Links": [
                                             {
-                                                "IconRef": "fa-github",
+                                                "IconRef": "fab fa-github",
                                                 "Label": "View Code",
                                                 "Url": "https://github.com/ifcodingreturnhappy/PortfolioWebsite",
                                                 "isEnabled": true
@@ -233,6 +344,7 @@
                                     }
                                 },
                                 "ExtraContent": {
+                                    "AnimationType": "VP_ANIM_5",
                                     "Image": {
                                         "Url": "Images/PortfolioWebsite/BrandShowcase.png",
                                         "AltText": "Brand icon.",
@@ -243,6 +355,12 @@
                             },
                             {
                                 "MainContent": {
+                                    "EmptyBlock": {}
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "VP_ANIM_4",
                                     "Excerpt": {
                                         "Title": "What's coming next?",
                                         "Description": {
@@ -256,6 +374,7 @@
                                     }
                                 },
                                 "ExtraContent": {
+                                    "AnimationType": "VP_ANIM_5",
                                     "Image": {
                                         "Url": "Images/PortfolioWebsite/GamesTeaser.png",
                                         "AltText": "Games Teaser.",
@@ -271,7 +390,47 @@
         ]
     },
     "ContactMe": {
-        "Email": "icrh.smtp@gmail.com",
-        "GithubUrl": "https://github.com/ifcodingreturnhappy"
+        "Page": {
+            "SectionGroup": {
+                "Sections": [
+                    {
+                        "MainContent": {
+                            "AnimationType": "VP_ANIM_4",
+                            "Excerpt": {
+                                "Title": "GitHub",
+                                "Description": {
+                                    "HorizontalTextAlignment": "Center",
+                                    "Lines": []
+                                },
+                                "Links": [
+                                    {
+                                        "IconRef": "fab fa-github",
+                                        "Url": "https://github.com/ifcodingreturnhappy",
+                                        "isEnabled": true
+                                    }
+                                ]
+                            }
+                        },
+                        "ExtraContent": {
+                            "AnimationType": "VP_ANIM_4",
+                            "Excerpt": {
+                                "Title": "Email",
+                                "Description": {
+                                    "HorizontalTextAlignment": "Center",
+                                    "Lines": []
+                                },
+                                "Links": [
+                                    {
+                                        "IconRef": "fas fa-envelope",
+                                        "Url": "mailto:icrh.smtp@gmail.com",
+                                        "isEnabled": true
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
     }
 }

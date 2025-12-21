@@ -1,0 +1,34 @@
+﻿@inject NavigationManager NavManager
+
+@* TODO: move style to css *@
+
+<div class="card text-center glow over-background-color" @onclick="OpenCard">
+    <img class="card-img-top mx-auto mb-0" src="@TaggedCard.ImagePath" alt="@TaggedCard.Title Card Image" style="max-width:40%" />
+
+    <p class="white-text text-right" style="position: absolute; top:10px; right:5px">
+        <span><i class="far fa-calendar-alt main-color"></i></span> @(TaggedCard.PublishDateFormated)
+    </p>
+
+    <div class="card-body">
+        <h4 class="main-color">@TaggedCard.Title</h4>
+        <p class="white-text mb-4">@(TaggedCard.Description)</p>
+        <div>
+            @foreach (var tag in TaggedCard.Tags)
+            {
+                <span class="badge badge-secondary mb-1 secondary-background-color secondary-color" style="font-size: 1em">@tag</span>
+                <span>  </span>
+            }
+        </div>
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public ContentTaggedCardInfoModel TaggedCard { get; set; }
+
+    private void OpenCard()
+    {
+        this.NavManager.NavigateTo($"work/{this.TaggedCard.Id}");
+    }
+}

@@ -1,10 +1,5 @@
-﻿@* TODO: remove hardcoded vp-anim *@
-@if (SectionGroupInfo.HasTitle())
-{
-    <div class="container-fluid main-color text-center vp-anim-4">
-        <h2>@SectionGroupInfo.Title</h2>
-    </div>
-}
+﻿<ContentCard Content="SectionGroupInfo.Introduction" />
+
 <div class="overflow-hidden">
     @foreach (var section in SectionGroupInfo.Sections)
     {
@@ -16,3 +11,6 @@
     [Parameter]
 	public SectionGroupInfoModel SectionGroupInfo { get; set; }
 }
+
+
+@* TODO: add null cheks EVERYWHERE *@

@@ -1,5 +1,7 @@
 ﻿@inject IArticleStore _articleStore;
 
+@* TODO: loadable page should be a generic thing and show any child content *@
+
 @if (Page == null)
 {
     <div class="empty-block"></div>
@@ -7,12 +9,15 @@
 }
 else
 {
-    @* TODO: allow animation selection by title/body *@
-    <ViewportAnimatable AnimationName="vp-anim-3">
-        <ContentExcerpt Excerpt="@Page.Introduction" />
-    </ViewportAnimatable>
-
-	<SectionGroup SectionGroupInfo="@Page.SectionGroup" />
+    @if (Page.Introduction != null)
+    {
+        <ContentCard Content="@Page.Introduction" />
+    }
+  
+    @if (Page.SectionGroup != null)
+    {
+        <SectionGroup SectionGroupInfo="@Page.SectionGroup" />
+    }
 }
 
 @code {

@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using PortfolioWebsite.BlazorUI.Abstractions;
 using PortfolioWebsite.BlazorUI.Models;
 using PortfolioWebsite.BlazorUI.Models.ContactMe;
+using PortfolioWebsite.BlazorUI.Models.Home;
+using PortfolioWebsite.BlazorUI.Models.Navigation;
 using PortfolioWebsite.BlazorUI.Models.WhoAmI;
+using PortfolioWebsite.BlazorUI.Models.WorkShowcase;
 using PortfolioWebsite.BlazorUI.Models.WorkShowcase.Articles;
 
 // TODO: rename models / method names after refactor
@@ -30,13 +32,44 @@ namespace PortfolioWebsite.BlazorUI.Services
             this.jsonSerializer = jsonSerializer;
         }
 
+        public async Task<HomeInfoModel> GetHomeAsync()
+        {
+            await this.GetPortfolioDataAsync();
+            return this.portfolioDataModel.Home;
+        }
+
+        public async Task<NavigationMenuInfoModel> GetNavigationMenuAsync()
+        {
+            await this.GetPortfolioDataAsync();
+            return this.portfolioDataModel.NavigationMenu;
+        }
+
         public async Task<WhoAmIInfoModel> GetWhoAmIAsync()
         {
-            await this.GetArticleMetadataAsync();
+            await this.GetPortfolioDataAsync();
             return this.portfolioDataModel.WhoAmI;
         }
 
-        public async Task<IEnumerable<ArticleMetadataModel>> GetArticleMetadataAsync()
+        public async Task<WorkShowcaseInfoModel> GetWorkShowcaseInfoAsync()
+        {
+            await this.GetPortfolioDataAsync();
+            return this.portfolioDataModel.WorkShowcase;
+        }
+
+        public async Task<ArticleModel> GetArticleByIdAsync(Guid articleId)
+        {
+            await this.GetPortfolioDataAsync();
+            var article = this.portfolioDataModel.WorkShowcase.Articles.Single(x => x.Id.Equals(articleId));
+            return article;
+        }
+
+        public async Task<ContactMeInfoModel> GetContactMeInfoAsync()
+        {
+            await this.GetPortfolioDataAsync();
+            return this.portfolioDataModel.ContactMe;
+        }
+
+        private async Task GetPortfolioDataAsync()
         {
             // TODO: remove ticks
             var metadataJson = await this.httpClient.GetStringAsync($"{articleFilePath}?v={DateTime.Now.Ticks}");
@@ -44,36 +77,6 @@ namespace PortfolioWebsite.BlazorUI.Services
             this.portfolioDataModel = this.jsonSerializer.Deserialize<PortfolioDataModel>(metadataJson);
 
             await Task.Delay(300);
-
-            var articlesMetadata = this.portfolioDataModel.WorkShowcase.ArticleMetadata.OrderByDescending(x => x.PublishDate).ToList();
-
-            return articlesMetadata;
-        }
-
-        public Task<IEnumerable<ArticleTagModel>> GetAvailableTagsAsync()
-        {
-            // TODO: this shouldnt know that the articles need to be loaded first
-            var tags = this.portfolioDataModel.WorkShowcase.ArticleMetadata.SelectMany(x => x.Tags)
-                                                                           .Distinct()
-                                                                           .Select(x => new ArticleTagModel { IsSelected = true, Name = x })
-                                                                           .ToList();
-
-            return Task.FromResult((IEnumerable<ArticleTagModel>)tags);
-        }
-
-        public async Task<ArticleModel> GetArticleByIdAsync(Guid articleId)
-        {
-            await this.GetArticleMetadataAsync();
-
-            var article = this.portfolioDataModel.WorkShowcase.Articles.Single(x => x.Id.Equals(articleId));
-
-            return article;
-        }
-
-        public async Task<ContactMeInfoModel> GetContactMeInfoAsync()
-        {
-            await this.GetArticleMetadataAsync();
-            return this.portfolioDataModel.ContactMe;
         }
     }
 }

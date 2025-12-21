@@ -1,0 +1,28 @@
+﻿<div class="row @SpacingClasses align-items-center">
+    <div class="col-md-6 d-flex justify-content-center @MainOrderClasses">
+        <div class="@SpacingClasses">
+            <ContentCard Content="@Section.MainContent" />
+        </div>
+    </div>
+
+    <div class="col-md-6 d-flex justify-content-center @ExtraOrderClasses">
+        <div class="@SpacingClasses">
+            <ContentCard Content="@Section.ExtraContent" />
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public SectionInfoModel Section { get; set; }
+
+    private string MainOrderClasses;
+    private string ExtraOrderClasses;
+    private string SpacingClasses;
+
+    protected override void OnParametersSet()
+    {
+        (this.MainOrderClasses, this.ExtraOrderClasses) = Section.ContentPositioning.ToCss();
+        this.SpacingClasses = Section.ContentSpacing.ToCss();
+    }
+}

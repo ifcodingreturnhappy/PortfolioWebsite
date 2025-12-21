@@ -1,23 +1,32 @@
-﻿<nav class="navbar main-background-color navbar-expand-md fixed-top">
+﻿@using PortfolioWebsite.BlazorUI.Models.Navigation
+@inject IArticleStore _articleStore;
+
+@if(this.NavigationMenu is null)
+{
+    return;
+}
+
+<nav class="navbar main-background-color navbar-expand-md fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand main-color clickable-1 scale-up vp-anim-1" href="" @onclick="() => { CollapseNavMenu(); }">
-            <span class="white-text">[</span>
+          @*   <span class="white-text">[</span>
             If Coding Return Happy
-            <span class="white-text">]</span>
+            <span class="white-text">]</span> *@
+            <ContentText Content="@this.NavigationMenu.Title" HorizontalTextAlignment="@HorizontalTextAlignment.Center" />
         </a>
 
         <button class="navbar-toggler main-outline border-0 fade-in-with-right-translate" @onclick="ToggleNavMenu" type="button">
-            <span class="fas @NavMenuIcon infinite-zoom-in-out main-color"></span>
+            <span class="@NavMenuIcon infinite-zoom-in-out main-color"></span>
         </button>
 
         <div class="flex-md-row-reverse fullscreen-menu fullscreen-menu-vertical @(NavMenuVisibility)" id="main-navbar">
             <ul class="navbar-nav fullscreen-menu-content" id="main-navbar-content">
-                @foreach (var navElement in NavigationLinks)
+                @foreach (var navElement in this.NavigationMenu?.NavigationLinks)
                 {
                     <li class="nav-item vp-anim-3">
                         <a class="nav-link main-color clickable-2 selectable-item"
-                           href="@navElement.LinkRef"
-                           @onclick="() => { CollapseNavMenu(); }">@(navElement.LinkText)</a>
+                           href="@navElement.PageRef"
+                           @onclick="() => { CollapseNavMenu(); }">@(navElement.Label)</a>
 
                     </li>
                 }
@@ -27,30 +36,18 @@
 </nav>
 
 @code {
-    // TODO: refactor
     // TODO: Highlight currently selected nav (event when navigating directly to that page)
 
     public bool isNavMenuCollapsed { get; set; } = true;
     string NavMenuVisibility => isNavMenuCollapsed ? "" : "wipe-down";
-    string NavMenuIcon => isNavMenuCollapsed ? "fa-bars" : "fa-times-circle";
+    string NavMenuIcon => isNavMenuCollapsed ? this.NavigationMenu?.CollapsedMenuIcon : this.NavigationMenu?.OpenMenuIcon; // "fas fa-bars" : "fas fa-times-circle";
 
-    private readonly List<NavigationLinkModel> NavigationLinks = [
-        new() 
-        {
-			LinkText = "Who Am I?",
-			LinkRef = "whoami",
-        },
-        new()
-        {
-            LinkText = "Work Showcase",
-            LinkRef = "work",
-        },
-        new()
-        {
-            LinkText = "Contact Me",
-            LinkRef = "contactme",
-		},
-    ];
+    private NavigationMenuInfoModel NavigationMenu;
+
+    protected async override Task OnInitializedAsync()
+    {
+        this.NavigationMenu = await _articleStore.GetNavigationMenuAsync();
+    }
 
     void ToggleNavMenu()
     {

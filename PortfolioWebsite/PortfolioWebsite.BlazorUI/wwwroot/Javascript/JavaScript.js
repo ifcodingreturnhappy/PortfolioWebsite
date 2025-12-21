@@ -1,4 +1,6 @@
-﻿let options = {
+﻿// TODO: review why items get VPAid in id
+
+let options = {
     root: null,
     rootMargin: '-20px -20px -20px -20px',
     threshold: 0.3

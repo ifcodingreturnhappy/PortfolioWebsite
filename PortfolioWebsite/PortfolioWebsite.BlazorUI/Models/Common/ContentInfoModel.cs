@@ -2,10 +2,11 @@
 {
     public class ContentInfoModel
     {
+        public AnimationType AnimationType { get; set; }
         public ContentExcerptInfoModel Excerpt { get; set; }
         public ContentImageInfoModel Image { get; set; }
-        public ContentGameDemoInfoModel GameDemo { get; set; }
-        public ContentWebDevelopmentDemoInfoModel WebDevelopmentDemo { get; set; }
-        public ContentMSOfficeAutomationDemoInfoModel MSOfficeAutomationDemo { get; set; }
+        public ContentTaggedCardInfoModel TaggedCard { get; set; }
+        public ContentSourceCodeInfoModel SourceCode { get; set; }
+        public ContentEmptyBlockInfoModel EmptyBlock { get; set; }
     }
 }

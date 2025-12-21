@@ -1,0 +1,37 @@
+﻿<div class="card text-center main-background-color @(Excerpt.IncludeExtraSpacing ? "top-margin-medium bottom-margin-large" : string.Empty)">
+    <GifCoveredIcon Icon="@Excerpt.Icon" />
+    <div class="card-body">
+        <h3 class="card-title white-text mb-4">@Excerpt.Title</h3>
+        @if(Excerpt.Description != null)
+        {
+            @foreach (var line in Excerpt.Description.Lines)
+            {
+                <ContentText Content="@line" HorizontalTextAlignment="@Excerpt.Description.HorizontalTextAlignment" />
+            }
+		}
+    </div>
+    @if (Excerpt.Links != null)
+    {
+        <div class="text-center">
+            @foreach (var link in Excerpt.Links)
+            {
+                <a class="btn main-button my-2 @(!link.IsEnabled ? "disabled" : string.Empty)"
+                   href="@link.Url"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="@link.IconRef secondary-color"></i> @(link.Label)
+                </a>
+            }
+        </div>
+    }
+</div>
+
+@if(Excerpt.IncludeExtraSpacing)
+{
+<div class="empty-block"></div>
+}
+
+@code {
+    [Parameter]
+	public ContentExcerptInfoModel Excerpt { get; set; }
+}

@@ -13,7 +13,9 @@
 	private string GetParsedContent()
 	{
 		return Content.Replace("<*", "<span class=\"stand-out-text\">")
-				      .Replace("*>", "</span>");
+				      .Replace("*>", "</span>")
+					  .Replace("<w", "<span class=\"white-text\">")
+					  .Replace("w>", "</span>");
 	}
 
 	private string GetAlignmentClass()

@@ -2,7 +2,7 @@
 {
     public class PageInfoModel
     {
-        public ContentExcerptInfoModel Introduction { get; set; }
+        public ContentInfoModel Introduction { get; set; }
         public SectionGroupInfoModel SectionGroup { get; set; }
     }
 }

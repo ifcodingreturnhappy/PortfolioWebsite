@@ -1,0 +1,43 @@
+﻿@if(Content == null)
+{
+    return;
+}
+
+<div class="@AnimationClasses">
+    @if (Content.Excerpt != null)
+    {
+        <ContentExcerpt Excerpt="@Content.Excerpt" />
+    }
+
+    @if (Content.Image != null)
+    {
+        <ContentImage Image="@Content.Image" />
+    }
+
+    @if (Content.SourceCode != null)
+    {
+        <ContentSourceCode SourceCode="@Content.SourceCode" />
+    }
+
+    @if (Content.TaggedCard != null)
+    {
+        <ContentTaggedCard TaggedCard="@Content.TaggedCard" />
+    }
+
+    @if (Content.EmptyBlock != null)
+    {
+        <ContentEmptyBlock EmptyBlock="@Content.EmptyBlock" />
+    }
+</div>
+
+@code {
+    [Parameter]
+    public ContentInfoModel Content { get; set; }
+
+    private string AnimationClasses;
+
+    protected override void OnParametersSet()
+    {
+		this.AnimationClasses = Content?.AnimationType.ToCss();
+    }
+}

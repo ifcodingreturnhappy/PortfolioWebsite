@@ -1,7 +1,6 @@
 ﻿namespace PortfolioWebsite.BlazorUI.Models.Common
 {
-    public class ContentWebDevelopmentDemoInfoModel
+    public class ContentEmptyBlockInfoModel
     {
-        // TODO:
     }
 }
