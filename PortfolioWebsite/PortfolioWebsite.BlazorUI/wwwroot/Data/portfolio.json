@@ -156,7 +156,7 @@
                             "TaggedCard": {
                                 "Id": "53652731-bc5c-4854-a44f-4a493a2233cf",
                                 "Title": "Portfolio Website",
-                                "ImagePath": "Images/PortfolioWebsite/PortfolioIcon.png",
+                                "ImagePath": "images/website/portfolio.png",
                                 "Description": "A Personal Work Portfolio Website",
                                 "PublishDate": "13/02/2021",
                                 "Tags": [ "Web", "Blazor Server", "C#", "JavaScript", "CSS" ]
@@ -167,7 +167,7 @@
                             "TaggedCard": {
                                 "Id": "a6af06fa-d49d-40c8-a419-18fc8cc7a451",
                                 "Title": "IK Mecha Spider",
-                                "ImagePath": "Images/IKMecha/IKMechaIcon.png",
+                                "ImagePath": "images/ikmecha/icon.png",
                                 "Description": "A Procedurally Animated Robot Spider",
                                 "PublishDate": "20/11/2020",
                                 "Tags": [ "Procedural Animation", "C#", "Unity", "Blender" ]
@@ -182,7 +182,7 @@
                             "TaggedCard": {
                                 "Id": "53652731-bc5c-4854-a44f-4a493a2233cf",
                                 "Title": "Portfolio Website",
-                                "ImagePath": "Images/PortfolioWebsite/PortfolioIcon.png",
+                                "ImagePath": "images/website/portfolio.png",
                                 "Description": "A Personal Work Portfolio Website",
                                 "PageRef": "work/myworkdemo",
                                 "PublishDate": "13/02/2021",
@@ -194,7 +194,7 @@
                             "TaggedCard": {
                                 "Id": "a6af06fa-d49d-40c8-a419-18fc8cc7a451",
                                 "Title": "IK Mecha Spider",
-                                "ImagePath": "Images/IKMecha/IKMechaIcon.png",
+                                "ImagePath": "images/ikmecha/icon.png",
                                 "Description": "A Procedurally Animated Robot Spider",
                                 "PageRef": "work/ikmechaspider",
                                 "PublishDate": "20/11/2020",
@@ -258,7 +258,7 @@
                                 "ExtraContent": {
                                     "AnimationType": "VP_ANIM_5",
                                     "Image": {
-                                        "Url": "Images/IKMecha/IKMechaRender.png",
+                                        "Url": "images/ikmecha/render.png",
                                         "AltText": "IKMecha in a blank environment.",
                                         "OverlayGifUrl": ""
                                     }
@@ -306,7 +306,7 @@
                                 "ExtraContent": {
                                     "AnimationType": "VP_ANIM_5",
                                     "Image": {
-                                        "Url": "Images/PortfolioWebsite/BlazorIcon.png",
+                                        "Url": "images/website/blazor.png",
                                         "AltText": "Blazor icon.",
                                         "OverlayGifUrl": ""
                                     }
@@ -346,7 +346,7 @@
                                 "ExtraContent": {
                                     "AnimationType": "VP_ANIM_5",
                                     "Image": {
-                                        "Url": "Images/PortfolioWebsite/BrandShowcase.png",
+                                        "Url": "images/website/brand.png",
                                         "AltText": "Brand icon.",
                                         "OverlayGifUrl": ""
                                     }
@@ -376,7 +376,7 @@
                                 "ExtraContent": {
                                     "AnimationType": "VP_ANIM_5",
                                     "Image": {
-                                        "Url": "Images/PortfolioWebsite/GamesTeaser.png",
+                                        "Url": "images/website/teaser.png",
                                         "AltText": "Games Teaser.",
                                         "OverlayGifUrl": "https://media.giphy.com/media/A8NkSPltT13H2/giphy.gif"
                                     }

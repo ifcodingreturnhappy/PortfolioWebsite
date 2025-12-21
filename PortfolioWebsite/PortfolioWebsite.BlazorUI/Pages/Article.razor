@@ -9,7 +9,6 @@
 
     private PageInfoModel page;
 
-	// TODO: improve performance: cache articles after first load
     protected async override Task OnInitializedAsync()
     {
         var articleInfo = await this.articleService.GetArticleByIdAsync(articleId);

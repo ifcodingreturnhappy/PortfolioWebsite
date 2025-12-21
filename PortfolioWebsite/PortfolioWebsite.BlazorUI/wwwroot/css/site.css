@@ -1,9 +1,6 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 /**** BASE ****/
-
-/* TODO: Cleanup unused */
-
 html, body {
     font-family: 'Consolas', Helvetica, Arial, sans-serif;
     overflow-x: hidden;
@@ -34,38 +31,6 @@ html, body {
     }
 }
 
-@media (min-width: 768px) {
-    .padded-text {
-        padding-left: 25%;
-        padding-right: 25%;
-    }
-}
-@media (max-width: 768px) {
-    .padded-text {
-        padding-left: 10%;
-        padding-right: 10%;
-    }
-}
-
-.media-Container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    padding-top: 56.25%; /* Mantain 16:9 Aspect Ratio */
-    top:50%;
-    transform: translateY(-50%);
-}
-
-.media-responsive {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-}
-
 .media-overlay-text {
     position: absolute;
     top: 15%;
@@ -73,6 +38,33 @@ html, body {
     transform: translateX(-50%);
 }
 
+.empty-block {
+    height: 110px;
+}
+
+.main-background-color {
+    background-color: RGB(0,0,0);
+}
+
+.secondary-background-color {
+    background-color: RGB(108,218,163);
+}
+
+.over-background-color {
+    background-color: rgb(20,20,20);
+}
+
+.main-outline {
+    outline: none;
+}
+
+    .main-outline:focus {
+        outline: none;
+    }
+
+    .main-outline:active {
+        outline: none;
+    }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
@@ -91,43 +83,12 @@ html, body {
         background: #555;
     }
 
-
 .hide-horizontal-scroll {
     max-width: 100%;
     overflow-x: hidden;
 }
 
-
-.empty-block {
-    height: 110px;
-}
-
-.main-background-color {
-    background-color: RGB(0,0,0);
-}
-
-.secondary-background-color {
-    background-color: RGB(108,218,163);
-}
-
-.over-background-color {
-    background-color: rgb(20,20,20);
-}
-
-
-.main-outline {
-    outline: none;
-}
-
-    .main-outline:focus {
-        outline: none;
-    }
-
-    .main-outline:active {
-        outline: none;
-    }
-
-
+/* Nav */
 @media (max-width: 768px) {
 
     .fullscreen-menu {
@@ -160,18 +121,20 @@ html, body {
         margin-top: 30px;
     }
 
-    .navbar-brand{
+    .navbar-brand {
         font-size: 1.1em;
         transition: 0.2s ease-in;
     }
 }
 
+/* Floating Button */
 .floating-button-wrapper {
     position: fixed;
     bottom: 20px;
     transition: ease-in-out 0.5s;
 }
 
+/* Gif Covered Button */
 @media (max-width: 768px) {
     .gif-covered-button {
         font-size: 2em;
@@ -219,10 +182,6 @@ html, body {
     box-shadow: 0px 0px 1px 1px white;
     max-height: 200px;
     height: auto;
-    /* This enables scrolling when video games are added to the list
-            overflow-y: scroll;
-
-        */
 }
 
 .game-menu-pointer {
@@ -230,19 +189,6 @@ html, body {
     opacity: 0;
     text-shadow: 0px 0px 15px black;
     transition: 0.5s ease-in-out;
-}
-
-
-.content {
-    padding-top: 1.1rem;
-}
-
-
-.dropdown-menu-center {
-    left: 50% !important;
-    right: auto !important;
-    text-align: center !important;
-    transform: translate(-50%, 20%) !important;
 }
 
 .main-button {
@@ -271,10 +217,6 @@ html, body {
     color: RGB(0,0,0);
 }
 
-.secondary-clickable:hover {
-    color: red;
-}
-
 .white-text {
     color: white;
 }
@@ -297,34 +239,7 @@ html, body {
     font-size: calc(4vw + 3vh);
 }
 
-.non-selectable {
-    user-select: none;
-}
-
-
-/**** IMAGES/ICONS ****/
-
-.image-spacing {
-    margin-top: 50px;
-    margin-bottom: 30px;
-}
-
-
-/**** STRUCTURE ****/
-.top-margin-medium {
-    margin-top: 10vh;
-}
-
-.top-margin-large {
-    margin-top: 25vh;
-}
-
-.bottom-margin-large {
-    margin-bottom: 25vh;
-}
-
-/**** SPECIAL BUTTONS ****/
-
+s/**** SPECIAL BUTTONS ****/
 .clickable-1 {
     background: url(https://media.giphy.com/media/ToMjGpFdluLyF8C732g/giphy.gif);
     background-size: cover;
@@ -380,15 +295,7 @@ html, body {
         text-shadow: 4px 4px RGBA(108,218,163, 0.5) !important;
     }
 
-.center-button {
-    display: block;
-    text-align: center;
-    max-width: 60px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-    /***********/
+/***********/
 
 .scale-up {
     transform: scale(1);
@@ -420,15 +327,6 @@ html, body {
         transition: ease-in 0.2s !important;
     }
 
-.constant-glow {
-    background-color: black;
-    box-shadow: 0px 0px 2px 2px rgba(108,218,163, 0.4);
-}
-
-.simple-hover:hover {
-    background-color: rgb(20,20,20);
-}
-
 .infinite-zoom-in-out:hover {
     animation: ZoomInAndOut 1s infinite;
 }
@@ -446,7 +344,6 @@ html, body {
         transform: scale(1);
     }
 }
-
 
 .loop-opacity {
     opacity: 0;
@@ -522,41 +419,38 @@ html, body {
 
 }
 
+/**** BLAZOR ERRORS ****/
 
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
 
+.invalid {
+    outline: 1px solid red;
+}
 
-    /**** BLAZOR ERRORS ****/
+.validation-message {
+    color: red;
+}
 
-    .valid.modified:not([type=checkbox]) {
-        outline: 1px solid #26b050;
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
     }
-
-    .invalid {
-        outline: 1px solid red;
-    }
-
-    .validation-message {
-        color: red;
-    }
-
-    #blazor-error-ui {
-        background: lightyellow;
-        bottom: 0;
-        box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
-        display: none;
-        left: 0;
-        padding: 0.6rem 1.25rem 0.7rem 1.25rem;
-        position: fixed;
-        width: 100%;
-        z-index: 1000;
-    }
-
-        #blazor-error-ui .dismiss {
-            cursor: pointer;
-            position: absolute;
-            right: 0.75rem;
-            top: 0.5rem;
-        }
 
 /* -------------------- VIEWPORT ANIMATION -------------------- */
 /* Animatable signaling classes -> this classes will signal an element that is entering the viewport, which animation to give it (done with js)*/
@@ -685,17 +579,4 @@ html, body {
     100% {
         transform: translateY(0%);
     }
-}
-
-.circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #007bff;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    margin: 10px auto;
 }
