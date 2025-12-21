@@ -6,6 +6,11 @@ namespace PortfolioWebsite.BlazorUI.Utils.Mappers
     {
         public static (string, string) ToCss(this ContentPositioning contentPositioning)
         {
+            if (contentPositioning == ContentPositioning.MainContentOnly)
+            {
+                return ("col-md-12 d-flex justify-content-center", "col-md-12 d-flex justify-content-center");
+            }
+
             var mainOrderSmall = 1;
             var mainOrderLarge = 1;
             var extraOrderSmall = 2;
@@ -28,8 +33,8 @@ namespace PortfolioWebsite.BlazorUI.Utils.Mappers
                     break;
             }
             
-            var mainOrderClasses = $"order-{mainOrderSmall} order-md-{mainOrderLarge}";
-            var extraOrderClasses = $"order-{extraOrderSmall} order-md-{extraOrderLarge}";
+            var mainOrderClasses = $"col-md-6 d-flex justify-content-center order-{mainOrderSmall} order-md-{mainOrderLarge}";
+            var extraOrderClasses = $"col-md-6 d-flex justify-content-center order-{extraOrderSmall} order-md-{extraOrderLarge}";
 
             return (mainOrderClasses, extraOrderClasses);
         }

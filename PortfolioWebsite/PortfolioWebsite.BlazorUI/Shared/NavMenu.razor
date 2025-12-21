@@ -21,7 +21,7 @@
             <ul class="navbar-nav fullscreen-menu-content" id="main-navbar-content">
                 @foreach (var navElement in this.NavigationMenu?.NavigationLinks)
                 {
-                    <li class="nav-item vp-anim-3">
+                    <li class="nav-item vp-anim-3 mx-2">
                         <a class="nav-link main-color clickable-2 selectable-item"
                            href="@navElement.PageRef"
                            @onclick="() => { CollapseNavMenu(); }">@(navElement.Label)</a>

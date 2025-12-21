@@ -20,7 +20,7 @@
                 "PageRef": "whoami"
             },
             {
-                "Label": "My Work",
+                "Label": "Work Showcase",
                 "PageRef": "work"
             },
             {
@@ -31,29 +31,46 @@
     },
     "WhoAmI": {
         "Page": {
-            "Introduction": {
-                "AnimationType": "VP_ANIM_5",
-                "Excerpt": {
-                    "Title": "Who Am I?",
-                    "Description": {
-                        "HorizontalTextAlignment": "Center",
-                        "Lines": [
-                            "My career started as an <*Industrial Engineer*>: managing factory logistics and automating order processes. It was a challenging and interesting job, yet it didn’t have the aspect of software development that I most enjoy: <*design and creation*>.",
-                            "So, to fulfill that need to create, I started focusing myself on programming and developing the projects that I wanted to see come to life.",
-                            "My current goal is, not only to become a <*world-class programmer*>, but also to <*share*> the <*knowledge*> I acquire, with everyone that also has a passion for coding."
-                        ]
-                    },
-                    "IncludeExtraSpacing": true
-                }
-            },
             "SectionGroup": {
-                "Introduction": {
-                    "AnimationType": "VP_ANIM_4",
-                    "Excerpt": {
-                        "Title": "So, what kind of projects have I worked on?"
-                    }
-                },
                 "Sections": [
+                    {
+                        "MainContent": {
+                            "EmptyBlock": {}
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "VP_ANIM_5",
+                            "Excerpt": {
+                                "Title": "Who Am I?",
+                                "Description": {
+                                    "HorizontalTextAlignment": "Center",
+                                    "Lines": [
+                                        "My career started as an <*Industrial Engineer*>: managing factory logistics and automating order processes. It was a challenging and interesting job, yet it didn’t have the aspect of software development that I most enjoy: <*design and creation*>.",
+                                        "So, to fulfill that need to create, I started focusing myself on programming and developing the projects that I wanted to see come to life.",
+                                        "My current goal is, not only to become a <*world-class programmer*>, but also to <*share*> the <*knowledge*> I acquire, with everyone that also has a passion for coding."
+                                    ]
+                                }
+                            }
+                        },
+                        "ContentPositioning": "MainContentOnly"
+                    },
+                    {
+                        "MainContent": {
+                            "EmptyBlock": {
+                                "Size": 3
+                            }
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "VP_ANIM_4",
+                            "Excerpt": {
+                                "Title": "So, what kind of projects have I worked on?"
+                            }
+                        },
+                        "ContentPositioning": "MainContentOnly"
+                    },
                     {
                         "MainContent": {
                             "AnimationType": "VP_ANIM_4",
@@ -143,13 +160,16 @@
     "WorkShowcase": {
         "Page": {
             "SectionGroup": {
-                "Introduction": {
-                    "AnimationType": "VP_ANIM_4",
-                    "Excerpt": {
-                        "Title": "Project articles:"
-                    }
-                },
                 "Sections": [
+                    {
+                        "MainContent": {
+                            "AnimationType": "VP_ANIM_4",
+                            "Excerpt": {
+                                "Title": "Project articles:"
+                            }
+                        },
+                        "ContentPositioning": "MainContentOnly"
+                    },
                     {
                         "MainContent": {
                             "AnimationType": "VP_ANIM_5",
@@ -211,21 +231,35 @@
             {
                 "Id": "a6af06fa-d49d-40c8-a419-18fc8cc7a451",
                 "Page": {
-                    "Introduction": {
-                        "AnimationType": "VP_ANIM_5",
-                        "Excerpt": {
-                            "Title": "IK Mecha Spider",
-                            "Description": {
-                                "HorizontalTextAlignment": "Center",
-                                "Lines": [
-                                    "The idea to create this project came from one of my favorite games from my childhood: <*Ratchet Deadlocked*>. In it, you could pilot an amazing Spider Robot that was really responsive. It’s flaw was that it was unable to walk on walls, only on regular ground. That’s what I wanted to accomplish with this project: a spider that was able to walk on almost <*any given surface*>."
-                                ]
-                            },
-                            "IncludeExtraSpacing": true
-                        }
-                    },
                     "SectionGroup": {
                         "Sections": [
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {}
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "VP_ANIM_5",
+                                    "Excerpt": {
+                                        "Title": "IK Mecha Spider",
+                                        "Description": {
+                                            "HorizontalTextAlignment": "Center",
+                                            "Lines": [
+                                                "The idea to create this project came from one of my favorite games from my childhood: <*Ratchet Deadlocked*>. In it, you could pilot an amazing Spider Robot that was really responsive. It’s flaw was that it was unable to walk on walls, only on regular ground. That’s what I wanted to accomplish with this project: a spider that was able to walk on almost <*any given surface*>."
+                                            ]
+                                        }
+                                    }
+                                },
+                                "ContentPositioning": "MainContentOnly"
+                            },
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {
+                                        "Size": 3
+                                    }
+                                }
+                            },
                             {
                                 "MainContent": {
                                     "AnimationType": "VP_ANIM_4",
@@ -262,7 +296,8 @@
                                         "AltText": "IKMecha in a blank environment.",
                                         "OverlayGifUrl": ""
                                     }
-                                }
+                                },
+                                "ContentPositioning": "ExtraContentFirstOnLargeScreens"
                             }
                         ]
                     }
@@ -271,22 +306,36 @@
             {
                 "Id": "53652731-bc5c-4854-a44f-4a493a2233cf",
                 "Page": {
-                    "Introduction": {
-                        "AnimationType": "VP_ANIM_5",
-                        "Excerpt": {
-                            "Title": "Portfolio Website",
-                            "Description": {
-                                "HorizontalTextAlignment": "Center",
-                                "Lines": [
-                                    "I used to use a third-party website builder for my portfolio website, but with time, \nI noticed that the <*amount of control*> I had on the design was not ideal.",
-                                    "So, I got to work and built this new version of my portfolio website, using a new, interesting technology: <*Blazor*>."
-                                ]
-                            },
-                            "IncludeExtraSpacing": true
-                        }
-                    },
                     "SectionGroup": {
                         "Sections": [
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {}
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "VP_ANIM_5",
+                                    "Excerpt": {
+                                        "Title": "Portfolio Website",
+                                        "Description": {
+                                            "HorizontalTextAlignment": "Center",
+                                            "Lines": [
+                                                "I used to use a third-party website builder for my portfolio website, but with time, \nI noticed that the <*amount of control*> I had on the design was not ideal.",
+                                                "So, I got to work and built this new version of my portfolio website, using a new, interesting technology: <*Blazor*>."
+                                            ]
+                                        }
+                                    }
+                                },
+                                "ContentPositioning": "MainContentOnly"
+                            },
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {
+                                        "Size": 3
+                                    }
+                                }
+                            },
                             {
                                 "MainContent": {
                                     "AnimationType": "VP_ANIM_4",
@@ -427,7 +476,8 @@
                                     }
                                 ]
                             }
-                        }
+                        },
+                        "ContentPositioning": "MainContentFirst"
                     }
                 ]
             }

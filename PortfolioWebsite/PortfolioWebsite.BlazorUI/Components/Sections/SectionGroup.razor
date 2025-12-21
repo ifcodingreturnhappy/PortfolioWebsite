@@ -1,6 +1,4 @@
-﻿<ContentCard Content="SectionGroupInfo.Introduction" />
-
-<div class="overflow-hidden">
+﻿<div class="overflow-hidden">
     @foreach (var section in SectionGroupInfo.Sections)
     {
         <SectionRow Section="section" />
@@ -11,6 +9,3 @@
     [Parameter]
 	public SectionGroupInfoModel SectionGroupInfo { get; set; }
 }
-
-
-@* TODO: add null cheks EVERYWHERE *@

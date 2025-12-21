@@ -1,4 +1,7 @@
-﻿<div class="empty-block"></div>
+﻿@for (int i = 0; i < this.EmptyBlock.Size; i++)
+{
+	<div class="empty-block"></div>
+}
 
 @code {
 	[Parameter]

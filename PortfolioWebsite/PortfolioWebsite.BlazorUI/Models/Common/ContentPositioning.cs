@@ -3,8 +3,9 @@
     // TODO: Review if there are any inconsistencies
     public enum ContentPositioning
     {
-        MainContentFirst = 0,
-        ExtraContentFirst = 1,
-        ExtraContentFirstOnLargeScreens = 2
+        MainContentOnly = 0,
+        MainContentFirst = 1,
+        ExtraContentFirst = 2,
+        ExtraContentFirstOnLargeScreens = 3,
     }
 }

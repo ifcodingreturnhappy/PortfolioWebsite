@@ -1,4 +1,4 @@
-﻿<div class="card text-center main-background-color @(Excerpt.IncludeExtraSpacing ? "mt-4 pt-4 mb-5 pb-5" : string.Empty)">
+﻿<div class="card text-center main-background-color">
     <GifCoveredIcon Icon="@Excerpt.Icon" />
     <div class="card-body">
         <h3 class="card-title white-text mb-4">@Excerpt.Title</h3>
@@ -25,11 +25,6 @@
         </div>
     }
 </div>
-
-@if(Excerpt.IncludeExtraSpacing)
-{
-<div class="empty-block"></div>
-}
 
 @code {
     [Parameter]
