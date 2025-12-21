@@ -11,9 +11,6 @@ using PortfolioWebsite.BlazorUI.Models.WhoAmI;
 using PortfolioWebsite.BlazorUI.Models.WorkShowcase;
 using PortfolioWebsite.BlazorUI.Models.WorkShowcase.Articles;
 
-// TODO: improve performance: cache articles after first load
-// TODO: rename wwwroot paths to be full lowercase
-
 namespace PortfolioWebsite.BlazorUI.Services
 {
     public class ArticleService : IArticleService
@@ -70,12 +67,19 @@ namespace PortfolioWebsite.BlazorUI.Services
 
         private async Task GetPortfolioDataAsync()
         {
+            if (this.portfolioDataModel != null)
+            {
+                return;
+            }
+
             var metadataJson = await this.httpClient.GetStringAsync($"{articleFilePath}?v={DateTime.Now.Ticks}");
 
             this.portfolioDataModel = this.jsonSerializer.Deserialize<PortfolioDataModel>(metadataJson);
 
-            // TODO: remove delay and cache results after first load
-            await Task.Delay(300);
+            if (this.portfolioDataModel.Settings.ShouldSmiluateDelayLoadingData())
+            {
+                await Task.Delay(this.portfolioDataModel.Settings.DataFetchSimulatedDelayInMs);
+            }
         }
     }
 }

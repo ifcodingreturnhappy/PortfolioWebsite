@@ -11,6 +11,5 @@ namespace PortfolioWebsite.BlazorUI.Models.Common
         public string Description { get; set; }
         public DateTime PublishDate { get; set; }
         public IEnumerable<string> Tags { get; set; }
-        public string PublishDateFormated => this.PublishDate.ToString("dd/MM/yyyy");
     }
 }
