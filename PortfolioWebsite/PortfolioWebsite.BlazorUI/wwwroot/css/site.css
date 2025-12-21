@@ -239,7 +239,7 @@ html, body {
     font-size: calc(4vw + 3vh);
 }
 
-s/**** SPECIAL BUTTONS ****/
+/**** SPECIAL BUTTONS ****/
 .clickable-1 {
     background: url(https://media.giphy.com/media/ToMjGpFdluLyF8C732g/giphy.gif);
     background-size: cover;
