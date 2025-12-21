@@ -5,11 +5,6 @@
     <UserSecretsId>8758c5fb-defa-405c-bc86-1b303f677913</UserSecretsId>
   </PropertyGroup>
 
-  <!-- TODO: Is this necessary? -->
-  <ItemGroup>
-    <None Include="wwwroot\index.html" />
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.12" PrivateAssets="all" />

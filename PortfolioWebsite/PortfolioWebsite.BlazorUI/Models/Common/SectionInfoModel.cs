@@ -1,6 +1,5 @@
 ﻿namespace PortfolioWebsite.BlazorUI.Models.Common
 {
-    // TODO: Rename this to section row to match component?
     public class SectionInfoModel
     {
         public ContentInfoModel MainContent { get; set; }

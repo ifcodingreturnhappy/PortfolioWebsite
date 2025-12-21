@@ -475,8 +475,6 @@ html, body {
     visibility: hidden;
 }
 
-/* TODO: Normalize */
-
 .vp-anim-1-trigger {
     visibility: visible;
     animation: FadeIn 1s, LeftTranslate 1s ease-in-out;
@@ -502,32 +500,6 @@ html, body {
     animation: FadeIn ease-in 1.5s;
 }
 
-/* Animation Classes */
-
-.fade-in-with-left-translate {
-    visibility: visible;
-    animation: FadeIn 1s, LeftTranslate 1s ease-in-out;
-}
-
-.fade-in-with-right-translate {
-    visibility: visible;
-    animation: FadeIn 1s, RightTranslate 1s ease-in-out;
-}
-
-.fade-in-with-top-translate {
-    visibility: visible;
-    animation: FadeIn 1s, TopTranslate 0.8s ease-in-out;
-}
-
-.fade-in-with-bottom-translate {
-    visibility: visible;
-    animation: FadeIn 1s, BottomTranslate 1s ease-in-out;
-}
-
-.fade-in-slow {
-    visibility: visible;
-    animation: FadeIn ease-in 1.5s;
-}
 
 /* Animations */
 

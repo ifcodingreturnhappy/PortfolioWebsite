@@ -1,96 +1,61 @@
-﻿// TODO: review why items get VPAid in id
+﻿// Observer configuration
+const domMutationObserverOptions = {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['class']
+}
 
-let options = {
+const viewportIntersectionObserverOptions = {
     root: null,
     rootMargin: '-20px -20px -20px -20px',
     threshold: 0.3
 };
 
-let currentId = 0;
-
-const observer = new MutationObserver(() => {
+// Observe DOM changes to find elements with viewport animation classes
+const domMutationObserver = new MutationObserver(() => {
     const elements = document.querySelectorAll('[class*="vp-anim-"]');
 
     if (elements.length > 0) {
         elements.forEach(el => {
-            const animClasses = [...el.classList].filter(c => c.startsWith("vp-anim-") && !c.endsWith("-triggered"));
-            const animClassesTriggered = [...el.classList].filter(c => c.startsWith("vp-anim-") && c.endsWith("-triggered"));
+            const animClasses = [...el.classList].filter(c => c.startsWith("vp-anim-") && !c.endsWith("-trigger"));
+            const animClassesTriggered = [...el.classList].filter(c => c.startsWith("vp-anim-") && c.endsWith("-trigger"));
 
-            if (animClasses.length > 0 && animClassesTriggered.length === 0) {
-                setupViewportAnimations(animationMappings)
+            if (animClasses.length > 0 && animClassesTriggered.length <= 0) {
+                setupViewportAnimations(animClasses, el)
             }
         });
-
-        console.log("Classes replaced");
-        //observer.disconnect();
     }
 });
+domMutationObserver.observe(document.body, domMutationObserverOptions);
 
-observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-    attributes: true,
-    attributeFilter: ['class']
-});
-
-const animationMappings = [
-    {
-        "animationId": "vp-anim-1",
-        "animationCSS": "fade-in-with-left-translate"
-    },
-    {
-        "animationId": "vp-anim-2",
-        "animationCSS": "fade-in-with-right-translate"
-    },
-    {
-        "animationId": "vp-anim-3",
-        "animationCSS": "fade-in-with-top-translate"
-    },
-    {
-        "animationId": "vp-anim-4",
-        "animationCSS": "fade-in-with-bottom-translate"
-    },
-    {
-        "animationId": "vp-anim-5",
-        "animationCSS": "fade-in-slow"
-    }
-];
-
-function setupViewportAnimations(animationSettings) {
+// Setup element observer to trigger function when element enters viewport
+const setupViewportAnimations = (animClasses, element) => {
     try {
-        let observer = new IntersectionObserver(function
-            (entries, self) {
-
+        let viewportIntersectionObserver = new IntersectionObserver((entries, self) => {
             entries.forEach(entry => {
-                animationSettings.forEach(animationType => {
-                    if (entry.target.classList.contains(animationType.animationId)) {
-                        observerCallback(entry, animationType.animationCSS);
-                    }
-                });
+                observerCallback(entry, animClasses[0], self);
             });
-        }, options);
+        }, viewportIntersectionObserverOptions);
 
-        animationSettings.forEach(animationType => {
-            let elements = document.querySelectorAll('.' + animationType.animationId);
+        viewportIntersectionObserver.observe(element);
 
-            elements.forEach(element => {
-                if (element.id.length <= 0) {
-                    element.id = ('VPA' + currentId);
-                    currentId++;
-
-                    observer.observe(element);
-                }
-            });
-        });
     } catch (e) {
         console.log("Unable to set viewport animation.")
     }
 }
 
-function observerCallback(entry, cssClass, isRepeatable) {
-    if (entry.isIntersecting) {
-        if (!entry.target.classList.contains(cssClass)) {
-            entry.target.classList.add(cssClass);
-        }
+// Callback to add css class that triggers animation, when element enters the viewport
+const observerCallback = (entry, animationId, observer) => {
+    if (!entry.isIntersecting || !entry.target.classList.contains(animationId)) {
+        return;
     }
+
+    const animationCssToAdd = `${animationId}-trigger`;
+    if (entry.target.classList.contains(animationCssToAdd)) {
+        return;
+    } 
+
+    entry.target.classList.add(animationCssToAdd);
+    observer.disconnect();
 }

@@ -1,6 +1,5 @@
 ﻿namespace PortfolioWebsite.BlazorUI.Models.Common
 {
-    // TODO: Review if there are any inconsistencies
     public enum ContentPositioning
     {
         MainContentOnly = 0,
