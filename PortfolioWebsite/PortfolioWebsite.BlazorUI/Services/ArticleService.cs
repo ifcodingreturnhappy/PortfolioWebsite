@@ -16,7 +16,7 @@ using PortfolioWebsite.BlazorUI.Models.WorkShowcase.Articles;
 namespace PortfolioWebsite.BlazorUI.Services
 {
     // TODO: Rename class/interface
-    public class ArticleStore : IArticleStore
+    public class ArticleService : IArticleService
     {
         private readonly HttpClient httpClient;
         private readonly IJsonSerializer jsonSerializer;
@@ -26,7 +26,7 @@ namespace PortfolioWebsite.BlazorUI.Services
 
         private PortfolioDataModel portfolioDataModel;
 
-        public ArticleStore(HttpClient httpClient, IJsonSerializer jsonSerializer)
+        public ArticleService(HttpClient httpClient, IJsonSerializer jsonSerializer)
         {
             this.httpClient = httpClient;
             this.jsonSerializer = jsonSerializer;

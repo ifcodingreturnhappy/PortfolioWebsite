@@ -1,5 +1,5 @@
 ﻿@page "/work"
-@inject IArticleStore _articleStore;
+@inject IArticleService articleService;
 
 <LoadablePage Page="page" />
 
@@ -8,7 +8,7 @@
 
     protected async override Task OnInitializedAsync()
     {
-        var workShowcase = await this._articleStore.GetWorkShowcaseInfoAsync();
+        var workShowcase = await this.articleService.GetWorkShowcaseInfoAsync();
         this.page = workShowcase.Page;
     }
 }

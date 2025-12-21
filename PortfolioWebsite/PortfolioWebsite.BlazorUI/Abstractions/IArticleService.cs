@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using PortfolioWebsite.BlazorUI.Models.ContactMe;
 using PortfolioWebsite.BlazorUI.Models.Home;
@@ -10,7 +9,7 @@ using PortfolioWebsite.BlazorUI.Models.WorkShowcase.Articles;
 
 namespace PortfolioWebsite.BlazorUI.Abstractions
 {
-    public interface IArticleStore
+    public interface IArticleService
     {
         public Task<HomeInfoModel> GetHomeAsync();
         public Task<NavigationMenuInfoModel> GetNavigationMenuAsync();

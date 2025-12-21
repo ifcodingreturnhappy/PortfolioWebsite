@@ -20,15 +20,10 @@ namespace PortfolioWebsite.BlazorUI.Extensions
             return services;
         }
 
-        public static IServiceCollection AddStores(this IServiceCollection services)
-        {
-            services.AddScoped<IArticleStore, ArticleStore>();
-            return services;
-        }
-
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            return services;
+            return services.AddScoped<IArticleService, ArticleService>()
+                           .AddScoped<ITextParserService, TextParserService>();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿@using PortfolioWebsite.BlazorUI.Models.Navigation
-@inject IArticleStore _articleStore;
+@inject IArticleService articleService;
+@inject ITextParserService textParserService;
 
 @if(this.NavigationMenu is null)
 {
@@ -9,10 +10,7 @@
 <nav class="navbar main-background-color navbar-expand-md fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand main-color clickable-1 scale-up vp-anim-1" href="" @onclick="() => { CollapseNavMenu(); }">
-          @*   <span class="white-text">[</span>
-            If Coding Return Happy
-            <span class="white-text">]</span> *@
-            <ContentText Content="@this.NavigationMenu.Title" HorizontalTextAlignment="@HorizontalTextAlignment.Center" />
+          @title
         </a>
 
         <button class="navbar-toggler main-outline border-0 fade-in-with-right-translate" @onclick="ToggleNavMenu" type="button">
@@ -37,16 +35,17 @@
 
 @code {
     // TODO: Highlight currently selected nav (event when navigating directly to that page)
-
-    public bool isNavMenuCollapsed { get; set; } = true;
-    string NavMenuVisibility => isNavMenuCollapsed ? "" : "wipe-down";
-    string NavMenuIcon => isNavMenuCollapsed ? this.NavigationMenu?.CollapsedMenuIcon : this.NavigationMenu?.OpenMenuIcon; // "fas fa-bars" : "fas fa-times-circle";
+    private MarkupString title;
+    private bool isNavMenuCollapsed { get; set; } = true;
+    private string NavMenuVisibility => isNavMenuCollapsed ? "" : "wipe-down";
+    private string NavMenuIcon => isNavMenuCollapsed ? this.NavigationMenu?.CollapsedMenuIcon : this.NavigationMenu?.OpenMenuIcon;
 
     private NavigationMenuInfoModel NavigationMenu;
 
     protected async override Task OnInitializedAsync()
     {
-        this.NavigationMenu = await _articleStore.GetNavigationMenuAsync();
+        this.NavigationMenu = await articleService.GetNavigationMenuAsync();
+        this.title = textParserService.Parse(this.NavigationMenu?.Title);
     }
 
     void ToggleNavMenu()

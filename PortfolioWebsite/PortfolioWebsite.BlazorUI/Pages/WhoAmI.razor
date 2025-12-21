@@ -1,5 +1,5 @@
 ﻿@page "/whoami"
-@inject IArticleStore _articleStore;
+@inject IArticleService articleService;
 
 <LoadablePage Page="page" /> 
 
@@ -8,7 +8,7 @@
 
     protected async override Task OnInitializedAsync()
     {
-        var whoAmI = await this._articleStore.GetWhoAmIAsync();
+        var whoAmI = await this.articleService.GetWhoAmIAsync();
 		this.page = whoAmI.Page;
     }
 }

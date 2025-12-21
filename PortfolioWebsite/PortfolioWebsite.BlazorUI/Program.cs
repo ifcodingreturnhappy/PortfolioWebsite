@@ -13,7 +13,6 @@ namespace PortfolioWebsite.BlazorUI
 
             builder.Services.AddHttpClient(builder.HostEnvironment.BaseAddress)
                             .AddUtils()
-                            .AddStores()
                             .AddServices();
 
             await builder.Build().RunAsync();

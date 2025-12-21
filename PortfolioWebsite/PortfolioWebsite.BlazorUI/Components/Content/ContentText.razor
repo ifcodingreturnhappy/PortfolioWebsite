@@ -1,5 +1,7 @@
-﻿<p class="main-color @(GetAlignmentClass())">
-	@((MarkupString)GetParsedContent())
+﻿@inject ITextParserService textParserService;
+
+<p class="main-color @(alignmentClass)">
+	@(parsedContent)
 </p>
 
 @code {
@@ -9,23 +11,12 @@
 	[Parameter]
 	public HorizontalTextAlignment HorizontalTextAlignment { get; set; }
 
-	// TODO: improve
-	private string GetParsedContent()
-	{
-		return Content.Replace("<*", "<span class=\"stand-out-text\">")
-				      .Replace("*>", "</span>")
-					  .Replace("<w", "<span class=\"white-text\">")
-					  .Replace("w>", "</span>");
-	}
+	private string alignmentClass;
+	private MarkupString parsedContent;
 
-	private string GetAlignmentClass()
+	protected override void OnParametersSet()
 	{
-		return HorizontalTextAlignment switch
-		{
-			HorizontalTextAlignment.Left => "text-left",
-			HorizontalTextAlignment.Center => "text-center",
-			HorizontalTextAlignment.Right => "text-right",
-			_ => "text-left",
-		};
+		this.alignmentClass = this.HorizontalTextAlignment.ToCss();
+		this.parsedContent = this.textParserService.Parse(Content);
 	}
 }

@@ -15,7 +15,7 @@
         <div class="text-center">
             @foreach (var link in Excerpt.Links)
             {
-                <a class="btn main-button my-2 @(!link.IsEnabled ? "disabled" : string.Empty)"
+                <a class="btn main-button mx-2 @(!link.IsEnabled ? "disabled" : string.Empty)"
                    href="@link.Url"
                    target="_blank"
                    rel="noopener noreferrer">

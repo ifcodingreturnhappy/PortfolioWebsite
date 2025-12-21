@@ -1,5 +1,5 @@
 ﻿@page "/work/{articleId:guid}"
-@inject IArticleStore _articleStore;
+@inject IArticleService articleService;
 
 <LoadablePage Page="page" />
 
@@ -12,7 +12,7 @@
 	// TODO: improve performance: cache articles after first load
     protected async override Task OnInitializedAsync()
     {
-        var articleInfo = await this._articleStore.GetArticleByIdAsync(articleId);
+        var articleInfo = await this.articleService.GetArticleByIdAsync(articleId);
 		this.page = articleInfo.Page;
     }
 }

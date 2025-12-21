@@ -1,5 +1,5 @@
 ﻿@page "/contactme"
-@inject IArticleStore _articleStore;
+@inject IArticleService articleService;
 
 <LoadablePage Page="page" />
 
@@ -8,7 +8,7 @@
 
     protected async override Task OnInitializedAsync()
     {
-        var contactMe = await this._articleStore.GetContactMeInfoAsync();
+        var contactMe = await this.articleService.GetContactMeInfoAsync();
         this.page = contactMe.Page;
     }
 }
