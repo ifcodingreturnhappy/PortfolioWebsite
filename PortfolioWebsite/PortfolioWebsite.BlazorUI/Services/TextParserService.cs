@@ -6,20 +6,23 @@ namespace PortfolioWebsite.BlazorUI.Services
     public class TextParserService : ITextParserService
     {
         private readonly ReplaceableMarkers[] replaceableMarkers = [
-            new()
+            // Example:
+            // <* My Highlighted Text *>
+            new ()
             {
                 StartTag = "<*",
                 EndTag = "*>",
                 HtmlStartTag = "<span class=\"highlighted-main-color\">",
                 HtmlEndTag = "</span>"
             },
-            // TODO: make this a link instead
+            // Example:
+            // "<ref href=\"https://www.example.com/\">My Link Label ref>"
             new()
             {
-                StartTag = "<*",
-                EndTag = "*>",
-                HtmlStartTag = "<span class=\"underlined-text\">",
-                HtmlEndTag = "</span>"
+                StartTag = "<ref",
+                EndTag = "ref>",
+                HtmlStartTag = "<a class=\"underlined-text\" target=\"_blank\" rel=\"noopener noreferrer\" ",
+                HtmlEndTag = "</a>"
             },
         ];
 
