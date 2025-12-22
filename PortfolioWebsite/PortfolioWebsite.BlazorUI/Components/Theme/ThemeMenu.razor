@@ -1,11 +1,14 @@
 ﻿@inject IThemeService themeService;
+@inject IJsRuntimeService jsRuntimeService;
+@implements IAsyncDisposable
 
 @if(this.theme is null)
 {
     return;
 }
 
-<div class="floating-button-container vp-anim-5">
+<div class="floating-button-container vp-anim-5"
+     @ref="containerRef">
     <div class="settings-menu settings-menu-positioning over-background-color @(isThemeMenuVisible ? "settings-menu-fade-in" : "")">
         <div class="pl-2 pr-2 pt-2 main-color">
             <h5 class="highlighted-main-color">Customize the look:</h5>
@@ -44,17 +47,27 @@
 </div>
 
 @* TODO: refactor html (and make input item prettier) *@
-@* TODO: close list when clicked outside *@
 @* TODO: finish json viewer *@
 @* TODO: update favicon *@
 
 @code   {
+    private ElementReference containerRef;
+    private DotNetObjectReference<ThemeMenu> dotNetRef;
+    private string outsideClickId;
     private bool isThemeMenuVisible = false;
     private ThemeInfoModel theme;
 
     protected async override Task OnInitializedAsync()
     {
         this.theme = await this.themeService.GetThemeAsync();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await this.RegisterOutsideClicksAsync();
+        }
     }
 
     private async Task OnColorChanged(ChangeEventArgs e, string colorVarRef)
@@ -64,13 +77,44 @@
         await this.themeService.UpdateColorAsync(colorVarRef, colorHex);
     }
 
+    private Task ResetThemeColorsAsync()
+    {
+        return this.themeService.ResetThemeAsync();
+    }
+
     private void ToggleThemeMenu()
     {
         this.isThemeMenuVisible = !this.isThemeMenuVisible;
     }
 
-    private Task ResetThemeColorsAsync()
+    private void HideThemeMenu()
     {
-        return this.themeService.ResetThemeAsync();
+        if (isThemeMenuVisible)
+        {
+            isThemeMenuVisible = false;
+            InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private async Task RegisterOutsideClicksAsync()
+    {
+        this.dotNetRef = DotNetObjectReference.Create(this);
+        this.outsideClickId = await this.jsRuntimeService.RegisterOutsideClickAsync<ThemeMenu>(this.containerRef, this.dotNetRef);
+    }
+
+    [JSInvokable]
+    public void OnOutsideClick()
+    {
+        this.HideThemeMenu();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (outsideClickId is not null)
+        {
+            await this.jsRuntimeService.UnregisterOutsideClickAsync(this.outsideClickId);
+        }
+
+        this.dotNetRef?.Dispose();
     }
 }

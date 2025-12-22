@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using PortfolioWebsite.BlazorUI.Abstractions;
 
@@ -10,6 +12,8 @@ namespace PortfolioWebsite.BlazorUI.Services
         private readonly IJsonSerializer serializer;
 
         private const string jsShowAppFunctionName = "showApp";
+        private const string jsRegisterOutsideClickFunctionName = "registerOutsideClick";
+        private const string jsUnregisterOutsideClickFunctionName = "unregisterOutsideClick";
         private const string jsGetCssVariableFunctionName = "getCssVariable";
         private const string jsSetCssColorVariableFunctionName = "setColor";
         private const string jsSaveToLocalStorageFunctionName = "saveToLocalStorage";
@@ -25,6 +29,18 @@ namespace PortfolioWebsite.BlazorUI.Services
         public async Task ShowAppAsync()
         {
             await this.js.InvokeVoidAsync(jsShowAppFunctionName);
+        }
+
+        public async Task<string> RegisterOutsideClickAsync<T>(ElementReference containerElement, DotNetObjectReference<T> dotNetRef)
+            where T : class
+        {
+            var outsideClickId = await this.js.InvokeAsync<string>(jsRegisterOutsideClickFunctionName, containerElement, dotNetRef);
+            return outsideClickId;
+        }
+
+        public async Task UnregisterOutsideClickAsync(string outsideClickId)
+        {
+            await this.js.InvokeVoidAsync(jsUnregisterOutsideClickFunctionName, outsideClickId);
         }
 
         public async Task<string> GetCssVariable(string cssVariableName)

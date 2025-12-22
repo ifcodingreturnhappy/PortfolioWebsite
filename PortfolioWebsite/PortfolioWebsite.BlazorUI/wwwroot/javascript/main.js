@@ -6,6 +6,31 @@ window.showApp = function () {
     }
 };
 
+// Handle outside clicks on provided element
+window.outsideClickHandlers = new Map();
+
+window.registerOutsideClick = function (element, dotNetRef) {
+    const handler = event => {
+        if (!element.contains(event.target)) {
+            dotNetRef.invokeMethodAsync("OnOutsideClick");
+        }
+    };
+
+    document.addEventListener("click", handler);
+
+    const id = crypto.randomUUID();
+    window.outsideClickHandlers.set(id, handler);
+    return id;
+};
+
+window.unregisterOutsideClick = function (id) {
+    const handler = window.outsideClickHandlers.get(id);
+    if (handler) {
+        document.removeEventListener("click", handler);
+        window.outsideClickHandlers.delete(id);
+    }
+};
+
 // Observer configuration
 const domMutationObserverOptions = {
     childList: true,
