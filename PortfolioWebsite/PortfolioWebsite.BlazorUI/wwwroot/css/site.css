@@ -1,6 +1,18 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+:root {
+    --main-color: 108, 218, 163;
+    --secondary-color: 0, 0, 0;
+    --highlighted-main-color: 255, 255, 255;
+    --highlighted-secondary-color: 20, 20, 20;
+    --underlined-main-color: 180, 250, 215;
+}
+
 /**** BASE ****/
+#app {
+    display: none;
+}
+
 html, body {
     font-family: 'Consolas', Helvetica, Arial, sans-serif;
     overflow-x: hidden;
@@ -14,7 +26,7 @@ html, body {
 
 .loading-circle {
     border: 16px solid RGB(69,69,69);
-    border-top: 16px solid RGB(108,218,163);
+    border-top: 16px solid rgb(var(--main-color));
     border-radius: 50%;
     width: 100px;
     height: 100px;
@@ -42,29 +54,48 @@ html, body {
     height: 110px;
 }
 
+.main-billboard {
+    font-size: calc(4vw + 3vh);
+}
+
+/**** Colors ****/
+.main-color {
+    color: rgb(var(--main-color));
+}
+
+.secondary-color {
+    color: rgb(var(--secondary-color));
+}
+
+.highlighted-main-color {
+    color: rgb(var(--highlighted-main-color));
+}
+
+.underlined-text {
+    font-weight: bolder;
+    color: rgb(var(--underlined-main-color));
+    border-bottom: 1px dashed;
+    padding-bottom: 2px;
+    border-color: rgba(var(--underlined-main-color), 0);
+    transition: 0.2s;
+}
+
+    .underlined-text:hover {
+        border-color: rgba(var(--underlined-main-color), 1);
+        transition: 0.2s;
+    }
+
 .main-background-color {
-    background-color: RGB(0,0,0);
+    background-color: rgb(var(--secondary-color));
 }
 
 .secondary-background-color {
-    background-color: RGB(108,218,163);
+    background-color: rgb(var(--main-color));
 }
 
 .over-background-color {
-    background-color: rgb(20,20,20);
+    background-color: rgb(var(--highlighted-secondary-color));
 }
-
-.main-outline {
-    outline: none;
-}
-
-    .main-outline:focus {
-        outline: none;
-    }
-
-    .main-outline:active {
-        outline: none;
-    }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
@@ -89,6 +120,19 @@ html, body {
 }
 
 /* Nav */
+.main-outline {
+    outline: none;
+}
+
+    .main-outline:focus {
+        outline: none;
+    }
+
+    .main-outline:active {
+        outline: none;
+    }
+
+
 @media (max-width: 768px) {
 
     .fullscreen-menu {
@@ -96,7 +140,7 @@ html, body {
         z-index: 1;
         top: 48px;
         left: 0;
-        background-color: rgba(0,0,0, 0.9);
+        background-color: rgba(var(--secondary-color), 0.9);
         opacity: 0;
         overflow-x: hidden;
         transition: height 0.5s, opacity 0.5s;
@@ -127,47 +171,35 @@ html, body {
     }
 }
 
-/* Floating Button */
-.floating-button-wrapper {
+/* TODO: Highlight currently selected nav (event when navigating directly to that page) - USE NAVLINK */
+/*       Improve this class (mobile is too stretched and on normal screens its too static */
+.active-nav {
+    border-bottom: 2px solid currentColor;
+    padding-bottom: 6px; 
+}
+
+/* Floating button and color picker menu */
+.floating-button-container {
     position: fixed;
     bottom: 20px;
     transition: ease-in-out 0.5s;
 }
 
-/* Gif Covered Button */
-@media (max-width: 768px) {
-    .gif-covered-button {
-        font-size: 2em;
-    }
-
-    .game-menu-positioning {
-        bottom: 110px;
-    }
-
-    .game-menu-pointer-positioning {
-        position: fixed;
-        bottom: 60px;
-        left: 30px;
-    }
-}
-@media (min-width: 768px) {
-    .gif-covered-button {
-        font-size: 3em;
-    }
-
-    .game-menu-positioning {
-        bottom: 130px;
-    }
-
-    .game-menu-pointer-positioning {
-        position: fixed;
-        bottom: 80px;
-        left: 40px;
-    }
+.floating-button-pointer {
+    font-size: 2em;
+    opacity: 0;
+    text-shadow: 0px 0px 15px black;
+    transition: 0.5s ease-in-out;
+    position: fixed;
+    bottom: 52px;
+    left: 15px;
 }
 
-.game-menu {
-    max-height: 0;
+.settings-menu-positioning {
+    bottom: 90px;
+}
+
+.settings-menu {
     width: auto;
     position: fixed;
     left: 15px;
@@ -177,69 +209,34 @@ html, body {
     transition: 0.6s ease-in-out;
 }
 
-.game-menu-wipe {
+@media (max-width: 576px) {
+    .settings-menu {
+        right: 15px;
+    }
+}
+
+.settings-menu-fade-in {
     opacity: 1;
-    box-shadow: 0px 0px 1px 1px white;
-    max-height: 200px;
+    box-shadow: 0px 0px 1px 1px rgb(var(--highlighted-main-color));
     height: auto;
 }
 
-.game-menu-pointer {
-    font-size: 2em;
-    opacity: 0;
-    text-shadow: 0px 0px 15px black;
-    transition: 0.5s ease-in-out;
-}
-
+/**** SPECIAL BUTTONS ****/
 .main-button {
-    background-color: RGB(108,218,163);
+    background-color: rgb(var(--main-color));
     color: black;
     border: none;
     transition: 0.3s ease-in-out;
 }
+
     .main-button:hover {
-        box-shadow: 0px 0px 1px 1px white !important;
+        box-shadow: 0px 0px 1px 1px rgb(var(--highlighted-main-color)) !important;
     }
+
     .main-button:focus {
         box-shadow: none;
     }
 
-.form-control:focus {
-    border: 2px solid white;
-    box-shadow: 0px 0px 4px 4px RGB(108,218,163);
-}
-
-/**** TEXT ****/
-.main-color {
-    color: RGB(108,218,163);
-}
-.secondary-color {
-    color: RGB(0,0,0);
-}
-
-.white-text {
-    color: white;
-}
-
-.stand-out-text {
-    font-weight: bolder;
-    color: rgb(180, 250, 215);
-    border-bottom: 1px dashed;
-    padding-bottom: 2px;
-    border-color: rgba(180, 250, 215, 0);
-    transition: 0.2s;
-}
-    .stand-out-text:hover {
-        border-color: rgba(180, 250, 215, 1);
-        transition: 0.2s;
-    }
-
-
-.main-billboard {
-    font-size: calc(4vw + 3vh);
-}
-
-/**** SPECIAL BUTTONS ****/
 .clickable-1 {
     background: url(https://media.giphy.com/media/ToMjGpFdluLyF8C732g/giphy.gif);
     background-size: cover;
@@ -265,14 +262,14 @@ html, body {
 }
 
     .clickable-2:hover {
-        color: white;
-        text-shadow: 4px 4px RGBA(108,218,163, 0.5);
+        color: rgb(var(--highlighted-main-color));
+        text-shadow: 4px 4px rgba(var(--main-color), 0.5);
         transform: scale(1.05);
     }
 
     .clickable-2:active {
-        color: white;
-        text-shadow: 4px 4px RGBA(108,218,163, 0.5);
+        color: rgb(var(--highlighted-main-color));
+        text-shadow: 4px 4px rgba(var(--main-color), 0.5);
         transform: scale(1.05);
     }
 
@@ -284,7 +281,7 @@ html, body {
 
     @media (min-width: 768px) {
         .gif-covered-button:hover {
-            text-shadow: 2px 2px RGBA(108,218,163, 0.5);
+            text-shadow: 2px 2px rgba(var(--main-color), 0.5);
             transform: scale(1.05);
         }
     }
@@ -292,8 +289,21 @@ html, body {
     .gif-covered-button-on-click {
         transform: scale(1.05);
         transform: translateY(-5%);
-        text-shadow: 4px 4px RGBA(108,218,163, 0.5) !important;
+        text-shadow: 4px 4px rgba(var(--main-color), 0.5) !important;
     }
+
+@media (max-width: 768px) {
+    .gif-covered-button {
+        font-size: 2em;
+    }
+}
+
+@media (min-width: 768px) {
+    .gif-covered-button {
+        font-size: 3em;
+    }
+}
+
 
 /***********/
 
@@ -318,12 +328,12 @@ html, body {
 }
 
     .glow:hover {
-        box-shadow: 0px 0px 5px 5px rgba(108,218,163, 0.4) !important;
+        box-shadow: 0px 0px 5px 5px rgba(var(--main-color), 0.4) !important;
         transition: ease-in 0.2s !important;
     }
 
     .glow:active {
-        box-shadow: 0px 0px 5px 5px rgba(108,218,163, 0.4) !important;
+        box-shadow: 0px 0px 5px 5px rgba(var(--main-color), 0.4) !important;
         transition: ease-in 0.2s !important;
     }
 
@@ -420,7 +430,6 @@ html, body {
 }
 
 /**** BLAZOR ERRORS ****/
-
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
 }
@@ -436,7 +445,7 @@ html, body {
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
-    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -1px 2px rgba(var(--secondary-color), 0.2);
     display: none;
     left: 0;
     padding: 0.6rem 1.25rem 0.7rem 1.25rem;

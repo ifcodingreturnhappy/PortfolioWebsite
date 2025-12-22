@@ -1,4 +1,4 @@
-﻿@inject IArticleService articleService;
+﻿@inject IPortfolioDataService portfolioDataService;
 @inject ITextParserService textParserService;
 
 @if(this.NavigationMenu is null)
@@ -21,10 +21,12 @@
                 @foreach (var navElement in this.NavigationMenu?.NavigationLinks)
                 {
                     <li class="nav-item vp-anim-3 mx-2">
-                        <a class="nav-link main-color clickable-2 selectable-item"
-                           href="@navElement.PageRef"
-                           @onclick="() => { CollapseNavMenu(); }">@(navElement.Label)</a>
-
+                        <NavLink href="@navElement.PageRef" 
+                                 class="nav-link main-color clickable-2 selectable-item"
+                                 activeClass="active-nav"
+                                 @onclick="CollapseNavMenu">
+                            @navElement.Label
+                        </NavLink>
                     </li>
                 }
             </ul>
@@ -33,7 +35,6 @@
 </nav>
 
 @code {
-    // TODO: Highlight currently selected nav (event when navigating directly to that page)
     private MarkupString title;
     private bool isNavMenuCollapsed { get; set; } = true;
     private string NavMenuVisibility => isNavMenuCollapsed ? "" : "wipe-down";
@@ -43,7 +44,7 @@
 
     protected async override Task OnInitializedAsync()
     {
-        this.NavigationMenu = await articleService.GetNavigationMenuAsync();
+        this.NavigationMenu = await portfolioDataService.GetNavigationMenuAsync();
         this.title = textParserService.Parse(this.NavigationMenu?.Title);
     }
 

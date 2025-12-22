@@ -7,13 +7,14 @@ using PortfolioWebsite.BlazorUI.Models;
 using PortfolioWebsite.BlazorUI.Models.ContactMe;
 using PortfolioWebsite.BlazorUI.Models.Home;
 using PortfolioWebsite.BlazorUI.Models.Navigation;
+using PortfolioWebsite.BlazorUI.Models.Settings;
 using PortfolioWebsite.BlazorUI.Models.WhoAmI;
 using PortfolioWebsite.BlazorUI.Models.WorkShowcase;
 using PortfolioWebsite.BlazorUI.Models.WorkShowcase.Articles;
 
 namespace PortfolioWebsite.BlazorUI.Services
 {
-    public class ArticleService : IArticleService
+    public class PortfolioDataService : IPortfolioDataService
     {
         private readonly HttpClient httpClient;
         private readonly IJsonSerializer jsonSerializer;
@@ -22,7 +23,7 @@ namespace PortfolioWebsite.BlazorUI.Services
 
         private PortfolioDataModel portfolioDataModel;
 
-        public ArticleService(HttpClient httpClient, IJsonSerializer jsonSerializer)
+        public PortfolioDataService(HttpClient httpClient, IJsonSerializer jsonSerializer)
         {
             this.httpClient = httpClient;
             this.jsonSerializer = jsonSerializer;
@@ -63,6 +64,12 @@ namespace PortfolioWebsite.BlazorUI.Services
         {
             await this.GetPortfolioDataAsync();
             return this.portfolioDataModel.ContactMe;
+        }
+
+        public async Task<SettingsInfoModel> GetSettingsAsync()
+        {
+            await this.GetPortfolioDataAsync();
+            return this.portfolioDataModel.Settings;
         }
 
         private async Task GetPortfolioDataAsync()

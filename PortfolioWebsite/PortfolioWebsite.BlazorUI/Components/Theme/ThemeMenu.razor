@@ -1,0 +1,76 @@
+﻿@inject IThemeService themeService;
+
+@if(this.theme is null)
+{
+    return;
+}
+
+<div class="floating-button-container vp-anim-5">
+    <div class="settings-menu settings-menu-positioning over-background-color @(isThemeMenuVisible ? "settings-menu-fade-in" : "")">
+        <div class="pl-2 pr-2 pt-2 main-color">
+            <h5 class="highlighted-main-color">Customize the look:</h5>
+            @foreach (var color in this.theme.GetColorByCssVarName().Values)
+            {
+                <div>
+                    <label>
+                        <input type="color"
+                               value="@color.Hex"
+                               @oninput="e => OnColorChanged(e, color.CssVarName)" />
+                    </label>
+                    @color.DisplayName
+                </div>
+            }
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    @* TODO: fix highlight on button *@
+                    <button type="button" 
+                            class="btn btn-link main-color p-1"
+                            @onclick="ResetThemeColorsAsync">
+                        <i class="fas fa-solid fa-broom"></i>
+                    </button>
+                </div>
+                @* TODO: add randomizer button for themes *@
+            </div>
+        </div>
+    </div>
+    <div>
+        <i class="fas fa-caret-up main-color floating-button-pointer" style="@(isThemeMenuVisible ? "opacity: 1" : "opacity: 0")"></i>
+    </div>
+    <div>
+        <a class="btn-floating btn-lg btn-flat" @onclick="ToggleThemeMenu">
+            <i class="fas fa-palette main-color play-button"></i>
+        </a>
+    </div>
+</div>
+
+@* TODO: refactor html (and make input item prettier) *@
+@* TODO: close list when clicked outside *@
+@* TODO: finish json viewer *@
+@* TODO: update favicon *@
+
+@code   {
+    private bool isThemeMenuVisible = false;
+    private ThemeInfoModel theme;
+
+    protected async override Task OnInitializedAsync()
+    {
+        this.theme = await this.themeService.GetThemeAsync();
+    }
+
+    private async Task OnColorChanged(ChangeEventArgs e, string colorVarRef)
+    {
+        var colorHex = e.Value?.ToString();
+
+        await this.themeService.UpdateColorAsync(colorVarRef, colorHex);
+    }
+
+    private void ToggleThemeMenu()
+    {
+        this.isThemeMenuVisible = !this.isThemeMenuVisible;
+    }
+
+    private Task ResetThemeColorsAsync()
+    {
+        return this.themeService.ResetThemeAsync();
+    }
+}

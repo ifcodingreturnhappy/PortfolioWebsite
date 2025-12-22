@@ -11,7 +11,7 @@
         ]
     },
     "NavigationMenu": {
-        "Title": "<w[w>If Coding Return Happy<w]w>",
+        "Title": "<*[*>If Coding Return Happy<*]*>",
         "CollapsedMenuIcon": "fas fa-bars",
         "OpenMenuIcon": "fas fa-times-circle",
         "NavigationLinks": [
@@ -484,6 +484,10 @@
         }
     },
     "Settings": {
-        "DataFetchSimulatedDelayInMs": 200
+        "DataFetchSimulatedDelayInMs": 200,
+        "MainColorDisplayName": "Primary",
+        "SecondaryColorDisplayName": "Secondary",
+        "HighlightedMainColorDisplayName": "Highlighted Primary",
+        "HighlightedSecondaryColorDisplayName": "Highlighted Secondary"
     }
 }

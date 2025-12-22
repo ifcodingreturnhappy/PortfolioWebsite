@@ -1,5 +1,5 @@
 ﻿@page "/work/{articleId:guid}"
-@inject IArticleService articleService;
+@inject IPortfolioDataService portfolioDataService;
 
 <LoadablePage Page="page" />
 
@@ -11,7 +11,7 @@
 
     protected async override Task OnInitializedAsync()
     {
-        var articleInfo = await this.articleService.GetArticleByIdAsync(articleId);
+        var articleInfo = await this.portfolioDataService.GetArticleByIdAsync(articleId);
 		this.page = articleInfo.Page;
     }
 }

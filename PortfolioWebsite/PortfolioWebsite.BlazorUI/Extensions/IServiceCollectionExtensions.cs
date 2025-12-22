@@ -22,7 +22,9 @@ namespace PortfolioWebsite.BlazorUI.Extensions
 
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            return services.AddScoped<IArticleService, ArticleService>()
+            return services.AddScoped<IJsRuntimeService, JsRuntimeService>()
+                           .AddScoped<IPortfolioDataService, PortfolioDataService>()
+                           .AddScoped<IThemeService, ThemeService>() 
                            .AddScoped<ITextParserService, TextParserService>();
         }
     }

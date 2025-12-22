@@ -1,4 +1,12 @@
-﻿// Observer configuration
+﻿// Method that shows app after theme loaded
+window.showApp = function () {
+    const app = document.getElementById('app');
+    if (app) {
+        app.style.display = 'block';
+    }
+};
+
+// Observer configuration
 const domMutationObserverOptions = {
     childList: true,
     subtree: true,
@@ -59,3 +67,38 @@ const observerCallback = (entry, animationId, observer) => {
     entry.target.classList.add(animationCssToAdd);
     observer.disconnect();
 }
+
+// Read CSS variables
+window.getCssVariable = function (name) {
+    return getComputedStyle(document.documentElement)
+        .getPropertyValue(name)
+        .trim();
+};
+
+// Set style
+window.setColor = (colorVarName, hexColor) => {
+    // TODO: move to c#
+    hexColor = hexColor.replace('#', '');
+
+    const r = parseInt(hexColor.substring(0, 2), 16);
+    const g = parseInt(hexColor.substring(2, 4), 16);
+    const b = parseInt(hexColor.substring(4, 6), 16);
+    const rgbColor = `${r}, ${g}, ${b}`;
+
+    document.documentElement.style.setProperty(colorVarName, rgbColor);
+};
+
+// Save a key/value pair to localStorage
+window.saveToLocalStorage = function (key, value) {
+    localStorage.setItem(key, value);
+};
+
+// Read a value from localStorage
+window.readFromLocalStorage = function (key) {
+    return localStorage.getItem(key);
+};
+
+// Remove a key from localStorage
+window.removeFromLocalStorage = function (key) {
+    localStorage.removeItem(key);
+};

@@ -1,12 +1,12 @@
-﻿<div class="card text-center main-background-color">
+﻿<div class="card border-0 shadow-none text-center main-background-color">
     <GifCoveredIcon Icon="@Excerpt.Icon" />
     <div class="card-body">
-        <h3 class="card-title white-text mb-4">@Excerpt.Title</h3>
+        <h3 class="card-title highlighted-main-color mb-4">@Excerpt.Title</h3>
         @if(Excerpt.Description != null)
         {
             @foreach (var line in Excerpt.Description.Lines)
             {
-                <ContentText Content="@line" HorizontalTextAlignment="@Excerpt.Description.HorizontalTextAlignment" />
+                <Markdown Content="@line" HorizontalTextAlignment="@Excerpt.Description.HorizontalTextAlignment" />
             }
 		}
     </div>
@@ -15,12 +15,7 @@
         <div class="text-center">
             @foreach (var link in Excerpt.Links)
             {
-                <a class="btn main-button mx-2 @(!link.IsEnabled ? "disabled" : string.Empty)"
-                   href="@link.Url"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <i class="@link.IconRef secondary-color"></i> @(link.Label)
-                </a>
+                <LinkButton Link="@link" />
             }
         </div>
     }

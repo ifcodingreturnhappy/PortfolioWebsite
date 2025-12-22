@@ -1,0 +1,11 @@
+﻿<a class="btn main-button mx-2 @(!Link.IsEnabled ? "disabled" : string.Empty)"
+   href="@Link.Url"
+   target="_blank"
+   rel="noopener noreferrer">
+    <i class="@Link.IconRef secondary-color"></i> @(Link.Label)
+</a>
+
+@code {
+    [Parameter]
+    public LinkInfoModel Link { get; set; }
+}

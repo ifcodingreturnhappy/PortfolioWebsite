@@ -4,13 +4,13 @@
 <div class="card text-center glow over-background-color" @onclick="OpenCard">
     <img class="card-img-top mx-auto mb-0" src="@TaggedCard.ImagePath" alt="@TaggedCard.Title Card Image" style="max-width:40%" />
 
-    <p class="white-text text-right" style="position: absolute; top:10px; right:5px">
+    <p class="highlighted-main-color text-right" style="position: absolute; top:10px; right:5px">
         <span><i class="far fa-calendar-alt main-color"></i></span> @(TaggedCard.PublishDate.ToFormattedDate())
     </p>
 
     <div class="card-body">
         <h4 class="main-color">@TaggedCard.Title</h4>
-        <p class="white-text mb-4">@(TaggedCard.Description)</p>
+        <p class="highlighted-main-color mb-4">@(TaggedCard.Description)</p>
         <div>
             @foreach (var tag in TaggedCard.Tags)
             {

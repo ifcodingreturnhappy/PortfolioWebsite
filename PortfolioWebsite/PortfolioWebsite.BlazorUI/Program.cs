@@ -15,7 +15,9 @@ namespace PortfolioWebsite.BlazorUI
                             .AddUtils()
                             .AddServices();
 
-            await builder.Build().RunAsync();
+            var host = builder.Build();
+            await host.InitializeAsync();
+            await host.RunAsync();
         }
     }
 }

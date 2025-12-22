@@ -10,14 +10,15 @@ namespace PortfolioWebsite.BlazorUI.Services
             {
                 StartTag = "<*",
                 EndTag = "*>",
-                HtmlStartTag = "<span class=\"stand-out-text\">",
+                HtmlStartTag = "<span class=\"highlighted-main-color\">",
                 HtmlEndTag = "</span>"
             },
+            // TODO: make this a link instead
             new()
             {
-                StartTag = "<w",
-                EndTag = "w>",
-                HtmlStartTag = "<span class=\"white-text\">",
+                StartTag = "<*",
+                EndTag = "*>",
+                HtmlStartTag = "<span class=\"underlined-text\">",
                 HtmlEndTag = "</span>"
             },
         ];

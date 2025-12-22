@@ -1,5 +1,5 @@
 ﻿@page "/work"
-@inject IArticleService articleService;
+@inject IPortfolioDataService portfolioDataService;
 
 <LoadablePage Page="page" />
 
@@ -8,7 +8,7 @@
 
     protected async override Task OnInitializedAsync()
     {
-        var workShowcase = await this.articleService.GetWorkShowcaseInfoAsync();
+        var workShowcase = await this.portfolioDataService.GetWorkShowcaseInfoAsync();
         this.page = workShowcase.Page;
     }
 }
