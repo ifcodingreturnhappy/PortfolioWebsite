@@ -1,4 +1,4 @@
-﻿namespace PortfolioWebsite.BlazorUI.Models.Common
+﻿namespace PortfolioWebsite.BlazorUI.Models.Enums
 {
     public enum ContentSpacing
     {

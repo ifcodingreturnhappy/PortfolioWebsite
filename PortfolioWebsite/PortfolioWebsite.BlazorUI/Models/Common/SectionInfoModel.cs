@@ -1,4 +1,6 @@
-﻿namespace PortfolioWebsite.BlazorUI.Models.Common
+﻿using PortfolioWebsite.BlazorUI.Models.Enums;
+
+namespace PortfolioWebsite.BlazorUI.Models.Common
 {
     public class SectionInfoModel
     {

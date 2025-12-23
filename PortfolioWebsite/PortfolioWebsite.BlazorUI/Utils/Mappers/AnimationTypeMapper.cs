@@ -1,5 +1,5 @@
 ﻿using System;
-using PortfolioWebsite.BlazorUI.Models.Common;
+using PortfolioWebsite.BlazorUI.Models.Enums;
 
 namespace PortfolioWebsite.BlazorUI.Utils.Mappers
 {
