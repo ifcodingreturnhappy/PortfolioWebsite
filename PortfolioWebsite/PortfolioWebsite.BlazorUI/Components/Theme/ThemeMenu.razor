@@ -25,14 +25,13 @@
             }
             <div class="row justify-content-center">
                 <div class="col-auto">
-                    @* TODO: fix highlight on button *@
                     <button type="button" 
-                            class="btn btn-link main-color p-1"
+                            class="btn btn-link main-color p-1 rotate"
                             @onclick="ResetThemeColorsAsync">
                         <i class="fas fa-solid fa-broom"></i>
+                         Reset
                     </button>
                 </div>
-                @* TODO: add randomizer button for themes *@
             </div>
         </div>
     </div>
@@ -45,10 +44,6 @@
         </a>
     </div>
 </div>
-
-@* TODO: refactor html (and make input item prettier) *@
-@* TODO: finish json viewer *@
-@* TODO: update favicon *@
 
 @code   {
     private ElementReference containerRef;

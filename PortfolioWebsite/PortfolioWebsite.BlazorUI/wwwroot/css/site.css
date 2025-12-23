@@ -70,6 +70,22 @@ html, body {
     color: rgb(var(--highlighted-main-color));
 }
 
+.btn-link,
+.btn-link:hover,
+.btn-link:focus,
+.btn-link:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.rotate {
+    transition: transform 0.2s ease;
+}
+
+    .rotate:active {
+        transform: rotate(-15deg);
+    }
+
 a.underlined-text,
 a.underlined-text:hover,
 a.underlined-text:focus,
@@ -104,6 +120,22 @@ a.underlined-text:active {
 .over-background-color {
     background-color: rgb(var(--highlighted-secondary-color));
 }
+
+input[type="color"] {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(var(--highlighted-main-color));
+    padding: 0;
+}
+
+    input[type="color"]::-webkit-color-swatch-wrapper {
+        padding: 0;
+    }
+
+    input[type="color"]::-webkit-color-swatch {
+        border: none;
+    }
+
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {

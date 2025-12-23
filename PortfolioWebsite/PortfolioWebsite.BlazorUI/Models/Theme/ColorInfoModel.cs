@@ -11,5 +11,10 @@
         {
             this.Hex = hex;
         }
+
+        public bool IsOnDefaultColor()
+        {
+            return this.Hex == this.DefaultHex;
+        }
     }
 }

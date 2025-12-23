@@ -48,5 +48,13 @@ namespace PortfolioWebsite.BlazorUI.Models.Theme
 
             targetColor.UpdateColor(colorHex);
         }
+
+        public bool IsOnDefaultColor()
+        {
+            return this.MainColor.IsOnDefaultColor() &&
+                   this.SecondaryColor.IsOnDefaultColor() &&
+                   this.HighlightedMainColor.IsOnDefaultColor() &&
+                   this.HighlitedSecondaryColor.IsOnDefaultColor();
+        }
     }
 }

@@ -39,9 +39,11 @@ const domMutationObserverOptions = {
     attributeFilter: ['class']
 }
 
+// TODO: make this "customizable" selecting class
 const viewportIntersectionObserverOptions = {
     root: null,
     rootMargin: '-20px -20px -20px -20px',
+    //rootMargin: '0px 0px -20% 0px',
     threshold: 0.3
 };
 
