@@ -27,6 +27,6 @@
 
     private void OpenCard()
     {
-        this.NavManager.NavigateTo($"work/{this.TaggedCard.Id}");
+        this.NavManager.NavigateTo(this.TaggedCard.LinkUrl);
     }
 }

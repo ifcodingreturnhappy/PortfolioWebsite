@@ -11,7 +11,7 @@
         ]
     },
     "NavigationMenu": {
-        "Title": "<*[*>If Coding Return Happy<*]*>",
+        "Title": "<*[ *>If Coding Return Happy<* ]*>",
         "CollapsedMenuIcon": "fas fa-bars",
         "OpenMenuIcon": "fas fa-times-circle",
         "NavigationLinks": [
@@ -174,23 +174,23 @@
                         "MainContent": {
                             "AnimationType": "FadeIn",
                             "TaggedCard": {
-                                "Id": "53652731-bc5c-4854-a44f-4a493a2233cf",
                                 "Title": "Portfolio Website",
                                 "ImagePath": "images/website/portfolio.png",
                                 "Description": "A Personal Work Portfolio Website",
                                 "PublishDate": "13/02/2021",
-                                "Tags": [ "Web", "Blazor Server", "C#", "JavaScript", "CSS" ]
+                                "Tags": [ "Web", "Blazor Server", "C#", "JavaScript", "CSS" ],
+                                "LinkUrl": "work/53652731-bc5c-4854-a44f-4a493a2233cf"
                             }
                         },
                         "ExtraContent": {
                             "AnimationType": "FadeIn",
                             "TaggedCard": {
-                                "Id": "a6af06fa-d49d-40c8-a419-18fc8cc7a451",
                                 "Title": "IK Mecha Spider",
                                 "ImagePath": "images/ikmecha/icon.png",
                                 "Description": "A Procedurally Animated Robot Spider",
                                 "PublishDate": "20/11/2020",
-                                "Tags": [ "Procedural Animation", "C#", "Unity", "Blender" ]
+                                "Tags": [ "Procedural Animation", "C#", "Unity", "Blender" ],
+                                "LinkUrl": "work/a6af06fa-d49d-40c8-a419-18fc8cc7a451"
                             }
                         },
                         "ContentPositioning": "MainContentFirst",
@@ -200,25 +200,25 @@
                         "MainContent": {
                             "AnimationType": "FadeIn",
                             "TaggedCard": {
-                                "Id": "53652731-bc5c-4854-a44f-4a493a2233cf",
                                 "Title": "Portfolio Website",
                                 "ImagePath": "images/website/portfolio.png",
                                 "Description": "A Personal Work Portfolio Website",
                                 "PageRef": "work/myworkdemo",
                                 "PublishDate": "13/02/2021",
-                                "Tags": [ "Web", "Blazor Server", "C#", "JavaScript", "CSS" ]
+                                "Tags": [ "Web", "Blazor Server", "C#", "JavaScript", "CSS" ],
+                                "LinkUrl": "work/53652731-bc5c-4854-a44f-4a493a2233cf"
                             }
                         },
                         "ExtraContent": {
                             "AnimationType": "FadeIn",
                             "TaggedCard": {
-                                "Id": "a6af06fa-d49d-40c8-a419-18fc8cc7a451",
                                 "Title": "IK Mecha Spider",
                                 "ImagePath": "images/ikmecha/icon.png",
                                 "Description": "A Procedurally Animated Robot Spider",
                                 "PageRef": "work/ikmechaspider",
                                 "PublishDate": "20/11/2020",
-                                "Tags": [ "Procedural Animation", "C#", "Unity", "Blender" ]
+                                "Tags": [ "Procedural Animation", "C#", "Unity", "Blender" ],
+                                "LinkUrl": "work/a6af06fa-d49d-40c8-a419-18fc8cc7a451"
                             }
                         },
                         "ContentPositioning": "MainContentFirst",

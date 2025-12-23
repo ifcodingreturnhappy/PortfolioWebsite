@@ -16,7 +16,7 @@ TODO:
   [ ] - move inline styles to css class where possible
   [ ] - add randomizer button for themes
   [ ] - Investigate why sometimes the work cards jitter.
-  [ ] - 
+  [ ] - Improve firefox UX
 
 
 -----

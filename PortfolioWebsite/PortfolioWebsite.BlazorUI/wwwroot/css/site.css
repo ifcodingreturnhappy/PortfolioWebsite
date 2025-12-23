@@ -14,7 +14,15 @@
 
 html, body {
     font-family: 'Consolas', Helvetica, Arial, sans-serif;
+}
+
+html {
     overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+body {
+    overflow: hidden;
 }
 
 .body-display {
@@ -211,12 +219,25 @@ input[type="color"] {
     }
 }
 
-/* TODO: Highlight currently selected nav (event when navigating directly to that page) - USE NAVLINK */
-/*       Improve this class (mobile is too stretched and on normal screens its too static */
-.active-nav {
-    border-bottom: 2px solid currentColor;
-    padding-bottom: 6px; 
+.nav-item {
+    position: relative;
+    text-decoration: none;
 }
+
+    .nav-item::after {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 0;
+        background-color: currentColor; 
+        transition: width 0.3s ease;
+    }
+
+    .nav-item:hover::after,
+    .nav-item.active::after {
+        width: 100%;
+    }
 
 /* Floating button and color picker menu */
 .floating-button-container {
