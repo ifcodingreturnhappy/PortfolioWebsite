@@ -37,7 +37,9 @@
 This repository holds the code for my personal website and portfolio.
 <br>
 <br>
-The project is build in such a way that all the content is dynamically built, styled and positioned, according to data provided in a .json file entitled <a href="">portfolio.json</a>
+The project is build in such a way so that all the content is <b>dynamically</b> built, styled and positioned, according to data provided in a .json file entitled <a href="https://github.com/ifcodingreturnhappy/PortfolioWebsite/blob/main/src/PortfolioWebsite/PortfolioWebsite.BlazorUI/wwwroot/data/portfolio.json">portfolio.json</a>
+<br>
+Using this approach, it is possible to add new content and pages by simply editing the <b>portfolio.json</b> file, without the need to introduce new code.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
