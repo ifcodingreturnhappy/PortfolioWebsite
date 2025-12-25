@@ -39,6 +39,13 @@ const generateUUID = () => {
     );
 }
 
+// Syntax highlight for code blocks
+window.highlightElement = (element) => {
+    if (element && !element.classList.contains("hljs")) {
+        hljs.highlightElement(element);
+    }
+};
+
 // Observer configuration
 const domMutationObserverOptions = {
     childList: true,

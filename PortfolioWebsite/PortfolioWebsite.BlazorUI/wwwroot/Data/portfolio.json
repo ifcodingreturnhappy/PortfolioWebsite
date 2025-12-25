@@ -148,7 +148,10 @@
                         },
                         "ExtraContent": {
                             "AnimationType": "FadeIn",
-                            "SourceCode": {}
+                            "SourceCode": {
+                                "Language": "javascript",
+                                "Code": "console.log(`Hello, ${name}!`);"
+                            }
                         },
                         "ContentPositioning": "MainContentFirst",
                         "ContentSpacing": "Large"

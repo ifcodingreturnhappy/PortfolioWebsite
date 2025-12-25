@@ -4,16 +4,17 @@ This project will be the ASP.NET Core application for my portfolio website.
 https://ifcodingreturnhappy.github.io/PortfolioWebsite/
 
 TODO:
-  [ ] - testar no mobile
   [ ] - Update Readme
-  [ ] - Add some tests
-  [ ] - Update outdate content
-  [ ] - finish json viewer
+  [ ] - Update outdated content
+  [ ] - adjust text sizes (specially on mobile)
   [ ] - update favicon
+  [ ] - theme reset button not registering touch events on mobile
+  [ ] - test on mobile
+  
   [ ] - extract more atomic components
+  [ ] - Add some tests
   [ ] - move inline styles to css class where possible
   [ ] - add randomizer button for themes
-  [ ] - adjust text sizes (specially on mobile)
-  [ ] - theme reset button not registering touch events on mobile
+  [ ] - add a validation step to the portfolio.json file
 
 -----

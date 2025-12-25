@@ -14,6 +14,7 @@ namespace PortfolioWebsite.BlazorUI.Services
         private const string jsShowAppFunctionName = "showApp";
         private const string jsRegisterOutsideClickFunctionName = "registerOutsideClick";
         private const string jsUnregisterOutsideClickFunctionName = "unregisterOutsideClick";
+        private const string jsHighlightElementFunctionName = "highlightElement";
         private const string jsGetCssVariableFunctionName = "getCssVariable";
         private const string jsSetCssColorVariableFunctionName = "setColor";
         private const string jsSaveToLocalStorageFunctionName = "saveToLocalStorage";
@@ -41,6 +42,11 @@ namespace PortfolioWebsite.BlazorUI.Services
         public async Task UnregisterOutsideClickAsync(string outsideClickId)
         {
             await this.js.InvokeVoidAsync(jsUnregisterOutsideClickFunctionName, outsideClickId);
+        }
+        
+        public async Task HighlightCodeAsync(ElementReference codeBlockElement)
+        {
+            await this.js.InvokeVoidAsync(jsHighlightElementFunctionName, codeBlockElement);
         }
 
         public async Task<string> GetCssVariable(string cssVariableName)

@@ -1,7 +1,19 @@
-﻿<p>@SourceCode.Language</p>
-<p>@SourceCode.Code</p>
+﻿@inject IJsRuntimeService jsRuntimeService
+
+<pre>
+<code @ref="codeBlockElement" class="language-@(this.SourceCode.Language)">
+@((MarkupString)(this.SourceCode.Code))
+</code>
+</pre>
 
 @code {
+    private ElementReference codeBlockElement;
+
     [Parameter]
     public ContentSourceCodeInfoModel SourceCode { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await this.jsRuntimeService.HighlightCodeAsync(codeBlockElement);
+    }
 }

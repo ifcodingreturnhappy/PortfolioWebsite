@@ -365,9 +365,6 @@ input[type="color"] {
     }
 }
 
-
-/***********/
-
 .scale-up {
     transform: scale(1);
     transition: ease-in 0.1s;
@@ -488,6 +485,54 @@ input[type="color"] {
         opacity: 1;
     }
 
+}
+
+/**** Custom highlight.js theme ****/
+/* Baseline */
+.hljs {
+    background: rgb(var(--highlighted-secondary-color));
+    color: rgb(var(--main-color));
+}
+
+/* Keywords */
+.hljs-keyword {
+    color: rgb(var(--main-color));
+    font-weight: bold;
+}
+
+/* Strings */
+.hljs-string {
+    color: rgb(var(--highlighted-main-color));
+}
+
+/* Numbers */
+.hljs-number {
+    color: rgb(var(--highlighted-main-color));
+}
+
+/* Comments */
+.hljs-comment {
+    color: rgb(var(--main-color));
+}
+
+/* Built-ins */
+.hljs-built_in {
+    color: rgb(var(--main-color));
+}
+
+/* Functions / titles */
+.hljs-title {
+    color: rgb(var(--main-color));
+}
+
+/* Attributes / Keys */
+.hljs-attr {
+    color: rgb(var(--main-color));
+}
+
+/* Variables / Class names */
+.hljs-variable {
+    color: rgb(var(--highlighted-main-color));
 }
 
 /**** BLAZOR ERRORS ****/

@@ -10,6 +10,7 @@ namespace PortfolioWebsite.BlazorUI.Abstractions
         public Task<string> RegisterOutsideClickAsync<T>(ElementReference containerElement, DotNetObjectReference<T> dotNetRef)
             where T : class;
         public Task UnregisterOutsideClickAsync(string outsideClickId);
+        public Task HighlightCodeAsync(ElementReference codeBlockElement);
         public Task<string> GetCssVariable(string cssVariableName);
         public Task SetCssColorAsync(string cssVariableNameOfColor, string colorHex);
         public Task SaveToLocalStorageAsync<T>(string key, T value);
