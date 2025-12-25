@@ -29,7 +29,7 @@ jobs:
 
        # publishes Blazor project to the release-folder
       - name: Publish .NET Core Project
-        run: dotnet publish ./PortfolioWebsite/PortfolioWebsite.BlazorUI/PortfolioWebsite.BlazorUI.csproj -c Release -o release --nologo
+        run: dotnet publish ./src/PortfolioWebsite/PortfolioWebsite.BlazorUI/PortfolioWebsite.BlazorUI.csproj -c Release -o release --nologo
         
         # ----- NOT NECESSARY WHEN USING A CUSTOM DOMAIN -----
         # changes the base-tag in index.html from '/' to 'PortfolioWebsite' to match GitHub Pages repository subdirectory
