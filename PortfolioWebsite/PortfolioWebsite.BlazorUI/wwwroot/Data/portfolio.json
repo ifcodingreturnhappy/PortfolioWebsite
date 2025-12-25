@@ -485,7 +485,28 @@
                 "Sections": [
                     {
                         "MainContent": {
-                            "AnimationType": "FadeInBottomTranslate",
+                            "EmptyBlock": {
+                                "Length": 2
+                            }
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeInTopTranslate",
+                            "Excerpt": {
+                                "Description": {
+                                    "HorizontalTextAlignment": "Center",
+                                    "Lines": [
+                                        "Feel free to get in touch using one of the links below!"
+                                    ]
+                                }
+                            }
+                        },
+                        "ContentPositioning": "MainContentOnly"
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeIn",
                             "Excerpt": {
                                 "Title": "GitHub",
                                 "Description": {
@@ -502,7 +523,7 @@
                             }
                         },
                         "ExtraContent": {
-                            "AnimationType": "FadeInBottomTranslate",
+                            "AnimationType": "FadeIn",
                             "Excerpt": {
                                 "Title": "Email",
                                 "Description": {
