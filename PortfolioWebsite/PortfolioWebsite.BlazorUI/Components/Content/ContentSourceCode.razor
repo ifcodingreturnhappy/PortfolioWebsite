@@ -5,15 +5,18 @@
 @((MarkupString)(this.SourceCode.Code))
 </code>
 </pre>
+<div class="@(textAlignmentClass) highlighted-main-color mt-2">@SourceCode.Caption</div>
 
 @code {
-    private ElementReference codeBlockElement;
-
     [Parameter]
     public ContentSourceCodeInfoModel SourceCode { get; set; }
+
+    private ElementReference codeBlockElement;
+    private string textAlignmentClass;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await this.jsRuntimeService.HighlightCodeAsync(codeBlockElement);
+        this.textAlignmentClass = this.SourceCode?.HorizontalTextAlignment.ToCss();
     }
 }

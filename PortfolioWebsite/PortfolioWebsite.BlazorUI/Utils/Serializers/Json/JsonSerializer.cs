@@ -14,6 +14,7 @@ namespace PortfolioWebsite.BlazorUI.Utils.Serializers.Json
                 PropertyNameCaseInsensitive = true,
                 Converters = { 
                     new JsonDatetimeConverter(),
+                    new JsonNullableDatetimeConverter(),
                     new STJ.Serialization.JsonStringEnumConverter(),
                 } 
             };

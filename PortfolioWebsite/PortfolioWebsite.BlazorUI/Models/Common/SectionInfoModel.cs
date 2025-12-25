@@ -7,6 +7,6 @@ namespace PortfolioWebsite.BlazorUI.Models.Common
         public ContentInfoModel MainContent { get; set; }
         public ContentInfoModel ExtraContent { get; set; }
         public ContentPositioning ContentPositioning { get; set; }
-        public ContentSpacing ContentSpacing { get; set; }
+        public MarginInfoModel Margin { get; set; }
     }
 }

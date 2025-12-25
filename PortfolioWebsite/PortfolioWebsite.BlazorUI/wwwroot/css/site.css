@@ -488,6 +488,11 @@ input[type="color"] {
 }
 
 /**** Custom highlight.js theme ****/
+pre code {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+}
+
 /* Baseline */
 .hljs {
     background: rgb(var(--highlighted-secondary-color));
@@ -512,7 +517,7 @@ input[type="color"] {
 
 /* Comments */
 .hljs-comment {
-    color: rgb(var(--main-color));
+    color: rgb(var(--highlighted-main-color));
 }
 
 /* Built-ins */
@@ -615,7 +620,7 @@ input[type="color"] {
     animation: FadeIn ease-in 1.5s;
 }
 
-.settings-vp-anim-top-50 {
+.settings-vp-anim-mb-2 {
 }
 
 /* Animations */

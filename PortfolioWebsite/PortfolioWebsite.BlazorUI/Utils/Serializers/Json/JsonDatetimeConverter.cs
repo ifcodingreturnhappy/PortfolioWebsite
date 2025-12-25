@@ -18,4 +18,16 @@ namespace PortfolioWebsite.BlazorUI.Utils.Serializers.Json
         }
     }
 
+    public class JsonNullableDatetimeConverter : JsonConverter<DateTime?>
+    {
+        public override DateTime? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            return reader.ToDateTime() ?? default;
+        }
+
+        public override void Write(Utf8JsonWriter writer, DateTime? value, JsonSerializerOptions options)
+        {
+            writer.WriteStringValue(value?.ToFormattedDate());
+        }
+    }
 }

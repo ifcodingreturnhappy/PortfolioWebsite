@@ -1,4 +1,4 @@
-﻿<div class="row @SpacingClasses align-items-center">
+﻿<div class="row align-items-center">
     <div class="@MainOrderClasses">
         <div class="@SpacingClasses">
             <ContentCard Content="@Section.MainContent" />
@@ -16,13 +16,18 @@
     [Parameter]
     public SectionInfoModel Section { get; set; }
 
+    private string SpacingClasses => $"{MarginClassesX} {MarginClassesY}";
+
     private string MainOrderClasses;
     private string ExtraOrderClasses;
-    private string SpacingClasses;
+    private string MarginClassesX;
+    private string MarginClassesY;
+    
 
     protected override void OnParametersSet()
     {
         (this.MainOrderClasses, this.ExtraOrderClasses) = Section.ContentPositioning.ToCss();
-        this.SpacingClasses = Section.ContentSpacing.ToCss();
+        this.MarginClassesX = Section.Margin?.X.ToCss(Axis.X);
+        this.MarginClassesY = Section.Margin?.Y.ToCss(Axis.Y);
     }
 }

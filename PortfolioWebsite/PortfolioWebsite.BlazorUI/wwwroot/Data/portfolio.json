@@ -6,7 +6,7 @@
         "AnimatedMainTitle": "_",
         "Subtitle": "A personal coding journey.",
         "SubtitleDescriptions": [
-            "This website is a personal page where I showcase my passion projects and all the things I do related to programming.",
+            "This website is the page where I showcase my passion projects and all the things I do related to programming.",
             "Join me in this adventure!"
         ]
     },
@@ -47,8 +47,7 @@
                                     "HorizontalTextAlignment": "Center",
                                     "Lines": [
                                         "My career started as an <*Industrial Engineer*>: managing factory logistics and automating order processes. It was a challenging and interesting job, yet it didn’t have the aspect of software development that I most enjoy: <*design and creation*>.",
-                                        "So, to fulfill that need to create, I started focusing myself on programming and developing the projects that I wanted to see come to life.",
-                                        "My current goal is, not only to become a <*world-class programmer*>, but also to <*share*> the <*knowledge*> I acquire, with everyone that also has a passion for coding."
+                                        "So, to fulfill that need to create, I started focusing myself on programming and developing the projects that I wanted to see come to life."
                                     ]
                                 }
                             }
@@ -75,12 +74,14 @@
                         "MainContent": {
                             "AnimationType": "FadeInBottomTranslate",
                             "Excerpt": {
-                                "Title": "Video Games/Simulations",
+                                "Title": "Video Games",
                                 "Description": {
-                                    "HorizontalTextAlignment": "Center",
+                                    "HorizontalTextAlignment": "Left",
                                     "Lines": [
-                                        "Be it a simple 2D platformer, an action-packed 3D Shooter, or a real-time fluid simulation I love working on my own worlds.",
-                                        "There is no joy like creating something tangible from nothing, and video games/simulations are the best way to do so."
+                                        "This is where it all started.",
+                                        "While at college, I first fell in love with programming in game engines where I tried to create (rarely with success) <*my own games*>.",
+                                        "From a simple 2D platformer, to an adventure RPG or even some kind of simulation, I <*loved*> working on my own worlds.",
+                                        "There is no joy like creating something tangible from nothing and build 3D worlds is one of the best ways to do so!"
                                     ]
                                 },
                                 "Icon": {
@@ -93,38 +94,17 @@
                         "ExtraContent": {
                             "AnimationType": "FadeIn",
                             "SourceCode": {
-                                "Language": "json",
-                                "Code": "{ \"hello\": \"World!\"}"
+                                "Language": "csharp",
+                                "Code": "void Start() {\n\t// Initialize Game Stuff\n\t// ...\n}\n\nvoid Update() {\n\t// Update Game Stuff\n\t// ...\n}",
+                                "Caption": "Very basic example of Unity C# code.",
+                                "HorizontalTextAlignment": "Center"
                             }
                         },
                         "ContentPositioning": "MainContentFirst",
-                        "ContentSpacing": "Large"
-                    },
-                    {
-                        "MainContent": {
-                            "AnimationType": "FadeInBottomTranslate",
-                            "Excerpt": {
-                                "Title": "Web Development",
-                                "Description": {
-                                    "HorizontalTextAlignment": "Center",
-                                    "Lines": [
-                                        "Web applications allow us to do anything, everywhere. I love working with ASP.NET, and build different types of projects.",
-                                        "Its versatility allows to create solutions that range from a portfolio website like this one, to other project types, like, browser games and web apps."
-                                    ]
-                                },
-                                "Icon": {
-                                    "IconRef": "fas fa-globe",
-                                    "FontSize": "10em",
-                                    "OverlayGifUrl": "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHJ2cjQwbWUzNG1uZ3U1bjd1N294dXA2a3NhcGVycXhnb3llb211dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YnexM9LwlwGu4Z1QnS/giphy.gif"
-                                }
-                            }
-                        },
-                        "ExtraContent": {
-                            "AnimationType": "FadeIn",
-                            "SourceCode": {}
-                        },
-                        "ContentPositioning": "ExtraContentFirstOnLargeScreens",
-                        "ContentSpacing": "Large"
+                        "Margin": {
+                            "X": "LargeOnLargerScreens",
+                            "Y": "Large"
+                        }
                     },
                     {
                         "MainContent": {
@@ -132,11 +112,10 @@
                             "Excerpt": {
                                 "Title": "MS Office Automation",
                                 "Description": {
-                                    "HorizontalTextAlignment": "Center",
+                                    "HorizontalTextAlignment": "Left",
                                     "Lines": [
-                                        "MS Office is everyone's enemy, right?",
-                                        "It doesn't need to be.",
-                                        "With VBA automation and User Forms, I automate repetitive tasks so that everyone can focus on big picture problems."
+                                        "After college, I got an internship at a large factory as an <*Industrial Engineer*>.",
+                                        "Even with limited resources, thanks to VBA automation and User Forms, I was able to automate repetitive tasks and <*improve the lifes of everyone*> on the factory floor!"
                                     ]
                                 },
                                 "Icon": {
@@ -150,11 +129,127 @@
                             "AnimationType": "FadeIn",
                             "SourceCode": {
                                 "Language": "javascript",
-                                "Code": "console.log(`Hello, ${name}!`);"
+                                "Code": "Sub SayHello()\n\tMsgBox \"Hello, VBA!\"\nEnd Sub",
+                                "Caption": "Very basic example of VBA code.",
+                                "HorizontalTextAlignment": "Center"
+                            }
+                        },
+                        "ContentPositioning": "ExtraContentFirstOnLargeScreens",
+                        "Margin": {
+                            "X": "LargeOnLargerScreens",
+                            "Y": "Large"
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeInBottomTranslate",
+                            "Excerpt": {
+                                "Title": "Desktop Development",
+                                "Description": {
+                                    "HorizontalTextAlignment": "Left",
+                                    "Lines": [
+                                        "And this is where it <*really*> began: my first job as a Software Engineer.",
+                                        "I had the opportunity to work with multiple technologies for the first time and it was a great learning experience. Having said that, one of those technologies stood out: <*WPF*>.",
+                                        "Building components in WPF gave me a lot of understanding on how to make things more <*user-friendly*>, which is valuable knowledge that I apply to this day!"
+                                    ]
+                                },
+                                "Icon": {
+                                    "IconRef": "fas fa-desktop",
+                                    "FontSize": "9em",
+                                    "OverlayGifUrl": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2l1NjNhNXg3NTVxdHN5Z3o5aXUyODVsaGxqYXFjZW0yYzNyZmppOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/A06UFEx8jxEwU/giphy.gif"
+                                }
+                            }
+                        },
+                        "ExtraContent": {
+                            "AnimationType": "FadeIn",
+                            "SourceCode": {
+                                "Language": "csharp",
+                                "Code": "// Hello WPF!\npublic MainWindow() {\n\tInitializeComponent();\n}",
+                                "Caption": "Very basic example of WPF code.",
+                                "HorizontalTextAlignment": "Center"
                             }
                         },
                         "ContentPositioning": "MainContentFirst",
-                        "ContentSpacing": "Large"
+                        "Margin": {
+                            "X": "LargeOnLargerScreens",
+                            "Y": "Large"
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeInBottomTranslate",
+                            "Excerpt": {
+                                "Title": "Web Development",
+                                "Description": {
+                                    "HorizontalTextAlignment": "Left",
+                                    "Lines": [
+                                        "After that adventure, I moved on to a new professional challenge, where I was able to focus not only on the <*frontend*>, but on the <*backend*> as well.",
+                                        "This is where I started workin on APIs and Backend Services and started learning the proper techniques for guaranteeing <*scallability*>, <*reliability*> and <*reusability*>.",
+                                        "Most of these systems were built with <*ASP.NET*>, and I must say that I love working with.",
+                                        "Its versatility allows to create solutions that range from a simple portfolio website like this one, to other larger enterprise scale systems."
+                                    ]
+                                },
+                                "Icon": {
+                                    "IconRef": "fas fa-globe",
+                                    "FontSize": "10em",
+                                    "OverlayGifUrl": "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHJ2cjQwbWUzNG1uZ3U1bjd1N294dXA2a3NhcGVycXhnb3llb211dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YnexM9LwlwGu4Z1QnS/giphy.gif"
+                                }
+                            }
+                        },
+                        "ExtraContent": {
+                            "AnimationType": "FadeIn",
+                            "SourceCode": {
+                                "Language": "csharp",
+                                "Code": "// GET: /api/hello\n[HttpGet]\npublic IActionResult Get()\n{\n\treturn Ok(\"Hello from ASP.NET Core!\");\n}",
+                                "Caption": "Very basic example of ASP.NET Code C# code.",
+                                "HorizontalTextAlignment": "Center"
+                            }
+                        },
+                        "ContentPositioning": "ExtraContentFirstOnLargeScreens",
+                        "Margin": {
+                            "X": "LargeOnLargerScreens",
+                            "Y": "Large"
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "EmptyBlock": {
+                                "Size": 2
+                            }
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeInBottomTranslate",
+                            "Excerpt": {
+                                "Title": "What about what's coming next?"
+                            }
+                        },
+                        "ContentPositioning": "MainContentOnly"
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeInBottomTranslate",
+                            "Excerpt": {
+                                "Title": "More projects!",
+                                "Description": {
+                                    "HorizontalTextAlignment": "Center",
+                                    "Lines": [
+                                        "My current goal is to keep working on more <*fun*> and <*engaging*> projects, and making them avaialable to you, right here!"
+                                    ]
+                                },
+                                "Links": []
+                            }
+                        },
+                        "ExtraContent": {
+                            "AnimationType": "FadeIn",
+                            "Image": {
+                                "Url": "images/whoami/teaser.png",
+                                "AltText": "Website Teaser.",
+                                "OverlayGifUrl": "https://media.giphy.com/media/A8NkSPltT13H2/giphy.gif"
+                            }
+                        },
+                        "ContentPositioning": "ExtraContentFirstOnLargeScreens"
                     }
                 ]
             }
@@ -180,7 +275,7 @@
                                 "Title": "Portfolio Website",
                                 "ImagePath": "images/website/portfolio.png",
                                 "Description": "A Personal Work Portfolio Website",
-                                "PublishDate": "13/02/2021",
+                                "CreatedAt": "13/02/2021",
                                 "Tags": [ "Web", "Blazor Server", "C#", "JavaScript", "CSS" ],
                                 "LinkUrl": "work/53652731-bc5c-4854-a44f-4a493a2233cf"
                             }
@@ -191,41 +286,16 @@
                                 "Title": "IK Mecha Spider",
                                 "ImagePath": "images/ikmecha/icon.png",
                                 "Description": "A Procedurally Animated Robot Spider",
-                                "PublishDate": "20/11/2020",
+                                "CreatedAt": "20/11/2020",
                                 "Tags": [ "Procedural Animation", "C#", "Unity", "Blender" ],
                                 "LinkUrl": "work/a6af06fa-d49d-40c8-a419-18fc8cc7a451"
                             }
                         },
                         "ContentPositioning": "MainContentFirst",
-                        "ContentSpacing": "Small"
-                    },
-                    {
-                        "MainContent": {
-                            "AnimationType": "FadeIn",
-                            "TaggedCard": {
-                                "Title": "Portfolio Website",
-                                "ImagePath": "images/website/portfolio.png",
-                                "Description": "A Personal Work Portfolio Website",
-                                "PageRef": "work/myworkdemo",
-                                "PublishDate": "13/02/2021",
-                                "Tags": [ "Web", "Blazor Server", "C#", "JavaScript", "CSS" ],
-                                "LinkUrl": "work/53652731-bc5c-4854-a44f-4a493a2233cf"
-                            }
-                        },
-                        "ExtraContent": {
-                            "AnimationType": "FadeIn",
-                            "TaggedCard": {
-                                "Title": "IK Mecha Spider",
-                                "ImagePath": "images/ikmecha/icon.png",
-                                "Description": "A Procedurally Animated Robot Spider",
-                                "PageRef": "work/ikmechaspider",
-                                "PublishDate": "20/11/2020",
-                                "Tags": [ "Procedural Animation", "C#", "Unity", "Blender" ],
-                                "LinkUrl": "work/a6af06fa-d49d-40c8-a419-18fc8cc7a451"
-                            }
-                        },
-                        "ContentPositioning": "MainContentFirst",
-                        "ContentSpacing": "Small"
+                        "Margin": {
+                            "X": "Small",
+                            "Y": "Medium"
+                        }
                     }
                 ]
             }
@@ -404,36 +474,6 @@
                                     }
                                 },
                                 "ContentPositioning": "MainContentFirst"
-                            },
-                            {
-                                "MainContent": {
-                                    "EmptyBlock": {}
-                                }
-                            },
-                            {
-                                "MainContent": {
-                                    "AnimationType": "FadeInBottomTranslate",
-                                    "Excerpt": {
-                                        "Title": "What's coming next?",
-                                        "Description": {
-                                            "HorizontalTextAlignment": "Left",
-                                            "Lines": [
-                                                "If you didn't notice, at the bottom-left corner, there is a <*floating button with the shape of a gamepad*>. This is the next step for this website: <*a Game Room*>.",
-                                                " In the future, this button will enable you to play many classics, such as Asteroids, <*remade with Blazor*>."
-                                            ]
-                                        },
-                                        "Links": []
-                                    }
-                                },
-                                "ExtraContent": {
-                                    "AnimationType": "FadeIn",
-                                    "Image": {
-                                        "Url": "images/website/teaser.png",
-                                        "AltText": "Games Teaser.",
-                                        "OverlayGifUrl": "https://media.giphy.com/media/A8NkSPltT13H2/giphy.gif"
-                                    }
-                                },
-                                "ContentPositioning": "ExtraContentFirstOnLargeScreens"
                             }
                         ]
                     }
