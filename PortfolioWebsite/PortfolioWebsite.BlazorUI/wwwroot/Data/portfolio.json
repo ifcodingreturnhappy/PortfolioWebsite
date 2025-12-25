@@ -417,7 +417,7 @@
                                         "Description": {
                                             "HorizontalTextAlignment": "Left",
                                             "Lines": [
-                                                "Blazor is a new way to develop web applications, based on the already existing .NET ecosystem. It can run either on a web server (<*Blazor Server*>)or on the client, via web-assembly (<*Blazor Web Assembly*>).",
+                                                "Blazor is a new way to develop web applications, based on the already existing .NET ecosystem. It can run either on a web server (<*Blazor Server*>) or on the client, via web-assembly (<*Blazor Web Assembly*>).",
                                                 "One of the greatest features of this tool is that one can build a rich web application with <*minimal to no JavaScript*>: almost all (<*if not all!*>) logic can be done with <*C#*>.",
                                                 "And with this incredible technology, I was able to bring this website to <*life*>."
                                             ]
@@ -448,11 +448,9 @@
                                         "Description": {
                                             "HorizontalTextAlignment": "Left",
                                             "Lines": [
-                                                "This website is where I <*>show my work and the projects I build*>, in the form of <*showcase articles*> that exhibit a given project.",
-                                                "Learning and become better at programming is one of my biggest goals, but I try to never forget what brought me to coding in the first place: <*having fun*>. And with that in mind, I want <*you*>, the visitor of my portfolio, to <*have fun*> as well.",
-                                                "\nCurrently, <*displaying my work*> is the only function of this website, but, in the future, this <*is going to change*>.",
-                                                "See the section below, about the <*future of this website*>, to learn more!",
-                                                "<*Note:*> This project, along with all my noncomercial projects, will have their respective <*source code available on GitHub!*>"
+                                                "This website is where I show my work and the projects I build, in the form of <*showcase articles*> that exhibit a given project. Each of these articles will <*display*> some project that I decided to <*build*>.",
+                                                "I tried to give this website a look that I liked, but, if you want to change it, <*you*> can use the <*theme editor*> at the bottom left of the page!",
+                                                "<*Note:*> This website, along with all my other noncomercial projects, will have their respective <*source code available on GitHub.*>"
                                             ]
                                         },
                                         "Links": [
