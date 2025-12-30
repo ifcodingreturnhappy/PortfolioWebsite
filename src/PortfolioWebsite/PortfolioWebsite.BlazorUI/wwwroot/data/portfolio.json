@@ -87,7 +87,8 @@
                                 "Icon": {
                                     "IconRef": "fas fa-gamepad",
                                     "FontSize": "10em",
-                                    "OverlayGifUrl": "https://media.giphy.com/media/nIlgTxY29wJuU/giphy.gif"
+                                    "OverlayGifUrl": "https://media.giphy.com/media/nIlgTxY29wJuU/giphy.gif",
+                                    "OverlayGifWidth": "30%"
                                 }
                             }
                         },
@@ -121,7 +122,8 @@
                                 "Icon": {
                                     "IconRef": "fas fa-file-excel",
                                     "FontSize": "10em",
-                                    "OverlayGifUrl": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2duaXM4dDAxd2FoNWNsY2dqdXVscmRjNjJnYmZudGVtajlmb3lrdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RG6fDS2O5AKno8lKH0/giphy.gif"
+                                    "OverlayGifUrl": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2duaXM4dDAxd2FoNWNsY2dqdXVscmRjNjJnYmZudGVtajlmb3lrdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RG6fDS2O5AKno8lKH0/giphy.gif",
+                                    "OverlayGifWidth": "30%"
                                 }
                             }
                         },
@@ -156,7 +158,8 @@
                                 "Icon": {
                                     "IconRef": "fas fa-desktop",
                                     "FontSize": "9em",
-                                    "OverlayGifUrl": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2l1NjNhNXg3NTVxdHN5Z3o5aXUyODVsaGxqYXFjZW0yYzNyZmppOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/A06UFEx8jxEwU/giphy.gif"
+                                    "OverlayGifUrl": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2l1NjNhNXg3NTVxdHN5Z3o5aXUyODVsaGxqYXFjZW0yYzNyZmppOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/A06UFEx8jxEwU/giphy.gif",
+                                    "OverlayGifWidth": "30%"
                                 }
                             }
                         },
@@ -192,7 +195,8 @@
                                 "Icon": {
                                     "IconRef": "fas fa-globe",
                                     "FontSize": "10em",
-                                    "OverlayGifUrl": "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHJ2cjQwbWUzNG1uZ3U1bjd1N294dXA2a3NhcGVycXhnb3llb211dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YnexM9LwlwGu4Z1QnS/giphy.gif"
+                                    "OverlayGifUrl": "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHJ2cjQwbWUzNG1uZ3U1bjd1N294dXA2a3NhcGVycXhnb3llb211dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YnexM9LwlwGu4Z1QnS/giphy.gif",
+                                    "OverlayGifWidth": "30%"
                                 }
                             }
                         },
@@ -244,9 +248,10 @@
                         "ExtraContent": {
                             "AnimationType": "FadeIn",
                             "Image": {
-                                "Url": "images/whoami/teaser.png",
+                                "Url": "images/common/screen.png",
                                 "AltText": "Website Teaser.",
-                                "OverlayGifUrl": "https://media.giphy.com/media/A8NkSPltT13H2/giphy.gif"
+                                "OverlayGifUrl": "https://media.giphy.com/media/A8NkSPltT13H2/giphy.gif",
+                                "OverlayGifWidth": "30%"
                             }
                         },
                         "ContentPositioning": "ExtraContentFirstOnLargeScreens"
@@ -272,6 +277,17 @@
                         "MainContent": {
                             "AnimationType": "FadeIn",
                             "TaggedCard": {
+                                "Title": "IPC.NET",
+                                "ImagePath": "images/ipc/logo.png",
+                                "Description": "A simple IPC library built with .NET",
+                                "CreatedAt": "24/11/2025",
+                                "Tags": [ "IPC", "C#", "Library" ],
+                                "LinkUrl": "work/7524fb15-919c-4e77-a4b2-690a12fadf92"
+                            }
+                        },
+                        "ExtraContent": {
+                            "AnimationType": "FadeIn",
+                            "TaggedCard": {
                                 "Title": "Portfolio Website",
                                 "ImagePath": "images/website/portfolio.png",
                                 "Description": "A Personal Work Portfolio Website",
@@ -280,7 +296,14 @@
                                 "LinkUrl": "work/53652731-bc5c-4854-a44f-4a493a2233cf"
                             }
                         },
-                        "ExtraContent": {
+                        "ContentPositioning": "MainContentFirst",
+                        "Margin": {
+                            "X": "Small",
+                            "Y": "Medium"
+                        }
+                    },
+                    {
+                        "MainContent": {
                             "AnimationType": "FadeIn",
                             "TaggedCard": {
                                 "Title": "IK Mecha Spider",
@@ -469,6 +492,142 @@
                                         "Url": "images/website/brand.png",
                                         "AltText": "Brand icon.",
                                         "OverlayGifUrl": ""
+                                    }
+                                },
+                                "ContentPositioning": "MainContentFirst"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "Id": "7524fb15-919c-4e77-a4b2-690a12fadf92",
+                "Page": {
+                    "SectionGroup": {
+                        "Sections": [
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {}
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Excerpt": {
+                                        "Title": "IPC.NET",
+                                        "Description": {
+                                            "HorizontalTextAlignment": "Center",
+                                            "Lines": [
+                                                "Over the years, in almost all .NET projects I worked at, the use of an <*IPC mechanism*> eventually became a necessity.",
+                                                "Unfortunetelly, I never found a simple, plug-and-play solution for this problem.",
+                                                "Depending on the OS, different approaches could be taken, like <ref href=\"https://learn.microsoft.com/en-us/dotnet/standard/io/memory-mapped-files\">Memory-Mapper Files ref>, Sockets or Named Pipes. ",
+                                                "Even though they solved the problem, they required a lot of work to implement correcly."
+                                            ]
+                                        }
+                                    }
+                                },
+                                "ContentPositioning": "MainContentOnly"
+                            },
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {
+                                        "Size": 3
+                                    }
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Excerpt": {
+                                        "Title": "Why build this library?",
+                                        "Description": {
+                                            "HorizontalTextAlignment": "Left",
+                                            "Lines": [
+                                                "I got tired of solving the same problem over and over.",
+                                                "This led me to build my own <*IPC library*>. Even though it is very simplistic, it abstracts away all IPC complexity and provide a simple yet effective API."
+                                            ]
+                                        }
+                                    }
+                                },
+                                "ExtraContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Image": {
+                                        "Url": "images/common/screen.png",
+                                        "AltText": "Work tools animated gif.",
+                                        "OverlayGifUrl": "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGphNmpqdmRsdGh5cjU0Z2JhY2ZscG8yaGhhenZiMXF1cmtsaTNoZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MCLLMYB4wdXyfvrYFe/giphy.gif",
+                                        "OverlayGifWidth": "25%"
+                                    }
+                                },
+                                "ContentPositioning": "MainContentFirst"
+                            },
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {}
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Excerpt": {
+                                        "Title": "Why use this library?",
+                                        "Description": {
+                                            "HorizontalTextAlignment": "Left",
+                                            "Lines": [
+                                                "As mentioned above: it is very <*simple and lightweight*>.",
+                                                "The only thing it depends on is the <*File System*>.",
+                                                "To persist data between processes, file are created on the disk, which contain the shared messages.",
+                                                "This makes it compatible with <*any OS*> that .NET supports, without any additional dependencies."
+                                            ]
+                                        }
+                                    }
+                                },
+                                "ExtraContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Image": {
+                                        "Url": "images/common/screen.png",
+                                        "AltText": "Lightweight feather animated gif.",
+                                        "OverlayGifUrl": "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXphZjhiMTh0OTdhbTNqZGo0YTQ0NG5wcjc1bjU3NGc4MXdiZThycSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LnjHOUgggUx1jVq6oi/giphy.gif",
+                                        "OverlayGifWidth": "20%"
+                                    }
+                                },
+                                "ContentPositioning": "ExtraContentFirstOnLargeScreens"
+                            },
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {}
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Excerpt": {
+                                        "Title": "Future of the library",
+                                        "Description": {
+                                            "HorizontalTextAlignment": "Left",
+                                            "Lines": [
+                                                "Currently, this library is in its <*early stages*>.",
+                                                "My goal is to keep improving it, adding new features and optimizations.",
+                                                "One such feature, is the possibility to keep an <*history*> of all messages that were sent/read.",
+                                                "If you wish to <*give this library a try*>, or even contribute to its development, you can find the source code on GitHub!"
+                                            ]
+                                        },
+                                        "Links": [
+                                            {
+                                                "IconRef": "fab fa-github",
+                                                "Label": "View Code",
+                                                "Url": "https://github.com/ifcodingreturnhappy/IPC.NET",
+                                                "isEnabled": true
+                                            }
+                                        ]
+                                    }
+                                },
+                                "ExtraContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Image": {
+                                        "Url": "images/common/screen.png",
+                                        "AltText": "Scrolling message animated gif.",
+                                        "OverlayGifUrl": "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExam1nbDU5dzYyaHJhdmt2djBuZGpyemZnamZwbnp2OWc0NnByMWFhMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/U3D1CV0BCHXU6WA3rP/giphy.gif",
+                                        "OverlayGifWidth": "20%"
                                     }
                                 },
                                 "ContentPositioning": "MainContentFirst"

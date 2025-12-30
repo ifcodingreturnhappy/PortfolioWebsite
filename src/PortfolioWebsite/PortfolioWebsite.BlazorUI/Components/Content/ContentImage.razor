@@ -8,7 +8,7 @@
         @if (Image.HasGifOverlay())
         {
             <img class="media-overlay-text"
-                 style="width: 30%"
+                 style="width: @(Image.OverlayGifWidth)"
                  src="@(Image.OverlayGifUrl)"
                  alt="Gif Overlay." />
         }
