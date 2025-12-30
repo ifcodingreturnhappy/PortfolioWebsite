@@ -205,7 +205,7 @@
                             "SourceCode": {
                                 "Language": "csharp",
                                 "Code": "// GET: /api/hello\n[HttpGet]\npublic IActionResult Get()\n{\n\treturn Ok(\"Hello from ASP.NET Core!\");\n}",
-                                "Caption": "Very basic example of ASP.NET Code C# code.",
+                                "Caption": "Very basic example of ASP.NET C# code.",
                                 "HorizontalTextAlignment": "Center"
                             }
                         },
@@ -520,7 +520,7 @@
                                             "Lines": [
                                                 "Over the years, in almost all .NET projects I worked at, the use of an <*IPC mechanism*> eventually became a necessity.",
                                                 "Unfortunetelly, I never found a simple, plug-and-play solution for this problem.",
-                                                "Depending on the OS, different approaches could be taken, like <ref href=\"https://learn.microsoft.com/en-us/dotnet/standard/io/memory-mapped-files\">Memory-Mapper Files ref>, Sockets or Named Pipes. ",
+                                                "Depending on the OS, different approaches could be taken, like <*Memory-Mapped Files*>, <*gRPC*> or <*Named Pipes*>. ",
                                                 "Even though they solved the problem, they required a lot of work to implement correcly."
                                             ]
                                         }
@@ -544,7 +544,7 @@
                                             "HorizontalTextAlignment": "Left",
                                             "Lines": [
                                                 "I got tired of solving the same problem over and over.",
-                                                "This led me to build my own <*IPC library*>. Even though it is very simplistic, it abstracts away all IPC complexity and provide a simple yet effective API."
+                                                "This led me to build my own <*IPC library*>. Even though it is very simplistic, it abstracts away all IPC complexity and provides a simple yet effective API."
                                             ]
                                         }
                                     }
