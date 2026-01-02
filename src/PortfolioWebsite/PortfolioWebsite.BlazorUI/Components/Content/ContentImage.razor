@@ -1,0 +1,22 @@
+﻿<div class="content-image-wrapper d-flex justify-content-center my-3">
+    <div class="media-container position-relative">
+
+        <img class="media-img img-fluid"
+             src="@Image.Url"
+             alt="@Image.AltText" />
+
+        @if (Image.HasGifOverlay())
+        {
+            <img class="media-overlay-text"
+                 style="width: @(Image.OverlayGifWidth)"
+                 src="@(Image.OverlayGifUrl)"
+                 alt="Gif Overlay." />
+        }
+
+    </div>
+</div>
+
+@code {
+	[Parameter]
+	public ContentImageInfoModel Image { get; set; }
+}

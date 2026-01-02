@@ -1,0 +1,17 @@
+﻿@page "/work/{articleId:guid}"
+@inject IPortfolioDataService portfolioDataService;
+
+<LoadablePage Page="page" />
+
+@code {
+    [Parameter]
+    public Guid articleId { get; set; }
+
+    private PageInfoModel page;
+
+    protected async override Task OnInitializedAsync()
+    {
+        var articleInfo = await this.portfolioDataService.GetArticleByIdAsync(articleId);
+		this.page = articleInfo.Page;
+    }
+}

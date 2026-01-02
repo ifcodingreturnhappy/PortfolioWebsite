@@ -1,0 +1,11 @@
+﻿<div class="overflow-hidden">
+    @foreach (var section in SectionGroupInfo.Sections)
+    {
+        <SectionRow Section="section" />
+    }
+</div>
+
+@code {
+    [Parameter]
+	public SectionGroupInfoModel SectionGroupInfo { get; set; }
+}

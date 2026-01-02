@@ -1,0 +1,715 @@
+{
+    "Home": {
+        "FirstLineTitle": "{",
+        "SecondLineTitle": "}",
+        "MainTitle": "//Code made with passion.",
+        "AnimatedMainTitle": "_",
+        "Subtitle": "A personal coding journey.",
+        "SubtitleDescriptions": [
+            "This website is the page where I showcase my passion projects and all the things I do related to programming.",
+            "Join me in this adventure!"
+        ]
+    },
+    "NavigationMenu": {
+        "Title": "<*[ *>If Coding Return Happy<* ]*>",
+        "CollapsedMenuIcon": "fas fa-bars",
+        "OpenMenuIcon": "fas fa-times-circle",
+        "NavigationLinks": [
+            {
+                "Label": "Who Am I?",
+                "PageRef": "whoami"
+            },
+            {
+                "Label": "Work Showcase",
+                "PageRef": "work"
+            },
+            {
+                "Label": "Contact Me",
+                "PageRef": "contactme"
+            }
+        ]
+    },
+    "WhoAmI": {
+        "Page": {
+            "SectionGroup": {
+                "Sections": [
+                    {
+                        "MainContent": {
+                            "EmptyBlock": {}
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeIn",
+                            "Excerpt": {
+                                "Title": "Who Am I?",
+                                "Description": {
+                                    "HorizontalTextAlignment": "Center",
+                                    "Lines": [
+                                        "My career started as an <*Industrial Engineer*>: managing factory logistics and automating order processes. It was a challenging and interesting job, yet it didn’t have the aspect of software development that I most enjoy: <*design and creation*>.",
+                                        "So, to fulfill that need to create, I started focusing myself on programming and developing the projects that I wanted to see come to life."
+                                    ]
+                                }
+                            }
+                        },
+                        "ContentPositioning": "MainContentOnly"
+                    },
+                    {
+                        "MainContent": {
+                            "EmptyBlock": {
+                                "Size": 3
+                            }
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeInBottomTranslate",
+                            "Excerpt": {
+                                "Title": "So, what kind of projects have I worked on?"
+                            }
+                        },
+                        "ContentPositioning": "MainContentOnly"
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeInBottomTranslate",
+                            "Excerpt": {
+                                "Title": "Video Games",
+                                "Description": {
+                                    "HorizontalTextAlignment": "Left",
+                                    "Lines": [
+                                        "This is where it all started.",
+                                        "While at college, I first fell in love with programming in game engines where I tried to create (rarely with success) <*my own games*>.",
+                                        "From a simple 2D platformer, to an adventure RPG or even some kind of simulation, I <*loved*> working on my own worlds.",
+                                        "There is no joy like creating something tangible from nothing and build 3D worlds is one of the best ways to do so!"
+                                    ]
+                                },
+                                "Icon": {
+                                    "IconRef": "fas fa-gamepad",
+                                    "FontSize": "10em",
+                                    "OverlayGifUrl": "https://media.giphy.com/media/nIlgTxY29wJuU/giphy.gif",
+                                    "OverlayGifWidth": "30%"
+                                }
+                            }
+                        },
+                        "ExtraContent": {
+                            "AnimationType": "FadeIn",
+                            "SourceCode": {
+                                "Language": "csharp",
+                                "Code": "void Start() {\n\t// Initialize Game Stuff\n\t// ...\n}\n\nvoid Update() {\n\t// Update Game Stuff\n\t// ...\n}",
+                                "Caption": "Very basic example of Unity C# code.",
+                                "HorizontalTextAlignment": "Center"
+                            }
+                        },
+                        "ContentPositioning": "MainContentFirst",
+                        "Margin": {
+                            "X": "LargeOnLargerScreens",
+                            "Y": "Large"
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeInBottomTranslate",
+                            "Excerpt": {
+                                "Title": "MS Office Automation",
+                                "Description": {
+                                    "HorizontalTextAlignment": "Left",
+                                    "Lines": [
+                                        "After college, I got an internship at a large factory as an <*Industrial Engineer*>.",
+                                        "Even with limited resources, thanks to VBA automation and User Forms, I was able to automate repetitive tasks and <*improve the lifes of everyone*> on the factory floor!"
+                                    ]
+                                },
+                                "Icon": {
+                                    "IconRef": "fas fa-file-excel",
+                                    "FontSize": "10em",
+                                    "OverlayGifUrl": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2duaXM4dDAxd2FoNWNsY2dqdXVscmRjNjJnYmZudGVtajlmb3lrdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RG6fDS2O5AKno8lKH0/giphy.gif",
+                                    "OverlayGifWidth": "30%"
+                                }
+                            }
+                        },
+                        "ExtraContent": {
+                            "AnimationType": "FadeIn",
+                            "SourceCode": {
+                                "Language": "javascript",
+                                "Code": "Sub SayHello()\n\tMsgBox \"Hello, VBA!\"\nEnd Sub",
+                                "Caption": "Very basic example of VBA code.",
+                                "HorizontalTextAlignment": "Center"
+                            }
+                        },
+                        "ContentPositioning": "ExtraContentFirstOnLargeScreens",
+                        "Margin": {
+                            "X": "LargeOnLargerScreens",
+                            "Y": "Large"
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeInBottomTranslate",
+                            "Excerpt": {
+                                "Title": "Desktop Development",
+                                "Description": {
+                                    "HorizontalTextAlignment": "Left",
+                                    "Lines": [
+                                        "And this is where it <*really*> began: my first job as a Software Engineer.",
+                                        "I had the opportunity to work with multiple technologies for the first time and it was a great learning experience. Having said that, one of those technologies stood out: <*WPF*>.",
+                                        "Building components in WPF gave me a lot of understanding on how to make things more <*user-friendly*>, which is valuable knowledge that I apply to this day!"
+                                    ]
+                                },
+                                "Icon": {
+                                    "IconRef": "fas fa-desktop",
+                                    "FontSize": "9em",
+                                    "OverlayGifUrl": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2l1NjNhNXg3NTVxdHN5Z3o5aXUyODVsaGxqYXFjZW0yYzNyZmppOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/A06UFEx8jxEwU/giphy.gif",
+                                    "OverlayGifWidth": "30%"
+                                }
+                            }
+                        },
+                        "ExtraContent": {
+                            "AnimationType": "FadeIn",
+                            "SourceCode": {
+                                "Language": "csharp",
+                                "Code": "// Hello WPF!\npublic MainWindow() {\n\tInitializeComponent();\n}",
+                                "Caption": "Very basic example of WPF code.",
+                                "HorizontalTextAlignment": "Center"
+                            }
+                        },
+                        "ContentPositioning": "MainContentFirst",
+                        "Margin": {
+                            "X": "LargeOnLargerScreens",
+                            "Y": "Large"
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeInBottomTranslate",
+                            "Excerpt": {
+                                "Title": "Web Development",
+                                "Description": {
+                                    "HorizontalTextAlignment": "Left",
+                                    "Lines": [
+                                        "After that adventure, I moved on to a new professional challenge, where I was able to focus not only on the <*frontend*>, but on the <*backend*> as well.",
+                                        "This is where I started workin on APIs and Backend Services and started learning the proper techniques for guaranteeing <*scallability*>, <*reliability*> and <*reusability*>.",
+                                        "Most of these systems were built with <*ASP.NET*>, and I must say that I love working with.",
+                                        "Its versatility allows to create solutions that range from a simple portfolio website like this one, to other larger enterprise scale systems."
+                                    ]
+                                },
+                                "Icon": {
+                                    "IconRef": "fas fa-globe",
+                                    "FontSize": "10em",
+                                    "OverlayGifUrl": "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHJ2cjQwbWUzNG1uZ3U1bjd1N294dXA2a3NhcGVycXhnb3llb211dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YnexM9LwlwGu4Z1QnS/giphy.gif",
+                                    "OverlayGifWidth": "30%"
+                                }
+                            }
+                        },
+                        "ExtraContent": {
+                            "AnimationType": "FadeIn",
+                            "SourceCode": {
+                                "Language": "csharp",
+                                "Code": "// GET: /api/hello\n[HttpGet]\npublic IActionResult Get()\n{\n\treturn Ok(\"Hello from ASP.NET Core!\");\n}",
+                                "Caption": "Very basic example of ASP.NET C# code.",
+                                "HorizontalTextAlignment": "Center"
+                            }
+                        },
+                        "ContentPositioning": "ExtraContentFirstOnLargeScreens",
+                        "Margin": {
+                            "X": "LargeOnLargerScreens",
+                            "Y": "Large"
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "EmptyBlock": {
+                                "Size": 2
+                            }
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeInBottomTranslate",
+                            "Excerpt": {
+                                "Title": "What about what's coming next?"
+                            }
+                        },
+                        "ContentPositioning": "MainContentOnly"
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeInBottomTranslate",
+                            "Excerpt": {
+                                "Title": "More projects!",
+                                "Description": {
+                                    "HorizontalTextAlignment": "Center",
+                                    "Lines": [
+                                        "My current goal is to keep working on more <*fun*> and <*engaging*> projects, and making them avaialable to you, right here!"
+                                    ]
+                                },
+                                "Links": []
+                            }
+                        },
+                        "ExtraContent": {
+                            "AnimationType": "FadeIn",
+                            "Image": {
+                                "Url": "images/common/screen.png",
+                                "AltText": "Website Teaser.",
+                                "OverlayGifUrl": "https://media.giphy.com/media/A8NkSPltT13H2/giphy.gif",
+                                "OverlayGifWidth": "30%"
+                            }
+                        },
+                        "ContentPositioning": "ExtraContentFirstOnLargeScreens"
+                    }
+                ]
+            }
+        }
+    },
+    "WorkShowcase": {
+        "Page": {
+            "SectionGroup": {
+                "Sections": [
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeInBottomTranslate",
+                            "Excerpt": {
+                                "Title": "Project articles:"
+                            }
+                        },
+                        "ContentPositioning": "MainContentOnly"
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeIn",
+                            "TaggedCard": {
+                                "Title": "IPC.NET",
+                                "ImagePath": "images/ipc/logo.png",
+                                "Description": "A simple IPC library built with .NET",
+                                "CreatedAt": "24/11/2025",
+                                "Tags": [ "IPC", "C#", "Library" ],
+                                "LinkUrl": "work/7524fb15-919c-4e77-a4b2-690a12fadf92"
+                            }
+                        },
+                        "ExtraContent": {
+                            "AnimationType": "FadeIn",
+                            "TaggedCard": {
+                                "Title": "Portfolio Website",
+                                "ImagePath": "images/website/portfolio.png",
+                                "Description": "A Personal Work Portfolio Website",
+                                "CreatedAt": "13/02/2021",
+                                "LastUpdatedAt": "02/01/2026",
+                                "Tags": [ "Web", "Blazor Server", "C#", "JavaScript", "CSS" ],
+                                "LinkUrl": "work/53652731-bc5c-4854-a44f-4a493a2233cf"
+                            }
+                        },
+                        "ContentPositioning": "MainContentFirst",
+                        "Margin": {
+                            "X": "Small",
+                            "Y": "Medium"
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeIn",
+                            "TaggedCard": {
+                                "Title": "IK Mecha Spider",
+                                "ImagePath": "images/ikmecha/icon.png",
+                                "Description": "A Procedurally Animated Robot Spider",
+                                "CreatedAt": "20/11/2020",
+                                "Tags": [ "Procedural Animation", "C#", "Unity", "Blender" ],
+                                "LinkUrl": "work/a6af06fa-d49d-40c8-a419-18fc8cc7a451"
+                            }
+                        },
+                        "ContentPositioning": "MainContentFirst",
+                        "Margin": {
+                            "X": "Small",
+                            "Y": "Medium"
+                        }
+                    }
+                ]
+            }
+        },
+        "Articles": [
+            {
+                "Id": "a6af06fa-d49d-40c8-a419-18fc8cc7a451",
+                "Page": {
+                    "SectionGroup": {
+                        "Sections": [
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {}
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Excerpt": {
+                                        "Title": "IK Mecha Spider",
+                                        "Description": {
+                                            "HorizontalTextAlignment": "Center",
+                                            "Lines": [
+                                                "The idea to create this project came from one of my favorite games from my childhood: <*Ratchet Deadlocked*>. In it, you could pilot an amazing Spider Robot that was really responsive. It’s flaw was that it was unable to walk on walls, only on regular ground. That’s what I wanted to accomplish with this project: a spider that was able to walk on almost <*any given surface*>."
+                                            ]
+                                        }
+                                    }
+                                },
+                                "ContentPositioning": "MainContentOnly"
+                            },
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {
+                                        "Size": 3
+                                    }
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "FadeInBottomTranslate",
+                                    "Excerpt": {
+                                        "Title": "Overview",
+                                        "Description": {
+                                            "HorizontalTextAlignment": "Left",
+                                            "Lines": [
+                                                "This robotic spider is capable of many things (including mass destruction of virtual worlds).",
+                                                "One of its key features is the ability to walk on different kinds of surfaces, even on ceilings! Its greatest feature lies on its animation: it is not pre-baked, it uses <*procedurally generated animation*>, calculated at runtime. This enables each leg to <*adapt*>, individually, to the surface it is currently on!",
+                                                "It also has some secondary features, like a simple but cool <*weapon system*> and a <*collision detection mechanism*>, that activates an energy shield when colliding with certain types of objects."
+                                            ]
+                                        },
+                                        "Links": [
+                                            {
+                                                "IconRef": "fab fa-youtube",
+                                                "Label": "Showcase",
+                                                "Url": "https://youtu.be/9QNpkB4GmKI",
+                                                "isEnabled": true
+                                            },
+                                            {
+                                                "IconRef": "fab fa-unity",
+                                                "Label": "Purchase (Deprecated)",
+                                                "Url": "https://assetstore.unity.com/packages/3d/characters/robots/ik-mecha-spider-183484",
+                                                "isEnabled": true
+                                            }
+                                        ]
+                                    }
+                                },
+                                "ExtraContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Image": {
+                                        "Url": "images/ikmecha/render.png",
+                                        "AltText": "IKMecha in a blank environment.",
+                                        "OverlayGifUrl": ""
+                                    }
+                                },
+                                "ContentPositioning": "ExtraContentFirstOnLargeScreens"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "Id": "53652731-bc5c-4854-a44f-4a493a2233cf",
+                "Page": {
+                    "SectionGroup": {
+                        "Sections": [
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {}
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Excerpt": {
+                                        "Title": "Portfolio Website",
+                                        "Description": {
+                                            "HorizontalTextAlignment": "Center",
+                                            "Lines": [
+                                                "I used to use a third-party website builder for my portfolio website, but with time, \nI noticed that the <*amount of control*> I had on the design was not ideal.",
+                                                "So, I got to work and built this new version of my portfolio website, using a new, interesting technology: <*Blazor*>."
+                                            ]
+                                        }
+                                    }
+                                },
+                                "ContentPositioning": "MainContentOnly"
+                            },
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {
+                                        "Size": 3
+                                    }
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "FadeInBottomTranslate",
+                                    "Excerpt": {
+                                        "Title": "What is Blazor?",
+                                        "Description": {
+                                            "HorizontalTextAlignment": "Left",
+                                            "Lines": [
+                                                "Blazor is a new way to develop web applications, based on the already existing .NET ecosystem. It can run either on a web server (<*Blazor Server*>) or on the client, via web-assembly (<*Blazor Web Assembly*>).",
+                                                "One of the greatest features of this tool is that one can build a rich web application with <*minimal to no JavaScript*>: almost all (<*if not all!*>) logic can be done with <*C#*>.",
+                                                "And with this incredible technology, I was able to bring this website to <*life*>."
+                                            ]
+                                        },
+                                        "Links": []
+                                    }
+                                },
+                                "ExtraContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Image": {
+                                        "Url": "images/website/blazor.png",
+                                        "AltText": "Blazor icon.",
+                                        "OverlayGifUrl": ""
+                                    }
+                                },
+                                "ContentPositioning": "ExtraContentFirstOnLargeScreens"
+                            },
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {}
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "FadeInBottomTranslate",
+                                    "Excerpt": {
+                                        "Title": "Portfolio Content",
+                                        "Description": {
+                                            "HorizontalTextAlignment": "Left",
+                                            "Lines": [
+                                                "This website is where I show my work and the projects I build, in the form of <*showcase articles*> that exhibit a given project. Each of these articles will <*display*> some project that I decided to <*build*>.",
+                                                "I tried to give this website a look that I liked, but, if you want to change it, <*you*> can use the <*theme editor*> at the bottom left of the page!",
+                                                "<*Note:*> This website, along with all my other noncomercial projects, will have their respective <*source code available on GitHub.*>"
+                                            ]
+                                        },
+                                        "Links": [
+                                            {
+                                                "IconRef": "fab fa-github",
+                                                "Label": "View Code",
+                                                "Url": "https://github.com/ifcodingreturnhappy/PortfolioWebsite",
+                                                "isEnabled": true
+                                            }
+                                        ]
+                                    }
+                                },
+                                "ExtraContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Image": {
+                                        "Url": "images/website/brand.png",
+                                        "AltText": "Brand icon.",
+                                        "OverlayGifUrl": ""
+                                    }
+                                },
+                                "ContentPositioning": "MainContentFirst"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "Id": "7524fb15-919c-4e77-a4b2-690a12fadf92",
+                "Page": {
+                    "SectionGroup": {
+                        "Sections": [
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {}
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Excerpt": {
+                                        "Title": "IPC.NET",
+                                        "Description": {
+                                            "HorizontalTextAlignment": "Center",
+                                            "Lines": [
+                                                "Over the years, in almost all .NET projects I worked at, the use of an <*IPC mechanism*> eventually became a necessity.",
+                                                "Unfortunetelly, I never found a simple, plug-and-play solution for this problem.",
+                                                "Depending on the OS, different approaches could be taken, like <*Memory-Mapped Files*>, <*gRPC*> or <*Named Pipes*>. ",
+                                                "Even though they solved the problem, they required a lot of work to implement correcly."
+                                            ]
+                                        }
+                                    }
+                                },
+                                "ContentPositioning": "MainContentOnly"
+                            },
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {
+                                        "Size": 3
+                                    }
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Excerpt": {
+                                        "Title": "Why build this library?",
+                                        "Description": {
+                                            "HorizontalTextAlignment": "Left",
+                                            "Lines": [
+                                                "I got tired of solving the same problem over and over.",
+                                                "This led me to build my own <*IPC library*>. Even though it is very simplistic, it abstracts away all IPC complexity and provides a simple yet effective API."
+                                            ]
+                                        }
+                                    }
+                                },
+                                "ExtraContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Image": {
+                                        "Url": "images/common/screen.png",
+                                        "AltText": "Work tools animated gif.",
+                                        "OverlayGifUrl": "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGphNmpqdmRsdGh5cjU0Z2JhY2ZscG8yaGhhenZiMXF1cmtsaTNoZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MCLLMYB4wdXyfvrYFe/giphy.gif",
+                                        "OverlayGifWidth": "25%"
+                                    }
+                                },
+                                "ContentPositioning": "MainContentFirst"
+                            },
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {}
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Excerpt": {
+                                        "Title": "Why use this library?",
+                                        "Description": {
+                                            "HorizontalTextAlignment": "Left",
+                                            "Lines": [
+                                                "As mentioned above: it is very <*simple and lightweight*>.",
+                                                "The only thing it depends on is the <*File System*>.",
+                                                "To persist data between processes, file are created on the disk, which contain the shared messages.",
+                                                "This makes it compatible with <*any OS*> that .NET supports, without any additional dependencies."
+                                            ]
+                                        }
+                                    }
+                                },
+                                "ExtraContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Image": {
+                                        "Url": "images/common/screen.png",
+                                        "AltText": "Lightweight feather animated gif.",
+                                        "OverlayGifUrl": "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXphZjhiMTh0OTdhbTNqZGo0YTQ0NG5wcjc1bjU3NGc4MXdiZThycSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LnjHOUgggUx1jVq6oi/giphy.gif",
+                                        "OverlayGifWidth": "20%"
+                                    }
+                                },
+                                "ContentPositioning": "ExtraContentFirstOnLargeScreens"
+                            },
+                            {
+                                "MainContent": {
+                                    "EmptyBlock": {}
+                                }
+                            },
+                            {
+                                "MainContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Excerpt": {
+                                        "Title": "Future of the library",
+                                        "Description": {
+                                            "HorizontalTextAlignment": "Left",
+                                            "Lines": [
+                                                "Currently, this library is in its <*early stages*>.",
+                                                "My goal is to keep improving it, adding new features and optimizations.",
+                                                "One such feature, is the possibility to keep an <*history*> of all messages that were sent/read.",
+                                                "If you wish to <*give this library a try*>, or even contribute to its development, you can find the source code on GitHub!"
+                                            ]
+                                        },
+                                        "Links": [
+                                            {
+                                                "IconRef": "fab fa-github",
+                                                "Label": "View Code",
+                                                "Url": "https://github.com/ifcodingreturnhappy/IPC.NET",
+                                                "isEnabled": true
+                                            }
+                                        ]
+                                    }
+                                },
+                                "ExtraContent": {
+                                    "AnimationType": "FadeIn",
+                                    "Image": {
+                                        "Url": "images/common/screen.png",
+                                        "AltText": "Scrolling message animated gif.",
+                                        "OverlayGifUrl": "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExam1nbDU5dzYyaHJhdmt2djBuZGpyemZnamZwbnp2OWc0NnByMWFhMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/U3D1CV0BCHXU6WA3rP/giphy.gif",
+                                        "OverlayGifWidth": "20%"
+                                    }
+                                },
+                                "ContentPositioning": "MainContentFirst"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "ContactMe": {
+        "Page": {
+            "SectionGroup": {
+                "Sections": [
+                    {
+                        "MainContent": {
+                            "EmptyBlock": {
+                                "Length": 2
+                            }
+                        }
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeInTopTranslate",
+                            "Excerpt": {
+                                "Description": {
+                                    "HorizontalTextAlignment": "Center",
+                                    "Lines": [
+                                        "Feel free to get in touch using one of the links below!"
+                                    ]
+                                }
+                            }
+                        },
+                        "ContentPositioning": "MainContentOnly"
+                    },
+                    {
+                        "MainContent": {
+                            "AnimationType": "FadeIn",
+                            "Excerpt": {
+                                "Title": "GitHub",
+                                "Description": {
+                                    "HorizontalTextAlignment": "Center",
+                                    "Lines": []
+                                },
+                                "Links": [
+                                    {
+                                        "IconRef": "fab fa-github",
+                                        "Url": "https://github.com/ifcodingreturnhappy",
+                                        "isEnabled": true
+                                    }
+                                ]
+                            }
+                        },
+                        "ExtraContent": {
+                            "AnimationType": "FadeIn",
+                            "Excerpt": {
+                                "Title": "Email",
+                                "Description": {
+                                    "HorizontalTextAlignment": "Center",
+                                    "Lines": []
+                                },
+                                "Links": [
+                                    {
+                                        "IconRef": "fas fa-envelope",
+                                        "Url": "mailto:icrh.smtp@gmail.com",
+                                        "isEnabled": true
+                                    }
+                                ]
+                            }
+                        },
+                        "ContentPositioning": "MainContentFirst"
+                    }
+                ]
+            }
+        }
+    },
+    "Settings": {
+        "DataFetchSimulatedDelayInMs": 200,
+        "MainColorDisplayName": "Primary",
+        "SecondaryColorDisplayName": "Secondary",
+        "HighlightedMainColorDisplayName": "Highlighted Primary",
+        "HighlightedSecondaryColorDisplayName": "Highlighted Secondary"
+    }
+}

@@ -1,0 +1,22 @@
+﻿@inject ITextParserService textParserService;
+
+<p class="main-color @(alignmentClass)">
+	@(parsedContent)
+</p>
+
+@code {
+	[Parameter]
+	public string Content { get; set; }
+
+	[Parameter]
+	public HorizontalTextAlignment HorizontalTextAlignment { get; set; }
+
+	private string alignmentClass;
+	private MarkupString parsedContent;
+
+	protected override void OnParametersSet()
+	{
+		this.alignmentClass = this.HorizontalTextAlignment.ToCss();
+		this.parsedContent = this.textParserService.Parse(Content);
+	}
+}

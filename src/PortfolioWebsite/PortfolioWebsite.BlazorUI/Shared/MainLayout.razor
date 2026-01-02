@@ -1,0 +1,20 @@
+﻿@inherits LayoutComponentBase
+
+<body class="main-background-color m-0 p-0">
+    <NavMenu />
+
+    <div class="container-fluid body-display">
+        @Body
+    </div>
+
+    <ThemeMenu />
+</body>
+
+@code{
+
+    protected override Task OnParametersSetAsync()
+    {
+        return base.OnParametersSetAsync();
+    }
+}
+

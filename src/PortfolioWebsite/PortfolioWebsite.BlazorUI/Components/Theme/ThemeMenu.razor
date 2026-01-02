@@ -1,0 +1,115 @@
+﻿@inject IThemeService themeService;
+@inject IJsRuntimeService jsRuntimeService;
+@implements IAsyncDisposable
+
+@if(this.theme is null)
+{
+    return;
+}
+
+<div class="floating-button-container vp-anim-5"
+     @ref="containerRef">
+    <div class="settings-menu settings-menu-positioning over-background-color @(isThemeMenuVisible ? "settings-menu-fade-in" : "")">
+        <div class="pl-2 pr-2 pt-2 main-color">
+            <h5 class="highlighted-main-color">Customize the look:</h5>
+            @foreach (var color in this.theme.GetColorByCssVarName().Values)
+            {
+                <div>
+                    <label>
+                        <input type="color"
+                               value="@color.Hex"
+                               @oninput="e => OnColorChanged(e, color.CssVarName)" />
+                    </label>
+                    @color.DisplayName
+                </div>
+            }
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <button type="button" 
+                            class="btn btn-link main-color p-1 rotate"
+                            @onclick="ResetThemeColorsAsync">
+                        <i class="fas fa-solid fa-broom"></i>
+                         Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <i class="fas fa-caret-up main-color floating-button-pointer" style="opacity: @(isThemeMenuVisible ? "1" : "0")"></i>
+    </div>
+    <div>
+        <a class="btn-floating btn-lg btn-flat" @onclick="ToggleThemeMenu">
+            <i class="fas fa-palette main-color play-button"></i>
+        </a>
+    </div>
+</div>
+
+@code   {
+    private ElementReference containerRef;
+    private DotNetObjectReference<ThemeMenu> dotNetRef;
+    private string outsideClickId;
+    private bool isThemeMenuVisible = false;
+    private ThemeInfoModel theme;
+
+    protected async override Task OnInitializedAsync()
+    {
+        this.theme = await this.themeService.GetThemeAsync();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await this.RegisterOutsideClicksAsync();
+        }
+    }
+
+    private async Task OnColorChanged(ChangeEventArgs e, string colorVarRef)
+    {
+        var colorHex = e.Value?.ToString();
+
+        await this.themeService.UpdateColorAsync(colorVarRef, colorHex);
+    }
+
+    private Task ResetThemeColorsAsync()
+    {
+        return this.themeService.ResetThemeAsync();
+    }
+
+    private void ToggleThemeMenu()
+    {
+        this.isThemeMenuVisible = !this.isThemeMenuVisible;
+    }
+
+    private void HideThemeMenu()
+    {
+        if (isThemeMenuVisible)
+        {
+            isThemeMenuVisible = false;
+            InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private async Task RegisterOutsideClicksAsync()
+    {
+        this.dotNetRef = DotNetObjectReference.Create(this);
+        this.outsideClickId = await this.jsRuntimeService.RegisterOutsideClickAsync<ThemeMenu>(this.containerRef, this.dotNetRef);
+    }
+
+    [JSInvokable]
+    public void OnOutsideClick()
+    {
+        this.HideThemeMenu();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (outsideClickId is not null)
+        {
+            await this.jsRuntimeService.UnregisterOutsideClickAsync(this.outsideClickId);
+        }
+
+        this.dotNetRef?.Dispose();
+    }
+}

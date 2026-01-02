@@ -1,0 +1,14 @@
+﻿@page "/work"
+@inject IPortfolioDataService portfolioDataService;
+
+<LoadablePage Page="page" />
+
+@code {
+    private PageInfoModel page;
+
+    protected async override Task OnInitializedAsync()
+    {
+        var workShowcase = await this.portfolioDataService.GetWorkShowcaseInfoAsync();
+        this.page = workShowcase.Page;
+    }
+}

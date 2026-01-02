@@ -1,0 +1,46 @@
+﻿@page "/"
+@inject IPortfolioDataService portfolioDataService;
+
+@if (this.home is null) return;
+
+<div class="row hide-horizontal-scroll">
+    <div class="col-1 vp-anim-2">
+        <div>
+            <h2 class="main-billboard highlighted-main-color text-left mb-5 pb-5">@this.home.FirstLineTitle</h2>
+        </div>
+        <div>
+            <h2 class="main-billboard highlighted-main-color text-left mt-5 pt-5">@this.home.SecondLineTitle</h2>
+        </div>
+    </div>
+    <div class="col-10 d-flex align-items-center justify-content-center">
+        <div>
+            <h1 class="main-billboard main-color text-center vp-anim-2">
+                @this.home.MainTitle<span class="highlighted-main-color loop-opacity">@this.home.AnimatedMainTitle</span>
+            </h1>
+        </div>
+    </div>
+</div>
+
+<div class="empty-block"></div>
+
+<div class="container">
+    <h2 class="highlighted-main-color text-center mb-5 vp-anim-5">@this.home.Subtitle</h2>
+    <div class="container vp-anim-5">
+        @foreach (var description in this.home.SubtitleDescriptions)
+        {
+            <h6 class="main-color text-center">
+                @description
+            </h6>
+        }
+    </div>
+</div>
+
+
+@code {
+    private HomeInfoModel home;
+
+    protected async override Task OnInitializedAsync()
+    {
+        this.home = await this.portfolioDataService.GetHomeAsync();
+    }
+}

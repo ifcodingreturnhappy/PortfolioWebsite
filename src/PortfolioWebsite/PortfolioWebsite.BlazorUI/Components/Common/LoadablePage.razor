@@ -1,0 +1,17 @@
+﻿@if (Page == null)
+{
+    <div class="empty-block"></div>
+    <Loader />
+}
+else
+{
+    @if (Page.SectionGroup != null)
+    {
+        <SectionGroup SectionGroupInfo="@Page.SectionGroup" />
+    }
+}
+
+@code {
+    [Parameter]
+    public PageInfoModel Page { get; set; }
+}

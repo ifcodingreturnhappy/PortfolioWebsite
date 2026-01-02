@@ -1,0 +1,33 @@
+﻿<div class="row align-items-center">
+    <div class="@MainOrderClasses">
+        <div class="@SpacingClasses">
+            <ContentCard Content="@Section.MainContent" />
+        </div>
+    </div>
+
+    <div class="@ExtraOrderClasses">
+        <div class="@SpacingClasses">
+            <ContentCard Content="@Section.ExtraContent" />
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public SectionInfoModel Section { get; set; }
+
+    private string SpacingClasses => $"{MarginClassesX} {MarginClassesY}";
+
+    private string MainOrderClasses;
+    private string ExtraOrderClasses;
+    private string MarginClassesX;
+    private string MarginClassesY;
+    
+
+    protected override void OnParametersSet()
+    {
+        (this.MainOrderClasses, this.ExtraOrderClasses) = Section.ContentPositioning.ToCss();
+        this.MarginClassesX = Section.Margin?.X.ToCss(Axis.X);
+        this.MarginClassesY = Section.Margin?.Y.ToCss(Axis.Y);
+    }
+}

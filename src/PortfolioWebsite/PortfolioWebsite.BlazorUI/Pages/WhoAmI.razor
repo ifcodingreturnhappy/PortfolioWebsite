@@ -1,0 +1,14 @@
+﻿@page "/whoami"
+@inject IPortfolioDataService portfolioDataService;
+
+<LoadablePage Page="page" /> 
+
+@code {
+    private PageInfoModel page;
+
+    protected async override Task OnInitializedAsync()
+    {
+        var whoAmI = await this.portfolioDataService.GetWhoAmIAsync();
+		this.page = whoAmI.Page;
+    }
+}
