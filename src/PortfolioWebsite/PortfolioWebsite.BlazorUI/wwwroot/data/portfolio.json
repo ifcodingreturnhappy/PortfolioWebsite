@@ -292,6 +292,7 @@
                                 "ImagePath": "images/website/portfolio.png",
                                 "Description": "A Personal Work Portfolio Website",
                                 "CreatedAt": "13/02/2021",
+                                "LastUpdatedAt": "02/01/2026",
                                 "Tags": [ "Web", "Blazor Server", "C#", "JavaScript", "CSS" ],
                                 "LinkUrl": "work/53652731-bc5c-4854-a44f-4a493a2233cf"
                             }
